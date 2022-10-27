@@ -4,13 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && build-storybook",
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate:tokens": "style-dictionary build -c sdconfig.js",
-    "build-static-webapp": "expo build:web"
   },
   "dependencies": {
     "next": "13.0.0",
