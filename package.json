@@ -9,7 +9,7 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "generate:tokens": "style-dictionary build -c sdconfig.js",
+    "generate:tokens": "style-dictionary build -c sdconfig.js"
   },
   "dependencies": {
     "next": "13.0.0",
