@@ -6,7 +6,7 @@ interface TypographyProps {
   children: React.ReactNode
 }
 
-export const Typography = ({tag, children}: TypographyProps) => {
+const Typography = ({tag, children}: TypographyProps) => {
   const Element = tag
 
   return (
@@ -17,3 +17,5 @@ export const Typography = ({tag, children}: TypographyProps) => {
     </div>
   )
 }
+
+export default Typography

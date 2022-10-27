@@ -1,12 +1,9 @@
-@use '../../src/styles/variables' as *;
-
 .Base {
-  position: relative;
+  position: absolute;
 
   h1 {
     font: {
-      family: $typography-desktop-h4-bold-font-family;
-      size: $typography-desktop-h4-medium-font-size;
+      size: 12px;
     }
   }
 }
