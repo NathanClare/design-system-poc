@@ -1,0 +1,14 @@
+@use '../_variables';
+
+body {
+  font-family: $font-family__primary;
+  line-height: 1; /* reset line height */
+}
+
+button {
+  font-family: $font-family__primary;
+}
+
+p {
+  margin-bottom: 1rem;
+}

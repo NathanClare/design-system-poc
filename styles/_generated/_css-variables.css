@@ -1,0 +1,43 @@
+/**
+ * Do not edit directly
+ * Generated on Fri, 28 Oct 2022 10:36:42 GMT
+ */
+
+:root {
+  --font-size-4xl: 64;
+  --border-width-2: 2;
+  --spacing-3xl: 32;
+  --spacing-2xl: 16;
+  --spacing-xl: 12;
+  --spacing-l: 8;
+  --spacing-m: 4;
+  --spacing-s: 2;
+  --font-heading-l: [object Object];
+  --font-lineheight-2xl: 40;
+  --font-heading-m: [object Object];
+  --font-heading-s: [object Object];
+  --font-lineheight-3xl: 64;
+  --font-lineheight-xl: 24;
+  --font-size-3xl: 40;
+  --font-size-2xl: 24;
+  --font-size-xl: 20;
+  --font-paragraph-l: [object Object];
+  --font-paragraph-s: [object Object];
+  --font-family-secondary: Aktiv Extended;
+  --font-family-primary: Aktiv;
+  --font-paragraph-m: [object Object];
+  --color-primary-600: #e40046;
+  --color-primary-base: #e40046;
+  --border-width-1: 1;
+  --border-radius-l: 4;
+  --border-radius-m: 2;
+  --font-size-l: 18;
+  --font-size-s: 14;
+  --font-size-m: 16;
+  --font-lineheight-l: 18;
+  --font-lineheight-s: 20;
+  --font-lineheight-m: 27;
+  --font-weight-3: 700;
+  --font-weight-2: 400;
+  --font-weight-1: 300;
+}

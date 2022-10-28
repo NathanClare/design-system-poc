@@ -1,0 +1,23 @@
+@use '../_generated/variables.scss';
+@use "../mixins/maths.scss" as maths;
+
+$font-family__primary: 'aktiv_grotesk_ex_triallight', 'Roboto', 'Arial';
+$font-family__secondary: 'aktiv_grotesk_ex_triallight', 'Roboto', 'Arial';
+
+// Font-size
+$font-size__base: 16;
+
+$font-size__4xl: maths.pixeltoRem(variables.$font-size-4xl, $font-size__base);
+$font-size__3xl: maths.pixeltoRem(variables.$font-size-3xl, $font-size__base);
+$font-size__2xl: maths.pixeltoRem(variables.$font-size-2xl, $font-size__base);
+$font-size__xl: maths.pixeltoRem(variables.$font-size-xl, $font-size__base);
+$font-size__l: maths.pixeltoRem(variables.$font-size-l, $font-size__base);
+$font-size__m: maths.pixeltoRem(variables.$font-size-m, $font-size__base);
+$font-size__s: maths.pixeltoRem(variables.$font-size-s, $font-size__base);
+
+$line-height__3xl: maths.pixeltoRem(variables.$font-lineheight-3xl, $font-size__base);
+$line-height__2xl: maths.pixeltoRem(variables.$font-lineheight-2xl, $font-size__base);
+$line-height__xl: maths.pixeltoRem(variables.$font-lineheight-xl, $font-size__base);
+$line-height__l: maths.pixeltoRem(variables.$font-lineheight-l, $font-size__base);
+$line-height__m: maths.pixeltoRem(variables.$font-lineheight-m, $font-size__base);
+$line-height__s: maths.pixeltoRem(variables.$font-lineheight-s, $font-size__base);

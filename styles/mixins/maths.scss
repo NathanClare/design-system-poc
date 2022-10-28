@@ -1,0 +1,5 @@
+@use 'sass:math';
+
+@function pixeltoRem($number, $base) {
+  @return ($number / $base) + rem;
+}

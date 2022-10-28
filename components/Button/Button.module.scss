@@ -1,0 +1,49 @@
+@use '../../styles/variables/' as *;
+
+.Base {
+  border: #{$border-width-2}+px solid $color-primary-600;
+  color: white;
+  cursor: pointer;
+  font: {
+    family: $font-family__primary;
+    
+  }
+  position: relative;
+
+  &.size-sm {
+    border: {
+      radius: #{$border-radius-m}+px;
+      width: #{$border-width-1}+px;
+    }
+    font: {
+      size: $font-size__s;
+    }
+    padding: #{$spacing-l}+px #{$spacing-2xl}+px;
+  }
+
+  &.size-md {
+    border-radius: #{$border-radius-m}+px;
+    font: {
+      size: $font-size__l;
+    }
+    padding: #{$spacing-xl}+px #{$spacing-3xl}+px;
+  }
+
+  &.size-lg {
+    border-radius: #{$border-radius-m}+px;
+    font: {
+      size: $font-size__xl;
+    }
+    padding: #{$spacing-xl}+px #{$spacing-3xl}+px;
+  }
+
+  &.variant-primary {
+    background-color: $color-primary-600;
+  }
+
+  &.variant-secondary {
+    background-color: white;
+    border: #{$border-width-1}+px solid black;
+    color: black;
+  }
+}
