@@ -1,26 +1,26 @@
 {
   "font-weight-1": {
-    "value": 300,
+    "value": 100,
     "type": "fontWeights"
   },
   "font-weight-2": {
-    "value": 400,
+    "value": 200,
     "type": "fontWeights"
   },
   "font-weight-3": {
-    "value": 700,
+    "value": 300,
     "type": "fontWeights"
-  },
-  "font-lineheight-m": {
-    "value": 27,
-    "type": "lineHeights"
   },
   "font-lineheight-s": {
     "value": 20,
     "type": "lineHeights"
   },
+  "font-lineheight-m": {
+    "value": 27,
+    "type": "lineHeights"
+  },
   "font-lineheight-l": {
-    "value": 18,
+    "value": 30,
     "type": "lineHeights"
   },
   "font-size-m": {
@@ -56,39 +56,62 @@
     "type": "color"
   },
   "font-paragraph-m": {
-    "value": {
-      "fontFamily": "Aktiv",
-      "fontWeight": 300,
-      "lineHeight": 27,
-      "fontSize": 16
+    "fontFamily": {
+      "value": "Aktiv",
+      "type": "fontFamily"
     },
-    "type": "typography"
+    "fontWeight": {
+      "value": 100,
+      "type": "fontWeight"
+    },
+    "lineHeight": {
+      "value": 27,
+      "type": "lineHeight"
+    },
+    "fontSize": {
+      "value": 16,
+      "type": "fontSize"
+    }
   },
   "font-family-primary": {
     "value": "Aktiv",
     "type": "fontFamilies"
   },
-  "font-family-secondary": {
-    "value": "Aktiv Extended",
-    "type": "fontFamilies"
-  },
   "font-paragraph-s": {
-    "value": {
-      "fontFamily": "Aktiv",
-      "fontWeight": 400,
-      "lineHeight": 20,
-      "fontSize": 14
+    "fontFamily": {
+      "value": "Aktiv",
+      "type": "fontFamily"
     },
-    "type": "typography"
+    "fontWeight": {
+      "value": 200,
+      "type": "fontWeight"
+    },
+    "lineHeight": {
+      "value": 20,
+      "type": "lineHeight"
+    },
+    "fontSize": {
+      "value": 14,
+      "type": "fontSize"
+    }
   },
   "font-paragraph-l": {
-    "value": {
-      "fontFamily": "Aktiv",
-      "fontWeight": 400,
-      "lineHeight": 18,
-      "fontSize": 18
+    "fontFamily": {
+      "value": "Aktiv",
+      "type": "fontFamily"
     },
-    "type": "typography"
+    "fontWeight": {
+      "value": 200,
+      "type": "fontWeight"
+    },
+    "lineHeight": {
+      "value": 30,
+      "type": "lineHeight"
+    },
+    "fontSize": {
+      "value": 18,
+      "type": "fontSize"
+    }
   },
   "font-size-xl": {
     "value": 20,
@@ -103,7 +126,11 @@
     "type": "fontSizes"
   },
   "font-lineheight-xl": {
-    "value": 24,
+    "value": 36,
+    "type": "lineHeights"
+  },
+  "font-lineheight-2xl": {
+    "value": 40,
     "type": "lineHeights"
   },
   "font-lineheight-3xl": {
@@ -111,35 +138,58 @@
     "type": "lineHeights"
   },
   "font-heading-s": {
-    "value": {
-      "fontWeight": 700,
-      "lineHeight": 24,
-      "fontSize": 20,
-      "fontFamily": "Aktiv Extended"
+    "fontWeight": {
+      "value": 700,
+      "type": "fontWeight"
     },
-    "type": "typography"
+    "lineHeight": {
+      "value": 36,
+      "type": "lineHeight"
+    },
+    "fontSize": {
+      "value": 20,
+      "type": "fontSize"
+    },
+    "fontFamily": {
+      "value": "Aktiv",
+      "type": "fontFamily"
+    }
   },
   "font-heading-m": {
-    "value": {
-      "fontFamily": "Aktiv Extended",
-      "fontWeight": 700,
-      "lineHeight": 40,
-      "fontSize": 24
+    "fontFamily": {
+      "value": "Aktiv",
+      "type": "fontFamily"
     },
-    "type": "typography"
-  },
-  "font-lineheight-2xl": {
-    "value": 40,
-    "type": "lineHeights"
+    "fontWeight": {
+      "value": 700,
+      "type": "fontWeight"
+    },
+    "lineHeight": {
+      "value": 40,
+      "type": "lineHeight"
+    },
+    "fontSize": {
+      "value": 24,
+      "type": "fontSize"
+    }
   },
   "font-heading-l": {
-    "value": {
-      "fontFamily": "Aktiv Extended",
-      "fontWeight": 700,
-      "lineHeight": 64,
-      "fontSize": 40
+    "fontFamily": {
+      "value": "Aktiv",
+      "type": "fontFamily"
     },
-    "type": "typography"
+    "fontWeight": {
+      "value": 700,
+      "type": "fontWeight"
+    },
+    "lineHeight": {
+      "value": 64,
+      "type": "lineHeight"
+    },
+    "fontSize": {
+      "value": 40,
+      "type": "fontSize"
+    }
   },
   "spacing-s": {
     "value": 2,
@@ -172,5 +222,45 @@
   "font-size-4xl": {
     "value": 64,
     "type": "fontSizes"
+  },
+  "border-radius-xl": {
+    "value": 4,
+    "type": "borderRadius"
+  },
+  "font-weight-4": {
+    "value": 400,
+    "type": "fontWeights"
+  },
+  "font-weight-5": {
+    "value": 500,
+    "type": "fontWeights"
+  },
+  "font-weight-6": {
+    "value": 600,
+    "type": "fontWeights"
+  },
+  "font-weight-7": {
+    "value": 700,
+    "type": "fontWeights"
+  },
+  "font-weight-8": {
+    "value": 800,
+    "type": "fontWeights"
+  },
+  "font-weight-9": {
+    "value": 900,
+    "type": "fontWeights"
+  },
+  "font-stretch-1": {
+    "value": 75,
+    "type": "other"
+  },
+  "font-stretch-2": {
+    "value": 100,
+    "type": "other"
+  },
+  "font-stretch-3": {
+    "value": 125,
+    "type": "other"
   }
 }

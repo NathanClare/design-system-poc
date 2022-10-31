@@ -6,8 +6,8 @@
   cursor: pointer;
   font: {
     family: $font-family__primary;
-    
   }
+  line-height: 100%;
   position: relative;
 
   &.size-sm {
@@ -26,7 +26,7 @@
     font: {
       size: $font-size__l;
     }
-    padding: #{$spacing-xl}+px #{$spacing-3xl}+px;
+    padding: #{$spacing-xl}+px #{$spacing-3xl}+px #{$spacing-xl}+px;
   }
 
   &.size-lg {

@@ -1,4 +1,5 @@
 @use '../../styles/variables/' as *;
+@use "../../styles/mixins/maths.scss" as maths;
 
 .Base {
   font: {
@@ -11,50 +12,58 @@
 
   h1 {
     font: {
-      size: $font-size__4xl;
-      weight: $font-weight-3;
+      size: maths.pixeltoRem($font-heading-l-font-size);
+      variation-settings: $font-heading-l-variation;
     }
-    line-height: $line-height__3xl;
+    line-height: maths.pixeltoRem($font-heading-l-line-height);
   }
 
   h2 {
     font: {
-      size: $font-size__3xl;
-      weight: $font-weight-3;
+      size: maths.pixeltoRem($font-heading-m-font-size);
+      variation-settings: $font-heading-m-variation;
     }
-    line-height: $line-height__2xl;
+    line-height: maths.pixeltoRem($font-heading-m-line-height);
   }
 
   h3, h4, h5 {
     font: {
-      size: $font-size__2xl;
-      weight: $font-weight-3;
+      size: maths.pixeltoRem($font-heading-s-font-size);
+      variation-settings: $font-heading-s-variation;
     }
-    line-height: $line-height__xl;
+    line-height: maths.pixeltoRem($font-heading-s-line-height);
   }
 
   p {
     font: {
-      size: $font-size__m;
+      size: maths.pixeltoRem($font-paragraph-m-font-size);
     }
-    line-height: $line-height__m;
+    line-height: maths.pixeltoRem($font-paragraph-m-line-height);
   }
 
   &.variant-sm {
+    h1 {
+      font: {
+        size: maths.pixeltoRem($font-heading-s-font-size);
+        variation-settings: $font-heading-s-variation;
+      }
+      line-height: maths.pixeltoRem($font-heading-s-line-height);
+    }
+
     p {
       font: {
-        size: $font-size__s;
+        size: maths.pixeltoRem($font-paragraph-s-font-size);
       }
-      line-height: $line-height__s;
+      line-height: maths.pixeltoRem($font-paragraph-s-line-height);
     }
   }
 
   &.variant-lg {
     p {
       font: {
-        size: $font-size__l;
+        size: maths.pixeltoRem($font-paragraph-l-font-size);
       }
-      line-height: $line-height__l;
+      line-height: maths.pixeltoRem($font-paragraph-l-line-height);
     }
   }
 

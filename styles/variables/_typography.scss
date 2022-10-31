@@ -1,8 +1,8 @@
 @use '../_generated/variables.scss';
 @use "../mixins/maths.scss" as maths;
 
-$font-family__primary: 'aktiv_grotesk_ex_triallight', 'Roboto', 'Arial';
-$font-family__secondary: 'aktiv_grotesk_ex_triallight', 'Roboto', 'Arial';
+$font-family__primary: 'AktivGrotesk', 'Roboto', 'Arial';
+$font-family__secondary: 'AktivGrotesk', 'Roboto', 'Arial';
 
 // Font-size
 $font-size__base: 16;
@@ -21,3 +21,7 @@ $line-height__xl: maths.pixeltoRem(variables.$font-lineheight-xl, $font-size__ba
 $line-height__l: maths.pixeltoRem(variables.$font-lineheight-l, $font-size__base);
 $line-height__m: maths.pixeltoRem(variables.$font-lineheight-m, $font-size__base);
 $line-height__s: maths.pixeltoRem(variables.$font-lineheight-s, $font-size__base);
+
+$font-heading-l-variation: "wght" variables.$font-heading-l-font-weight, "wdth" variables.$font-stretch-3;
+$font-heading-m-variation: "wght" variables.$font-heading-m-font-weight, "wdth" variables.$font-stretch-3;
+$font-heading-s-variation: "wght" variables.$font-heading-s-font-weight, "wdth" variables.$font-stretch-3;

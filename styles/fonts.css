@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'aktiv_grotesk_ex_triallight';
-  src: url('/fonts/aktivgroteskex_trial_lt-webfont.woff2') format('woff2'),
-    url('/fonts/aktivgroteskex_trial_lt-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "AktivGrotesk";
+  src: url("/fonts/AktivGroteskVF_W_WghtWdth.woff2") format("woff2 supports variations"),
+       url("/fonts/AktivGroteskVF_W_WghtWdth.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75 125;
 }

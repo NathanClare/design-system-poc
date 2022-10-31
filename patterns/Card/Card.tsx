@@ -11,9 +11,11 @@ interface CardProps {
 const Card = ({title, text, buttonText}: CardProps) => {
   return (
     <div className={styles.Base}>
-      <Typography tag="h2">{ title }</Typography>
-      <Typography tag="p">{ text }</Typography>
-      <Button>{ buttonText }</Button>
+      <div className={styles.Inner}>
+        <Typography tag="h1">{ title }</Typography>
+        <Typography tag="p">{ text }</Typography>
+        <Button>{ buttonText }</Button>
+      </div>
     </div>
   )
 }
