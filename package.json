@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "token-transformer": "token-transformer data/tokens.json data/output.json",
+    "token-transformer": "token-transformer data/tokens.json data/output.json youwe --expandTypography=true",
     "generate:tokens": "style-dictionary build -c sdconfig.js",
-    "build-storybook": "token-transformer data/tokens.json data/output.json youwe && style-dictionary build -c sdconfig.js && build-storybook  -s ./public"
+    "build-storybook": "token-transformer data/tokens.json data/output.json youwe --expandTypography=true && style-dictionary build -c sdconfig.js && build-storybook  -s ./public"
   },
   "dependencies": {
     "classnames": "^2.3.2",
