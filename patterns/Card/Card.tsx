@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Button } from '../../components'
+import { Typography, Button, Input } from '../../components'
 import styles from './Card.module.scss'
 
 interface CardProps {
@@ -15,6 +15,7 @@ const Card = ({title, text, buttonText}: CardProps) => {
         <Typography tag="h1">{ title }</Typography>
         <Typography tag="p">{ text }</Typography>
         <Button>{ buttonText }</Button>
+        <Input placeholder={`Your name`} />
       </div>
     </div>
   )
