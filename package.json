@@ -13,6 +13,9 @@
     "build-storybook": "token-transformer data/tokens.json data/output.json youwe --expandTypography=true && style-dictionary build -c sdconfig.js && build-storybook  -s ./public"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.2",
+    "@radix-ui/react-icons": "^1.1.1",
+    "@radix-ui/react-popover": "1.0.2",
     "classnames": "^2.3.2",
     "next": "13.0.0",
     "react": "18.2.0",

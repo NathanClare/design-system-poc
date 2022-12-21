@@ -1,12 +1,15 @@
 import React from 'react'
 import { Card } from '../../patterns'
 import styles from './Grid.module.scss'
+import  { Popover } from '../../components'
+import Dialog2 from '../../components/Dialog/Dialog'
+
 
 const Grid = () => {
   return (
-    <div className={styles.Base}>
-      <Card title={`Test`} text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`} buttonText={`Buy me`} />
-      <Card title={`Test`} text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`} buttonText={`Click me`} />
+    <div>
+      <Popover />
+      <Dialog2 />
     </div>
   )
 }
