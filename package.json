@@ -8,9 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "token-transformer": "token-transformer data/tokens.json data/output.json youwe --expandTypography=true",
-    "generate:tokens": "style-dictionary build -c sdconfig.js",
-    "build-storybook": "token-transformer data/tokens.json data/output.json youwe --expandTypography=true && style-dictionary build -c sdconfig.js && build-storybook  -s ./public"
+    "transform-tokens": "node ./transformTokens.js",
+    "build-storybook": "build-storybook  -s ./public"
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.0.2",

@@ -1,5 +1,5 @@
-import { Logo } from '../patterns'
+import { Button } from "../components"
 
 export default function Home() {
-  return <Logo />
+  return <Button />
 }
