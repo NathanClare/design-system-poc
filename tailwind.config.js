@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
 const tokens = require('./styles/_generated/json/styles.json')
-console.log(tokens)
 
 /* TODO: Move to seperate file? */
 const convertToRem = (value) => {
