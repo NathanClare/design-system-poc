@@ -1,5 +1,5 @@
-import { Button } from "../components"
+import { Button, Buttonv2 } from "../components"
 
 export default function Home() {
-  return <Button />
+  return <Buttonv2 children={`Enabled`} />
 }
