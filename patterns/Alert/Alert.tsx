@@ -27,8 +27,8 @@ const AlertDialogComp = ({ size = 'lg', variant = 'filled' }: AlertProps) => {
                 <button className="Button violet">Delete account</button>
             </AlertDialog.Trigger>
             <AlertDialog.Portal>
-                <AlertDialog.Overlay className="AlertDialogOverlay" />
-                <AlertDialog.Content className="AlertDialogContent">
+                <AlertDialog.Overlay className="AlertDialogOverlay bg-primary-30 fixed ring-inset" />
+                <AlertDialog.Content className="AlertDialogContent bg-primary-100 rounded-lg shadow fixed left-2/4 top-1/2 w-11/12 p-6">
                     <AlertDialog.Title className="AlertDialogTitle">Are you absolutely sure?</AlertDialog.Title>
                     <AlertDialog.Description className="AlertDialogDescription">
                         This action cannot be undone. This will permanently delete your account and remove your

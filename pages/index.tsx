@@ -1,5 +1,5 @@
-import { Button, Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip } from "../components"
-import { Tabs, Alert } from "../patterns"
+import { Button, Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider } from "../components"
+import { Tabs, Alert, Dialog } from "../patterns"
 
 export default function Home() {
   return (
@@ -12,7 +12,12 @@ export default function Home() {
       <Checkbox children={`Accept terms and conditions.`} />
       <Toggle />
       <Tooltip children={`tooltip`} />
-      <Alert />
+      {/* <Alert /> */}
+      <Input />
+      <Radiogroup />
+      <Icon />
+      <Slider />
+      <Dialog />
     </div>
   )
 }

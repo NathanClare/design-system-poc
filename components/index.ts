@@ -20,3 +20,11 @@ export { default as Toggle } from './Toggle/Toggle'
 
 export { default as Tooltip } from './Tooltip/Tooltip'
 
+export { default as Input } from './Input/Input'
+
+export { default as Radiogroup } from './Radiogroup/Radiogroup'
+
+export { default as Icon } from './Icon/Icon'
+
+export { default as Slider } from './Slider/Slider'
+
