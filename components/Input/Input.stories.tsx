@@ -13,6 +13,27 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    id: {
+      table: {
+        disable: true
+      }
+    },
+    label: {
+      name: 'label',
+      description: 'Optional description',
+      control: {
+        type: 'text'
+      },
+      defaultValue: 'Label'
+    },
+    disabled: {
+      name: 'disabled',
+      description: 'Disabled',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 } as ComponentMeta<typeof Input>
@@ -25,8 +46,9 @@ filled.args = {
   variant: 'filled'
 }
 
-export const grey = Template.bind({})
+export const outlined = Template.bind({})
 
-grey.args = {
-  variant: 'grey'
+outlined.args = {
+  variant: 'filled',
+  label: 'Label'
 }

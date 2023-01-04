@@ -2,34 +2,48 @@ import * as Label from '@radix-ui/react-label'
 import React from 'react'
 
 interface InputProps {
-  variant?: 'filled' | 'grey'
+  variant?: 'filled'
+  label?: string
+  id: string
+  type: 'text' | 'email' | 'password' | 'search' | 'number'
+  disabled?: boolean
 }
 
 interface IInputFamilyClasses {
-  variant: Record<string, string>
+  variant: {
+    filled: Record<string, string>
+  }
+  returnMapper: () => string
 }
 
 const inputFamilyClasses: IInputFamilyClasses = {
   variant: {
-    filled: 'bg-primary-80 text-primary-30',
-    grey: 'bg-neutral-80 text-neutral-30'
+    filled: {
+      base: 'flex'
+    }
+  },
+  returnMapper: () => {
+    return 'd'
   }
 }
 
-const InputComp = ({ variant = 'filled' }: InputProps) => {
+const Input = ({ variant = 'filled', label, id, type = 'text', disabled }: InputProps) => {
   return (
     <div className={`flex items-center flex-wrap px-5 gap-4`}>
-      <Label.Root className={`text-base text-neutral-40 select-none`} htmlFor="firstName">
-        First name
-      </Label.Root>
+      {label && (
+        <Label.Root className={`text-base text-neutral-40 select-none`} htmlFor={id}>
+          {label}
+        </Label.Root>
+      )}
       <input
-        className={`w-52 inline-flex items-center justify-center rounded px-2.5 text-base h-9 hover:shadow focus:shadow-lg ${inputFamilyClasses['variant'][variant]}`}
-        type="text"
-        id="firstName"
+        className={`w-52 inline-flex items-center justify-center rounded px-2.5 text-base h-9 hover:shadow focus:shadow-lg`}
+        type={type}
+        id={id}
         defaultValue="Pedro Duarte"
+        disabled={disabled}
       />
     </div>
   )
 }
 
-export default InputComp
+export default Input
