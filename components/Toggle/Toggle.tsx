@@ -20,7 +20,7 @@ const toggleFamilyClasses: IToggleFamilyClasses = {
 const Toggle = ({ size = 'md' }: ToggleProps) => {
   return (
     <RadixToggle.Root
-      className={`bg-primary-100 text-primary-base pl-2.5 h-9 w-9 rounded flex items-center text-base shadow hover:bg-primary-80 data-[state=on]:bg-primary-90 data-[state=on]:text-primary-60 focus:shadow-xl ${toggleFamilyClasses['size'][size]}`}
+      className={`bg-primary-white text-primary-base pl-2.5 h-9 w-9 rounded flex items-center text-base shadow hover:bg-primary-200 data-[state=on]:bg-primary-100 data-[state=on]:text-primary-400 focus:shadow-xl ${toggleFamilyClasses['size'][size]}`}
       aria-label="Toggle italic"
     >
       <FontItalicIcon />

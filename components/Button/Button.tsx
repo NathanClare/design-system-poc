@@ -19,9 +19,9 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   },
   variant: {
     filled:
-      'bg-primary-base text-primary-100 hover:bg-primary-50 hover:shadow-lg focus:bg-primary-50 pressed:bg-primary-50 disabled:bg-neutral-50 disabled:text-neutral-70',
-    outlined: 'bg-primary-100 text-primary-base border hover:bg-primary-90 focus:bg-primary-90 pressed:bg-primary-90 disabled:text-neutral-50',
-    text: 'bg-primary-100 text-primary-base hover:bg-primary-90 focus:bg-primary-90 pressed:bg-primary-90 disabled:text-neutral-50'
+      'bg-primary-base text-primary-white hover:bg-primary-500 hover:shadow-lg focus:bg-primary-500 pressed:bg-primary-500 disabled:bg-neutral-500 disabled:text-neutral-300',
+    outlined: 'bg-primary-white text-primary-base border hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100 disabled:text-neutral-500',
+    text: 'bg-primary-white text-primary-base hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100 disabled:text-neutral-500'
   }
 }
 

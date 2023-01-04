@@ -13,8 +13,8 @@ const alertClasses: Record<string, Record<string, string>> = {
     lg: 'text-lg px-8 py-3'
   },
   variant: {
-    filled: 'data-[state=checked]:bg-primary-10 data-[state=unchecked]:bg-primary-50',
-    grey: 'data-[state=checked]:bg-neutral-30 data-[state=unchecked]:bg-neutral-60'
+    filled: 'data-[state=checked]:bg-primary-900 data-[state=unchecked]:bg-primary-500',
+    grey: 'data-[state=checked]:bg-neutral-700 data-[state=unchecked]:bg-neutral-400'
   }
 }
 
@@ -26,7 +26,7 @@ const AlertDialogComp = () => {
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="AlertDialogOverlay bg-primary-30 fixed ring-inset" />
-        <AlertDialog.Content className="AlertDialogContent bg-primary-100 rounded-lg shadow fixed left-2/4 top-1/2 w-11/12 p-6">
+        <AlertDialog.Content className="AlertDialogContent bg-primary-white rounded-lg shadow fixed left-2/4 top-1/2 w-11/12 p-6">
           <AlertDialog.Title className="AlertDialogTitle">Are you absolutely sure?</AlertDialog.Title>
           <AlertDialog.Description className="AlertDialogDescription">
             This action cannot be undone. This will permanently delete your account and remove your data from our servers.

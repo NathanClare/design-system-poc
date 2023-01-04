@@ -13,17 +13,17 @@ interface ICheckboxFamilyClasses {
 
 const checkboxFamilyClasses: ICheckboxFamilyClasses = {
   variant: {
-    filled: 'text-primary-50',
-    grey: 'text-neutral-50'
+    filled: 'text-primary-500',
+    grey: 'text-neutral-500'
   }
 }
 
-const Checkbox = ({ children, variant = 'filled' }: CheckboxProps) => {
+const Checkbox = ({ children, variant = 'grey' }: CheckboxProps) => {
   return (
     <form>
       <div className={`flex items-center`}>
         <RadixCheckbox.Root
-          className="bg-primary-100 h-6 w-6 p-1 rounded flex items-center shadow focus:shadow-lg hover:text-primary-60"
+          className="bg-primary-white h-6 w-6 p-1 rounded flex items-center shadow focus:shadow-lg hover:text-primary-400"
           defaultChecked
           id="c1"
         >
@@ -31,7 +31,7 @@ const Checkbox = ({ children, variant = 'filled' }: CheckboxProps) => {
             <CheckIcon />
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
-        <label className="text-neutral-30 text-base pl-3.5" htmlFor="c1">
+        <label className="text-neutral-700 text-base pl-3.5" htmlFor="c1">
           {children}
         </label>
       </div>

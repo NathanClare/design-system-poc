@@ -11,12 +11,12 @@ interface IInputFamilyClasses {
 
 const inputFamilyClasses: IInputFamilyClasses = {
   variant: {
-    filled: 'bg-primary-80 text-primary-30',
-    grey: 'bg-neutral-80 text-neutral-30'
+    filled: 'bg-primary-200 text-primary-700',
+    grey: 'bg-neutral-200 text-neutral-700'
   }
 }
 
-const InputComp = ({ variant = 'filled' }: InputProps) => {
+const InputComp = ({ variant = 'grey' }: InputProps) => {
   return (
     <div className={`flex items-center flex-wrap px-5 gap-4`}>
       <Label.Root className={`text-base text-neutral-40 select-none`} htmlFor="firstName">

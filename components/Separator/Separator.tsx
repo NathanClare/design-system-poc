@@ -9,8 +9,8 @@ interface SwitchProps {
 
 const seperatorClasses: Record<string, Record<string, string>> = {
   variant: {
-    filled: 'bg-primary-30',
-    grey: 'bg-neutral-30'
+    filled: 'bg-primary-700',
+    grey: 'bg-neutral-700'
   }
 }
 
