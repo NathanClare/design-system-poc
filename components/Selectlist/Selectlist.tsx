@@ -1,54 +1,50 @@
-import React from 'react';
-import * as Select from '@radix-ui/react-select';
-import classnames from 'classnames';
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
-import './styles.css';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
+import * as RadixSelect from '@radix-ui/react-select'
+import React from 'react'
 
 interface SelectItemProps {
-    className?: string
-    value: string
-    children: any
-    disabled?: boolean
+  className?: string
+  value: string
+  children: React.ReactNode
+  disabled?: boolean
 }
 
-const SelectItem = ({ children, className, ...props }: SelectItemProps) => {
-    return (
-      <Select.Item className={classnames('SelectItem', className)} {...props}>
-        <Select.ItemText>{children}</Select.ItemText>
-        <Select.ItemIndicator className="SelectItemIndicator">
-          <CheckIcon />
-        </Select.ItemIndicator>
-      </Select.Item>
-    );
-};
-  
-const SelectDemo = () => (
-  <Select.Root>
-    <Select.Trigger className="SelectTrigger" aria-label="Food">
-      <Select.Value placeholder="Select a fruit…" />
-      <Select.Icon className="SelectIcon">
+const SelectItem = ({ children, ...props }: SelectItemProps) => {
+  return (
+    <RadixSelect.Item {...props}>
+      <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
+      <RadixSelect.ItemIndicator className="SelectItemIndicator">
+        <CheckIcon />
+      </RadixSelect.ItemIndicator>
+    </RadixSelect.Item>
+  )
+}
+
+const Select = () => (
+  <RadixSelect.Root>
+    <RadixSelect.Trigger className="SelectTrigger" aria-label="Food">
+      <RadixSelect.Value placeholder="Select a fruit…" />
+      <RadixSelect.Icon className="SelectIcon">
         <ChevronDownIcon />
-      </Select.Icon>
-    </Select.Trigger>
-    <Select.Portal>
-      <Select.Content className="SelectContent">
-        <Select.ScrollUpButton className="SelectScrollButton">
+      </RadixSelect.Icon>
+    </RadixSelect.Trigger>
+    <RadixSelect.Portal>
+      <RadixSelect.Content className="SelectContent">
+        <RadixSelect.ScrollUpButton className="SelectScrollButton">
           <ChevronUpIcon />
-        </Select.ScrollUpButton>
-        <Select.Viewport className="SelectViewport">
-          <Select.Group>
-            <Select.Label className="SelectLabel">Fruits</Select.Label>
+        </RadixSelect.ScrollUpButton>
+        <RadixSelect.Viewport className="SelectViewport">
+          <RadixSelect.Group>
+            <RadixSelect.Label className="SelectLabel">Fruits</RadixSelect.Label>
             <SelectItem value="apple">Apple</SelectItem>
             <SelectItem value="banana">Banana</SelectItem>
             <SelectItem value="blueberry">Blueberry</SelectItem>
             <SelectItem value="grapes">Grapes</SelectItem>
             <SelectItem value="pineapple">Pineapple</SelectItem>
-          </Select.Group>
-
-          <Select.Separator className="SelectSeparator" />
-
-          <Select.Group>
-            <Select.Label className="SelectLabel">Vegetables</Select.Label>
+          </RadixSelect.Group>
+          <RadixSelect.Separator className="SelectSeparator" />
+          <RadixSelect.Group>
+            <RadixSelect.Label className="SelectLabel">Vegetables</RadixSelect.Label>
             <SelectItem value="aubergine">Aubergine</SelectItem>
             <SelectItem value="broccoli">Broccoli</SelectItem>
             <SelectItem value="carrot" disabled>
@@ -56,26 +52,22 @@ const SelectDemo = () => (
             </SelectItem>
             <SelectItem value="courgette">Courgette</SelectItem>
             <SelectItem value="leek">leek</SelectItem>
-          </Select.Group>
-
-          <Select.Separator className="SelectSeparator" />
-
-          <Select.Group>
-            <Select.Label className="SelectLabel">Meat</Select.Label>
+          </RadixSelect.Group>
+          <RadixSelect.Separator className="SelectSeparator" />
+          <RadixSelect.Group>
+            <RadixSelect.Label className="SelectLabel">Meat</RadixSelect.Label>
             <SelectItem value="beef">Beef</SelectItem>
             <SelectItem value="chicken">Chicken</SelectItem>
             <SelectItem value="lamb">Lamb</SelectItem>
             <SelectItem value="pork">Pork</SelectItem>
-          </Select.Group>
-        </Select.Viewport>
-        <Select.ScrollDownButton className="SelectScrollButton">
+          </RadixSelect.Group>
+        </RadixSelect.Viewport>
+        <RadixSelect.ScrollDownButton className="SelectScrollButton">
           <ChevronDownIcon />
-        </Select.ScrollDownButton>
-      </Select.Content>
-    </Select.Portal>
-  </Select.Root>
-);
+        </RadixSelect.ScrollDownButton>
+      </RadixSelect.Content>
+    </RadixSelect.Portal>
+  </RadixSelect.Root>
+)
 
-
-
-export default SelectDemo;
+export default Select

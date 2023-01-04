@@ -1,5 +1,6 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import Button from './Button'
 
 export default {
@@ -10,27 +11,27 @@ export default {
       name: 'text',
       description: 'Text',
       control: {
-        type: 'text',
-      },
+        type: 'text'
+      }
     },
     size: {
       name: 'size',
       description: 'Select the button size',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     },
     variant: {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     }
-  },
+  }
 } as ComponentMeta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />
 
 export const filled = Template.bind({})
 
@@ -47,7 +48,6 @@ outlined.args = {
   size: 'md',
   variant: 'outlined'
 }
-
 
 export const text = Template.bind({})
 

@@ -1,5 +1,6 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react'
+
 import Checkbox from './Checkbox'
 
 export default {
@@ -10,31 +11,31 @@ export default {
       name: 'text',
       description: 'Text',
       control: {
-        type: 'text',
-      },
+        type: 'text'
+      }
     },
     variant: {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     }
-  },
+  }
 } as ComponentMeta<typeof Checkbox>
 
-const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />
+const Template: ComponentStory<typeof Checkbox> = args => <Checkbox {...args} />
 
 export const filled = Template.bind({})
 
 filled.args = {
-    children: 'This is a checkbox',
-    variant: 'filled'
-  }
-  
+  children: 'This is a checkbox',
+  variant: 'filled'
+}
+
 export const grey = Template.bind({})
 
 grey.args = {
-    children: 'This is a checkbox',
-      variant: 'grey'
-    }
+  children: 'This is a checkbox',
+  variant: 'grey'
+}

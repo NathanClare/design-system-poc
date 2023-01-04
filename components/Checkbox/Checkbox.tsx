@@ -1,42 +1,42 @@
-import React from 'react';
-import classNames from 'classnames';
-import * as Checkbox from '@radix-ui/react-checkbox';
-import { CheckIcon } from '@radix-ui/react-icons';
-
+import * as RadixCheckbox from '@radix-ui/react-checkbox'
+import { CheckIcon } from '@radix-ui/react-icons'
+import React from 'react'
 
 interface CheckboxProps {
-    children: React.ReactNode
-    variant?: 'filled' | 'grey'
-  }
+  children: React.ReactNode
+  variant?: 'filled' | 'grey'
+}
 
-const CheckboxClasses: Record<string, Record<string, string>> = {
+interface ICheckboxFamilyClasses {
+  variant: Record<string, string>
+}
 
+const checkboxFamilyClasses: ICheckboxFamilyClasses = {
   variant: {
-    'filled': 'text-primary-50',
-    'grey': 'text-neutral-50'
+    filled: 'text-primary-50',
+    grey: 'text-neutral-50'
   }
 }
 
-
-const CheckboxComp = ({ children, variant = 'filled' }: CheckboxProps) => {
-    const classesStatic = classNames('flex items-center')
-    const classesVariant = classNames(CheckboxClasses['variant'][variant])
-    
-    return (
-        <form>
-            <div className={classesStatic}>
-                <Checkbox.Root className="bg-primary-100 h-6 w-6 p-1 rounded flex items-center shadow focus:shadow-lg hover:text-primary-60" defaultChecked id="c1">
-                    <Checkbox.Indicator className={classesVariant}>
-                        <CheckIcon />
-                    </Checkbox.Indicator>
-                </Checkbox.Root>
-                <label className="text-neutral-30 text-base pl-3.5" htmlFor="c1">
-                    {children}
-                </label>
-            </div>
-        </form>
-    );
+const Checkbox = ({ children, variant = 'filled' }: CheckboxProps) => {
+  return (
+    <form>
+      <div className={`flex items-center`}>
+        <RadixCheckbox.Root
+          className="bg-primary-100 h-6 w-6 p-1 rounded flex items-center shadow focus:shadow-lg hover:text-primary-60"
+          defaultChecked
+          id="c1"
+        >
+          <RadixCheckbox.Indicator className={`${checkboxFamilyClasses['variant'][variant]}`}>
+            <CheckIcon />
+          </RadixCheckbox.Indicator>
+        </RadixCheckbox.Root>
+        <label className="text-neutral-30 text-base pl-3.5" htmlFor="c1">
+          {children}
+        </label>
+      </div>
+    </form>
+  )
 }
 
-
-export default CheckboxComp;
+export default Checkbox

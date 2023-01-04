@@ -1,18 +1,16 @@
-import { Button, Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider } from "../components"
-import { Tabs, Alert, Dialog } from "../patterns"
+import { Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider } from '../components'
+import { Dialog } from '../patterns'
 
 export default function Home() {
   return (
-  
     <div>
-      <Buttonv2 children={`Enabled`} />
-      <Separator  />
+      <Buttonv2>Enabled</Buttonv2>
+      <Separator />
       <Switch />
       <Progress />
-      <Checkbox children={`Accept terms and conditions.`} />
+      <Checkbox>Accept terms and conditions.</Checkbox>
       <Toggle />
-      <Tooltip children={`tooltip`} />
-      {/* <Alert /> */}
+      <Tooltip>tooltip</Tooltip>
       <Input />
       <Radiogroup />
       <Icon />

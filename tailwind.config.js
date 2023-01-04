@@ -3,74 +3,97 @@
 const tokens = require('./styles/_generated/json/styles.json')
 
 /* TODO: Move to seperate file? */
-const convertToRem = (value) => {
-  return `${value/16}rem`
+const convertToRem = value => {
+  return `${value / 16}rem`
 }
 
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./patterns/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './patterns/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
+      sans: ['Roboto', 'sans-serif']
     },
     fontSize: {
-      'xs': [convertToRem(tokens.FontM3BodySmall.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3BodySmall.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3BodySmall.letterSpacing),
-        fontWeight: tokens.FontM3BodySmall.fontWeight,
-      }],
-      'sm': [convertToRem(tokens.FontM3BodyMedium.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3BodyMedium.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3BodyMedium.letterSpacing),
-        fontWeight: tokens.FontM3BodyMedium.fontWeight,
-      }],
-      'base': [convertToRem(tokens.FontM3BodyLarge.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-        fontWeight: tokens.FontM3BodyLarge.fontWeight,
-      }],
-      'lg': [convertToRem(tokens.FontM3HeadlineSmall.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3HeadlineSmall.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3HeadlineSmall.letterSpacing),
-        fontWeight: tokens.FontM3HeadlineSmall.fontWeight,
-      }],
-      'xl': [convertToRem(tokens.FontM3HeadlineMedium.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-        fontWeight: tokens.FontM3HeadlineMedium.fontWeight,
-      }],
-      '2xl': [convertToRem(tokens.FontM3HeadlineLarge.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-        fontWeight: tokens.FontM3HeadlineLarge.fontWeight,
-      }],
-      '3xl': [convertToRem(tokens.FontM3DisplaySmall.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-        fontWeight: tokens.FontM3DisplaySmall.fontWeight,
-      }],
-      '4xl': [convertToRem(tokens.FontM3DisplayMedium.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-        fontWeight: tokens.FontM3DisplayMedium.fontWeight,
-      }],
-      '5xl': [convertToRem(tokens.FontM3DisplayLarge.fontSize), {
-        lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-        letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-        fontWeight: tokens.FontM3DisplayLarge.fontWeight,
-      }]
+      xs: [
+        convertToRem(tokens.FontM3BodySmall.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3BodySmall.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3BodySmall.letterSpacing),
+          fontWeight: tokens.FontM3BodySmall.fontWeight
+        }
+      ],
+      sm: [
+        convertToRem(tokens.FontM3BodyMedium.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3BodyMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3BodyMedium.letterSpacing),
+          fontWeight: tokens.FontM3BodyMedium.fontWeight
+        }
+      ],
+      base: [
+        convertToRem(tokens.FontM3BodyLarge.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
+          fontWeight: tokens.FontM3BodyLarge.fontWeight
+        }
+      ],
+      lg: [
+        convertToRem(tokens.FontM3HeadlineSmall.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3HeadlineSmall.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineSmall.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineSmall.fontWeight
+        }
+      ],
+      xl: [
+        convertToRem(tokens.FontM3HeadlineMedium.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+        }
+      ],
+      '2xl': [
+        convertToRem(tokens.FontM3HeadlineLarge.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+        }
+      ],
+      '3xl': [
+        convertToRem(tokens.FontM3DisplaySmall.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
+          fontWeight: tokens.FontM3DisplaySmall.fontWeight
+        }
+      ],
+      '4xl': [
+        convertToRem(tokens.FontM3DisplayMedium.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
+          fontWeight: tokens.FontM3DisplayMedium.fontWeight
+        }
+      ],
+      '5xl': [
+        convertToRem(tokens.FontM3DisplayLarge.fontSize),
+        {
+          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
+          fontWeight: tokens.FontM3DisplayLarge.fontWeight
+        }
+      ]
     },
     screens: {
-      'sm': '600px',
-      'md': '1240px',
-      'lg': '1440px',
+      sm: '600px',
+      md: '1240px',
+      lg: '1440px'
     },
     colors: {
-      'white': '#ffffff',
+      white: '#ffffff',
       'primary-base': tokens.ColorM3RefPrimaryPrimary40,
       'primary-0': tokens.ColorM3RefPrimaryPrimary0,
       'primary-10': tokens.ColorM3RefPrimaryPrimary10,
@@ -140,10 +163,9 @@ module.exports = {
       'neutral-90': tokens.ColorM3RefNeutralNeutral90,
       'neutral-95': tokens.ColorM3RefNeutralNeutral95,
       'neutral-99': tokens.ColorM3RefNeutralNeutral99,
-      'neutral-100': tokens.ColorM3RefNeutralNeutral100,
+      'neutral-100': tokens.ColorM3RefNeutralNeutral100
     },
-    extend: {
-    },
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 }

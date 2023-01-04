@@ -1,5 +1,6 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import SliderComp from './Slider'
 
 export default {
@@ -10,20 +11,20 @@ export default {
       name: 'size',
       description: 'Select the SliderComp size',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     },
     variant: {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     }
-  },
+  }
 } as ComponentMeta<typeof SliderComp>
 
-const Template: ComponentStory<typeof SliderComp> = (args) => <SliderComp {...args} />
+const Template: ComponentStory<typeof SliderComp> = args => <SliderComp {...args} />
 
 export const filled = Template.bind({})
 
@@ -32,6 +33,7 @@ filled.args = {
 }
 
 export const grey = Template.bind({})
+
 grey.args = {
-    variant: 'grey'
-  }
+  variant: 'grey'
+}

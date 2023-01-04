@@ -1,5 +1,6 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import SeparatorComp from './Separator'
 
 export default {
@@ -10,13 +11,13 @@ export default {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     }
-  },
+  }
 } as ComponentMeta<typeof SeparatorComp>
 
-const Template: ComponentStory<typeof SeparatorComp> = (args) => <SeparatorComp {...args} />
+const Template: ComponentStory<typeof SeparatorComp> = args => <SeparatorComp {...args} />
 
 export const filled = Template.bind({})
 
@@ -25,6 +26,7 @@ filled.args = {
 }
 
 export const grey = Template.bind({})
+
 grey.args = {
-    variant: 'grey'
-  }
+  variant: 'grey'
+}

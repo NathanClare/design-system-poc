@@ -1,36 +1,38 @@
-import React from 'react';
-import classNames from 'classnames'
-import * as Progress from '@radix-ui/react-progress';
-
+import * as RadixProgress from '@radix-ui/react-progress'
+import React from 'react'
 
 interface ProgressProps {
-    variant?: 'filled' | 'grey'
-  }
-  
-  const ProgressClasses: Record<string, Record<string, string>> = {
-  variant: {
-      'filled': 'bg-primary-50',
-      'grey': 'bg-neutral-50'
-  }
-  }
+  variant?: 'filled' | 'grey'
+}
 
-const ProgressComp = ({variant = 'filled' }: ProgressProps) => {
-    const [progress, setProgress] = React.useState(13);
-    const classes = classNames(ProgressClasses['variant'][variant], 'w-full h-full transition duration-1000')
+interface IProgressFamilyClasses {
+  variant: Record<string, string>
+}
+
+const progressFamilyClasses: IProgressFamilyClasses = {
+  variant: {
+    filled: 'bg-primary-50',
+    grey: 'bg-neutral-50'
+  }
+}
+
+const Progress = ({ variant = 'filled' }: ProgressProps) => {
+  const [progress, setProgress] = React.useState(13)
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(78), 500);
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = setTimeout(() => setProgress(78), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
+  /* TODO: Fix style error */
   return (
-    <Progress.Root className="relative overflow-hidden bg-neutral-80 rounded-full w-80 h-6" value={78}>
-      <Progress.Indicator
-        className={classes}
+    <RadixProgress.Root className="relative overflow-hidden bg-neutral-80 rounded-full w-80 h-6" value={78}>
+      <RadixProgress.Indicator
+        className={`w-full h-full transition duration-1000 ${progressFamilyClasses['variant'][variant]}`}
         style={{ transform: `translateX(-${100 - progress}%)` }}
       />
-    </Progress.Root>
-  );
-};
+    </RadixProgress.Root>
+  )
+}
 
-export default ProgressComp;
+export default Progress

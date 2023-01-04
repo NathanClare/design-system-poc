@@ -1,5 +1,6 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import Input from './Input'
 
 export default {
@@ -7,16 +8,16 @@ export default {
   component: Input,
   argTypes: {
     variant: {
-        name: 'variant',
-        description: 'Select the variant type',
-        control: {
-          type: 'radio',
-        }
+      name: 'variant',
+      description: 'Select the variant type',
+      control: {
+        type: 'radio'
       }
-  },
+    }
+  }
 } as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof Input> = args => <Input {...args} />
 
 export const filled = Template.bind({})
 
@@ -27,5 +28,5 @@ filled.args = {
 export const grey = Template.bind({})
 
 grey.args = {
-    variant: 'grey'
-  }
+  variant: 'grey'
+}

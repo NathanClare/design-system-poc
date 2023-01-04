@@ -1,6 +1,6 @@
 export { default as Button } from './Button/Button'
 
-export { default as Buttonv2 } from './Buttonv2/Buttonv2'
+export { default as Buttonv2 } from './Button/Button'
 
 export { default as Typography } from './Typography/Typography'
 
@@ -27,4 +27,3 @@ export { default as Radiogroup } from './Radiogroup/Radiogroup'
 export { default as Icon } from './Icon/Icon'
 
 export { default as Slider } from './Slider/Slider'
-

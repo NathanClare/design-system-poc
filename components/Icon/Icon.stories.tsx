@@ -1,5 +1,6 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import Icon from './Icon'
 
 export default {
@@ -10,20 +11,20 @@ export default {
       name: 'size',
       description: 'Select the Icon size',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     },
     variant: {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     }
-  },
+  }
 } as ComponentMeta<typeof Icon>
 
-const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
+const Template: ComponentStory<typeof Icon> = args => <Icon {...args} />
 
 export const filled = Template.bind({})
 
@@ -33,7 +34,8 @@ filled.args = {
 }
 
 export const grey = Template.bind({})
+
 grey.args = {
-    size: 'md',
-    variant: 'grey'
-  }
+  size: 'md',
+  variant: 'grey'
+}

@@ -1,5 +1,6 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
+
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Toggle from './Toggle'
 
 export default {
@@ -10,22 +11,22 @@ export default {
       name: 'size',
       description: 'Select the button size',
       control: {
-        type: 'radio',
+        type: 'radio'
       }
     }
-  },
+  }
 } as ComponentMeta<typeof Toggle>
 
-const Template: ComponentStory<typeof Toggle> = (args) => <Toggle {...args} />
+const Template: ComponentStory<typeof Toggle> = args => <Toggle {...args} />
 
 export const md = Template.bind({})
 
 md.args = {
-  size: 'md',
+  size: 'md'
 }
 
 export const lg = Template.bind({})
 
 lg.args = {
-  size: 'lg',
+  size: 'lg'
 }
