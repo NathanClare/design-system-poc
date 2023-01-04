@@ -9,10 +9,47 @@ export default {
   argTypes: {
     children: {
       name: 'text',
-      description: '-',
+      description: 'Fill in your own text',
       control: {
         type: 'text'
       }
+    },
+    tag: {
+      name: 'tag',
+      description: 'Select typography tag',
+      control: {
+        type: 'select',
+        labels: {
+          h1: 'h1',
+          h2: 'h2',
+          h3: 'h3',
+          h4: 'h4',
+          h5: 'h5',
+          p: 'p',
+          span: 'span'
+        }
+      },
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'span'],
+      defaultValue: 'p'
+    },
+    size: {
+      name: 'size',
+      description: 'Select the typography size',
+      control: {
+        type: 'select',
+        labels: {
+          xs: 'Extra small',
+          sm: 'Small',
+          md: 'Medium',
+          lg: 'Large',
+          xl: 'Extra large',
+          xxl: 'Extra extra large',
+          base: 'Base'
+
+        }
+      },
+      options: ['xs','sm', 'md', 'lg', 'xl', 'xxl', 'base'],
+      defaultValue: 'base'
     }
   }
 } as ComponentMeta<typeof Typography>
@@ -24,7 +61,7 @@ export const Heading = Template.bind({})
 Heading.args = {
   tag: 'h1',
   children: 'Heading',
-  size: '2xl'
+  size: 'base'
 }
 
 export const Paragraph = Template.bind({})
