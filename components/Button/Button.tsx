@@ -20,16 +20,16 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   },
   variant: {
     filled: {
-      base: 'bg-primary-base text-primary-100 hover:bg-primary-500 hover:shadow-lg focus:bg-primary-500 pressed:bg-primary-500',
-      disabled: 'bg-neutral-500 text-neutral-700'
+      base: 'bg-primary-base text-primary-white hover:bg-primary-500 hover:shadow-lg focus:bg-primary-500 pressed:bg-primary-500',
+      disabled: 'bg-neutral-100 text-neutral-400'
     },
     outlined: {
-      base: 'bg-primary-100 text-primary-base border border-primary-600 hover:bg-primary-900 focus:bg-primary-900 pressed:bg-primary-900',
-      disabled: 'text-neutral-500 bg-primary-100 border-neutral-300 border border-primary-600'
+      base: 'bg-primary-white text-primary-base border border-primary-600 hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100',
+      disabled: 'text-neutral-500 bg-primary-white border-neutral-300 border border-primary-600'
     },
     text: {
-      base: 'bg-primary-100 text-primary-base hover:bg-primary-900 focus:bg-primary-100 pressed:bg-primary-100',
-      disabled: 'bg-primary-100 text-neutral-500'
+      base: 'bg-primary-white text-primary-base hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100',
+      disabled: 'bg-primary-white text-neutral-500'
     }
   }
 }
