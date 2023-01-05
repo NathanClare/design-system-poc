@@ -5,6 +5,7 @@ import React from 'react'
 interface TooltipProps {
   children: React.ReactNode
   size?: 'lg' | 'md' | 'sm'
+  disabled?: boolean
 }
 
 interface ITooltipClasses {
@@ -19,18 +20,18 @@ const tooltipClasses: ITooltipClasses = {
   }
 }
 
-const Tooltip = ({ children, size = 'lg' }: TooltipProps) => {
+const Tooltip = ({ children, size = 'lg', disabled }: TooltipProps) => {
   return (
     <RadixTooltip.Provider>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>
-          <button className="IconButton h-9 w-9 inline-flex items-center justify-center text-primary-base rounded-full shadow hover:bg-primary-80 focus:shadow-lg">
+          <button disabled={disabled} className="IconButton h-9 w-9 inline-flex items-center justify-center text-primary-base rounded-full shadow hover:bg-primary-80 focus:shadow-lg disabled:bg-neutral-90 disabled:text-neutral-60 ">
             <PlusIcon />
           </button>
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content
-            className={`TooltipContent font-base shadow select-none text-primary-base bg-primary-100 duration-500 will-change-transform ${tooltipClasses['size'][size]}`}
+            className={`TooltipContent font-base shadow select-none text-primary-60 bg-primary-100 duration-500 will-change-transform ${tooltipClasses['size'][size]}`}
             sideOffset={5}
           >
             {children}

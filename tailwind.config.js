@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 
 const plugin = require('tailwindcss/plugin')
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 const tokens = require('./styles/_generated/json/styles.json')
 
 /* TODO: Move to seperate file? */
@@ -171,6 +175,33 @@ module.exports = {
   plugins: [
     plugin(function ({ addUtilities }) {
       const newHeaderUtility = {
+<<<<<<< Updated upstream
+=======
+        '.heading-xs': {
+          fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
+          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+        },
+        '.heading-sm': {
+          fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
+          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+        },
+        '.heading-md': {
+          fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
+          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
+          fontWeight: tokens.FontM3DisplaySmall.fontWeight
+        },
+        '.heading-lg': {
+          fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
+          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
+          fontWeight: tokens.FontM3DisplayMedium.fontWeight
+        },
+>>>>>>> Stashed changes
         '.heading-xl': {
           fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
           lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
@@ -178,6 +209,7 @@ module.exports = {
           fontWeight: tokens.FontM3BodyLarge.fontWeight
         },
         '.heading-2xl': {
+<<<<<<< Updated upstream
           fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
           lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
           letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
@@ -185,6 +217,14 @@ module.exports = {
         }
       }
 
+=======
+          fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
+          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
+          fontWeight: tokens.FontM3DisplayLarge.fontWeight
+        }
+      }
+>>>>>>> Stashed changes
       addUtilities(newHeaderUtility)
     })
   ]

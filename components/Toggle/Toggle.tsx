@@ -4,6 +4,7 @@ import React from 'react'
 
 interface ToggleProps {
   size?: 'md' | 'lg'
+  disabled?: boolean
 }
 
 interface IToggleFamilyClasses {
@@ -17,11 +18,12 @@ const toggleFamilyClasses: IToggleFamilyClasses = {
   }
 }
 
-const Toggle = ({ size = 'md' }: ToggleProps) => {
+const Toggle = ({ size = 'md', disabled }: ToggleProps) => {
   return (
     <RadixToggle.Root
-      className={`bg-primary-100 text-primary-base pl-2.5 h-9 w-9 rounded flex items-center text-base shadow hover:bg-primary-80 data-[state=on]:bg-primary-90 data-[state=on]:text-primary-60 focus:shadow-xl ${toggleFamilyClasses['size'][size]}`}
+      className={`bg-primary-100 text-primary-base pl-2.5 h-9 w-9 rounded flex items-center text-base shadow hover:bg-primary-80 data-[state=on]:bg-primary-90 data-[state=on]:text-primary-60 focus:shadow-xl disabled:bg-neutral-90 disabled:text-neutral-70 ${toggleFamilyClasses['size'][size]}`}
       aria-label="Toggle italic"
+      disabled={disabled}
     >
       <FontItalicIcon />
     </RadixToggle.Root>
