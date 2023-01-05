@@ -1,0 +1,55 @@
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react'
+
+import Separator from './Separator'
+
+export default {
+  title: 'Components/Separator',
+  component: Separator,
+  argTypes: {
+    orientation: {
+      name: 'Orientation',
+      description: 'Specify the orientation',
+      control: {
+        type: 'radio'
+      },
+      options: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal'
+    },
+    decorative: {
+      name: 'Decorative',
+      description: 'If the element is purely decorative',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    variant: {
+      name: 'Variant',
+      description: 'Select variant',
+      control: {
+        type: 'select'
+      },
+      options: ['primary', 'neutral'],
+      defaultValue: 'primary'
+    }
+  }
+} as ComponentMeta<typeof Separator>
+
+const Template: ComponentStory<typeof Separator> = args => (
+  <div className="flex h-4">
+    <Separator {...args} />
+  </div>
+)
+
+export const primary = Template.bind({})
+
+primary.args = {
+  variant: 'primary'
+}
+
+export const neutral = Template.bind({})
+
+neutral.args = {
+  variant: 'neutral'
+}
