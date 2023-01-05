@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
+const plugin = require('tailwindcss/plugin')
 const tokens = require('./styles/_generated/json/styles.json')
 
 /* TODO: Move to seperate file? */
@@ -177,5 +178,24 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newHeaderUtility = {
+        '.heading-xl': {
+          fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
+          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
+          fontWeight: tokens.FontM3BodyLarge.fontWeight
+        },
+        '.heading-2xl': {
+          fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
+          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
+          fontWeight: tokens.FontM3BodyLarge.fontWeight
+        }
+      }
+
+      addUtilities(newHeaderUtility)
+    })
+  ]
 }

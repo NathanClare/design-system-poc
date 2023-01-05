@@ -1,41 +1,63 @@
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
-import { CheckIcon } from '@radix-ui/react-icons'
-import React from 'react'
+import { DividerHorizontalIcon, CheckIcon } from '@radix-ui/react-icons'
+import React, { useState } from 'react'
 
 interface CheckboxProps {
-  children: React.ReactNode
-  variant?: 'filled' | 'grey'
+  label: string
+  id: string
+  checked?: boolean | 'indeterminate'
+  disabled?: boolean
+  error?: boolean
 }
 
 interface ICheckboxFamilyClasses {
-  variant: Record<string, string>
+  valid: Record<string, string>
+  error: Record<string, string>
 }
 
 const checkboxFamilyClasses: ICheckboxFamilyClasses = {
-  variant: {
-    filled: 'text-primary-500',
-    grey: 'text-neutral-500'
+  valid: {
+    disabled: 'bg-neutral-800',
+    unchecked: 'border-200 border-neutral-400 bg-neutral-black',
+    base: 'bg-primary-base'
+  },
+  error: {
+    disabled: 'bg-neutral-800',
+    unchecked: 'border-200 border-error-400 bg-neutral-black',
+    base: 'bg-error-base'
   }
 }
 
-const Checkbox = ({ children, variant = 'grey' }: CheckboxProps) => {
+const Checkbox = ({ label, id, checked: state = false, disabled, error = false }: CheckboxProps) => {
+  const [checked, setChecked] = useState<boolean | 'indeterminate'>(state)
+
+  const getState = () => {
+    if (disabled) return 'disabled'
+
+    if (!checked) return 'unchecked'
+
+    return 'base'
+  }
+
   return (
-    <form>
-      <div className={`flex items-center`}>
-        <RadixCheckbox.Root
-          className="bg-primary-white h-6 w-6 p-1 rounded flex items-center shadow focus:shadow-lg hover:text-primary-400"
-          defaultChecked
-          id="c1"
-        >
-          <RadixCheckbox.Indicator className={`${checkboxFamilyClasses['variant'][variant]}`}>
-            <CheckIcon />
-          </RadixCheckbox.Indicator>
-        </RadixCheckbox.Root>
-        <label className="text-neutral-700 text-base pl-3.5" htmlFor="c1">
-          {children}
-        </label>
-      </div>
-    </form>
+    <div className={`flex items-center`}>
+      <RadixCheckbox.Root
+        className={`text-white transition-colors h-6 w-6 p-1 rounded flex items-center ${checkboxFamilyClasses[error ? 'error' : 'valid'][getState()]}`}
+        defaultChecked
+        id={id}
+        checked={checked}
+        onCheckedChange={setChecked}
+        disabled={disabled}
+      >
+        <RadixCheckbox.Indicator>
+          {checked === 'indeterminate' && <DividerHorizontalIcon />}
+          {checked === true && <CheckIcon />}
+        </RadixCheckbox.Indicator>
+      </RadixCheckbox.Root>
+      <label className="text-neutral-30 text-base pl-3.5" htmlFor={id}>
+        {label}
+      </label>
+    </div>
   )
 }
 

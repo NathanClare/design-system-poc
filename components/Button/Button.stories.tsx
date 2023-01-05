@@ -18,8 +18,15 @@ export default {
       name: 'size',
       description: 'Select the button size',
       control: {
-        type: 'radio'
-      }
+        type: 'select',
+        labels: {
+          lg: 'Large',
+          md: 'Medium',
+          sm: 'Small'
+        }
+      },
+      options: ['lg', 'md', 'sm'],
+      defaultValue: 'md'
     },
     variant: {
       name: 'variant',
@@ -27,6 +34,14 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'If the button is disabled',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 } as ComponentMeta<typeof Button>

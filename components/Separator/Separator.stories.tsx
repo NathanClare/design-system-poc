@@ -1,32 +1,55 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
-import SeparatorComp from './Separator'
+import Separator from './Separator'
 
 export default {
   title: 'Components/Separator',
-  component: SeparatorComp,
+  component: Separator,
   argTypes: {
-    variant: {
-      name: 'variant',
-      description: 'Select the variant type',
+    orientation: {
+      name: 'Orientation',
+      description: 'Specify the orientation',
       control: {
         type: 'radio'
-      }
+      },
+      options: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal'
+    },
+    decorative: {
+      name: 'Decorative',
+      description: 'If the element is purely decorative',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    variant: {
+      name: 'Variant',
+      description: 'Select variant',
+      control: {
+        type: 'select'
+      },
+      options: ['primary', 'neutral'],
+      defaultValue: 'primary'
     }
   }
-} as ComponentMeta<typeof SeparatorComp>
+} as ComponentMeta<typeof Separator>
 
-const Template: ComponentStory<typeof SeparatorComp> = args => <SeparatorComp {...args} />
+const Template: ComponentStory<typeof Separator> = args => (
+  <div className="flex h-4">
+    <Separator {...args} />
+  </div>
+)
 
-export const filled = Template.bind({})
+export const primary = Template.bind({})
 
-filled.args = {
-  variant: 'filled'
+primary.args = {
+  variant: 'primary'
 }
 
-export const grey = Template.bind({})
+export const neutral = Template.bind({})
 
-grey.args = {
-  variant: 'grey'
+neutral.args = {
+  variant: 'neutral'
 }
