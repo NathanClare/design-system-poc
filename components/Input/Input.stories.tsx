@@ -49,6 +49,6 @@ filled.args = {
 export const outlined = Template.bind({})
 
 outlined.args = {
-  variant: 'filled',
+  variant: 'outlined',
   label: 'Label'
 }

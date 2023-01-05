@@ -14,12 +14,13 @@ export default {
         type: 'text'
       }
     },
-    variant: {
-      name: 'Variant',
-      description: 'Select the variant type',
+    error: {
+      name: 'On Error',
+      description: 'Set if invalid',
       control: {
-        type: 'radio'
-      }
+        type: 'boolean'
+      },
+      defaultValue: false
     },
     id: {
       table: {
@@ -57,6 +58,6 @@ export const primary = Template.bind({})
 
 primary.args = {
   label: 'This is a checkbox',
-  variant: 'filled',
+  error: false,
   checked: true
 }

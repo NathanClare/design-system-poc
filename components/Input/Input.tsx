@@ -2,7 +2,7 @@ import * as Label from '@radix-ui/react-label'
 import React from 'react'
 
 interface InputProps {
-  variant?: 'filled'
+  variant?: 'filled' | 'outlined'
   label?: string
   id: string
   type: 'text' | 'email' | 'password' | 'search' | 'number'
@@ -12,22 +12,30 @@ interface InputProps {
 interface IInputFamilyClasses {
   variant: {
     filled: Record<string, string>
+    outlined: Record<string, string>
   }
-  returnMapper: () => string
 }
 
 const inputFamilyClasses: IInputFamilyClasses = {
   variant: {
     filled: {
-      base: 'flex'
+      base: 'flex',
+      disabled: 'flex'
+    },
+    outlined: {
+      base: 'flex',
+      disabled: 'flex'
     }
-  },
-  returnMapper: () => {
-    return 'd'
   }
 }
 
 const Input = ({ variant = 'filled', label, id, type = 'text', disabled }: InputProps) => {
+  const getState = () => {
+    if (disabled) return 'disabled'
+
+    return 'base'
+  }
+
   return (
     <div className={`flex items-center flex-wrap px-5 gap-4`}>
       {label && (
@@ -36,7 +44,10 @@ const Input = ({ variant = 'filled', label, id, type = 'text', disabled }: Input
         </Label.Root>
       )}
       <input
-        className={`w-52 inline-flex items-center justify-center rounded px-2.5 text-base h-9 hover:shadow focus:shadow-lg`}
+        className={`
+          w-52 inline-flex items-center justify-center rounded px-2.5 text-base h-9 hover:shadow focus:shadow-lg 
+          ${inputFamilyClasses['variant'][variant][getState()]}
+        `}
         type={type}
         id={id}
         defaultValue="Pedro Duarte"

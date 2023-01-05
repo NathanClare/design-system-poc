@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
-
 import React from 'react'
+
 import Toggle from './Toggle'
 
 export default {
