@@ -18,19 +18,19 @@ const switchFamilyClasses: ISwitchFamilyClasses = {
     lg: 'text-lg px-8 py-3'
   },
   variant: {
-    filled: 'data-[state=checked]:bg-primary-10 data-[state=unchecked]:bg-primary-50',
-    grey: 'data-[state=checked]:bg-neutral-30 data-[state=unchecked]:bg-neutral-60'
+    filled: 'data-[state=checked]:bg-primary-900 data-[state=unchecked]:bg-primary-500',
+    grey: 'data-[state=checked]:bg-neutral-700 data-[state=unchecked]:bg-neutral-400'
   }
 }
 
-const Switch = ({ variant = 'filled' }: SwitchProps) => {
+const Switch = ({ variant = 'grey' }: SwitchProps) => {
   return (
     <form>
       <div className={`flex items-center`}>
         <RadixSwitch.Root
           className={`w-10 h-6 rounded-full relative focus:drop-shadow-lg focus:outline-primary-base focus:border-primary-20 ${switchFamilyClasses['variant'][variant]}`}
         >
-          <RadixSwitch.Thumb className={'block w-5 h-5 bg-primary-100 rounded-full duration-100 translate-x-1 data-[state=checked]:translate-x-4'} />
+          <RadixSwitch.Thumb className={'block w-5 h-5 bg-primary-white rounded-full duration-100 translate-x-1 data-[state=checked]:translate-x-4'} />
         </RadixSwitch.Root>
       </div>
     </form>

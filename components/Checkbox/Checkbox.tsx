@@ -17,13 +17,13 @@ interface ICheckboxFamilyClasses {
 
 const checkboxFamilyClasses: ICheckboxFamilyClasses = {
   valid: {
-    disabled: 'bg-neutral-80',
-    unchecked: 'border-2 border-neutral-40 bg-neutral-100',
+    disabled: 'bg-neutral-800',
+    unchecked: 'border-200 border-neutral-400 bg-neutral-black',
     base: 'bg-primary-base'
   },
   error: {
-    disabled: 'bg-neutral-80',
-    unchecked: 'border-2 border-error-40 bg-neutral-100',
+    disabled: 'bg-neutral-800',
+    unchecked: 'border-200 border-error-400 bg-neutral-black',
     base: 'bg-error-base'
   }
 }

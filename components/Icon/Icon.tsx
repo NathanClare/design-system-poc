@@ -20,12 +20,12 @@ const iconFamilyClasses: IIconFamilyClasses = {
   },
   variant: {
     filled: {
-      primary: 'bg-neutral-90 text-neutral-40',
-      secondary: 'bg-neutral-90 text-neutral-40'
+      primary: 'bg-neutral-100 text-neutral-600',
+      secondary: 'bg-neutral-100 text-neutral-600'
     },
     grey: {
-      primary: 'bg-neutral-90 text-neutral-40',
-      secondary: 'bg-neutral-90 text-neutral-40'
+      primary: 'bg-neutral-100 text-neutral-600',
+      secondary: 'bg-neutral-100 text-neutral-600'
     }
   }
 }
