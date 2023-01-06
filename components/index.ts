@@ -10,7 +10,7 @@ export { default as Separator } from './Separator/Separator'
 
 export { default as Progress } from './Progress/Progress'
 
-// export { default as Selectlist } from './Selectlist/Selectlist'
+export { default as Selectlist } from './Selectlist/Selectlist'
 
 export { default as Checkbox } from './Checkbox/Checkbox'
 
