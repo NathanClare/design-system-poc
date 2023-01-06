@@ -1,3 +1,4 @@
+import { BeakerIcon } from '@heroicons/react/24/solid'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
@@ -36,12 +37,42 @@ export default {
       }
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'If the button is disabled',
       control: {
         type: 'boolean'
       },
       defaultValue: false
+    },
+    href: {
+      table: {
+        disable: true
+      }
+    },
+    target: {
+      table: {
+        disable: true
+      }
+    },
+    icon: {
+      table: {
+        disable: true
+      }
+    },
+    iconPosition: {
+      table: {
+        disable: true
+      }
+    },
+    onClick: {
+      table: {
+        disable: true
+      }
+    },
+    type: {
+      table: {
+        disable: true
+      }
     }
   }
 } as ComponentMeta<typeof Button>
@@ -70,4 +101,14 @@ text.args = {
   children: 'This is a button',
   size: 'md',
   variant: 'text'
+}
+
+export const icon = Template.bind({})
+
+icon.args = {
+  children: 'This is a button',
+  size: 'md',
+  variant: 'filled',
+  icon: <BeakerIcon className="h-4 w-4" />,
+  iconPosition: 'left'
 }
