@@ -4,6 +4,7 @@ import React from 'react'
 interface SwitchProps {
   size?: 'lg' | 'md' | 'sm'
   variant?: 'filled' | 'grey'
+  disabled?: boolean
 }
 
 interface ISwitchFamilyClasses {
@@ -23,17 +24,18 @@ const switchFamilyClasses: ISwitchFamilyClasses = {
   }
 }
 
-const Switch = ({ variant = 'grey' }: SwitchProps) => {
+const Switch = ({ variant = 'filled', disabled }: SwitchProps) => {
   return (
-    <form>
+    <>
       <div className={`flex items-center`}>
         <RadixSwitch.Root
-          className={`w-10 h-6 rounded-full relative focus:drop-shadow-lg focus:outline-primary-base focus:border-primary-20 ${switchFamilyClasses['variant'][variant]}`}
+          className={`w-10 h-6 rounded-full relative focus:drop-shadow-lg focus:outline-primary-base focus:border-primary-20 disabled:p-6 ${switchFamilyClasses['variant'][variant]}`}
+          disabled={disabled}
         >
           <RadixSwitch.Thumb className={'block w-5 h-5 bg-primary-white rounded-full duration-100 translate-x-1 data-[state=checked]:translate-x-4'} />
         </RadixSwitch.Root>
       </div>
-    </form>
+    </>
   )
 }
 

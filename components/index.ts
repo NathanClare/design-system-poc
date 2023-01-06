@@ -16,7 +16,7 @@ export { default as Checkbox } from './Checkbox/Checkbox'
 
 export { default as Toggle } from './Toggle/Toggle'
 
-// export { default as Toast } from './Toast/Toast'
+export { default as Toast } from './Toast/Toast'
 
 export { default as Tooltip } from './Tooltip/Tooltip'
 

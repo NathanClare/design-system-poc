@@ -168,11 +168,11 @@ module.exports = {
     },
     extend: {
       spacing: {
-        'xs': '0.25rem',
-        'sm': '0.5rem',
-        'md': '1rem',
-        'lg': '1.5rem',
-        'xl': '2rem',
+        xs: '0.25rem',
+        sm: '0.5rem',
+        md: '1rem',
+        lg: '1.5rem',
+        xl: '2rem',
         '2xl': '4rem',
         '3xl': '8rem'
       }
@@ -181,6 +181,30 @@ module.exports = {
   plugins: [
     plugin(function ({ addUtilities }) {
       const newHeaderUtility = {
+        '.heading-xs': {
+          fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
+          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+        },
+        '.heading-sm': {
+          fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
+          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
+          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+        },
+        '.heading-md': {
+          fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
+          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
+          fontWeight: tokens.FontM3DisplaySmall.fontWeight
+        },
+        '.heading-lg': {
+          fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
+          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
+          fontWeight: tokens.FontM3DisplayMedium.fontWeight
+        },
         '.heading-xl': {
           fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
           lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
@@ -188,13 +212,12 @@ module.exports = {
           fontWeight: tokens.FontM3BodyLarge.fontWeight
         },
         '.heading-2xl': {
-          fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-          fontWeight: tokens.FontM3BodyLarge.fontWeight
+          fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
+          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
+          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
+          fontWeight: tokens.FontM3DisplayLarge.fontWeight
         }
       }
-
       addUtilities(newHeaderUtility)
     })
   ]

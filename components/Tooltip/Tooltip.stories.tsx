@@ -20,6 +20,14 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Choose to disable component',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 } as ComponentMeta<typeof Tooltip>
@@ -37,12 +45,14 @@ export const md = Template.bind({})
 
 md.args = {
   children: 'This is a tooltip',
-  size: 'md'
+  size: 'md',
+  disabled: false
 }
 
 export const lg = Template.bind({})
 
 lg.args = {
   children: 'This is a tooltip',
-  size: 'lg'
+  size: 'lg',
+  disabled: false
 }

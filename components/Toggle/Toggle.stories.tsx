@@ -13,6 +13,14 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Choose to disable component',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 } as ComponentMeta<typeof Toggle>
@@ -28,5 +36,6 @@ md.args = {
 export const lg = Template.bind({})
 
 lg.args = {
-  size: 'lg'
+  size: 'lg',
+  disabled: false
 }

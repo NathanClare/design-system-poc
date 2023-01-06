@@ -1,73 +1,83 @@
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
-import * as RadixSelect from '@radix-ui/react-select'
+import * as Select from '@radix-ui/react-select';
 import React from 'react'
+import { SelectItem } from './SelectlistItem'
 
-interface SelectItemProps {
-  className?: string
-  value: string
-  children: React.ReactNode
+interface SelectOption {
+  id: string
+  label: string
+  values: Array<string>
+}
+
+interface SelectlistProps {
+  variant?: 'filled' | 'grey'
+  placeholder?: string
+  ariaholder?: string
+  options: Array<SelectOption>
   disabled?: boolean
 }
 
-const SelectItem = ({ children, ...props }: SelectItemProps) => {
-  return (
-    <RadixSelect.Item {...props}>
-      <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
-      <RadixSelect.ItemIndicator className="SelectItemIndicator">
-        <CheckIcon />
-      </RadixSelect.ItemIndicator>
-    </RadixSelect.Item>
-  )
+interface ISelectlistFamilyClasses {
+  variant: Record<string, Record<string, string>>
 }
 
-const Select = () => (
-  <RadixSelect.Root>
-    <RadixSelect.Trigger className="SelectTrigger" aria-label="Food">
-      <RadixSelect.Value placeholder="Select a fruit…" />
-      <RadixSelect.Icon className="SelectIcon">
-        <ChevronDownIcon />
-      </RadixSelect.Icon>
-    </RadixSelect.Trigger>
-    <RadixSelect.Portal>
-      <RadixSelect.Content className="SelectContent">
-        <RadixSelect.ScrollUpButton className="SelectScrollButton">
-          <ChevronUpIcon />
-        </RadixSelect.ScrollUpButton>
-        <RadixSelect.Viewport className="SelectViewport">
-          <RadixSelect.Group>
-            <RadixSelect.Label className="SelectLabel">Fruits</RadixSelect.Label>
-            <SelectItem value="apple">Apple</SelectItem>
-            <SelectItem value="banana">Banana</SelectItem>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
-          </RadixSelect.Group>
-          <RadixSelect.Separator className="SelectSeparator" />
-          <RadixSelect.Group>
-            <RadixSelect.Label className="SelectLabel">Vegetables</RadixSelect.Label>
-            <SelectItem value="aubergine">Aubergine</SelectItem>
-            <SelectItem value="broccoli">Broccoli</SelectItem>
-            <SelectItem value="carrot" disabled>
-              Carrot
-            </SelectItem>
-            <SelectItem value="courgette">Courgette</SelectItem>
-            <SelectItem value="leek">leek</SelectItem>
-          </RadixSelect.Group>
-          <RadixSelect.Separator className="SelectSeparator" />
-          <RadixSelect.Group>
-            <RadixSelect.Label className="SelectLabel">Meat</RadixSelect.Label>
-            <SelectItem value="beef">Beef</SelectItem>
-            <SelectItem value="chicken">Chicken</SelectItem>
-            <SelectItem value="lamb">Lamb</SelectItem>
-            <SelectItem value="pork">Pork</SelectItem>
-          </RadixSelect.Group>
-        </RadixSelect.Viewport>
-        <RadixSelect.ScrollDownButton className="SelectScrollButton">
-          <ChevronDownIcon />
-        </RadixSelect.ScrollDownButton>
-      </RadixSelect.Content>
-    </RadixSelect.Portal>
-  </RadixSelect.Root>
-)
+const selectlistFamilyClasses: ISelectlistFamilyClasses = {
+  variant: {
+    filled: {
+      trigger: 'hover:bg-primary-90 data-[placeholder]:text-primary-60',
+      content: 'bg-neutral-100',
+      label: 'text-neutral-60',
+      separator: 'bg-primary-40'
+    },
+    grey: {
+      trigger: 'hover:bg-neutral-90 data-[placeholder]:text-neutral-60',
+      content: 'bg-neutral-80',
+      label: 'text-primary-60',
+      separator: 'bg-neutral-40'
+    },
+  }
+}
 
-export default Select
+const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, disabled}: SelectlistProps) => {
+  return (
+    <Select.Root>
+      <Select.Trigger className={`inline-flex items-center justify-center rounded px-4 text-base h-9 gap-1 bg-neutral-100 text-primary-base shadow focus:shadow-xl disabled:bg-neutral-90 ${selectlistFamilyClasses['variant'][variant]['trigger']}`} aria-label={ariaholder} disabled={disabled} >
+        <Select.Value placeholder={placeholder} />
+        <Select.Icon className="text-primary-base">
+          <ChevronDownIcon />
+        </Select.Icon>
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Content className={`overflow-hidden rounded-lg shadow-lg ${selectlistFamilyClasses['variant'][variant]['content']}`}>
+          <Select.ScrollUpButton className="SelectScrollButton">
+            <ChevronUpIcon />
+          </Select.ScrollUpButton>
+          <Select.Viewport className="p-1">
+            {
+              options.map(option => (
+                <>
+                  <Select.Group>
+                   <Select.Label className={`px-6 text-xs ${selectlistFamilyClasses['variant'][variant]['label']}`}>{option.label}</Select.Label>
+                  {
+                    option.values.map(value => <SelectItem value={value}>{value}</SelectItem>)
+                  }
+                </Select.Group>
+
+                  <Select.Separator className={`m-1 h-px ${selectlistFamilyClasses['variant'][variant]['separator']}`} />
+                  
+                </>
+             ))
+            }
+          </Select.Viewport>
+          <Select.ScrollDownButton className="flex items-center justify-center h-6 bg-neutral-100 text-primary-base cursor-default">
+            <ChevronDownIcon />
+          </Select.ScrollDownButton>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
+  );
+}
+
+
+
+export default SelectlistComp;

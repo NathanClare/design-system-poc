@@ -20,6 +20,14 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Choose to disable component',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 } as ComponentMeta<typeof Switchcomp>
