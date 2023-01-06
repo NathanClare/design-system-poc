@@ -1,4 +1,4 @@
-import { Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider, Toast } from '../components'
+import { Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider, Toast, Popover } from '../components'
 import { Dialog } from '../patterns'
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
       <Slider />
       <Dialog />
       <Toast />
+      <Popover />
     </div>
   )
 }
