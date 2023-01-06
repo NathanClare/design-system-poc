@@ -18,16 +18,16 @@ interface IToastFamilyClasses {
   const toastFamilyClasses: IToastFamilyClasses = {
     variant: {
       filled: {
-        button: 'bg-primary-80 text-primary-60',
-        buttonT: 'bg-primary-80 text-primary-60',
+        button: 'bg-primary-200 text-primary-400',
+        buttonT: 'bg-primary-200 text-primary-400',
         title: 'text-primary-base',
-        description: 'text-primary-60'
+        description: 'text-primary-400'
       },
       grey: {
-        button: 'bg-neutral-80 text-neutral-60',
-        buttonT: 'bg-neutral-80 text-neutral-60',
+        button: 'bg-neutral-200 text-neutral-400',
+        buttonT: 'bg-neutral-200 text-neutral-400',
         title: 'text-neutral-base',
-        description: 'text-neutral-60'
+        description: 'text-neutral-400'
       }
     }
   }
@@ -45,7 +45,7 @@ interface IToastFamilyClasses {
       <Toast.Provider swipeDirection="right">
         <button
           disabled={disabled}
-          className={ `inline-flex items-center justify-center rounded font-medium font-base px-2.5 h-6 shadow disabled:bg-neutral-90 disabled:text-neutral-30 ${toastFamilyClasses['variant'][variant]['button']}` }
+          className={ `inline-flex items-center justify-center rounded font-medium font-base px-2.5 h-6 shadow disabled:bg-neutral-100 disabled:text-neutral-700 ${toastFamilyClasses['variant'][variant]['button']}` }
           onClick={() => {
             setOpen(false);
             window.clearTimeout(timerRef.current);
@@ -58,7 +58,7 @@ interface IToastFamilyClasses {
          {label}
         </button>
         
-        <Toast.Root className="bg-neutral-100 rounded-lg shadow p-4 grid gap-x-3.5 items-center data-[state=open]:transition" open={open} onOpenChange={setOpen}>
+        <Toast.Root className="bg-neutral-white rounded-lg shadow p-4 grid gap-x-3.5 items-center data-[state=open]:transition" open={open} onOpenChange={setOpen}>
           <Toast.Title className={ `mb-1 font-medium text-base ${toastFamilyClasses['variant'][variant]['title']}`}>{title}</Toast.Title>
           <Toast.Description asChild>
             <time className={ `m-0 text-xs py-4 ${toastFamilyClasses['variant'][variant]['description']}`} dateTime={eventDateRef.current.toISOString()}>

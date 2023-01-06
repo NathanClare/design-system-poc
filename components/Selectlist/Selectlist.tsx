@@ -24,16 +24,16 @@ interface ISelectlistFamilyClasses {
 const selectlistFamilyClasses: ISelectlistFamilyClasses = {
   variant: {
     filled: {
-      trigger: 'hover:bg-primary-90 data-[placeholder]:text-primary-60',
-      content: 'bg-neutral-100',
-      label: 'text-neutral-60',
-      separator: 'bg-primary-40'
+      trigger: 'hover:bg-primary-100 data-[placeholder]:text-primary-400',
+      content: 'bg-neutral-white',
+      label: 'text-neutral-400',
+      separator: 'bg-primary-600'
     },
     grey: {
-      trigger: 'hover:bg-neutral-90 data-[placeholder]:text-neutral-60',
-      content: 'bg-neutral-80',
-      label: 'text-primary-60',
-      separator: 'bg-neutral-40'
+      trigger: 'hover:bg-neutral-100 data-[placeholder]:text-neutral-400',
+      content: 'bg-neutral-200',
+      label: 'text-primary-400',
+      separator: 'bg-neutral-600'
     },
   }
 }
@@ -41,7 +41,7 @@ const selectlistFamilyClasses: ISelectlistFamilyClasses = {
 const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, disabled}: SelectlistProps) => {
   return (
     <Select.Root>
-      <Select.Trigger className={`inline-flex items-center justify-center rounded px-4 text-base h-9 gap-1 bg-neutral-100 text-primary-base shadow focus:shadow-xl disabled:bg-neutral-90 ${selectlistFamilyClasses['variant'][variant]['trigger']}`} aria-label={ariaholder} disabled={disabled} >
+      <Select.Trigger className={`inline-flex items-center justify-center rounded px-4 text-base h-9 gap-1 bg-neutral-white text-primary-base shadow focus:shadow-xl disabled:bg-neutral-100 ${selectlistFamilyClasses['variant'][variant]['trigger']}`} aria-label={ariaholder} disabled={disabled} >
         <Select.Value placeholder={placeholder} />
         <Select.Icon className="text-primary-base">
           <ChevronDownIcon />
@@ -69,7 +69,7 @@ const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, 
              ))
             }
           </Select.Viewport>
-          <Select.ScrollDownButton className="flex items-center justify-center h-6 bg-neutral-100 text-primary-base cursor-default">
+          <Select.ScrollDownButton className="flex items-center justify-center h-6 bg-neutral-white text-primary-base cursor-default">
             <ChevronDownIcon />
           </Select.ScrollDownButton>
         </Select.Content>

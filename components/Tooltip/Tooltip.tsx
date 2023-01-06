@@ -27,14 +27,14 @@ const Tooltip = ({ children, size = 'lg', disabled }: TooltipProps) => {
         <RadixTooltip.Trigger asChild>
           <button
             disabled={disabled}
-            className="IconButton h-9 w-9 inline-flex items-center justify-center text-primary-base rounded-full shadow hover:bg-primary-80 focus:shadow-lg disabled:bg-neutral-90 disabled:text-neutral-60 "
+            className="h-9 w-9 inline-flex items-center justify-center text-primary-base rounded-full shadow hover:bg-primary-200 focus:shadow-lg disabled:bg-neutral-100 disabled:text-neutral-400"
           >
             <PlusIcon />
           </button>
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content
-            className={`TooltipContent font-base shadow select-none text-primary-60 bg-primary-100 duration-500 will-change-transform ${tooltipClasses['size'][size]}`}
+            className={`font-base shadow select-none text-primary-400 bg-primary-white duration-500 will-change-transform ${tooltipClasses['size'][size]}`}
             sideOffset={5}
           >
             {children}

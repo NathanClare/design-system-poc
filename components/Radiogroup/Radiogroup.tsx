@@ -30,7 +30,7 @@ const RadioGroup = ({ variant = 'filled', options }: RadioGroupProps) => {
         {options?.map(option => (
           <div className={`flex items-center`} key={option.id}>
             <RadixRadioGroup.Item
-              className="bg-neutral-100 w-6 h-6 rounded-full shadow hover:bg-neutral-90 focus:shadow-xl"
+              className="bg-neutral-white w-6 h-6 rounded-full shadow hover:bg-neutral-100 focus:shadow-xl"
               value={option.value}
               id={option.id}
             >

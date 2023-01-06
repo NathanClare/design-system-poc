@@ -25,7 +25,7 @@ const AlertDialogComp = () => {
         <button className="Button violet">Delete account</button>
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
-        <AlertDialog.Overlay className="AlertDialogOverlay bg-primary-30 fixed ring-inset" />
+        <AlertDialog.Overlay className="AlertDialogOverlay bg-primary-700 fixed ring-inset" />
         <AlertDialog.Content className="AlertDialogContent bg-primary-white rounded-lg shadow fixed left-2/4 top-1/2 w-11/12 p-6">
           <AlertDialog.Title className="AlertDialogTitle">Are you absolutely sure?</AlertDialog.Title>
           <AlertDialog.Description className="AlertDialogDescription">
