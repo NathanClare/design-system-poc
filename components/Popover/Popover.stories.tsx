@@ -55,9 +55,7 @@ export default {
 
 const Template: ComponentStory<typeof PopoverComp> = args => {
   return (
-    <>
       <PopoverComp {...args} />
-    </>
   )
  }
 
