@@ -31,8 +31,8 @@ const alertFamilyClasses: IAlertFamilyClasses = {
   variant: {
     filled: {
       buttonOpen: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
-      buttonCloseOption1: 'bg-secondary-200 text-secondary-400 hover:bg-secondary-300',
-      buttonCloseOption2: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
+      cancelButton: 'bg-secondary-200 text-secondary-400 hover:bg-secondary-300',
+      actionButton: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
       title: 'text-primary-700',
       description: 'text-primary-600',
       content: 'bg-primary-100',
@@ -40,8 +40,8 @@ const alertFamilyClasses: IAlertFamilyClasses = {
     },
     grey: {
       buttonOpen: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
-      buttonCloseOption1: 'bg-secondary-200 text-secondary-400 hover:bg-secondary-300',
-      buttonCloseOption2: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
+      cancelButton: 'bg-secondary-200 text-secondary-400 hover:bg-secondary-300',
+      actionButton: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
       title: 'text-neutral-700',
       description: 'text-neutral-600',
       content: 'bg-neutral-100',
