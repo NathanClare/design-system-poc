@@ -1,10 +1,10 @@
-import { Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider, Toast, Popover } from '../components'
+import { Buttonv2, Switch, Separator, Progress, Checkbox, Toggle, Tooltip, Input, Radiogroup, Icon, Slider, Toast, Popover, Pagination } from '../components'
 import { Dialog } from '../patterns'
 
 export default function Home() {
   return (
     <div>
-      <Buttonv2>Enabled</Buttonv2>
+      {/* <Buttonv2>Enabled</Buttonv2>
       <Separator />
       <Switch />
       <Progress />
@@ -17,7 +17,8 @@ export default function Home() {
       <Slider />
       <Dialog options={[]} />
       <Toast />
-      <Popover />
+      <Popover /> */}
+      <Pagination />
     </div>
   )
 }

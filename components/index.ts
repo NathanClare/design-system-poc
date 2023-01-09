@@ -29,3 +29,5 @@ export { default as Slider } from './Slider/Slider'
 export { default as Input } from './Input/Input'
 
 export { default as Popover } from './Popover/Popover'
+
+export { default as Pagination } from './Pagination/Pagination'
