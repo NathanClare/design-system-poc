@@ -13,11 +13,24 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    progress: {
+      name: 'progress',
+      description: 'Progress',
+      control: {
+        type: 'radio'
+      },
+      options: [10, 100],
+      defaultValue: 10
     }
   }
 } as ComponentMeta<typeof ProgressComp>
 
-const Template: ComponentStory<typeof ProgressComp> = args => <ProgressComp {...args} />
+const Template: ComponentStory<typeof ProgressComp> = args => (
+  <div className="w-48">
+    <ProgressComp {...args} />
+  </div>
+)
 
 export const filled = Template.bind({})
 
@@ -25,8 +38,8 @@ filled.args = {
   variant: 'filled'
 }
 
-export const grey = Template.bind({})
+export const neutral = Template.bind({})
 
-grey.args = {
-  variant: 'grey'
+neutral.args = {
+  variant: 'neutral'
 }
