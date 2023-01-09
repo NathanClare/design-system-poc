@@ -1,13 +1,14 @@
 import * as AlertDialog from '@radix-ui/react-alert-dialog'
 import React from 'react'
+import { Button } from '../../components'
 
 interface AlertProps {
-  label?: string
+  label: string
   ariaLabel?: string
-  labelCloseOption1?: string
-  ariaLabelCloseOption1?: string
-  labelCloseOption2?: string
-  ariaLabelCloseOption2?: string
+  cancelButtonLabel?: string
+  ariaLabelCancelButton?: string
+  actionButtonLabel?: string
+  ariaLabelActionButton?: string
   title?: string
   description?: string
   disabled?: boolean
@@ -49,15 +50,11 @@ const alertFamilyClasses: IAlertFamilyClasses = {
   }
 }
 
-const AlertComp = ({ size = 'md', variant = 'filled', label, ariaLabel, labelCloseOption1='close option1', ariaLabelCloseOption1='close option1', labelCloseOption2='close option2', ariaLabelCloseOption2='close option2', title, description, disabled }: AlertProps) => {
+const AlertComp = ({ size = 'md', variant = 'filled', label, ariaLabel, cancelButtonLabel='close option1', ariaLabelCancelButton='close option1', actionButtonLabel='close option2', ariaLabelActionButton='close option2', title, description, disabled }: AlertProps) => {
   return (
     <AlertDialog.Root>
-      <AlertDialog.Trigger asChild>
-        <button className={ ` inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${alertFamilyClasses['variant'][variant]['buttonOpen']}` }
-          disabled={disabled}
-          aria-label={ariaLabel}>
-          {label}
-        </button>
+      <AlertDialog.Trigger>
+        <Button children={label} aria-label={ariaLabel} disabled={disabled} />
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
         <AlertDialog.Overlay className={ ` fixed w-full h-full top-0 ring-inset  ${alertFamilyClasses['variant'][variant]['overlay']}` }/>
@@ -67,11 +64,11 @@ const AlertComp = ({ size = 'md', variant = 'filled', label, ariaLabel, labelClo
             {description}
           </AlertDialog.Description>
           <div className='flex mt-6 justify-end'>
-            <AlertDialog.Cancel asChild>
-              <button className={ ` inline-flex items-center justify-center rounded px-3.5 ml-2 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${alertFamilyClasses['variant'][variant]['buttonCloseOption1']}` } aria-label={ariaLabelCloseOption1}>{labelCloseOption1}</button>
+            <AlertDialog.Cancel >
+              <Button children={cancelButtonLabel}  aria-label={ariaLabelCancelButton} />
             </AlertDialog.Cancel>
-            <AlertDialog.Action asChild>
-              <button className={ ` inline-flex items-center justify-center rounded px-3.5 ml-2 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${alertFamilyClasses['variant'][variant]['buttonCloseOption2']}` } aria-label={ariaLabelCloseOption2}>{labelCloseOption2}</button>
+            <AlertDialog.Action>
+              <Button children={actionButtonLabel}  aria-label={ariaLabelActionButton} />
             </AlertDialog.Action>
           </div>
         </AlertDialog.Content>
