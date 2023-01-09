@@ -44,6 +44,14 @@ export default {
       },
       defaultValue: false
     },
+    submitting: {
+      name: 'submitting',
+      description: 'Display a loading icon',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     href: {
       table: {
         disable: true
