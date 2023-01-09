@@ -15,7 +15,7 @@ export default function Home() {
       <Radiogroup />
       <Icon />
       <Slider />
-      <Dialog />
+      <Dialog options={[]} />
       <Toast />
       <Popover />
     </div>
