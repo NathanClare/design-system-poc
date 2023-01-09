@@ -6,14 +6,14 @@ interface IDialogOptions {
   id: string
   label: string
   value: string
-  defvalue: string
+  defValue: string
 }
 
 interface DialogProps {
   label?: string
-  arialabel?: string
-  labelclose?: string
-  arialabelclose?: string
+  ariaLabel?: string
+  labelClose?: string
+  ariaLabelClose?: string
   title?: string
   description?: string
   disabled?: boolean
@@ -28,8 +28,8 @@ interface IDialogFamilyClasses {
 const dialogFamilyClasses: IDialogFamilyClasses = {
   variant: {
     filled: {
-      button1: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
-      button2: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
+      buttonStart: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
+      buttonEnd: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
       title: 'text-primary-700',
       description: 'text-primary-600',
       content: 'bg-primary-100',
@@ -38,8 +38,8 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
       input: 'text-primary-base'
     },
     grey: {
-      button1: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
-      button2: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
+      buttonStart: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
+      buttonEnd: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
       title: 'text-neutral-700',
       description: 'text-neutral-600',
       content: 'bg-neutral-100',
@@ -50,12 +50,12 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
   }
 }
 
-const DialogComp = ({ variant = 'filled', label, arialabel, labelclose, arialabelclose, title, description, disabled, options}: DialogProps) => {
+const DialogComp = ({ variant = 'filled', label, ariaLabel, labelClose='close', ariaLabelClose='close dialog', title, description, disabled, options}: DialogProps) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className={`inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${dialogFamilyClasses['variant'][variant]['button1']}`}
-          aria-label={arialabel}
+        <button className={`inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${dialogFamilyClasses['variant'][variant]['buttonStart']}`}
+          aria-label={ariaLabel}
           disabled={disabled}>
           {label}
         </button>
@@ -76,22 +76,22 @@ const DialogComp = ({ variant = 'filled', label, arialabel, labelclose, arialabe
               <input
                 className={ `w-11/12 inline-flex align-center justify-center rounded px-2.5 text-base h-9 shadow focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['input']}` }
                 id={option.id}
-                defaultValue={option.defvalue}
+                defaultValue={option.defValue}
               />
             </fieldset>
           ))}
 
-          <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
+          <div className='flex mt-6 justify-end'>
             <Dialog.Close asChild>
-              <button className={ `inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-9 focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['button2']}` }>
-                {labelclose}
+              <button className={ `inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-9 focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['buttonEnd']}` }>
+                {labelClose}
               </button>
             </Dialog.Close>
           </div>
           <Dialog.Close asChild>
             <button
               className="rounded-full h-6 w-6 inline-flex align-center justify-center text-primary-400 absolute top-5 right-3.5 focus:shadow-xl hover:shadow"
-              aria-label={arialabelclose}
+              aria-label={ariaLabelClose}
             >
               <Cross2Icon />
             </button>

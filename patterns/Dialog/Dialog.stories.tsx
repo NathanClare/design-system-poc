@@ -96,9 +96,9 @@ const Template: ComponentStory<typeof DialogComp> = args => {
  filled.args = {
  variant: 'filled',
  label: 'Edit profile',
- labelclose: 'Save changes',
- arialabel: 'Open dialog',
- arialabelclose: 'Save changes',
+ labelClose: 'Save changes',
+ ariaLabel: 'Open dialog',
+ ariaLabelClose: 'Save changes',
  title: 'Edit profile',
  description: 'Make changes to your profile here. Click save when you are done.',
    options: [
@@ -106,13 +106,13 @@ const Template: ComponentStory<typeof DialogComp> = args => {
        id: '1c',
        label: 'Name',
        value: 'default',
-       defvalue: 'Pedro Duarte'
+       defValue: 'Pedro Duarte'
      },
      {
        id: '1f',
        label: 'Username',
        value: '',
-       defvalue: '@peduarte'
+       defValue: '@peduarte'
      }
    ]
  }
@@ -122,9 +122,9 @@ const Template: ComponentStory<typeof DialogComp> = args => {
  grey.args = {
     variant: 'grey',
     label: 'Edit profile',
-    labelclose: 'Save changes',
-    arialabel: 'Open dialog',
-    arialabelclose: 'Save changes',
+    labelClose: 'Save changes',
+    ariaLabel: 'Open dialog',
+    ariaLabelClose: 'Save changes',
     title: 'Edit profile',
     description: 'Make changes to your profile here. Click save when you are done.',
       options: [
@@ -132,13 +132,13 @@ const Template: ComponentStory<typeof DialogComp> = args => {
           id: '1c',
           label: 'Name',
           value: 'default',
-          defvalue: 'Pedro Duarte grey'
+          defValue: 'Pedro Duarte grey'
         },
         {
           id: '1f',
           label: 'Username',
           value: '',
-          defvalue: '@peduartegrey'
+          defValue: '@peduartegrey'
         }
       ]
     }
