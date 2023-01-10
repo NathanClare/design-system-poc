@@ -32,26 +32,30 @@ export default {
   }
 } as ComponentMeta<typeof Tooltip>
 
-const Template: ComponentStory<typeof Tooltip> = args => <Tooltip {...args} />
+const Template: ComponentStory<typeof Tooltip> = args => (
+  <div className="p-4">
+    <Tooltip {...args} />
+  </div>
+)
 
-export const sm = Template.bind({})
+export const small = Template.bind({})
 
-sm.args = {
+small.args = {
   children: 'This is a tooltip',
   size: 'sm'
 }
 
-export const md = Template.bind({})
+export const medium = Template.bind({})
 
-md.args = {
+medium.args = {
   children: 'This is a tooltip',
   size: 'md',
   disabled: false
 }
 
-export const lg = Template.bind({})
+export const large = Template.bind({})
 
-lg.args = {
+large.args = {
   children: 'This is a tooltip',
   size: 'lg',
   disabled: false

@@ -14,60 +14,59 @@ export default {
         type: 'radio',
         labels: {
           filled: 'filled',
-          grey: 'grey',
-          
+          grey: 'grey'
         }
       },
       options: ['filled', 'grey'],
       defaultValue: 'grey'
+    },
+    label: {
+      name: 'tabel',
+      description: 'Optional description',
+      control: {
+        type: 'text'
       },
-      label: {
-        name: 'tabel',
-        description: 'Optional description',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Add to calendar'
+      defaultValue: 'Add to calendar'
+    },
+    title: {
+      name: 'title',
+      description: 'Give title',
+      control: {
+        type: 'text'
       },
-      title: {
-        name: 'title',
-        description: 'Give title',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Scheduled: Catch u'
+      defaultValue: 'Scheduled: Catch u'
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Choose to disable component',
+      control: {
+        type: 'boolean'
       },
-      disabled: {
-        name: 'Disabled',
-        description: 'Choose to disable component',
-        control: {
-          type: 'boolean'
-        },
-        defaultValue: false
-      }
+      defaultValue: false
+    }
   }
 } as ComponentMeta<typeof ToastComp>
 
 const Template: ComponentStory<typeof ToastComp> = args => {
   return (
-    <>
+    <div className="p-4">
       <ToastComp {...args} />
-    </>
+    </div>
   )
- }
-
-export const filled = Template.bind({})
-
-filled.args = {
-    variant: 'filled',
-    label: 'Add to calendar',
-    title: 'Scheduled: Catch up'
 }
 
-export const grey = Template.bind({})
+export const primary = Template.bind({})
 
-grey.args = {
-    variant: 'grey',
-    label: 'Add to calendar in grey',
-    title: 'Scheduled: Catch up in grey'
+primary.args = {
+  variant: 'filled',
+  label: 'Add to calendar',
+  title: 'Scheduled: Catch up'
+}
+
+export const neutral = Template.bind({})
+
+neutral.args = {
+  variant: 'grey',
+  label: 'Add to calendar in grey',
+  title: 'Scheduled: Catch up in grey'
 }

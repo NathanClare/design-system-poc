@@ -55,7 +55,11 @@ export default {
   }
 } as ComponentMeta<typeof Icon>
 
-const Template: ComponentStory<typeof Icon> = args => <Icon {...args} />
+const Template: ComponentStory<typeof Icon> = args => (
+  <div className="p4">
+    <Icon {...args} />
+  </div>
+)
 
 export const filled = Template.bind({})
 

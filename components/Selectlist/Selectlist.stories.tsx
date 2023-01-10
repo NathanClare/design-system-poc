@@ -1,10 +1,10 @@
-import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react-dom'
 
 import SelectlistComp from './Selectlist'
 
 export default {
-  title: 'Components/Selectlist',
+  title: 'Components/Select List',
   component: SelectlistComp,
   argTypes: {
     variant: {
@@ -14,47 +14,46 @@ export default {
         type: 'radio',
         labels: {
           filled: 'filled',
-          grey: 'grey',
-          
+          grey: 'grey'
         }
       },
       options: ['filled', 'grey'],
       defaultValue: 'grey'
+    },
+    placeholder: {
+      name: 'tabel',
+      description: 'Provide the placeholder',
+      control: {
+        type: 'text'
       },
-      placeholder: {
-        name: 'tabel',
-        description: 'Provide the placeholder',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'select something..'
+      defaultValue: 'select something..'
+    },
+    ariaholder: {
+      name: 'title',
+      description: 'Provide the ariaholder',
+      control: {
+        type: 'text'
       },
-      ariaholder: {
-        name: 'title',
-        description: 'Provide the ariaholder',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'selector...'
+      defaultValue: 'selector...'
+    },
+    disabled: {
+      name: 'disabled',
+      description: 'Disabled',
+      control: {
+        type: 'boolean'
       },
-      disabled: {
-        name: 'disabled',
-        description: 'Disabled',
-        control: {
-          type: 'boolean'
-        },
-        defaultValue: false
-      }
+      defaultValue: false
+    }
   }
 } as ComponentMeta<typeof SelectlistComp>
 
 const Template: ComponentStory<typeof SelectlistComp> = args => {
   return (
-    <>
+    <div className="p-4">
       <SelectlistComp {...args} />
-    </>
+    </div>
   )
- }
+}
 
 export const filled = Template.bind({})
 
@@ -64,16 +63,12 @@ filled.args = {
     {
       id: '1c',
       label: 'Filled option 1',
-          values: [
-          'green', 'blue', 'red'
-      ]
+      values: ['green', 'blue', 'red']
     },
     {
       id: '1f',
       label: 'Filled option 2',
-      values: [
-        'orange'
-    ]
+      values: ['orange']
     }
   ]
 }
@@ -86,17 +81,12 @@ grey.args = {
     {
       id: '1c',
       label: 'Grey option 1',
-          values: [
-          'red', 'black', 'yellow'
-      ]
+      values: ['red', 'black', 'yellow']
     },
     {
       id: '1f',
       label: 'Grey option 2',
-      values: [
-        'pink'
-    ]
+      values: ['pink']
     }
   ]
 }
-
