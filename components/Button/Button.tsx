@@ -52,48 +52,54 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   }
 }
 
-const Button = ({ children, size = 'lg', variant = 'filled', disabled, href, target, type = 'button', icon, iconPosition = 'left' }: ButtonProps) => {
-  const getState = () => {
-    if (disabled) return 'disabled'
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, size = 'lg', variant = 'filled', disabled, href, target, type = 'button', icon, iconPosition = 'left', ...props }, forwardedRef) => {
+    const getState = () => {
+      if (disabled) return 'disabled'
 
-    return 'base'
-  }
-
-  const ConditionalLink = ({ children }: ConditionalLinkProps) => {
-    if (href && !disabled) {
-      // External link
-      if (target) {
-        return (
-          <a href={href} target={target}>
-            {children}
-          </a>
-        )
-      }
-
-      // Internal link
-      return <Link href={href}>{children}</Link>
+      return 'base'
     }
 
-    return children
-  }
+    const ConditionalLink = ({ children }: ConditionalLinkProps) => {
+      if (href && !disabled) {
+        // External link
+        if (target) {
+          return (
+            <a href={href} target={target}>
+              {children}
+            </a>
+          )
+        }
 
-  return (
-    <ConditionalLink>
-      <button
-        className={`
+        // Internal link
+        return <Link href={href}>{children}</Link>
+      }
+
+      return children
+    }
+
+    return (
+      <ConditionalLink>
+        <button
+          className={`
         inline-flex rounded-full transition-colors items-center
         ${buttonFamilyClasses['size'][size]} 
         ${buttonFamilyClasses['variant'][variant][getState()]}
         ${buttonFamilyClasses['iconPosition'][iconPosition]}
       `}
-        disabled={disabled}
-        type={type}
-      >
-        {icon && <span>{icon}</span>}
-        {children && <span>{children}</span>}
-      </button>
-    </ConditionalLink>
-  )
-}
+          disabled={disabled}
+          type={type}
+          ref={forwardedRef}
+          {...props}
+        >
+          {icon && <span>{icon}</span>}
+          {children && <span>{children}</span>}
+        </button>
+      </ConditionalLink>
+    )
+  }
+)
+
+Button.displayName = 'Button'
 
 export default Button
