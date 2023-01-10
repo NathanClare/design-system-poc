@@ -32,15 +32,15 @@ export default {
         defaultValue: 'Safe changes'
         },
         ariaLabelCancelButton: {
-        name: 'ariaLabelCancelButton',
-        description: 'Define ariaLabelCloseOption1',
+        name: 'ariaLabel cancelButton',
+        description: 'Define ariaLabel cancelButton',
         control: {
             type: 'text'
         },
         defaultValue: 'Save changes'
         },
         actionButtonLabel: {
-        name: 'Label actionButtonLabel',
+        name: 'Label actionButton',
         description: 'Define actionButtonLabel',
         control: {
             type: 'text'
@@ -48,8 +48,8 @@ export default {
         defaultValue: 'Safe changes'
         },
         ariaLabelActionButton: {
-        name: 'AriaLabel ariaLabelActionButton',
-        description: 'Define ariaLabelActionButton',
+        name: 'AriaLabel ActionButton',
+        description: 'Define ariaLabel ActionButton',
         control: {
             type: 'text'
         },
