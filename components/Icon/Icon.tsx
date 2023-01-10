@@ -1,10 +1,14 @@
-import * as Avatar from '@radix-ui/react-avatar'
 import React from 'react'
+import type { ReactElement, MouseEvent } from 'react'
 
 interface IconProps {
   size?: 'lg' | 'md' | 'sm'
-  variant?: 'filled' | 'grey'
-  color?: 'primary' | 'green'
+  variant: 'filled' | 'standard'
+  children: ReactElement
+  disabled: true
+  href?: string
+  target?: '_self' | '_blank'
+  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
 interface IIconFamilyClasses {
@@ -14,40 +18,32 @@ interface IIconFamilyClasses {
 
 const iconFamilyClasses: IIconFamilyClasses = {
   size: {
-    sm: 'w-8 h-8',
-    md: 'w-11 h-11',
-    lg: 'w-14 h-14'
+    sm: '[&>svg]:w-4 [&>svg]:h-4 p-1',
+    md: '[&>svg]:w-6 [&>svg]:h-6 p-2',
+    lg: '[&>svg]:w-8 [&>svg]:h-8 p-2'
   },
   variant: {
     filled: {
-      primary: 'bg-neutral-100 text-neutral-600',
-      secondary: 'bg-neutral-100 text-neutral-600'
+      disabled: '[&>svg]:fill-neutral-50 [&>svg]:stroke-neutral-400 bg-neutral-50',
+      base: 'cursor-pointer [&>svg]:fill-primary-base [&>svg]:stroke-primary-white bg-primary-base'
     },
-    grey: {
-      primary: 'bg-neutral-100 text-neutral-600',
-      secondary: 'bg-neutral-100 text-neutral-600'
+    standard: {
+      disabled: '[&>svg]:fill-transparent [&>svg]:stroke-neutral-400 bg-transparent',
+      base: 'cursor-pointer [&>svg]:fill-transparent [&>svg]:stroke-neutral-base bg-transparent hover:bg-neutral-50 active:bg-neutral-100 focus:bg-neutral-100'
     }
   }
 }
 
-const Icon = ({ size = 'md', variant = 'filled', color = 'primary' }: IconProps) => {
+const Icon = ({ size = 'md', variant = 'filled', children, disabled }: IconProps) => {
+  const getState = () => {
+    if (disabled) return 'disabled'
+
+    return 'base'
+  }
+
   return (
-    <div className={`flex gap-2.5`}>
-      <Avatar.Root
-        className={`flex items-center justify-center align-middle overflow-hidden select-none rounded-full px-2 bg-primary-10 ${iconFamilyClasses['size'][size]}`}
-      >
-        <Avatar.Image
-          className="w-full h-full object-cover rounded-full"
-          src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-          alt="Colm Tuite"
-        />
-        <Avatar.Fallback
-          className={`w-full h-full flex items-center justify-center text-base font-medium ${iconFamilyClasses['variant'][variant][color]}`}
-          delayMs={600}
-        >
-          CT
-        </Avatar.Fallback>
-      </Avatar.Root>
+    <div className={`inline-block rounded-full transition-colors ${iconFamilyClasses['size'][size]} ${iconFamilyClasses['variant'][variant][getState()]}`}>
+      {children}
     </div>
   )
 }

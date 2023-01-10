@@ -1,3 +1,4 @@
+import { Cog8ToothIcon } from '@heroicons/react/24/outline'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
@@ -19,6 +20,36 @@ export default {
       description: 'Select the variant type',
       control: {
         type: 'radio'
+      },
+      options: ['filled', 'standard'],
+      defaultValue: 'standard'
+    },
+    disabled: {
+      name: 'disabled',
+      description: '-',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    children: {
+      table: {
+        disable: true
+      }
+    },
+    href: {
+      table: {
+        disable: true
+      }
+    },
+    target: {
+      table: {
+        disable: true
+      }
+    },
+    onClick: {
+      table: {
+        disable: true
       }
     }
   }
@@ -34,12 +65,14 @@ export const filled = Template.bind({})
 
 filled.args = {
   size: 'md',
-  variant: 'filled'
+  variant: 'filled',
+  children: <Cog8ToothIcon className="h-6 w-6" />
 }
 
-export const grey = Template.bind({})
+export const standard = Template.bind({})
 
-grey.args = {
+standard.args = {
   size: 'md',
-  variant: 'grey'
+  variant: 'standard',
+  children: <Cog8ToothIcon className="h-6 w-6" />
 }
