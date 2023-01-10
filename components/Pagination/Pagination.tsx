@@ -5,32 +5,66 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
 interface PaginationProps {
   totalPages: number;
-  pageSize: number;
-  newPage: any
+  newPage: any;
 }
 
-const PaginationComp = ({ totalPages = 10, pageSize }: PaginationProps) => {
+const PaginationComp = ({ totalPages = 10, newPage }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleClick = (newPage: React.SetStateAction<number>) => {
     setCurrentPage(newPage);
   };
 
+  const getPages = (): Array<number | '...'> => {
+    let pages: Array<number | '...'> = [];
+
+    pages.push(1);
+
+    if (currentPage > 4) {
+      pages.push('...');
+    }
+
+    let startPage = currentPage - 2;
+    if (startPage < 3) startPage = 3;
+    let endPage = currentPage + 3;
+    if (endPage > totalPages - 2) endPage = totalPages - 2;
+
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+
+    if (currentPage < totalPages - 3) {
+      pages.push('...');
+    }
+
+    pages.push(totalPages);
+
+    return pages;
+  }
+
   return (
     <div>
-      <p>
-        Page {currentPage} of {totalPages}
-      </p>
-      <button className='text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white'
+      <button
+        className='text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white'
         disabled={currentPage === 1}
         onClick={() => handleClick(currentPage - 1)}
       >
         <ChevronLeftIcon/>
       </button>
-      <button className='text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white'
+      {getPages().map((page) => (
+        <button
+          key={page}
+          disabled={page === '...'}
+          className={`p-1 mx-1 rounded ${page === currentPage ? "bg-primary-500 text-primary-base" : ""}`}
+          onClick={() => page !== '...' ? handleClick(page) : () => {}}
+        >
+          {page}
+        </button>
+      ))}
+      <button
+        className='text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white'
         disabled={currentPage === totalPages}
-        onClick={() => handleClick(currentPage + 1)}
-      >
+        onClick={() => handleClick(currentPage + 1)}>
       <ChevronRightIcon/>
       </button>
     </div>
