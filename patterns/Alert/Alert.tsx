@@ -1,6 +1,7 @@
 import * as AlertDialog from '@radix-ui/react-alert-dialog'
-import React from 'react'
-import { Button } from '../../components'
+import React, { type ReactElement } from 'react'
+
+import { Button, Typography } from '../../components'
 
 interface AlertProps {
   label: string
@@ -14,13 +15,13 @@ interface AlertProps {
   disabled?: boolean
   size?: 'lg' | 'md' | 'sm'
   variant?: 'filled' | 'grey'
+  icon?: ReactElement
 }
 
 interface IAlertFamilyClasses {
-  size: Record<string, string>,
+  size: Record<string, string>
   variant: Record<string, Record<string, string>>
 }
-
 
 const alertFamilyClasses: IAlertFamilyClasses = {
   size: {
@@ -30,61 +31,68 @@ const alertFamilyClasses: IAlertFamilyClasses = {
   },
   variant: {
     filled: {
-      buttonOpen: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
-      cancelButton: 'bg-secondary-200 text-secondary-400 hover:bg-secondary-300',
-      actionButton: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
-      title: 'text-primary-700',
-      description: 'text-primary-600',
-      content: 'bg-primary-100',
-      overlay: 'bg-primary-black/20 ring-primary-600'
-    },
-    grey: {
-      buttonOpen: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
-      cancelButton: 'bg-secondary-200 text-secondary-400 hover:bg-secondary-300',
-      actionButton: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
-      title: 'text-neutral-700',
-      description: 'text-neutral-600',
-      content: 'bg-neutral-100',
-      overlay: 'bg-neutral-black/20 ring-neutral-600'
+      title: 'text-neutral-800',
+      description: 'text-neutral-800',
+      content: 'bg-primary-50',
+      overlay: 'ring-primary-600'
     }
   }
 }
 
-const AlertComp = ({ size = 'md', variant = 'filled', label, ariaLabel, cancelButtonLabel='close option1', ariaLabelCancelButton='close option1', actionButtonLabel='close option2', ariaLabelActionButton='close option2', title, description, disabled }: AlertProps) => {
+const AlertComp = ({
+  size = 'md',
+  variant = 'filled',
+  label,
+  ariaLabel,
+  cancelButtonLabel = 'Cancel',
+  ariaLabelCancelButton = 'Cancel',
+  actionButtonLabel = 'Confirm',
+  ariaLabelActionButton = 'Confirm',
+  title,
+  description,
+  disabled,
+  icon
+}: AlertProps) => {
   return (
     <AlertDialog.Root>
-      <AlertDialog.Trigger>
-        <Button children={label} aria-label={ariaLabel} disabled={disabled} />
+      <AlertDialog.Trigger asChild>
+        <Button aria-label={ariaLabel} disabled={disabled} variant={'filled'} size={`md`}>
+          {label}
+        </Button>
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
-        <AlertDialog.Overlay className={ ` fixed w-full h-full top-0 ring-inset  ${alertFamilyClasses['variant'][variant]['overlay']}` }/>
-        <AlertDialog.Content className={ ` rounded-lg shadow fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 ${alertFamilyClasses['size'][size]} ${alertFamilyClasses['variant'][variant]['content']}` }>
-          <AlertDialog.Title className={ ` text-lg m-0 ${alertFamilyClasses['variant'][variant]['title']}` }>{title}</AlertDialog.Title>
-          <AlertDialog.Description className={ ` mt-2.5 mx-0 mb-5  ${alertFamilyClasses['variant'][variant]['description']}` }>
-            {description}
-          </AlertDialog.Description>
-          <div className='flex mt-6 justify-end'>
-            <AlertDialog.Cancel >
-              <Button children={cancelButtonLabel}  aria-label={ariaLabelCancelButton} />
-            </AlertDialog.Cancel>
-            <AlertDialog.Action>
-              <Button children={actionButtonLabel}  aria-label={ariaLabelActionButton} />
-            </AlertDialog.Action>
-          </div>
-        </AlertDialog.Content>
+        <AlertDialog.Overlay
+          className={`fixed flex justify-center items-center w-full h-full top-0 ring-inset data-[state=open]:animate-fadein bg-primary-black/90 data-[state=open]:bg-primary-white/70 ${alertFamilyClasses['variant'][variant]['overlay']}`}
+        >
+          <AlertDialog.Content
+            className={`rounded-[28px] data-[state=open]:animate-fadein h-fit data-[state=open]:animate-scalein p-6 max-w-[420px] w-[90%] [&>*+*]:mt-4 ${alertFamilyClasses['size'][size]} ${alertFamilyClasses['variant'][variant]['content']}`}
+          >
+            {icon && <div className="[&>*]:mx-auto">{icon}</div>}
+            <AlertDialog.Title className={`text-lg m-0 ${alertFamilyClasses['variant'][variant]['title']}`}>{title}</AlertDialog.Title>
+            {description && (
+              <AlertDialog.Description className={`mt-2.5 mx-0 mb-5 ${alertFamilyClasses['variant'][variant]['description']}`} asChild>
+                <Typography tag={`p`} size={`sm`}>
+                  {description}
+                </Typography>
+              </AlertDialog.Description>
+            )}
+            <div className="flex justify-end [&>button+button]:ml-2">
+              <AlertDialog.Cancel asChild>
+                <Button aria-label={ariaLabelCancelButton} variant={`text`} size={`sm`}>
+                  {cancelButtonLabel}
+                </Button>
+              </AlertDialog.Cancel>
+              <AlertDialog.Action asChild>
+                <Button aria-label={ariaLabelActionButton} variant={`text`} size={`sm`}>
+                  {actionButtonLabel}
+                </Button>
+              </AlertDialog.Action>
+            </div>
+          </AlertDialog.Content>
+        </AlertDialog.Overlay>
       </AlertDialog.Portal>
     </AlertDialog.Root>
   )
 }
 
 export default AlertComp
-
-
-
-
-
-
-
-
-
-

@@ -45,23 +45,26 @@ export default {
           xl: 'Extra large',
           xxl: 'Extra extra large',
           base: 'Base'
-
         }
       },
-      options: ['xs','sm', 'md', 'lg', 'xl', 'xxl', 'base'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'base'],
       defaultValue: 'base'
     }
   }
 } as ComponentMeta<typeof Typography>
 
-const Template: ComponentStory<typeof Typography> = args => <Typography {...args} />
+const Template: ComponentStory<typeof Typography> = args => (
+  <div className="p-4">
+    <Typography {...args} />
+  </div>
+)
 
 export const Heading = Template.bind({})
 
 Heading.args = {
   tag: 'h1',
   children: 'Heading',
-  size: 'base'
+  size: 'xl'
 }
 
 export const Paragraph = Template.bind({})

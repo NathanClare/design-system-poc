@@ -1,6 +1,7 @@
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
-import * as Select from '@radix-ui/react-select';
+import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
+import * as Select from '@radix-ui/react-select'
 import React from 'react'
+
 import { SelectItem } from './SelectlistItem'
 
 interface SelectOption {
@@ -34,14 +35,18 @@ const selectlistFamilyClasses: ISelectlistFamilyClasses = {
       content: 'bg-neutral-200',
       label: 'text-primary-400',
       separator: 'bg-neutral-600'
-    },
+    }
   }
 }
 
-const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, disabled}: SelectlistProps) => {
+const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, disabled }: SelectlistProps) => {
   return (
     <Select.Root>
-      <Select.Trigger className={`inline-flex items-center justify-center rounded px-4 text-base h-9 gap-1 bg-neutral-white text-primary-base shadow focus:shadow-xl disabled:bg-neutral-100 ${selectlistFamilyClasses['variant'][variant]['trigger']}`} aria-label={ariaholder} disabled={disabled} >
+      <Select.Trigger
+        className={`inline-flex items-center justify-center rounded px-4 text-base h-9 gap-1 bg-neutral-white text-primary-base shadow focus:shadow-xl disabled:bg-neutral-100 ${selectlistFamilyClasses['variant'][variant]['trigger']}`}
+        aria-label={ariaholder}
+        disabled={disabled}
+      >
         <Select.Value placeholder={placeholder} />
         <Select.Icon className="text-primary-base">
           <ChevronDownIcon />
@@ -53,21 +58,20 @@ const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, 
             <ChevronUpIcon />
           </Select.ScrollUpButton>
           <Select.Viewport className="p-1">
-            {
-              options.map(option => (
-                <>
-                  <Select.Group>
-                   <Select.Label className={`px-6 text-xs ${selectlistFamilyClasses['variant'][variant]['label']}`}>{option.label}</Select.Label>
-                  {
-                    option.values.map(value => <SelectItem value={value}>{value}</SelectItem>)
-                  }
+            {options.map(option => (
+              <>
+                <Select.Group>
+                  <Select.Label className={`px-6 text-xs ${selectlistFamilyClasses['variant'][variant]['label']}`}>{option.label}</Select.Label>
+                  {option.values.map(value => (
+                    <SelectItem value={value} key={value}>
+                      {value}
+                    </SelectItem>
+                  ))}
                 </Select.Group>
 
-                  <Select.Separator className={`m-1 h-px ${selectlistFamilyClasses['variant'][variant]['separator']}`} />
-                  
-                </>
-             ))
-            }
+                <Select.Separator className={`m-1 h-px ${selectlistFamilyClasses['variant'][variant]['separator']}`} />
+              </>
+            ))}
           </Select.Viewport>
           <Select.ScrollDownButton className="flex items-center justify-center h-6 bg-neutral-white text-primary-base cursor-default">
             <ChevronDownIcon />
@@ -75,9 +79,7 @@ const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, 
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-  );
+  )
 }
 
-
-
-export default SelectlistComp;
+export default SelectlistComp

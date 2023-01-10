@@ -24,16 +24,14 @@ export default {
   }
 } as ComponentMeta<typeof SliderComp>
 
-const Template: ComponentStory<typeof SliderComp> = args => <SliderComp {...args} />
+const Template: ComponentStory<typeof SliderComp> = args => (
+  <div className="p-4">
+    <SliderComp {...args} />
+  </div>
+)
 
-export const filled = Template.bind({})
+export const primary = Template.bind({})
 
-filled.args = {
+primary.args = {
   variant: 'filled'
-}
-
-export const grey = Template.bind({})
-
-grey.args = {
-  variant: 'grey'
 }

@@ -5,7 +5,7 @@ import React from 'react'
 import Radiogroup from './Radiogroup'
 
 export default {
-  title: 'Components/Radiogroup',
+  title: 'Components/Radio Group',
   component: Radiogroup,
   argTypes: {
     variant: {
@@ -26,9 +26,9 @@ export default {
 
 const Template: ComponentStory<typeof Radiogroup> = args => {
   return (
-    <>
+    <div className="p-4">
       <Radiogroup {...args} />
-    </>
+    </div>
   )
 }
 

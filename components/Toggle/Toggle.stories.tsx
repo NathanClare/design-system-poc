@@ -25,17 +25,21 @@ export default {
   }
 } as ComponentMeta<typeof Toggle>
 
-const Template: ComponentStory<typeof Toggle> = args => <Toggle {...args} />
+const Template: ComponentStory<typeof Toggle> = args => (
+  <div className="p-4">
+    <Toggle {...args} />
+  </div>
+)
 
-export const md = Template.bind({})
+export const medium = Template.bind({})
 
-md.args = {
+medium.args = {
   size: 'md'
 }
 
-export const lg = Template.bind({})
+export const large = Template.bind({})
 
-lg.args = {
+large.args = {
   size: 'lg',
   disabled: false
 }

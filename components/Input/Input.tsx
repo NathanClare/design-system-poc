@@ -1,4 +1,4 @@
-import * as Label from '@radix-ui/react-label'
+/*import * as Label from '@radix-ui/react-label'
 import React from 'react'
 
 interface InputProps {
@@ -57,4 +57,4 @@ const Input = ({ variant = 'filled', label, id, type = 'text', disabled }: Input
   )
 }
 
-export default Input
+export default Input*/

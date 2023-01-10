@@ -28,13 +28,13 @@ interface IButtonFamilyClasses {
 
 const buttonFamilyClasses: IButtonFamilyClasses = {
   size: {
-    sm: 'text-sm px-6 py-3',
-    md: 'text-md px-6 py-3',
+    sm: 'text-sm px-5 py-2',
+    md: 'text-sm px-6 py-2.5',
     lg: 'text-md px-8 py-3'
   },
   variant: {
     filled: {
-      base: 'bg-primary-base text-primary-white hover:bg-primary-500 hover:shadow-lg focus:bg-primary-500 pressed:bg-primary-500',
+      base: 'bg-primary-base text-primary-white hover:bg-primary-base hover:drop-shadow-10 focus:bg-primary-500 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-neutral-100 text-neutral-400'
     },
     outlined: {
@@ -42,7 +42,7 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
       disabled: 'text-neutral-500 bg-primary-white border-neutral-300 border border-primary-600'
     },
     text: {
-      base: 'bg-primary-white text-primary-base hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100',
+      base: 'bg-primary-transparent text-primary-base hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100',
       disabled: 'bg-primary-white text-neutral-500'
     }
   },
@@ -82,7 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <ConditionalLink>
         <button
           className={`
-        inline-flex rounded-full transition-colors items-center
+        inline-flex rounded-full transition-colors items-center focus:outline-none focus-visible:outline-none
         ${buttonFamilyClasses['size'][size]} 
         ${buttonFamilyClasses['variant'][variant][getState()]}
         ${buttonFamilyClasses['iconPosition'][iconPosition]}
