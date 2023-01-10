@@ -23,33 +23,33 @@ export default {
         },
         defaultValue: 'Open dialog'
         },
-     labelCloseOption1: {
-        name: 'Label closeOption1',
-        description: 'Define labelCloseOption1',
+        cancelButtonLabel: {
+        name: 'Label cancelButton',
+        description: 'Define cancelButtonLabel',
         control: {
             type: 'text'
         },
         defaultValue: 'Safe changes'
         },
-     ariaLabelCloseOption1: {
-        name: 'AriaLabel closeOption1',
-        description: 'Define ariaLabelCloseOption1',
+        ariaLabelCancelButton: {
+        name: 'ariaLabel cancelButton',
+        description: 'Define ariaLabel cancelButton',
         control: {
             type: 'text'
         },
         defaultValue: 'Save changes'
         },
-    labelCloseOption2: {
-        name: 'Label close',
-        description: 'Define labelCloseOption2',
+        actionButtonLabel: {
+        name: 'Label actionButton',
+        description: 'Define actionButtonLabel',
         control: {
             type: 'text'
         },
         defaultValue: 'Safe changes'
         },
-        ariaLabelCloseOption2: {
-        name: 'AriaLabel closeOption2',
-        description: 'Define ariaLabelCloseOption2',
+        ariaLabelActionButton: {
+        name: 'AriaLabel ActionButton',
+        description: 'Define ariaLabel ActionButton',
         control: {
             type: 'text'
         },
@@ -122,10 +122,10 @@ export const filled = Template.bind({})
 filled.args = {
     label: 'Delete account', 
     ariaLabel: 'delete account',
-    labelCloseOption1: 'Cancel',
-    ariaLabelCloseOption1: 'cancel',
-    labelCloseOption2: 'Yes, delete account',
-    ariaLabelCloseOption2: 'delete account',
+    cancelButtonLabel: 'Cancel',
+    ariaLabelCancelButton: 'cancel',
+    actionButtonLabel: 'Yes, delete account',
+    ariaLabelActionButton: 'delete account',
     title: 'Are you absolutely sure?',
     description: 'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
     disabled: false,
@@ -138,10 +138,10 @@ export const grey = Template.bind({})
 grey.args = {
     label: 'Delete account in grey', 
     ariaLabel: 'delete account',
-    labelCloseOption1: 'Cancel',
-    ariaLabelCloseOption1: 'cancel',
-    labelCloseOption2: 'Yes, delete account',
-    ariaLabelCloseOption2: 'delete account',
+    cancelButtonLabel: 'Cancel',
+    ariaLabelCancelButton: 'cancel',
+    actionButtonLabel: 'Yes, delete account',
+    ariaLabelActionButton: 'delete account',
     title: 'Are you absolutely sure?',
     description: 'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
     disabled: false,
