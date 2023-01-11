@@ -85,7 +85,11 @@ export default {
   }
 } as ComponentMeta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />
+const Template: ComponentStory<typeof Button> = args => (
+  <div className="p-4">
+    <Button {...args} />
+  </div>
+)
 
 export const filled = Template.bind({})
 

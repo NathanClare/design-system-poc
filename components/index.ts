@@ -26,6 +26,4 @@ export { default as Icon } from './Icon/Icon'
 
 export { default as Slider } from './Slider/Slider'
 
-export { default as Input } from './Input/Input'
-
 export { default as Popover } from './Popover/Popover'

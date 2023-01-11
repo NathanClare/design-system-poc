@@ -32,18 +32,22 @@ export default {
   }
 } as ComponentMeta<typeof Switchcomp>
 
-const Template: ComponentStory<typeof Switchcomp> = args => <Switchcomp {...args} />
+const Template: ComponentStory<typeof Switchcomp> = args => (
+  <div className="p-4">
+    <Switchcomp {...args} />
+  </div>
+)
 
-export const filled = Template.bind({})
+export const primary = Template.bind({})
 
-filled.args = {
+primary.args = {
   size: 'md',
   variant: 'filled'
 }
 
-export const grey = Template.bind({})
+export const neutral = Template.bind({})
 
-grey.args = {
+neutral.args = {
   size: 'md',
   variant: 'grey'
 }

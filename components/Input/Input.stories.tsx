@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
+/*import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
 import Input from './Input'
@@ -52,3 +52,4 @@ outlined.args = {
   variant: 'outlined',
   label: 'Label'
 }
+*/

@@ -37,8 +37,10 @@ export default {
 } as ComponentMeta<typeof Separator>
 
 const Template: ComponentStory<typeof Separator> = args => (
-  <div className="flex h-4">
-    <Separator {...args} />
+  <div className="p-4">
+    <div className="flex h-4 w-[320px]">
+      <Separator {...args} />
+    </div>
   </div>
 )
 

@@ -12,7 +12,7 @@ const typographyFamilyClasses: Record<string, string> = {
   base: 'text-base',
   lg: 'text-lg',
   xl: 'text-xl',
-  'xxl': 'text-2xl',
+  xxl: 'text-2xl',
   '3xl': 'text-3xl',
   '4xl': 'text-4xl',
   '5xl': 'text-5xl'

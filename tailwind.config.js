@@ -175,6 +175,24 @@ module.exports = {
         xl: '2rem',
         '2xl': '4rem',
         '3xl': '8rem'
+      },
+      dropShadow: {
+        10: `${tokens.EffectM3ElevationLight10.offsetX}px ${tokens.EffectM3ElevationLight10.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.15)`,
+        20: `${tokens.EffectM3ElevationLight20.offsetX}px ${tokens.EffectM3ElevationLight20.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.3)`
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' }
+        },
+        scaleIn: {
+          from: { transform: 'scale(1.2)', opacity: 0 },
+          to: { transform: 'scale(1)', opacity: 1 }
+        }
+      },
+      animation: {
+        fadein: 'fadeIn 150ms ease-in',
+        scalein: 'scaleIn 120ms ease-out'
       }
     }
   },
