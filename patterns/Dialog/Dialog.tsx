@@ -50,40 +50,54 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
   }
 }
 
-const DialogComp = ({ variant = 'filled', label, ariaLabel, labelClose='close', ariaLabelClose='close dialog', title, description, disabled, options}: DialogProps) => {
+const DialogComp = ({
+  variant = 'filled',
+  label,
+  ariaLabel,
+  labelClose = 'close',
+  ariaLabelClose = 'close dialog',
+  title,
+  description,
+  disabled,
+  options
+}: DialogProps) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className={`inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${dialogFamilyClasses['variant'][variant]['buttonStart']}`}
+        <button
+          className={`inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${dialogFamilyClasses['variant'][variant]['buttonStart']}`}
           aria-label={ariaLabel}
-          disabled={disabled}>
+          disabled={disabled}
+        >
           {label}
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className={ `fixed w-full h-full top-0 ${dialogFamilyClasses['variant'][variant]['overlay']}` } />
-        <Dialog.Content className={ `rounded-lg shadow-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-9/12 max-w-md p-6 focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}` }>
-          <Dialog.Title className={ `text-lg m-0 ${dialogFamilyClasses['variant'][variant]['title']}` }>{title}</Dialog.Title>
-          <Dialog.Description className={ `mt-2.5 mx-0 mb-5 ${dialogFamilyClasses['variant'][variant]['description']}` }>
-            {description}
-          </Dialog.Description>
+        <Dialog.Overlay className={`fixed w-full h-full top-0 ${dialogFamilyClasses['variant'][variant]['overlay']}`} />
+        <Dialog.Content
+          className={`rounded-lg shadow-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-9/12 max-w-md p-6 focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}`}
+        >
+          <Dialog.Title className={`text-lg m-0 ${dialogFamilyClasses['variant'][variant]['title']}`}>{title}</Dialog.Title>
+          <Dialog.Description className={`mt-2.5 mx-0 mb-5 ${dialogFamilyClasses['variant'][variant]['description']}`}>{description}</Dialog.Description>
 
           {options?.map(option => (
             <fieldset className="flex align-center mb-4 gap-5" key={option.id}>
-              <label className={ `text-base text-right w-24 ${dialogFamilyClasses['variant'][variant]['label']}` } htmlFor={option.value}>
-              {option.label}
+              <label className={`text-base text-right w-24 ${dialogFamilyClasses['variant'][variant]['label']}`} htmlFor={option.value}>
+                {option.label}
               </label>
               <input
-                className={ `w-11/12 inline-flex align-center justify-center rounded px-2.5 text-base h-9 shadow focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['input']}` }
+                className={`w-11/12 inline-flex align-center justify-center rounded px-2.5 text-base h-9 shadow focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['input']}`}
                 id={option.id}
                 defaultValue={option.defValue}
               />
             </fieldset>
           ))}
 
-          <div className='flex mt-6 justify-end'>
+          <div className="flex mt-6 justify-end">
             <Dialog.Close asChild>
-              <button className={ `inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-9 focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['buttonEnd']}` }>
+              <button
+                className={`inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-9 focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['buttonEnd']}`}
+              >
                 {labelClose}
               </button>
             </Dialog.Close>
@@ -103,9 +117,3 @@ const DialogComp = ({ variant = 'filled', label, ariaLabel, labelClose='close', 
 }
 
 export default DialogComp
-
-
-
-
-
-
