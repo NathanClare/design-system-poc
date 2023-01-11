@@ -188,11 +188,16 @@ module.exports = {
         scaleIn: {
           from: { transform: 'scale(1.2)', opacity: 0 },
           to: { transform: 'scale(1)', opacity: 1 }
+        },
+        slideIn: {
+          from: { transform: 'translateY(5px)', opacity: 0 },
+          to: { transform: 'translateY(0px)', opacity: 1 }
         }
       },
       animation: {
         fadein: 'fadeIn 150ms ease-in',
-        scalein: 'scaleIn 120ms ease-out'
+        scalein: 'scaleIn 120ms ease-out',
+        slidein: 'slideIn 130ms ease-in'
       }
     }
   },

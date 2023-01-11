@@ -14,9 +14,9 @@ interface ISwitchFamilyClasses {
 
 const switchFamilyClasses: ISwitchFamilyClasses = {
   size: {
-    sm: 'text-sm px-8 py-3',
-    md: 'text-md px-8 py-3',
-    lg: 'text-lg px-8 py-3'
+    sm: 'w-8 h-4',
+    md: 'w-12 h-6',
+    lg: 'w-14 h-7'
   },
   variant: {
     filled: 'data-[state=checked]:bg-primary-900 data-[state=unchecked]:bg-primary-500',
@@ -24,15 +24,19 @@ const switchFamilyClasses: ISwitchFamilyClasses = {
   }
 }
 
-const Switch = ({ variant = 'filled', disabled }: SwitchProps) => {
+const Switch = ({ variant = 'filled', size = 'md', disabled }: SwitchProps) => {
   return (
     <>
       <div className={`flex items-center`}>
         <RadixSwitch.Root
-          className={`w-10 h-6 rounded-full relative focus:drop-shadow-lg focus:outline-primary-base focus:border-primary-800 disabled:p-6 ${switchFamilyClasses['variant'][variant]}`}
+          className={`rounded-full relative focus:drop-shadow-lg focus:outline-primary-base focus:border-primary-800 disabled:p-6 ${switchFamilyClasses['variant'][variant]} ${switchFamilyClasses['size'][size]}`}
           disabled={disabled}
         >
-          <RadixSwitch.Thumb className={'block w-5 h-5 bg-primary-white rounded-full duration-100 translate-x-1 data-[state=checked]:translate-x-4'} />
+          <RadixSwitch.Thumb
+            className={
+              'block pl-[calc(50%-4px)] h-[calc(100%-4px)] bg-primary-white rounded-full duration-100 absolute top-1/2 -translate-y-1/2 left-0.5 data-[state=checked]:left-full data-[state=checked]:-translate-x-[calc(100%+2px)] transition-all'
+            }
+          />
         </RadixSwitch.Root>
       </div>
     </>
