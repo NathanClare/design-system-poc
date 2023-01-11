@@ -8,56 +8,52 @@ interface PaginationProps {
 
 const PaginationComp = ({ totalPages = 10 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1)
+  const getPagesasAnArray = Array.from(Array(totalPages).keys())
 
   const handleClick = (newPage: React.SetStateAction<number>) => {
     setCurrentPage(newPage)
   }
 
-  const getPages = (): Array<number | '...'> => {
-    const pages: Array<number | '...'> = []
+  const generatePageLinks = () => {
+    let minPageOffset = -1
+    let maxPageOffset = 2
 
-    pages.push(1)
-    if (currentPage > 3) {
-      pages.push('...')
+    switch (true) {
+      case currentPage === totalPages - 1:
+        minPageOffset = -2
+        break
+      case currentPage === 0:
+        minPageOffset = 0
+        maxPageOffset = 3
+        break
     }
-    let startPage = currentPage - 1
-    if (startPage < 2) startPage = 2
-    let endPage = currentPage + 1
-    if (endPage > totalPages - 1) endPage = totalPages - 1
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i)
-    }
-    if (currentPage < totalPages - 2) {
-      pages.push('...')
-    }
-    pages.push(totalPages)
 
-    return pages
+    return getPagesasAnArray.slice(currentPage + minPageOffset, currentPage + maxPageOffset)
   }
 
   return (
     <div>
       <button
         className="text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white disabled:bg-neutral-200 disabled:text-neutral-600"
-        disabled={currentPage === 1}
+        disabled={currentPage === 0}
         onClick={() => handleClick(currentPage - 1)}
       >
         <ChevronLeftIcon />
       </button>
-      {getPages().map(page => (
+      {currentPage > 1 && '...'}
+      {generatePageLinks().map(page => (
         <button
           key={page}
-          disabled={page === '...'}
-          className={`p-1 mx-1 rounded h-10 w-10 ${page === currentPage ? 'bg-primary-500 text-primary-base' : ''}`}
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          onClick={() => (page !== '...' ? handleClick(page) : () => {})}
+          className={`p-1 mx-1 rounded h-10 w-10 ${page === currentPage ? 'bg-primary-500 text-primary-white' : ''}`}
+          onClick={() => handleClick(page)}
         >
-          {page}
+          {page + 1}
         </button>
       ))}
+      {currentPage + 1 < totalPages && '...'}
       <button
         className="text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white disabled:bg-neutral-200 disabled:text-neutral-600"
-        disabled={currentPage === totalPages}
+        disabled={currentPage + 1 === totalPages}
         onClick={() => handleClick(currentPage + 1)}
       >
         <ChevronRightIcon />
