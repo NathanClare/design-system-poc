@@ -8,10 +8,10 @@ export default {
   component: SelectlistComp,
   argTypes: {
     variant: {
-      name: 'variant',
+      name: 'Variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'Radio',
         labels: {
           filled: 'filled',
           grey: 'grey'
@@ -21,7 +21,7 @@ export default {
       defaultValue: 'grey'
     },
     placeholder: {
-      name: 'tabel',
+      name: 'Label',
       description: 'Provide the placeholder',
       control: {
         type: 'text'
@@ -29,7 +29,7 @@ export default {
       defaultValue: 'select something..'
     },
     ariaholder: {
-      name: 'title',
+      name: 'Title',
       description: 'Provide the ariaholder',
       control: {
         type: 'text'
@@ -37,12 +37,17 @@ export default {
       defaultValue: 'selector...'
     },
     disabled: {
-      name: 'disabled',
+      name: 'Disabled',
       description: 'Disabled',
       control: {
         type: 'boolean'
       },
       defaultValue: false
+    },
+    options: {
+      table: {
+        disable: true
+      }
     }
   }
 } as ComponentMeta<typeof SelectlistComp>
@@ -62,12 +67,10 @@ filled.args = {
   options: [
     {
       id: '1c',
-      label: 'Filled option 1',
-      values: ['green', 'blue', 'red']
+      values: ['green', 'blue', 'red', 'redred', 'bluelbue']
     },
     {
       id: '1f',
-      label: 'Filled option 2',
       values: ['orange']
     }
   ]
@@ -80,12 +83,10 @@ grey.args = {
   options: [
     {
       id: '1c',
-      label: 'Grey option 1',
       values: ['red', 'black', 'yellow']
     },
     {
       id: '1f',
-      label: 'Grey option 2',
       values: ['pink']
     }
   ]
