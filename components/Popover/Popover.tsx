@@ -34,7 +34,7 @@ const popoverFamilyClasses: IPopoverFamilyClasses = {
       arrow: 'fill-white'
     },
     grey: {
-      button: 'text-neutral-500 bg-neutral-100 shadow shadow-neutral-100 hover:bg-neutral-200',
+      button: 'text-neutral-500 bg-neutral-100 shadow shadow-neutral-100 hover:bg-neutral-200 data-[state=open]:bg-neutral-200',
       content: 'bg-neutral-100',
       title: 'text-primary-black',
       label: 'text-neutral-600',
