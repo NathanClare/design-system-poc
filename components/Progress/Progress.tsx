@@ -2,7 +2,8 @@ import * as RadixProgress from '@radix-ui/react-progress'
 import React from 'react'
 
 interface ProgressProps {
-  variant?: 'filled' | 'grey'
+  variant?: 'filled' | 'neutral'
+  progress: number
 }
 
 interface IProgressFamilyClasses {
@@ -12,25 +13,14 @@ interface IProgressFamilyClasses {
 const progressFamilyClasses: IProgressFamilyClasses = {
   variant: {
     filled: 'bg-primary-500',
-    grey: 'bg-neutral-500'
+    neutral: 'bg-neutral-500'
   }
 }
 
-const Progress = ({ variant = 'grey' }: ProgressProps) => {
-  const [progress, setProgress] = React.useState(13)
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(78), 500)
-    return () => clearTimeout(timer)
-  }, [])
-
-  /* TODO: Fix style error */
+const Progress = ({ variant = 'filled', progress = 0 }: ProgressProps) => {
   return (
-    <RadixProgress.Root className="relative overflow-hidden bg-neutral-200 rounded-full w-80 h-6" value={78}>
-      <RadixProgress.Indicator
-        className={`w-full h-full transition duration-1000 ${progressFamilyClasses['variant'][variant]}`}
-        style={{ transform: `translateX(-${100 - progress}%)` }}
-      />
+    <RadixProgress.Root className="relative overflow-hidden bg-neutral-200 rounded-full w-full h-1.5" value={progress}>
+      <RadixProgress.Indicator className={`h-full transition-all duration-1000 ${progressFamilyClasses['variant'][variant]} w-[${progress}%] `} />
     </RadixProgress.Root>
   )
 }
