@@ -41,13 +41,6 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
   }
 }
 
-/* <button
-                  className="rounded-full h-6 w-6 inline-flex align-center justify-center text-primary-400 focus:shadow-xl hover:shadow"
-                  aria-label={ariaLabelClose}
-                >
-                  <Cross2Icon />
-                </button> */
-
 const DialogComp = ({
   variant = 'filled',
   label,

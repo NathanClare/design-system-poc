@@ -21,7 +21,7 @@ export default {
       defaultValue: 'grey'
     },
     arialabel: {
-      name: 'Arialabel',
+      name: 'aria label',
       description: 'Give arialabel',
       control: {
         type: 'text'
@@ -29,7 +29,7 @@ export default {
       defaultValue: 'Update something'
     },
     title: {
-      name: 'Title',
+      name: 'title',
       description: 'Give title',
       control: {
         type: 'text'
@@ -37,7 +37,7 @@ export default {
       defaultValue: 'Dimensions'
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'Choose to disable component',
       control: {
         type: 'boolean'

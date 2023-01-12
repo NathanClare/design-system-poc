@@ -25,7 +25,7 @@ const iconFamilyClasses: IIconFamilyClasses = {
   variant: {
     filled: {
       disabled: '[&>svg]:fill-neutral-50 [&>svg]:stroke-neutral-400 bg-neutral-50',
-      base: 'cursor-pointer [&>svg]:fill-primary-base [&>svg]:stroke-primary-white bg-primary-base'
+      base: 'cursor-pointer [&>svg]:fill-primary-base [&>svg]:stroke-primary-white bg-primary-base focus:bg-primary-500 active:bg-primary-500'
     },
     standard: {
       disabled: '[&>svg]:fill-transparent [&>svg]:stroke-neutral-400 bg-transparent',

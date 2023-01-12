@@ -1,5 +1,7 @@
-import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react-dom'
+
+import { Radiogroup } from '../../components/'
 
 import DialogComp from './Dialog'
 
@@ -100,7 +102,16 @@ filled.args = {
   ariaLabelClose: 'Save changes',
   title: 'Edit profile',
   description: 'Make changes to your profile here. Click save when you are done.',
-  children: <p>Hello</p>
+  children: (
+    <div>
+      <Radiogroup
+        options={[
+          { id: '1', label: 'Option 1', value: '1' },
+          { id: '2', label: 'Option 2', value: '2' }
+        ]}
+      />
+    </div>
+  )
 }
 
 export const grey = Template.bind({})

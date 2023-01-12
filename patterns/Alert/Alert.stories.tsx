@@ -9,7 +9,7 @@ export default {
   component: AlertComp,
   argTypes: {
     label: {
-      name: 'Label',
+      name: 'label',
       description: 'Define label',
       control: {
         type: 'text'
@@ -17,7 +17,7 @@ export default {
       defaultValue: 'Edit profile'
     },
     ariaLabel: {
-      name: 'Arialabel',
+      name: 'aria label',
       description: 'Define arialabel',
       control: {
         type: 'text'
@@ -25,7 +25,7 @@ export default {
       defaultValue: 'Open dialog'
     },
     cancelButtonLabel: {
-      name: 'Label cancelButton',
+      name: 'label: cancel Button',
       description: 'Define cancelButtonLabel',
       control: {
         type: 'text'
@@ -33,7 +33,7 @@ export default {
       defaultValue: 'Safe changes'
     },
     ariaLabelCancelButton: {
-      name: 'ariaLabel cancelButton',
+      name: 'aria label cancel button',
       description: 'Define ariaLabel cancelButton',
       control: {
         type: 'text'
@@ -41,7 +41,7 @@ export default {
       defaultValue: 'Save changes'
     },
     actionButtonLabel: {
-      name: 'Label actionButton',
+      name: 'label action button',
       description: 'Define actionButtonLabel',
       control: {
         type: 'text'
@@ -49,7 +49,7 @@ export default {
       defaultValue: 'Safe changes'
     },
     ariaLabelActionButton: {
-      name: 'AriaLabel ActionButton',
+      name: 'aria label action button',
       description: 'Define ariaLabel ActionButton',
       control: {
         type: 'text'
@@ -57,7 +57,7 @@ export default {
       defaultValue: 'Save changes'
     },
     title: {
-      name: 'Title',
+      name: 'title',
       description: 'Give title',
       control: {
         type: 'text'
@@ -65,7 +65,7 @@ export default {
       defaultValue: 'Edit profile'
     },
     description: {
-      name: 'Description',
+      name: 'description',
       description: 'Give description',
       control: {
         type: 'text'
@@ -73,7 +73,7 @@ export default {
       defaultValue: 'Make changes to your profile here. Click save when you are done.'
     },
     size: {
-      name: 'Size',
+      name: 'size',
       description: 'Select the button size',
       control: {
         type: 'radio',
@@ -87,7 +87,7 @@ export default {
       defaultValue: 'md'
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'Choose to disable component',
       control: {
         type: 'boolean'
