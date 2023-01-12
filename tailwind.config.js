@@ -236,7 +236,26 @@ module.exports = {
           fontWeight: tokens.FontM3DisplayLarge.fontWeight
         }
       }
+      const newAnimationDelayUtility = {
+        '.animation-delay-100': {
+          animationDelay: '100ms'
+        },
+        '.animation-delay-150': {
+          animationDelay: '150ms'
+        },
+        '.animation-delay-200': {
+          animationDelay: '200ms'
+        },
+        '.animation-delay-300': {
+          animationDelay: '300ms'
+        },
+        '.animation-delay-500': {
+          animationDelay: '500ms'
+        }
+      }
+
       addUtilities(newHeaderUtility)
+      addUtilities(newAnimationDelayUtility)
     })
   ]
 }
