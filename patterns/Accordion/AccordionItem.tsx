@@ -11,12 +11,12 @@ const RadixAccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionItemP
   return (
     <RadixAccordion.Header className="flex">
       <RadixAccordion.Trigger
-        className="bg-transparent px-5 h-[45] flex-1 flex items-center justify-between text-base shadow text-neutral-base shadow-neutral-100 hover:bg-neutral-200 p-4 disabled:bg-neutral-400 disabled:text-neutral-800 [&>svg]:data-[state=open]:rotate-180"
+        className="bg-transparent px-5 h-[45] flex-1 flex items-center justify-between text-base shadow text-neutral-base shadow-neutral-100 hover:bg-neutral-200 p-4 disabled:bg-neutral-400 disabled:text-neutral-800 group"
         {...props}
         ref={forwardedRef}
       >
         {children}
-        <ChevronDownIcon className="text-neutral-400 transition" aria-hidden />
+        <ChevronDownIcon className="text-neutral-400 transition group-data-[state=open]:rotate-180" aria-hidden />
       </RadixAccordion.Trigger>
     </RadixAccordion.Header>
   )
