@@ -1,4 +1,3 @@
-import { Label } from '@radix-ui/react-label'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
@@ -20,6 +19,11 @@ export default {
       },
       options: ['filled', 'grey'],
       defaultValue: 'grey'
+    },
+    options: {
+      table: {
+        disable: true
+      }
     }
   }
 } as ComponentMeta<typeof Radiogroup>
@@ -45,7 +49,7 @@ filled.args = {
     {
       id: '1f',
       label: 'Filled option 2',
-      value: ''
+      value: 'black'
     }
   ]
 }
@@ -58,7 +62,7 @@ grey.args = {
     {
       id: '1b',
       label: 'Grey option 1',
-      value: ''
+      value: 'grey'
     },
     {
       id: '1c',
@@ -68,7 +72,7 @@ grey.args = {
     {
       id: '1f',
       label: 'Grey option 3',
-      value: ''
+      value: 'black'
     }
   ]
 }

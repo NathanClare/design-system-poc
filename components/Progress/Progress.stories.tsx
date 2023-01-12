@@ -27,7 +27,7 @@ export default {
 } as ComponentMeta<typeof ProgressComp>
 
 const Template: ComponentStory<typeof ProgressComp> = args => (
-  <div className="w-48">
+  <div className="w-64 p-4">
     <ProgressComp {...args} />
   </div>
 )

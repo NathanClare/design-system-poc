@@ -8,7 +8,7 @@ export default {
   component: Separator,
   argTypes: {
     orientation: {
-      name: 'Orientation',
+      name: 'orientation',
       description: 'Specify the orientation',
       control: {
         type: 'radio'
@@ -17,7 +17,7 @@ export default {
       defaultValue: 'horizontal'
     },
     decorative: {
-      name: 'Decorative',
+      name: 'decorative',
       description: 'If the element is purely decorative',
       control: {
         type: 'boolean'
@@ -25,7 +25,7 @@ export default {
       defaultValue: false
     },
     variant: {
-      name: 'Variant',
+      name: 'variant',
       description: 'Select variant',
       control: {
         type: 'select'

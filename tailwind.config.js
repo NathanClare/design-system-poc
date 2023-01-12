@@ -195,77 +195,82 @@ module.exports = {
         },
         slideUp: {
           from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
-        }
-      },
-      animation: {
-        fadein: 'fadeIn 150ms ease-in',
-        scalein: 'scaleIn 120ms ease-out',
-        slideDown: 'slideDown 150ms ease-in',
-        slideUp: 'slideUp 150ms ease-in'
-      }
-    }
-  },
-  plugins: [
-    plugin(function ({ addUtilities }) {
-      const newHeaderUtility = {
-        '.heading-xs': {
-          fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
-          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+          to: { height: '0' },
+          slideIn: {
+            from: { transform: 'translateY(5px)', opacity: 0 },
+            to: { transform: 'translateY(0px)', opacity: 1 }
+          }
         },
-        '.heading-sm': {
-          fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
-        },
-        '.heading-md': {
-          fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
-          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-          fontWeight: tokens.FontM3DisplaySmall.fontWeight
-        },
-        '.heading-lg': {
-          fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
-          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-          fontWeight: tokens.FontM3DisplayMedium.fontWeight
-        },
-        '.heading-xl': {
-          fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-          fontWeight: tokens.FontM3BodyLarge.fontWeight
-        },
-        '.heading-2xl': {
-          fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-          fontWeight: tokens.FontM3DisplayLarge.fontWeight
+        animation: {
+          fadein: 'fadeIn 150ms ease-in',
+          scalein: 'scaleIn 120ms ease-out',
+          slideDown: 'slideDown 150ms ease-in',
+          slideUp: 'slideUp 150ms ease-in',
+          slidein: 'slideIn 130ms ease-in'
         }
       }
-      const newAnimationDelayUtility = {
-        '.animation-delay-100': {
-          animationDelay: '100ms'
-        },
-        '.animation-delay-150': {
-          animationDelay: '150ms'
-        },
-        '.animation-delay-200': {
-          animationDelay: '200ms'
-        },
-        '.animation-delay-300': {
-          animationDelay: '300ms'
-        },
-        '.animation-delay-500': {
-          animationDelay: '500ms'
+    },
+    plugins: [
+      plugin(function ({ addUtilities }) {
+        const newHeaderUtility = {
+          '.heading-xs': {
+            fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
+            lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
+            fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+          },
+          '.heading-sm': {
+            fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
+            lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
+            fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+          },
+          '.heading-md': {
+            fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
+            lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
+            fontWeight: tokens.FontM3DisplaySmall.fontWeight
+          },
+          '.heading-lg': {
+            fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
+            lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
+            fontWeight: tokens.FontM3DisplayMedium.fontWeight
+          },
+          '.heading-xl': {
+            fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
+            lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
+            fontWeight: tokens.FontM3BodyLarge.fontWeight
+          },
+          '.heading-2xl': {
+            fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
+            lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
+            fontWeight: tokens.FontM3DisplayLarge.fontWeight
+          }
         }
-      }
+        const newAnimationDelayUtility = {
+          '.animation-delay-100': {
+            animationDelay: '100ms'
+          },
+          '.animation-delay-150': {
+            animationDelay: '150ms'
+          },
+          '.animation-delay-200': {
+            animationDelay: '200ms'
+          },
+          '.animation-delay-300': {
+            animationDelay: '300ms'
+          },
+          '.animation-delay-500': {
+            animationDelay: '500ms'
+          }
+        }
 
-      addUtilities(newHeaderUtility)
-      addUtilities(newAnimationDelayUtility)
-    })
-  ]
+        addUtilities(newHeaderUtility)
+        addUtilities(newAnimationDelayUtility)
+      })
+    ]
+  }
 }

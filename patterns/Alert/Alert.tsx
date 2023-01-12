@@ -62,7 +62,7 @@ const AlertComp = ({
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
         <AlertDialog.Overlay
-          className={`fixed flex justify-center items-center w-full h-full top-0 ring-inset data-[state=open]:animate-fadein bg-primary-black/90 data-[state=open]:bg-primary-white/70 ${alertFamilyClasses['variant'][variant]['overlay']}`}
+          className={`fixed flex justify-center items-center w-full h-full top-0 ring-inset data-[state=open]:animate-fadein data-[state=open]:bg-primary-white/70 ${alertFamilyClasses['variant'][variant]['overlay']}`}
         >
           <AlertDialog.Content
             className={`rounded-[28px] data-[state=open]:animate-fadein h-fit data-[state=open]:animate-scalein p-6 max-w-[420px] w-[90%] [&>*+*]:mt-4 ${alertFamilyClasses['size'][size]} ${alertFamilyClasses['variant'][variant]['content']}`}

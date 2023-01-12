@@ -15,10 +15,10 @@ const Slider = ({}: SliderProps) => {
         step={1}
         aria-label="Volume"
       >
-        <RadixSlider.Track className="bg-neutral-300 relative grow rounded-full data-[orientation=vertical]:w-1 data-[orientation=horizontal]:h-1">
-          <RadixSlider.Range className="absolute bg-primary-400 rounded-full h-full" />
+        <RadixSlider.Track className="bg-neutral-100 relative grow rounded-full data-[orientation=vertical]:w-1 data-[orientation=horizontal]:h-1">
+          <RadixSlider.Range className="absolute bg-primary-base rounded-full h-full" />
         </RadixSlider.Track>
-        <RadixSlider.Thumb className="block w-5 h-5 bg-primary-400 shadow rounded-xl focus:bg-primary-600 focus:outline-none focus:shadow-xl" />
+        <RadixSlider.Thumb className="block w-5 h-5 bg-primary-base shadow rounded-xl focus:bg-primary-600 focus:outline-none focus:shadow-xl" />
       </RadixSlider.Root>
     </form>
   )

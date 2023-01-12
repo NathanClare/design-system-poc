@@ -1,4 +1,4 @@
-import React from 'react-dom'
+/*import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import ToastComp from './Toast'
@@ -21,7 +21,7 @@ export default {
       defaultValue: 'grey'
     },
     label: {
-      name: 'tabel',
+      name: 'label',
       description: 'Optional description',
       control: {
         type: 'text'
@@ -37,7 +37,7 @@ export default {
       defaultValue: 'Scheduled: Catch u'
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'Choose to disable component',
       control: {
         type: 'boolean'
@@ -70,3 +70,4 @@ neutral.args = {
   label: 'Add to calendar in grey',
   title: 'Scheduled: Catch up in grey'
 }
+*/

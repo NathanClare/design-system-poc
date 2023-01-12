@@ -22,7 +22,7 @@ export default {
       }
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'Choose to disable component',
       control: {
         type: 'boolean'

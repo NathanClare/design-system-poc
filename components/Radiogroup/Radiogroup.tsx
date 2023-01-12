@@ -25,26 +25,24 @@ const radioGroupFamilyClasses: IRadioGroupFamilyClasses = {
 
 const RadioGroup = ({ variant = 'filled', options }: RadioGroupProps) => {
   return (
-    <>
-      <RadixRadioGroup.Root className="flex flex-col gap-2.5" defaultValue="default" aria-label="View density">
-        {options?.map(option => (
-          <div className={`flex items-center`} key={option.id}>
-            <RadixRadioGroup.Item
-              className="bg-neutral-white w-6 h-6 rounded-full shadow hover:bg-neutral-100 focus:shadow-xl"
-              value={option.value}
-              id={option.id}
-            >
-              <RadixRadioGroup.Indicator
-                className={`flex items-center justify-center w-full h-full relative after:block after:h-3 after:w-3 after:rounded-full ${radioGroupFamilyClasses['variant'][variant]}`}
-              />
-            </RadixRadioGroup.Item>
-            <label className="pl-3.5 text-base select-none text-neutral-40" htmlFor={option.id}>
-              {option.label}
-            </label>
-          </div>
-        ))}
-      </RadixRadioGroup.Root>
-    </>
+    <RadixRadioGroup.Root className="flex flex-col gap-2.5" defaultValue="default">
+      {options?.map(({ id, value, label }) => (
+        <div className={`flex items-center`} key={id}>
+          <RadixRadioGroup.Item
+            className="bg-neutral-white w-6 h-6 rounded-full transition duration-300 shadow hover:bg-neutral-50 focus:shadow-xl"
+            value={value}
+            id={id}
+          >
+            <RadixRadioGroup.Indicator
+              className={`flex items-center justify-center w-full h-full relative after:block after:h-3 after:w-3 after:rounded-full ${radioGroupFamilyClasses['variant'][variant]}`}
+            />
+          </RadixRadioGroup.Item>
+          <label className="pl-3.5 text-md select-none text-neutral-40" htmlFor={id}>
+            {label}
+          </label>
+        </div>
+      ))}
+    </RadixRadioGroup.Root>
   )
 }
 

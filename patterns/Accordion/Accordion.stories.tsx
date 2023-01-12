@@ -37,18 +37,18 @@ base.args = {
   options: [
     {
       id: 'item-1',
-      labelTrigger: 'base option 1',
-      value: 'grijurgurhguirhgiuh uhruhgru riuhgur een'
+      labelTrigger: 'Is it accessible?',
+      value: 'Yes. It adheres to the WAI-ARIA design pattern.'
     },
     {
       id: 'item-2',
-      labelTrigger: 'base option 2',
-      value: 'rgbrug ruhgr uh egruuhg erugh'
+      labelTrigger: 'Is it unstyled?',
+      value: 'Yes. It is unstyled by default, giving you freedom over the look and feel.'
     },
     {
       id: 'item-3',
-      labelTrigger: 'base option 3',
-      value: 'rgbrug ruhgr uh egruuhg erugh'
+      labelTrigger: 'Can it be animated?',
+      value: 'Yes! You can animate the Accordion with CSS or JavaScript.'
     }
   ]
 }

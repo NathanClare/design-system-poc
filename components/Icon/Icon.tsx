@@ -5,10 +5,10 @@ interface IconProps {
   size?: 'lg' | 'md' | 'sm'
   variant: 'filled' | 'standard'
   children: ReactElement
-  disabled: true
+  disabled?: boolean
   href?: string
   target?: '_self' | '_blank'
-  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+  onClick?: (event: MouseEvent<HTMLDivElement>) => void
 }
 
 interface IIconFamilyClasses {
@@ -18,14 +18,14 @@ interface IIconFamilyClasses {
 
 const iconFamilyClasses: IIconFamilyClasses = {
   size: {
-    sm: '[&>svg]:w-4 [&>svg]:h-4 p-1',
+    sm: '[&>svg]:w-3 [&>svg]:h-3 p-1',
     md: '[&>svg]:w-6 [&>svg]:h-6 p-2',
     lg: '[&>svg]:w-8 [&>svg]:h-8 p-2'
   },
   variant: {
     filled: {
       disabled: '[&>svg]:fill-neutral-50 [&>svg]:stroke-neutral-400 bg-neutral-50',
-      base: 'cursor-pointer [&>svg]:fill-primary-base [&>svg]:stroke-primary-white bg-primary-base'
+      base: 'cursor-pointer [&>svg]:fill-primary-base [&>svg]:stroke-primary-white bg-primary-base focus:bg-primary-500 active:bg-primary-500'
     },
     standard: {
       disabled: '[&>svg]:fill-transparent [&>svg]:stroke-neutral-400 bg-transparent',
@@ -34,7 +34,7 @@ const iconFamilyClasses: IIconFamilyClasses = {
   }
 }
 
-const Icon = ({ size = 'md', variant = 'filled', children, disabled }: IconProps) => {
+const Icon = React.forwardRef<HTMLDivElement, IconProps>(({ size = 'md', variant = 'filled', children, disabled, ...props }, forwardedRef) => {
   const getState = () => {
     if (disabled) return 'disabled'
 
@@ -42,10 +42,16 @@ const Icon = ({ size = 'md', variant = 'filled', children, disabled }: IconProps
   }
 
   return (
-    <div className={`inline-block rounded-full transition-colors ${iconFamilyClasses['size'][size]} ${iconFamilyClasses['variant'][variant][getState()]}`}>
+    <div
+      className={`inline-block rounded-full transition-colors ${iconFamilyClasses['size'][size]} ${iconFamilyClasses['variant'][variant][getState()]}`}
+      {...props}
+      ref={forwardedRef}
+    >
       {children}
     </div>
   )
-}
+})
+
+Icon.displayName = 'Icon'
 
 export default Icon

@@ -34,7 +34,11 @@ export default {
   }
 } as ComponentMeta<typeof Avatar>
 
-const Template: ComponentStory<typeof Avatar> = args => <Avatar {...args} />
+const Template: ComponentStory<typeof Avatar> = args => (
+  <div className="p-4">
+    <Avatar {...args} />
+  </div>
+)
 
 export const withImage = Template.bind({})
 
