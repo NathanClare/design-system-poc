@@ -8,14 +8,14 @@ export default {
   component: Checkbox,
   argTypes: {
     label: {
-      name: 'Label',
+      name: 'label',
       description: 'Text',
       control: {
         type: 'text'
       }
     },
     error: {
-      name: 'On Error',
+      name: 'on error',
       description: 'Set if invalid',
       control: {
         type: 'boolean'
@@ -28,7 +28,7 @@ export default {
       }
     },
     checked: {
-      name: 'Checked',
+      name: 'checked',
       description: 'Set the checkbox state',
       control: {
         type: 'select',
@@ -42,7 +42,7 @@ export default {
       defaultValue: 'md'
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: '-',
       control: {
         type: 'boolean'

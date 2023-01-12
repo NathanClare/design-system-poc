@@ -8,7 +8,7 @@ export default {
   component: Selectlist,
   argTypes: {
     variant: {
-      name: 'Variant',
+      name: 'variant',
       description: 'Select the variant type',
       control: {
         type: 'radio',
@@ -21,7 +21,7 @@ export default {
       defaultValue: 'grey'
     },
     placeholder: {
-      name: 'Label',
+      name: 'label',
       description: 'Provide the placeholder',
       control: {
         type: 'text'
@@ -29,7 +29,7 @@ export default {
       defaultValue: 'select something..'
     },
     ariaholder: {
-      name: 'Ariaholder',
+      name: 'ariaholder',
       description: 'Provide the ariaholder',
       control: {
         type: 'text'
@@ -37,7 +37,7 @@ export default {
       defaultValue: 'selector...'
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'Disabled',
       control: {
         type: 'boolean'

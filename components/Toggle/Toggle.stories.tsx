@@ -15,7 +15,7 @@ export default {
       }
     },
     disabled: {
-      name: 'Disabled',
+      name: 'disabled',
       description: 'Choose to disable component',
       control: {
         type: 'boolean'
@@ -40,6 +40,5 @@ medium.args = {
 export const large = Template.bind({})
 
 large.args = {
-  size: 'lg',
-  disabled: false
+  size: 'lg'
 }

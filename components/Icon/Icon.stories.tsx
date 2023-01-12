@@ -56,7 +56,7 @@ export default {
 } as ComponentMeta<typeof Icon>
 
 const Template: ComponentStory<typeof Icon> = args => (
-  <div className="p4">
+  <div className="p-4">
     <Icon {...args} />
   </div>
 )

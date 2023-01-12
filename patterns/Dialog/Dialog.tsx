@@ -1,13 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
-import React from 'react'
+import React, { type ReactNode } from 'react'
 
-interface IDialogOptions {
-  id: string
-  label: string
-  value: string
-  defValue: string
-}
+import { Button, Icon } from '../../components'
 
 interface DialogProps {
   label?: string
@@ -18,7 +13,7 @@ interface DialogProps {
   description?: string
   disabled?: boolean
   variant?: 'filled' | 'grey'
-  options: Array<IDialogOptions>
+  children: ReactNode
 }
 
 interface IDialogFamilyClasses {
@@ -30,9 +25,7 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
     filled: {
       buttonStart: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
       buttonEnd: 'bg-primary-200 text-primary-400 hover:bg-primary-300',
-      title: 'text-primary-700',
-      description: 'text-primary-600',
-      content: 'bg-primary-100',
+      content: 'bg-primary-50 text-neutral-800',
       overlay: 'bg-primary-black/20 ring-primary-600',
       label: 'text-primary-base',
       input: 'text-primary-base'
@@ -40,8 +33,6 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
     grey: {
       buttonStart: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
       buttonEnd: 'bg-neutral-200 text-neutral-400 hover:bg-neutral-300',
-      title: 'text-neutral-700',
-      description: 'text-neutral-600',
       content: 'bg-neutral-100',
       overlay: 'bg-neutral-black/20 ring-neutral-600',
       label: 'text-neutral-base',
@@ -50,62 +41,51 @@ const dialogFamilyClasses: IDialogFamilyClasses = {
   }
 }
 
-const DialogComp = ({ variant = 'filled', label, ariaLabel, labelClose='close', ariaLabelClose='close dialog', title, description, disabled, options}: DialogProps) => {
+const DialogComp = ({
+  variant = 'filled',
+  label,
+  ariaLabel,
+  labelClose = 'close',
+  ariaLabelClose = 'close dialog',
+  title,
+  description,
+  disabled,
+  children
+}: DialogProps) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className={`inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-8 focus:shadow-xl disabled:bg-neutral-100 disabled:text-neutral-700 ${dialogFamilyClasses['variant'][variant]['buttonStart']}`}
-          aria-label={ariaLabel}
-          disabled={disabled}>
-          {label}
-        </button>
+        <Button aria-label={ariaLabel} disabled={disabled} variant={'filled'} size={`md`}>
+          {label || ''}
+        </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className={ `fixed w-full h-full top-0 ${dialogFamilyClasses['variant'][variant]['overlay']}` } />
-        <Dialog.Content className={ `rounded-lg shadow-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-9/12 max-w-md p-6 focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}` }>
-          <Dialog.Title className={ `text-lg m-0 ${dialogFamilyClasses['variant'][variant]['title']}` }>{title}</Dialog.Title>
-          <Dialog.Description className={ `mt-2.5 mx-0 mb-5 ${dialogFamilyClasses['variant'][variant]['description']}` }>
-            {description}
-          </Dialog.Description>
-
-          {options?.map(option => (
-            <fieldset className="flex align-center mb-4 gap-5" key={option.id}>
-              <label className={ `text-base text-right w-24 ${dialogFamilyClasses['variant'][variant]['label']}` } htmlFor={option.value}>
-              {option.label}
-              </label>
-              <input
-                className={ `w-11/12 inline-flex align-center justify-center rounded px-2.5 text-base h-9 shadow focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['input']}` }
-                id={option.id}
-                defaultValue={option.defValue}
-              />
-            </fieldset>
-          ))}
-
-          <div className='flex mt-6 justify-end'>
-            <Dialog.Close asChild>
-              <button className={ `inline-flex items-center justify-center rounded px-3.5 text-base font-medium h-9 focus:shadow-xl ${dialogFamilyClasses['variant'][variant]['buttonEnd']}` }>
-                {labelClose}
-              </button>
-            </Dialog.Close>
-          </div>
-          <Dialog.Close asChild>
-            <button
-              className="rounded-full h-6 w-6 inline-flex align-center justify-center text-primary-400 absolute top-5 right-3.5 focus:shadow-xl hover:shadow"
-              aria-label={ariaLabelClose}
-            >
-              <Cross2Icon />
-            </button>
-          </Dialog.Close>
-        </Dialog.Content>
+        <Dialog.Overlay
+          className={`fixed flex justify-center items-center w-full h-full top-0 data-[state=open]:animate-fadein data-[state=open]:bg-primary-white/70 ${dialogFamilyClasses['variant'][variant]['overlay']}`}
+        >
+          <Dialog.Content
+            className={`relative rounded-[28px] data-[state=open]:animate-fadein h-fit data-[state=open]:animate-scalein p-6 max-w-[460px] w-[90%] focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}`}
+          >
+            <Dialog.Title className={`text-lg m-0`}>{title}</Dialog.Title>
+            <Dialog.Description className={`mt-2.5 mx-0 mb-5 text-md`}>{description}</Dialog.Description>
+            {children}
+            <div className="flex mt-6 justify-end">
+              <Dialog.Close asChild>
+                <Button size={`md`}>{labelClose}</Button>
+              </Dialog.Close>
+            </div>
+            <div className="absolute top-5 right-3.5">
+              <Dialog.Close asChild>
+                <Icon variant={`standard`} size={`sm`}>
+                  <Cross2Icon />
+                </Icon>
+              </Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Overlay>
       </Dialog.Portal>
     </Dialog.Root>
   )
 }
 
 export default DialogComp
-
-
-
-
-
-
