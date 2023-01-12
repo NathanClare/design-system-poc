@@ -188,11 +188,21 @@ module.exports = {
         scaleIn: {
           from: { transform: 'scale(1.2)', opacity: 0 },
           to: { transform: 'scale(1)', opacity: 1 }
+        },
+        slideDown: {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
+        },
+        slideUp: {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
         }
       },
       animation: {
         fadein: 'fadeIn 150ms ease-in',
-        scalein: 'scaleIn 120ms ease-out'
+        scalein: 'scaleIn 120ms ease-out',
+        slideDown: 'slideDown 150ms ease-in',
+        slideUp: 'slideUp 150ms ease-in'
       }
     }
   },
