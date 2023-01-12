@@ -1,5 +1,5 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
-import * as Select from '@radix-ui/react-select'
+import * as RadixSelect from '@radix-ui/react-select'
 import React from 'react'
 
 import { SelectItem } from './SelectlistItem'
@@ -40,46 +40,48 @@ const selectlistFamilyClasses: ISelectlistFamilyClasses = {
   }
 }
 
-const SelectlistComp = ({ variant = 'filled', options, placeholder, ariaholder, disabled }: SelectlistProps) => {
+const Selectlist = ({ variant = 'filled', options, placeholder, ariaholder, disabled }: SelectlistProps) => {
   return (
-    <Select.Root>
-      <Select.Trigger
+    <RadixSelect.Root>
+      <RadixSelect.Trigger
         className={`inline-flex items-center justify-center rounded px-4 text-base h-11 gap-1 bg-neutral-white shadow focus:shadow-xl disabled:bg-neutral-100 ${selectlistFamilyClasses['variant'][variant]['trigger']}`}
         aria-label={ariaholder}
         disabled={disabled}
       >
-        <Select.Value placeholder={placeholder} />
-        <Select.Icon className={`flex items-center justify-center h-6 cursor-default ${selectlistFamilyClasses['variant'][variant]['select']}`}>
+        <RadixSelect.Value placeholder={placeholder} />
+        <RadixSelect.Icon className={`flex items-center justify-center h-6 cursor-default ${selectlistFamilyClasses['variant'][variant]['select']}`}>
           <ChevronDownIcon />
-        </Select.Icon>
-      </Select.Trigger>
-      <Select.Portal>
-        <Select.Content className={`animate-fadein overflow-hidden rounded shadow-lg w-full ${selectlistFamilyClasses['variant'][variant]['content']}`}>
-          <Select.ScrollUpButton
+        </RadixSelect.Icon>
+      </RadixSelect.Trigger>
+      <RadixSelect.Portal>
+        <RadixSelect.Content className={`animate-fadein overflow-hidden rounded shadow-lg w-full ${selectlistFamilyClasses['variant'][variant]['content']}`}>
+          <RadixSelect.ScrollUpButton
             className={`flex items-center justify-center h-6 text-primary-base cursor-default ${selectlistFamilyClasses['variant'][variant]['chevron']}`}
           >
             <ChevronUpIcon />
-          </Select.ScrollUpButton>
-          <Select.Viewport className="p-1">
+          </RadixSelect.ScrollUpButton>
+          <RadixSelect.Viewport className="p-1">
             {options.map(option => (
               <>
-                <Select.Group>
+                <RadixSelect.Group>
                   {option.values.map(value => (
                     <SelectItem value={value} key={value}>
                       {value}
                     </SelectItem>
                   ))}
-                </Select.Group>
+                </RadixSelect.Group>
               </>
             ))}
-          </Select.Viewport>
-          <Select.ScrollDownButton className={`flex items-center justify-center h-6 cursor-default ${selectlistFamilyClasses['variant'][variant]['chevron']}`}>
+          </RadixSelect.Viewport>
+          <RadixSelect.ScrollDownButton
+            className={`flex items-center justify-center h-6 cursor-default ${selectlistFamilyClasses['variant'][variant]['chevron']}`}
+          >
             <ChevronDownIcon />
-          </Select.ScrollDownButton>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
+          </RadixSelect.ScrollDownButton>
+        </RadixSelect.Content>
+      </RadixSelect.Portal>
+    </RadixSelect.Root>
   )
 }
 
-export default SelectlistComp
+export default Selectlist

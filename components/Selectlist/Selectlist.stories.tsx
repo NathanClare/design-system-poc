@@ -1,17 +1,17 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react-dom'
 
-import SelectlistComp from './Selectlist'
+import Selectlist from './Selectlist'
 
 export default {
   title: 'Components/Select List',
-  component: SelectlistComp,
+  component: Selectlist,
   argTypes: {
     variant: {
       name: 'Variant',
       description: 'Select the variant type',
       control: {
-        type: 'Radio',
+        type: 'radio',
         labels: {
           filled: 'filled',
           grey: 'grey'
@@ -29,7 +29,7 @@ export default {
       defaultValue: 'select something..'
     },
     ariaholder: {
-      name: 'Title',
+      name: 'Ariaholder',
       description: 'Provide the ariaholder',
       control: {
         type: 'text'
@@ -50,12 +50,12 @@ export default {
       }
     }
   }
-} as ComponentMeta<typeof SelectlistComp>
+} as ComponentMeta<typeof Selectlist>
 
-const Template: ComponentStory<typeof SelectlistComp> = args => {
+const Template: ComponentStory<typeof Selectlist> = args => {
   return (
     <div className="p-4">
-      <SelectlistComp {...args} />
+      <Selectlist {...args} />
     </div>
   )
 }
