@@ -50,8 +50,8 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
     }
   },
   iconPosition: {
-    left: '[&>*+*]:ml-2 [&>*:first-child]:order-first',
-    right: '[&>*+*]:mr-2 [&>*:first-child]:order-last'
+    left: '[&>span+span]:ml-2 [&>*:first-child]:order-first',
+    right: '[&>span+span]:mr-2 [&>*:first-child]:order-last'
   }
 }
 
@@ -84,12 +84,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink>
         <button
-          className={`
-            rounded-full transition-colors items-center relative
-            ${buttonFamilyClasses['size'][size]} 
-            ${buttonFamilyClasses['variant'][variant][getState()]}
-            ${buttonFamilyClasses['iconPosition'][iconPosition]}
-          `}
+          className={`rounded-full transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
+            buttonFamilyClasses['variant'][variant][getState()]
+          }`}
           disabled={disabled}
           type={type}
           ref={forwardedRef}

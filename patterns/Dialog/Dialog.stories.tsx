@@ -1,5 +1,7 @@
-import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react-dom'
+
+import { Radiogroup } from '../../components/'
 
 import DialogComp from './Dialog'
 
@@ -14,132 +16,112 @@ export default {
         type: 'radio',
         labels: {
           filled: 'filled',
-          grey: 'grey',
-          
+          grey: 'grey'
         }
       },
       options: ['filled', 'grey'],
       defaultValue: 'grey'
+    },
+    label: {
+      name: 'label',
+      description: 'Define label',
+      control: {
+        type: 'text'
       },
-      label: {
-        name: 'label',
-        description: 'Define label',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Edit profile'
+      defaultValue: 'Edit profile'
+    },
+    arialabel: {
+      name: 'arialabel',
+      description: 'Define arialabel',
+      control: {
+        type: 'text'
       },
-      arialabel: {
-        name: 'arialabel',
-        description: 'Define arialabel',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Open dialog'
+      defaultValue: 'Open dialog'
+    },
+    labelclose: {
+      name: 'labelclose',
+      description: 'Define labelclose',
+      control: {
+        type: 'text'
       },
-      labelclose: {
-        name: 'labelclose',
-        description: 'Define labelclose',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Safe changes'
+      defaultValue: 'Safe changes'
+    },
+    arialabelclose: {
+      name: 'arialabelclose',
+      description: 'Define arialabelclose',
+      control: {
+        type: 'text'
       },
-      arialabelclose: {
-        name: 'arialabelclose',
-        description: 'Define arialabelclose',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Save changes'
+      defaultValue: 'Save changes'
+    },
+    title: {
+      name: 'title',
+      description: 'Give title',
+      control: {
+        type: 'text'
       },
-      title: {
-        name: 'title',
-        description: 'Give title',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Edit profile'
+      defaultValue: 'Edit profile'
+    },
+    description: {
+      name: 'description',
+      description: 'Give description',
+      control: {
+        type: 'text'
       },
-      description: {
-        name: 'description',
-        description: 'Give description',
-        control: {
-          type: 'text'
-        },
-        defaultValue: 'Make changes to your profile here. Click save when you are done.'
+      defaultValue: 'Make changes to your profile here. Click save when you are done.'
+    },
+    disabled: {
+      name: 'Disabled',
+      description: 'Choose to disable component',
+      control: {
+        type: 'boolean'
       },
-      disabled: {
-        name: 'Disabled',
-        description: 'Choose to disable component',
-        control: {
-          type: 'boolean'
-        },
-        defaultValue: false
-      },
-      options: {
-        table: {
-            disable: true
-          }
+      defaultValue: false
+    },
+    children: {
+      table: {
+        disable: true
       }
+    }
   }
 } as ComponentMeta<typeof DialogComp>
 
-const Template: ComponentStory<typeof DialogComp> = args => {
-  return (
-      <DialogComp {...args} />
+const Template: ComponentStory<typeof DialogComp> = args => (
+  <div className="p-4">
+    <DialogComp {...args} />
+  </div>
+)
+
+export const filled = Template.bind({})
+
+filled.args = {
+  variant: 'filled',
+  label: 'Edit profile',
+  labelClose: 'Save changes',
+  ariaLabel: 'Open dialog',
+  ariaLabelClose: 'Save changes',
+  title: 'Edit profile',
+  description: 'Make changes to your profile here. Click save when you are done.',
+  children: (
+    <div>
+      <Radiogroup
+        options={[
+          { id: '1', label: 'Option 1', value: '1' },
+          { id: '2', label: 'Option 2', value: '2' }
+        ]}
+      />
+    </div>
   )
- }
+}
 
- export const filled = Template.bind({})
+export const grey = Template.bind({})
 
- filled.args = {
- variant: 'filled',
- label: 'Edit profile',
- labelClose: 'Save changes',
- ariaLabel: 'Open dialog',
- ariaLabelClose: 'Save changes',
- title: 'Edit profile',
- description: 'Make changes to your profile here. Click save when you are done.',
-   options: [
-     {
-       id: '1c',
-       label: 'Name',
-       value: 'default',
-       defValue: 'Pedro Duarte'
-     },
-     {
-       id: '1f',
-       label: 'Username',
-       value: '',
-       defValue: '@peduarte'
-     }
-   ]
- }
- 
- export const grey = Template.bind({})
- 
- grey.args = {
-    variant: 'grey',
-    label: 'Edit profile',
-    labelClose: 'Save changes',
-    ariaLabel: 'Open dialog',
-    ariaLabelClose: 'Save changes',
-    title: 'Edit profile',
-    description: 'Make changes to your profile here. Click save when you are done.',
-      options: [
-        {
-          id: '1c',
-          label: 'Name',
-          value: 'default',
-          defValue: 'Pedro Duarte grey'
-        },
-        {
-          id: '1f',
-          label: 'Username',
-          value: '',
-          defValue: '@peduartegrey'
-        }
-      ]
-    }
- 
+grey.args = {
+  variant: 'grey',
+  label: 'Edit profile',
+  labelClose: 'Save changes',
+  ariaLabel: 'Open dialog',
+  ariaLabelClose: 'Save changes',
+  title: 'Edit profile',
+  description: 'Make changes to your profile here. Click save when you are done.'
+}
