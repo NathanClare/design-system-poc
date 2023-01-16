@@ -64,9 +64,7 @@ const Popover = ({ variant = 'filled', ariaLabel, title, options, disabled }: Po
           sideOffset={5}
         >
           <div className="flex flex-col gap-2.5">
-            <p className={`m-0 text-base font-medium ${popoverFamilyClasses['variant'][variant]['title']}`} style={{ marginBottom: 10 }}>
-              {title}
-            </p>
+            <p className={`m-0 text-base font-medium mt-2.5 ${popoverFamilyClasses['variant'][variant]['title']}`}>{title}</p>
 
             {options?.map(option => (
               <fieldset className="flex gap-5 items-center" key={option.id}>
