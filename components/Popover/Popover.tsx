@@ -1,4 +1,3 @@
-/* eslint-disable react/no-children-prop */
 import { XMarkIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline'
 import * as RadixPopover from '@radix-ui/react-popover'
 import React from 'react'
@@ -54,7 +53,9 @@ const Popover = ({ variant = 'filled', ariaLabel, title, options, disabled }: Po
           aria-label={ariaLabel}
           disabled={disabled}
         >
-          <Icon variant={'standard'} children={<AdjustmentsHorizontalIcon className="h-6 w-6" />} disabled={true} />
+          <Icon variant={'standard'} disabled={true}>
+            <AdjustmentsHorizontalIcon className="h-6 w-6" />
+          </Icon>
         </button>
       </RadixPopover.Trigger>
       <RadixPopover.Portal>
@@ -83,7 +84,9 @@ const Popover = ({ variant = 'filled', ariaLabel, title, options, disabled }: Po
             className={`transition-colors rounded-full h-6 w-6 items-center justify-center absolute top-2 right-2 focus:shadow-xl ${popoverFamilyClasses['variant'][variant]['close']}`}
             aria-label="Close"
           >
-            <Icon variant={'standard'} children={<XMarkIcon className="h-6 w-6 absolute top-0 right-0 p-1" />} disabled={true} />
+            <Icon variant={'standard'} disabled={true}>
+              <XMarkIcon className="h-6 w-6 absolute top-0 right-0 p-1" />
+            </Icon>
           </RadixPopover.Close>
           <RadixPopover.Arrow className={`fill-white ${popoverFamilyClasses['variant'][variant]['arrow']}`} />
         </RadixPopover.Content>

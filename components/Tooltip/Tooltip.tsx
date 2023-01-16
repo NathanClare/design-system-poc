@@ -1,11 +1,13 @@
-import { PlusIcon } from '@radix-ui/react-icons'
 import * as RadixTooltip from '@radix-ui/react-tooltip'
-import React from 'react'
+import React, { type ReactElement } from 'react'
+
+import { Icon } from '../../components'
 
 interface TooltipProps {
   children: React.ReactNode
   size?: 'lg' | 'md' | 'sm'
   disabled?: boolean
+  icon: ReactElement
 }
 
 interface ITooltipClasses {
@@ -14,27 +16,24 @@ interface ITooltipClasses {
 
 const tooltipClasses: ITooltipClasses = {
   size: {
-    sm: 'py-0.5 px-2',
-    md: 'py-1 px-4',
-    lg: 'py-3 px-6'
+    sm: 'text-xs py-1.5 px-3',
+    md: 'text-sm py-1.5 px-4',
+    lg: 'text-md py-1.5 px-4'
   }
 }
 
-const Tooltip = ({ children, size = 'lg', disabled }: TooltipProps) => {
+const Tooltip = ({ children, size = 'lg', disabled, icon }: TooltipProps) => {
   return (
-    <RadixTooltip.Provider>
+    <RadixTooltip.Provider delayDuration={200}>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>
-          <button
-            disabled={disabled}
-            className="h-9 w-9 inline-flex items-center justify-center text-primary-base rounded-full shadow hover:bg-primary-200 focus:shadow-lg disabled:bg-neutral-100 disabled:text-neutral-400"
-          >
-            <PlusIcon />
-          </button>
+          <Icon variant={`standard`} disabled={disabled} size={`md`}>
+            {icon}
+          </Icon>
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content
-            className={`font-base shadow select-none text-primary-400 bg-primary-white duration-500 will-change-transform ${tooltipClasses['size'][size]}`}
+            className={`rounded-full shadow select-none text-neutral-base bg-primary-white data-[state=delayed-open]:animate-slidein will-change-transform ${tooltipClasses['size'][size]}`}
             sideOffset={5}
           >
             {children}

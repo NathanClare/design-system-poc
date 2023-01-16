@@ -2,6 +2,8 @@ import Link from 'next/link'
 import React from 'react'
 import type { MouseEvent, ReactElement } from 'react'
 
+import Loading from '../Loading/Loading'
+
 /* TODO: Poss. move to own component? */
 interface ConditionalLinkProps {
   children: ReactElement
@@ -13,6 +15,7 @@ interface ButtonProps {
   variant?: 'filled' | 'outlined' | 'text'
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
+  submitting?: boolean
   href?: string
   target?: '_self' | '_blank'
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
@@ -47,13 +50,13 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
     }
   },
   iconPosition: {
-    left: '[&>*+*]:ml-2 [&>*:first-child]:order-first',
-    right: '[&>*+*]:mr-2 [&>*:first-child]:order-last'
+    left: '[&>span+span]:ml-2 [&>*:first-child]:order-first',
+    right: '[&>span+span]:mr-2 [&>*:first-child]:order-last'
   }
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, size = 'lg', variant = 'filled', disabled, href, target, type = 'button', icon, iconPosition = 'left', ...props }, forwardedRef) => {
+  ({ children, size = 'lg', variant = 'filled', disabled, submitting, href, target, type = 'button', icon, iconPosition = 'left', ...props }, forwardedRef) => {
     const getState = () => {
       if (disabled) return 'disabled'
 
@@ -81,19 +84,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink>
         <button
-          className={`
-        inline-flex rounded-full transition-colors items-center focus:outline-none focus-visible:outline-none
-        ${buttonFamilyClasses['size'][size]} 
-        ${buttonFamilyClasses['variant'][variant][getState()]}
-        ${buttonFamilyClasses['iconPosition'][iconPosition]}
-      `}
+          className={`rounded-full transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
+            buttonFamilyClasses['variant'][variant][getState()]
+          }`}
           disabled={disabled}
           type={type}
           ref={forwardedRef}
           {...props}
         >
-          {icon && <span>{icon}</span>}
-          {children && <span>{children}</span>}
+          {submitting && (
+            <span className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-0`}>
+              <Loading size={size} variant={variant === 'filled' ? `white` : `primary`} />
+            </span>
+          )}
+          <span className={`${submitting ? 'opacity-0' : 'opacity-100'} inline-flex ${buttonFamilyClasses['iconPosition'][iconPosition]}`}>
+            {icon && <span>{icon}</span>}
+            {children && <span>{children}</span>}
+          </span>
         </button>
       </ConditionalLink>
     )
