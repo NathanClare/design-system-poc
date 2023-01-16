@@ -1,6 +1,8 @@
+import { XMarkIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline'
+import * as RadixPopover from '@radix-ui/react-popover'
 import React from 'react'
-import * as Popover from '@radix-ui/react-popover'
-import { MixerHorizontalIcon, Cross2Icon } from '@radix-ui/react-icons'
+
+import { Icon } from '../../components'
 
 interface IPopoverOptions {
   id: string
@@ -8,7 +10,7 @@ interface IPopoverOptions {
 }
 
 interface PopoverProps {
-  arialabel?: string
+  ariaLabel?: string
   title?: string
   disabled?: boolean
   variant?: 'filled' | 'grey'
@@ -22,7 +24,7 @@ interface IPopoverFamilyClasses {
 const popoverFamilyClasses: IPopoverFamilyClasses = {
   variant: {
     filled: {
-      button: 'text-primary-500 bg-primary-white shadow shadow-primary-100 hover:bg-primary-100',
+      button: 'text-primary-500 bg-primary-white shadow shadow-primary-100 hover:bg-primary-100 data-[state=open]:bg-primary-100',
       content: 'bg-primary-white',
       title: 'text-primary-black',
       label: 'text-primary-600',
@@ -31,7 +33,7 @@ const popoverFamilyClasses: IPopoverFamilyClasses = {
       arrow: 'fill-white'
     },
     grey: {
-      button: 'text-neutral-500 bg-neutral-100 shadow shadow-neutral-100 hover:bg-neutral-200',
+      button: 'text-neutral-500 bg-neutral-100 shadow shadow-neutral-100 hover:bg-neutral-200 data-[state=open]:bg-neutral-200',
       content: 'bg-neutral-100',
       title: 'text-primary-black',
       label: 'text-neutral-600',
@@ -42,27 +44,27 @@ const popoverFamilyClasses: IPopoverFamilyClasses = {
   }
 }
 
-const PopoverComp = ({ variant = 'filled', arialabel, title, options, disabled }: PopoverProps) => {
+const Popover = ({ variant = 'filled', ariaLabel, title, options, disabled }: PopoverProps) => {
   return (
-    <Popover.Root>
-      <Popover.Trigger asChild>
+    <RadixPopover.Root>
+      <RadixPopover.Trigger asChild>
         <button
-          className={`rounded-full h-9 w-9 inline-flex items-center justify-center focus:shadow-xl disabled:bg-neutral-200 disabled:text-neutral-700 ${popoverFamilyClasses['variant'][variant]['button']}`}
-          aria-label={arialabel}
+          className={`transition-colors rounded-full h-9 w-9 inline-flex items-center justify-center focus:shadow-xl disabled:bg-neutral-200 disabled:text-neutral-700 ${popoverFamilyClasses['variant'][variant]['button']}`}
+          aria-label={ariaLabel}
           disabled={disabled}
         >
-          <MixerHorizontalIcon />
+          <Icon variant={'standard'} disabled={true}>
+            <AdjustmentsHorizontalIcon className="h-6 w-6" />
+          </Icon>
         </button>
-      </Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Content
-          className={`rounded p-5 w-[300px] shadow will-change-transform focus:shadow-lg focus:shadow-primary-500 ${popoverFamilyClasses['variant'][variant]['content']}`}
+      </RadixPopover.Trigger>
+      <RadixPopover.Portal>
+        <RadixPopover.Content
+          className={`transition-colors rounded p-5 max-w-[300px] w-[90%] animate-fadein shadow will-change-transform focus:shadow-lg focus:shadow-primary-500 ${popoverFamilyClasses['variant'][variant]['content']}`}
           sideOffset={5}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <p className={`m-0 text-base font-medium ${popoverFamilyClasses['variant'][variant]['title']}`} style={{ marginBottom: 10 }}>
-              {title}
-            </p>
+          <div className="flex flex-col gap-2.5">
+            <p className={`m-0 text-base font-medium mt-2.5 ${popoverFamilyClasses['variant'][variant]['title']}`}>{title}</p>
 
             {options?.map(option => (
               <fieldset className="flex gap-5 items-center" key={option.id}>
@@ -76,17 +78,19 @@ const PopoverComp = ({ variant = 'filled', arialabel, title, options, disabled }
               </fieldset>
             ))}
           </div>
-          <Popover.Close
-            className={`rounded-full h-6 w-6 items-center justify-center absolute top-1 right-1 focus:shadow-xl ${popoverFamilyClasses['variant'][variant]['close']}`}
+          <RadixPopover.Close
+            className={`transition-colors rounded-full h-6 w-6 items-center justify-center absolute top-2 right-2 focus:shadow-xl ${popoverFamilyClasses['variant'][variant]['close']}`}
             aria-label="Close"
           >
-            <Cross2Icon />
-          </Popover.Close>
-          <Popover.Arrow className={`fill-white ${popoverFamilyClasses['variant'][variant]['arrow']}`} />
-        </Popover.Content>
-      </Popover.Portal>
-    </Popover.Root>
+            <Icon variant={'standard'} disabled={true}>
+              <XMarkIcon className="h-6 w-6 absolute top-0 right-0 p-1" />
+            </Icon>
+          </RadixPopover.Close>
+          <RadixPopover.Arrow className={`fill-white ${popoverFamilyClasses['variant'][variant]['arrow']}`} />
+        </RadixPopover.Content>
+      </RadixPopover.Portal>
+    </RadixPopover.Root>
   )
 }
 
-export default PopoverComp
+export default Popover

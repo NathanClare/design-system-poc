@@ -195,19 +195,19 @@ module.exports = {
         },
         slideUp: {
           from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-          slideIn: {
-            from: { transform: 'translateY(5px)', opacity: 0 },
-            to: { transform: 'translateY(0px)', opacity: 1 }
-          }
+          to: { height: '0' }
         },
-        animation: {
-          fadein: 'fadeIn 150ms ease-in',
-          scalein: 'scaleIn 120ms ease-out',
-          slideDown: 'slideDown 150ms ease-in',
-          slideUp: 'slideUp 150ms ease-in',
-          slidein: 'slideIn 130ms ease-in'
+        slideIn: {
+          from: { transform: 'translateY(5px)', opacity: 0 },
+          to: { transform: 'translateY(0px)', opacity: 1 }
         }
+      },
+      animation: {
+        fadein: 'fadeIn 150ms ease-in',
+        scalein: 'scaleIn 120ms ease-out',
+        slideDown: 'slideDown 150ms ease-in',
+        slideUp: 'slideUp 150ms ease-in',
+        slidein: 'slideIn 130ms ease-in'
       }
     },
     plugins: [
