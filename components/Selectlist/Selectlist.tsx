@@ -2,7 +2,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
 import * as RadixSelect from '@radix-ui/react-select'
 import React from 'react'
 
-import { SelectItem } from './SelectlistItem'
+import SelectItem from './SelectlistItem'
 
 interface SelectOption {
   id: string

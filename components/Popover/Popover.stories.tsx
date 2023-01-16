@@ -1,5 +1,5 @@
-import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react-dom'
 
 import PopoverComp from './Popover'
 
@@ -8,7 +8,7 @@ export default {
   component: PopoverComp,
   argTypes: {
     variant: {
-      name: 'variant',
+      name: 'Variant',
       description: 'Select the variant type',
       control: {
         type: 'radio',

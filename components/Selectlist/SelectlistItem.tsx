@@ -9,7 +9,7 @@ interface SelectItemProps {
   children: React.ReactNode
 }
 
-export const SelectItem = ({ children, className, ...props }: SelectItemProps) => {
+const SelectItem = ({ children, className, ...props }: SelectItemProps) => {
   return (
     <RadixSelect.Item
       className={classnames(
@@ -25,3 +25,5 @@ export const SelectItem = ({ children, className, ...props }: SelectItemProps) =
     </RadixSelect.Item>
   )
 }
+
+export default SelectItem
