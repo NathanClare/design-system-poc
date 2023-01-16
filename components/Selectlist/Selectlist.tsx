@@ -44,7 +44,7 @@ const Selectlist = ({ variant = 'filled', options, placeholder, ariaholder, disa
   return (
     <RadixSelect.Root>
       <RadixSelect.Trigger
-        className={`inline-flex items-center justify-center rounded px-4 text-base h-11 gap-1 bg-neutral-white shadow focus:shadow-xl disabled:bg-neutral-100 ${selectlistFamilyClasses['variant'][variant]['trigger']}`}
+        className={`inline-flex items-center justify-center rounded px-4 text-base h-11 gap-1 bg-neutral-white shadow focus:shadow-xl disabled:bg-neutral-100 disabled:border-0 ${selectlistFamilyClasses['variant'][variant]['trigger']}`}
         aria-label={ariaholder}
         disabled={disabled}
       >

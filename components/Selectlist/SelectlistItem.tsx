@@ -7,7 +7,6 @@ interface SelectItemProps {
   className?: string
   value: string
   children: React.ReactNode
-  disabled?: boolean
 }
 
 export const SelectItem = ({ children, className, ...props }: SelectItemProps) => {
