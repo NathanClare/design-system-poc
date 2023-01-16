@@ -1,5 +1,5 @@
-import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react-dom'
 
 import ToastComp from './Toast'
 
@@ -35,6 +35,14 @@ export default {
         type: 'text'
       },
       defaultValue: 'Scheduled: Catch u'
+    },
+    description: {
+      name: 'description',
+      description: 'Give description',
+      control: {
+        type: 'text'
+      },
+      defaultValue: 'Something happened.'
     },
     disabled: {
       name: 'disabled',
