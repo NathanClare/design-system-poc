@@ -1,7 +1,7 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
 import React, { type ReactElement } from 'react'
 
-import { Icon } from '../../components'
+import { Icon } from '..'
 
 interface TooltipProps {
   children: React.ReactNode

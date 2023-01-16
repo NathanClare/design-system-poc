@@ -1,7 +1,7 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react-dom'
 
-import { Radiogroup } from '../../components/'
+import { Radiogroup } from '../../components'
 
 import DialogComp from './Dialog'
 

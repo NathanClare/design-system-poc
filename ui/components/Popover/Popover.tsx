@@ -2,7 +2,7 @@ import { XMarkIcon, AdjustmentsHorizontalIcon } from '@heroicons/react/24/outlin
 import * as RadixPopover from '@radix-ui/react-popover'
 import React from 'react'
 
-import { Icon } from '../../components'
+import { Icon } from '..'
 
 interface IPopoverOptions {
   id: string

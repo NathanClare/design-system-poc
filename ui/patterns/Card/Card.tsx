@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 
 import { Typography, Buttonv2 } from '../../components'
 
@@ -25,3 +25,4 @@ const Card = ({ title, text, buttonText }: CardProps) => {
 }
 
 export default Card
+*/

@@ -1,8 +1,7 @@
-import * as Tabs from '@radix-ui/react-tabs'
+/*import * as Tabs from '@radix-ui/react-tabs'
 import React from 'react'
 
 const TabsComp = () => {
-  /* TODO: Fix 'style' esLint error */
   return (
     <Tabs.Root className="flex flex-col shadow" style={{ width: 320 }} defaultValue="tab1">
       <Tabs.List className=" flex border-b-4 border-primary-500" aria-label="Manage your account">
@@ -65,4 +64,4 @@ const TabsComp = () => {
   )
 }
 
-export default TabsComp
+export default TabsComp*/
