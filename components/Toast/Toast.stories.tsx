@@ -1,4 +1,4 @@
-/*import React from 'react-dom'
+import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import ToastComp from './Toast'
@@ -70,4 +70,3 @@ neutral.args = {
   label: 'Add to calendar in grey',
   title: 'Scheduled: Catch up in grey'
 }
-*/
