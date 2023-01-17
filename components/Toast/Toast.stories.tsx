@@ -1,24 +1,30 @@
-/*import React from 'react-dom'
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import React from 'react-dom'
 
-import ToastComp from './Toast'
+import Toast from './Toast'
 
 export default {
   title: 'Components/Toast',
-  component: ToastComp,
+  component: Toast,
   argTypes: {
     variant: {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio',
+        type: 'select',
         labels: {
-          filled: 'filled',
-          grey: 'grey'
+          success: 'success',
+          warning: 'warning',
+          info: 'info',
+          error: 'error',
+          successFilled: 'successFilled',
+          warningFilled: 'warningFilled',
+          infoFilled: 'infoFilled',
+          errorFilled: 'errorFilled'
         }
       },
-      options: ['filled', 'grey'],
-      defaultValue: 'grey'
+      options: ['success', 'warning', 'info', 'error', 'successFilled', 'warningFilled', 'infoFilled', 'errorFilled'],
+      defaultValue: 'success'
     },
     label: {
       name: 'label',
@@ -26,7 +32,7 @@ export default {
       control: {
         type: 'text'
       },
-      defaultValue: 'Add to calendar'
+      defaultValue: 'add label'
     },
     title: {
       name: 'title',
@@ -34,7 +40,23 @@ export default {
       control: {
         type: 'text'
       },
-      defaultValue: 'Scheduled: Catch u'
+      defaultValue: 'Title'
+    },
+    description: {
+      name: 'description',
+      description: 'Give description',
+      control: {
+        type: 'text'
+      },
+      defaultValue: 'Something happened.'
+    },
+    altText: {
+      name: 'altText',
+      description: 'Give altText',
+      control: {
+        type: 'text'
+      },
+      defaultValue: 'Close Toast.'
     },
     disabled: {
       name: 'disabled',
@@ -43,31 +65,107 @@ export default {
         type: 'boolean'
       },
       defaultValue: false
+    },
+    hasIcon: {
+      table: {
+        disable: true
+      }
+    },
+    duration: {
+      name: 'duration',
+      description: 'Choose duration in millisecond',
+      control: {
+        type: 'number'
+      },
+      defaultValue: 5000
     }
   }
-} as ComponentMeta<typeof ToastComp>
+} as ComponentMeta<typeof Toast>
 
-const Template: ComponentStory<typeof ToastComp> = args => {
+const Template: ComponentStory<typeof Toast> = args => {
   return (
     <div className="p-4">
-      <ToastComp {...args} />
+      <Toast {...args} />
     </div>
   )
 }
 
-export const primary = Template.bind({})
+export const success = Template.bind({})
 
-primary.args = {
-  variant: 'filled',
-  label: 'Add to calendar',
-  title: 'Scheduled: Catch up'
+success.args = {
+  variant: 'success',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
-export const neutral = Template.bind({})
+export const warning = Template.bind({})
 
-neutral.args = {
-  variant: 'grey',
-  label: 'Add to calendar in grey',
-  title: 'Scheduled: Catch up in grey'
+warning.args = {
+  variant: 'warning',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
-*/
+
+export const error = Template.bind({})
+
+error.args = {
+  variant: 'error',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
+}
+
+export const info = Template.bind({})
+
+info.args = {
+  variant: 'info',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
+}
+
+export const successFilled = Template.bind({})
+
+successFilled.args = {
+  variant: 'successFilled',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
+}
+
+export const warningFilled = Template.bind({})
+
+warningFilled.args = {
+  variant: 'warningFilled',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
+}
+
+export const errorFilled = Template.bind({})
+
+errorFilled.args = {
+  variant: 'errorFilled',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
+}
+
+export const infoFilled = Template.bind({})
+
+infoFilled.args = {
+  variant: 'infoFilled',
+  label: 'Label',
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
+}
