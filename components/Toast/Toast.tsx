@@ -11,6 +11,8 @@ interface ToastProps {
   disabled?: boolean
   hasIcon?: boolean
   variant?: 'success' | 'warning' | 'error' | 'info' | 'successFilled' | 'warningFilled' | 'errorFilled' | 'infoFilled'
+  duration: number
+  altText: string
 }
 
 type SVGElementType = (props: React.ComponentProps<'svg'>) => JSX.Element
@@ -96,7 +98,7 @@ const toastFamilyClasses: IToastFamilyClasses = {
 }
 
 // Templating
-const Toast = ({ variant = 'success', label, title, description, disabled, hasIcon = true }: ToastProps) => {
+const Toast = ({ variant = 'success', label, title, description, disabled, hasIcon = true, duration = 5000, altText = 'Close' }: ToastProps) => {
   const [open, setOpen] = React.useState(false)
   const eventDateRef = React.useRef(new Date())
   const timerRef = React.useRef(0)
@@ -134,8 +136,8 @@ const Toast = ({ variant = 'success', label, title, description, disabled, hasIc
       </button>
 
       <RadixToast.Root
-        duration={100000}
-        className={`rounded-lg shadow p-4 grid gap-x-3.5 items-center data-[state=open]:transition data-[state=open]:animate-fadein ${toastFamilyClasses['variant'][variant]['root']}`}
+        duration={duration}
+        className={`rounded-lg shadow p-4 grid gap-x-3.5 items-center data-[state=open]:transition data-[state=open]:animate-fadein data-[state=closed]:animate-fadeout ${toastFamilyClasses['variant'][variant]['root']}`}
         open={open}
         onOpenChange={setOpen}
       >
@@ -151,7 +153,7 @@ const Toast = ({ variant = 'success', label, title, description, disabled, hasIc
             {description}
           </time>
         </RadixToast.Description>
-        <RadixToast.Action className="ToastAction" asChild altText="Goto schedule to undo">
+        <RadixToast.Action className="ToastAction" asChild altText={altText}>
           <button
             className={`inline-flex items-center justify-center rounded font-medium font-sm leading-6 h-6 w-6 absolute top-12 right-10 p-1 ${toastFamilyClasses['variant'][variant]['buttonExit']}`}
           >

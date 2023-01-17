@@ -50,6 +50,14 @@ export default {
       },
       defaultValue: 'Something happened.'
     },
+    altText: {
+      name: 'altText',
+      description: 'Give altText',
+      control: {
+        type: 'text'
+      },
+      defaultValue: 'Close Toast.'
+    },
     disabled: {
       name: 'disabled',
       description: 'Choose to disable component',
@@ -62,6 +70,14 @@ export default {
       table: {
         disable: true
       }
+    },
+    duration: {
+      name: 'duration',
+      description: 'Choose duration in millisecond',
+      control: {
+        type: 'number'
+      },
+      defaultValue: 5000
     }
   }
 } as ComponentMeta<typeof Toast>
@@ -79,7 +95,9 @@ export const success = Template.bind({})
 success.args = {
   variant: 'success',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const warning = Template.bind({})
@@ -87,7 +105,9 @@ export const warning = Template.bind({})
 warning.args = {
   variant: 'warning',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const error = Template.bind({})
@@ -95,7 +115,9 @@ export const error = Template.bind({})
 error.args = {
   variant: 'error',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const info = Template.bind({})
@@ -103,7 +125,9 @@ export const info = Template.bind({})
 info.args = {
   variant: 'info',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const successFilled = Template.bind({})
@@ -111,7 +135,9 @@ export const successFilled = Template.bind({})
 successFilled.args = {
   variant: 'successFilled',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const warningFilled = Template.bind({})
@@ -119,7 +145,9 @@ export const warningFilled = Template.bind({})
 warningFilled.args = {
   variant: 'warningFilled',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const errorFilled = Template.bind({})
@@ -127,7 +155,9 @@ export const errorFilled = Template.bind({})
 errorFilled.args = {
   variant: 'errorFilled',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
 
 export const infoFilled = Template.bind({})
@@ -135,5 +165,7 @@ export const infoFilled = Template.bind({})
 infoFilled.args = {
   variant: 'infoFilled',
   label: 'Label',
-  title: 'Title'
+  title: 'Title',
+  altText: 'Close Toast',
+  duration: 5000
 }
