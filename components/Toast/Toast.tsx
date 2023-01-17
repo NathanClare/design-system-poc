@@ -1,6 +1,6 @@
 import { XMarkIcon, ExclamationCircleIcon, InformationCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import * as RadixToast from '@radix-ui/react-toast'
-import * as React from 'react'
+import React from 'react'
 
 import { Icon } from '../../components'
 
@@ -13,8 +13,11 @@ interface ToastProps {
   variant?: 'success' | 'warning' | 'error' | 'info' | 'successFilled' | 'warningFilled' | 'errorFilled' | 'infoFilled'
 }
 
+type SVGElementType = (props: React.ComponentProps<'svg'>) => JSX.Element
+
 interface IToastFamilyClasses {
   variant: Record<string, Record<string, string>>
+  icon: Record<string, SVGElementType>
 }
 
 const toastFamilyClasses: IToastFamilyClasses = {
@@ -83,6 +86,12 @@ const toastFamilyClasses: IToastFamilyClasses = {
       root: 'bg-tertiary-base',
       icon: 'text-tertiary-white'
     }
+  },
+  icon: {
+    success: CheckCircleIcon,
+    warning: XMarkIcon,
+    error: ExclamationCircleIcon,
+    info: InformationCircleIcon
   }
 }
 
@@ -96,61 +105,15 @@ const Toast = ({ variant = 'success', label, title, description, disabled, hasIc
     return () => clearTimeout(timerRef.current)
   }, [])
 
-  const IconSwitch = () => {
+  const ConditionalIcon = ({ SVGElement }: { SVGElement: SVGElementType }) => {
     if (hasIcon) {
-      switch (variant) {
-        case 'error':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <ExclamationCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'info':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <InformationCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'warning':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <ExclamationCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'success':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <CheckCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'errorFilled':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <ExclamationCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'infoFilled':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <InformationCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'warningFilled':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <ExclamationCircleIcon className={`inline h-2 w-2  p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        case 'successFilled':
-          return (
-            <Icon variant={'standard'} disabled={true}>
-              <CheckCircleIcon className={`inline h-2 w-2 p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
-            </Icon>
-          )
-        default:
-          return null
-      }
+      return (
+        <Icon variant={'standard'} disabled={true}>
+          <SVGElement className={`inline h-2 w-2 p-1 m-0 ${toastFamilyClasses['variant'][variant]['icon']}`} />
+        </Icon>
+      )
     }
+
     return null
   }
 
@@ -177,7 +140,7 @@ const Toast = ({ variant = 'success', label, title, description, disabled, hasIc
         onOpenChange={setOpen}
       >
         <RadixToast.Title className={`mb-1 font-medium text-base break-all ${toastFamilyClasses['variant'][variant]['title']}`}>
-          <IconSwitch />
+          <ConditionalIcon SVGElement={toastFamilyClasses['icon']['success']} />
           {title}
         </RadixToast.Title>
         <RadixToast.Description asChild>
