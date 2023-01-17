@@ -1,3 +1,9 @@
+import { Tabs } from '../patterns'
+
 export default function Home() {
-  return <></>
+  return (
+    <div>
+      <Tabs tabOne={''} tabTwo={''} />
+    </div>
+  )
 }
