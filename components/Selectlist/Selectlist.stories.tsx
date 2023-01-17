@@ -1,11 +1,11 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react-dom'
 
-import SelectlistComp from './Selectlist'
+import Selectlist from './Selectlist'
 
 export default {
   title: 'Components/Select List',
-  component: SelectlistComp,
+  component: Selectlist,
   argTypes: {
     variant: {
       name: 'variant',
@@ -21,7 +21,7 @@ export default {
       defaultValue: 'grey'
     },
     placeholder: {
-      name: 'tabel',
+      name: 'label',
       description: 'Provide the placeholder',
       control: {
         type: 'text'
@@ -29,7 +29,7 @@ export default {
       defaultValue: 'select something..'
     },
     ariaholder: {
-      name: 'title',
+      name: 'ariaholder',
       description: 'Provide the ariaholder',
       control: {
         type: 'text'
@@ -43,14 +43,19 @@ export default {
         type: 'boolean'
       },
       defaultValue: false
+    },
+    options: {
+      table: {
+        disable: true
+      }
     }
   }
-} as ComponentMeta<typeof SelectlistComp>
+} as ComponentMeta<typeof Selectlist>
 
-const Template: ComponentStory<typeof SelectlistComp> = args => {
+const Template: ComponentStory<typeof Selectlist> = args => {
   return (
     <div className="p-4">
-      <SelectlistComp {...args} />
+      <Selectlist {...args} />
     </div>
   )
 }
@@ -62,12 +67,10 @@ filled.args = {
   options: [
     {
       id: '1c',
-      label: 'Filled option 1',
-      values: ['green', 'blue', 'red']
+      values: ['green', 'blue', 'red', 'redred', 'bluelbue']
     },
     {
       id: '1f',
-      label: 'Filled option 2',
       values: ['orange']
     }
   ]
@@ -80,12 +83,10 @@ grey.args = {
   options: [
     {
       id: '1c',
-      label: 'Grey option 1',
       values: ['red', 'black', 'yellow']
     },
     {
       id: '1f',
-      label: 'Grey option 2',
       values: ['pink']
     }
   ]
