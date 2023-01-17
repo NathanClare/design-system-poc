@@ -66,8 +66,8 @@ const DialogComp = ({
           <Dialog.Content
             className={`relative rounded-[28px] data-[state=open]:animate-fadein h-fit data-[state=open]:animate-scalein p-6 max-w-[460px] w-[90%] focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}`}
           >
-            <Dialog.Title className={`text-lg m-0`}>{title}</Dialog.Title>
-            <Dialog.Description className={`mt-2.5 mx-0 mb-5 text-md`}>{description}</Dialog.Description>
+            <Dialog.Title className={`text-lg m-0 ${dialogFamilyClasses['variant'][variant]['title']}`}>{title}</Dialog.Title>
+            <Dialog.Description className={`mt-2.5 mx-0 mb-5 ${dialogFamilyClasses['variant'][variant]['description']}`}>{description}</Dialog.Description>
             {children}
             <div className="flex mt-6 justify-end">
               <Dialog.Close asChild>
