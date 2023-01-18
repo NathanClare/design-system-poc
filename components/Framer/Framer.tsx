@@ -1,9 +1,27 @@
 import React from 'react'
 
-const Framer = ({}) => {
+interface FramerProps {
+  variant: 'rotate' | 'wiggle'
+}
+
+interface IFramerFamilyClasses {
+  variant: Record<string, string>
+}
+
+const framerFamilyClasses: IFramerFamilyClasses = {
+  variant: {
+    wiggle: 'hover:animate-wiggle ',
+    rotate: 'hover:animate-rotate ',
+    lg: '[&>svg]:w-8 [&>svg]:h-8 p-2'
+  }
+}
+
+const Framer = ({ variant = 'rotate' }: FramerProps) => {
   return (
     <div className={`fixed flex justify-center items-center w-full h-full top-0 `}>
-      <div className={`transition hover:animate-wiggle relative rounded p-6 max-w-[60px] w-[40%] focus:outline-none bg-primary-50 text-neutral-800 z-50`}></div>
+      <div
+        className={`transition relative rounded p-6 max-w-[60px] w-[40%] focus:outline-none bg-primary-50 text-neutral-800 z-50 ${framerFamilyClasses['variant'][variant]}`}
+      ></div>
     </div>
   )
 }
