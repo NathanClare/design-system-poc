@@ -185,6 +185,10 @@ module.exports = {
           from: { opacity: '0' },
           to: { opacity: '1' }
         },
+        fadeOut: {
+          from: { opacity: '1' },
+          to: { opacity: '0' }
+        },
         scaleIn: {
           from: { transform: 'scale(1.2)', opacity: 0 },
           to: { transform: 'scale(1)', opacity: 1 }
@@ -204,6 +208,7 @@ module.exports = {
       },
       animation: {
         fadein: 'fadeIn 150ms ease-in',
+        fadeout: 'fadeOut 150ms ease-in',
         scalein: 'scaleIn 120ms ease-out',
         slideDown: 'slideDown 150ms ease-in',
         slideUp: 'slideUp 150ms ease-in',

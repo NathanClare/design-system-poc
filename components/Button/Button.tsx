@@ -1,13 +1,8 @@
-import Link from 'next/link'
 import React from 'react'
 import type { MouseEvent, ReactElement } from 'react'
 
+import ConditionalLink from '../ConditionalLink/ConditionalLink'
 import Loading from '../Loading/Loading'
-
-/* TODO: Poss. move to own component? */
-interface ConditionalLinkProps {
-  children: ReactElement
-}
 
 interface ButtonProps {
   children: string
@@ -63,26 +58,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return 'base'
     }
 
-    const ConditionalLink = ({ children }: ConditionalLinkProps) => {
-      if (href && !disabled) {
-        // External link
-        if (target) {
-          return (
-            <a href={href} target={target}>
-              {children}
-            </a>
-          )
-        }
-
-        // Internal link
-        return <Link href={href}>{children}</Link>
-      }
-
-      return children
-    }
-
     return (
-      <ConditionalLink>
+      <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
           className={`rounded-full transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
             buttonFamilyClasses['variant'][variant][getState()]
