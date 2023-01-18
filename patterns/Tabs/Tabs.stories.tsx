@@ -4,7 +4,7 @@ import React from 'react'
 import Tabs from './Tabs'
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Patterns/Tabs',
   component: Tabs,
   argTypes: {
     variant: {
