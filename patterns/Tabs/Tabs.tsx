@@ -1,4 +1,5 @@
 import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu'
+import { ChevronDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import React, { useState, useEffect } from 'react'
 
@@ -28,15 +29,28 @@ const tabsFamilyClasses: ITabsFamilyClasses = {
   variant: {
     line: {
       trigger:
-        'data-[state=active]:border-b-4 data-[state=active]:text-primary-500 hover:text-primary-300 focus:relative disabled:bg-neutral-50 disabled:text:neutral-500 disabled:mx-px'
+        'data-[state=active]:border-b-4 data-[state=active]:text-primary-500 hover:text-primary-300 focus:relative disabled:bg-neutral-50 disabled:text:neutral-500 disabled:mx-px',
+      triggerDropdown:
+        'data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500 border-b-4 border-primary-base',
+      contentDropdown:
+        'data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500 border-b-4 border-primary-300',
+      chevron: 'text-primary-600'
     },
     softRounded: {
       trigger:
-        'rounded-full data-[state=active]:bg-primary-100 data-[state=active]:text-primary-600 hover:text-primary-300 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500'
+        'rounded-full data-[state=active]:bg-primary-100 data-[state=active]:text-primary-600 hover:text-primary-300 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      triggerDropdown: 'rounded-full bg-primary-200 text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      contentDropdown: 'rounded-full hover:bg-primary-200 text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      chevron: 'text-neutral-600'
     },
     solidRounded: {
       trigger:
-        'rounded-full data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500'
+        'rounded-full data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      triggerDropdown:
+        'rounded-full bg-primary-600 text-primary-white hover:shadow-lg focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      contentDropdown:
+        'rounded-full hover:text-primary-600 text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500 border',
+      chevron: 'text-neutral-white'
     }
   }
 }
@@ -86,20 +100,21 @@ const Tabs = ({ size = 'md', variant = 'line', options, disabled }: TabsProps) =
         <RadixDropdownMenu.Root>
           <RadixDropdownMenu.Trigger asChild>
             <button
-              className={`bg-primary-white px-5 h-11 flex bg-primary-25 items-center justify-center select-none ${tabsFamilyClasses['size'][size]} ${tabsFamilyClasses['variant'][variant]['trigger']}`}
+              className={`bg-primary-white px-5 h-11 flex items-center justify-center select-none group ${tabsFamilyClasses['size'][size]} ${tabsFamilyClasses['variant'][variant]['triggerDropdown']}`}
               disabled={disabled}
             >
               {currentTab}
+              <ChevronDownIcon className={`transition group-data-[state=open]:rotate-180 ${tabsFamilyClasses['variant'][variant]['chevron']}`} aria-hidden />
             </button>
           </RadixDropdownMenu.Trigger>
 
           <RadixDropdownMenu.Portal>
-            <RadixDropdownMenu.Content className="min-w-[220px] bg-primary-white border-lg p-1 shadow" sideOffset={5}>
+            <RadixDropdownMenu.Content className="min-w-[125px] max-w-[300px] bg-transparent p-1" sideOffset={5}>
               {options?.map(({ id, value, label }) => (
                 <div key={id}>
                   <RadixDropdownMenu.RadioItem
                     onClick={() => setCurrentTab(label)}
-                    className="font-base text-primary-600 flex items-center h-6 p-1 relative pl-6 cursor-select outline-none"
+                    className={`bg-primary-white px-5 h-11 flex items-center justify-center select-none group cursor-select outline-none m-2 ${tabsFamilyClasses['size'][size]} ${tabsFamilyClasses['variant'][variant]['contentDropdown']}`}
                     value={value}
                   >
                     {label}
