@@ -11,9 +11,9 @@ export default {
       name: 'variant',
       description: 'Select the variant type',
       control: {
-        type: 'radio'
+        type: 'select'
       },
-      options: ['rotate', 'wiggle'],
+      options: ['rotate', 'wiggle', 'jump', 'drop', 'shake'],
       defaultValue: 'standard'
     }
   }
@@ -27,8 +27,8 @@ const Template: ComponentStory<typeof Framer> = args => {
   )
 }
 
-export const rotate = Template.bind({})
+export const primary = Template.bind({})
 
-rotate.args = {
+primary.args = {
   variant: 'rotate'
 }

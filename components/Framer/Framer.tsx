@@ -12,7 +12,9 @@ const framerFamilyClasses: IFramerFamilyClasses = {
   variant: {
     wiggle: 'hover:animate-wiggle ',
     rotate: 'hover:animate-rotate ',
-    lg: '[&>svg]:w-8 [&>svg]:h-8 p-2'
+    jump: 'hover:animate-jump ',
+    drop: 'hover:animate-drop ',
+    shake: 'hover:animate-shake '
   }
 }
 
