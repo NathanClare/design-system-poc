@@ -8,7 +8,7 @@ interface AccordionContentProps {
 
 export const RadixAccordionContent = ({ children }: AccordionContentProps) => {
   return (
-    <RadixAccordion.Content className="overflow-hdden text-base text-neutral-600 bg-neutral-200 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
+    <RadixAccordion.Content className="overflow-hdden text-base text-neutral-600 bg-neutral-200 data-[state=open]:animate-slidedownAccordion data-[state=closed]:animate-slideupAccordion">
       <div className="py-4 px-5">{children}</div>
     </RadixAccordion.Content>
   )

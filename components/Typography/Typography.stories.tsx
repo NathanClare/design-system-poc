@@ -49,6 +49,11 @@ export default {
       },
       options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'base'],
       defaultValue: 'base'
+    },
+    animate: {
+      name: 'animation',
+      description: 'Select the animation type',
+      defaultValue: 'base'
     }
   }
 } as ComponentMeta<typeof Typography>

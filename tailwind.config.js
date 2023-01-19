@@ -193,26 +193,37 @@ module.exports = {
           from: { transform: 'scale(1.2)', opacity: 0 },
           to: { transform: 'scale(1)', opacity: 1 }
         },
-        slideDown: {
+        slideDownAccordion: {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' }
         },
-        slideUp: {
+        slideUpAccordion: {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
         },
         slideIn: {
           from: { transform: 'translateY(5px)', opacity: 0 },
           to: { transform: 'translateY(0px)', opacity: 1 }
+        },
+        slideUp: {
+          from: { transform: 'translateY(100%)' },
+          to: { height: 'translateY(0)' }
+        },
+        zoomIn: {
+          from: { transform: 'scale(0, 0)' },
+          to: { transform: 'scale(1, 1)' }
         }
       },
       animation: {
         fadein: 'fadeIn 150ms ease-in',
         fadeout: 'fadeOut 150ms ease-in',
         scalein: 'scaleIn 120ms ease-out',
-        slideDown: 'slideDown 150ms ease-in',
-        slideUp: 'slideUp 150ms ease-in',
-        slidein: 'slideIn 130ms ease-in'
+        slidedownAccordion: 'slideDownAccordion 150ms ease-in',
+        slideupAccordion: 'slideUpAccordion 150ms ease-in',
+        slidein: 'slideIn 130ms ease-in',
+        slideinLg: 'slideIn 500ms ease-in',
+        slideup: 'slideUp 500ms ease-out',
+        zoomin: 'zoomIn 500ms ease-out'
       }
     },
     plugins: [

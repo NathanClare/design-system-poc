@@ -81,6 +81,11 @@ export default {
       table: {
         disable: true
       }
+    },
+    animate: {
+      name: 'animation',
+      description: 'Select the animation type',
+      defaultValue: 'base'
     }
   }
 } as ComponentMeta<typeof Button>

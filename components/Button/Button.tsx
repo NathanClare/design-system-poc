@@ -16,12 +16,14 @@ interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
   icon?: ReactElement
   iconPosition?: 'left' | 'right'
+  animate: 'bounce' | 'base'
 }
 
 interface IButtonFamilyClasses {
   size: Record<string, string>
   variant: Record<string, Record<string, string>>
   iconPosition: Record<string, string>
+  animate: Record<string, string>
 }
 
 const buttonFamilyClasses: IButtonFamilyClasses = {
@@ -47,11 +49,18 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   iconPosition: {
     left: '[&>span+span]:ml-2 [&>*:first-child]:order-first',
     right: '[&>span+span]:mr-2 [&>*:first-child]:order-last'
+  },
+  animate: {
+    bounce: 'transition animate-bounce',
+    base: ''
   }
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, size = 'lg', variant = 'filled', disabled, submitting, href, target, type = 'button', icon, iconPosition = 'left', ...props }, forwardedRef) => {
+  (
+    { children, size = 'lg', variant = 'filled', disabled, submitting, href, target, type = 'button', icon, iconPosition = 'left', animate = 'base', ...props },
+    forwardedRef
+  ) => {
     const getState = () => {
       if (disabled) return 'disabled'
 
@@ -61,7 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
-          className={`rounded-full transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
+          className={`rounded-full transition-colors items-center relative ${buttonFamilyClasses['animate'][animate]} ${buttonFamilyClasses['size'][size]} ${
             buttonFamilyClasses['variant'][variant][getState()]
           }`}
           disabled={disabled}
