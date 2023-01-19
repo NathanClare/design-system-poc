@@ -1,68 +1,132 @@
-import * as Tabs from '@radix-ui/react-tabs'
-import React from 'react'
+import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu'
+import { ChevronDownIcon } from '@radix-ui/react-icons'
+import * as RadixTabs from '@radix-ui/react-tabs'
+import React, { useState, useEffect } from 'react'
 
-const TabsComp = () => {
-  /* TODO: Fix 'style' esLint error */
+interface ITabsOptions {
+  id: string
+  label: string
+  value: string
+}
+
+interface TabsProps {
+  size?: 'lg' | 'md' | 'sm'
+  variant?: 'line' | 'softRounded' | 'solidRounded'
+  disabled?: boolean
+  options: Array<ITabsOptions>
+}
+
+interface ITabsFamilyClasses {
+  size: Record<string, string>
+  variant: Record<string, Record<string, string>>
+}
+
+const tabsFamilyClasses: ITabsFamilyClasses = {
+  size: {
+    sm: 'text-sm',
+    md: 'text-md'
+  },
+  variant: {
+    line: {
+      trigger:
+        'data-[state=active]:border-b-4 data-[state=active]:text-primary-500 hover:text-primary-300 focus:relative disabled:bg-neutral-50 disabled:text:neutral-500 disabled:mx-px',
+      triggerDropdown:
+        'data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500 border-b-4 border-primary-base',
+      contentDropdown:
+        'data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500 border-b-4 border-primary-300',
+      chevron: 'text-primary-600'
+    },
+    softRounded: {
+      trigger:
+        'rounded-full data-[state=active]:bg-primary-100 data-[state=active]:text-primary-600 hover:text-primary-300 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      triggerDropdown: 'rounded-full bg-primary-200 text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      contentDropdown: 'rounded-full hover:bg-primary-200 text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      chevron: 'text-neutral-600'
+    },
+    solidRounded: {
+      trigger:
+        'rounded-full data-[state=active]:bg-primary-600 data-[state=active]:text-primary-white hover:text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      triggerDropdown:
+        'rounded-full bg-primary-600 text-primary-white hover:shadow-lg focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500',
+      contentDropdown:
+        'rounded-full hover:text-primary-600 text-primary-600 focus:relative focus:shadow-lg disabled:bg-neutral-50 disabled:text:neutral-500 border',
+      chevron: 'text-neutral-white'
+    }
+  }
+}
+
+const useBreakpoint = (breakpoint: number) => {
+  const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
+  const [isAboveBreakpoint, setIsAboveBreakpoint] = useState(currentWidth > breakpoint)
+
+  useEffect(() => {
+    const handleResize = () => setCurrentWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    setIsAboveBreakpoint(currentWidth > breakpoint)
+  }, [currentWidth, breakpoint])
+
+  return isAboveBreakpoint
+}
+
+const Tabs = ({ size = 'md', variant = 'line', options, disabled }: TabsProps) => {
+  const isAboveBreakpoint = useBreakpoint(768)
+  const [currentTab, setCurrentTab] = useState(options[0].label)
+
   return (
-    <Tabs.Root className="flex flex-col shadow" style={{ width: 320 }} defaultValue="tab1">
-      <Tabs.List className=" flex border-b-4 border-primary-500" aria-label="Manage your account">
-        <Tabs.Trigger
-          className="bg-primary-white px-5 h-11 flex-1 flex items-center justify-center select-none text-neutral-300 data-[state=active]:text-primary-500 data-[state=active]:shadow first:rounded-tl-lg last:rounded-tr-lg hover:text-primary-300 focus:relative focus:shadow-lg"
-          value="tab1"
-        >
-          Account
-        </Tabs.Trigger>
-        <Tabs.Trigger
-          className={`bg-primary-white px-5 h-11 flex-1 flex items-center justify-center select-none text-neutral-300 data-[state=active]:text-primary-500 data-[state=active]:shadow first:rounded-tl-lg last:rounded-tr-lg hover:text-primary-300 focus:relative focus:shadow-lg`}
-          value="tab2"
-        >
-          Password
-        </Tabs.Trigger>
-      </Tabs.List>
-      <Tabs.Content className="TabsContent rounded-tl-lg rounded-tr-lg outline-none grow p-5 bg-primary-white focus:shadow" value="tab1">
-        <p className="Text">Make changes to your account here. Click save when you're done.</p>
-        <fieldset className="mb-3.5 w-full flex flex-col justify-start">
-          <label className="mb-2 text-neutral-500 block" htmlFor="name">
-            Name
-          </label>
-          <input className="Input flex-auto rounded text-primary-500 text-base h-9 shadow shadow-black" id="name" defaultValue="Pedro Duarte" />
-        </fieldset>
-        <fieldset className="b-3.5 w-full flex flex-col justify-start">
-          <label className="mb-2 text-neutral-500 block" htmlFor="username">
-            Username
-          </label>
-          <input className="Input" id="username" defaultValue="@peduarte" />
-        </fieldset>
-        <div style={{ display: 'flex', marginTop: 20, justifyContent: 'flex-end' }}>
-          <button className="Button green">Save changes</button>
-        </div>
-      </Tabs.Content>
-      <Tabs.Content className="TabsContent" value="tab2">
-        <p className="Text">Change your password here. After saving, you'll be logged out.</p>
-        <fieldset className="b-3.5 w-full flex flex-col justify-start">
-          <label className="mb-2 text-neutral-500 block" htmlFor="currentPassword">
-            Current password
-          </label>
-          <input className="Input" id="currentPassword" type="password" />
-        </fieldset>
-        <fieldset className="b-3.5 w-full flex flex-col justify-start">
-          <label className="mb-2 text-neutral-500 block" htmlFor="newPassword">
-            New password
-          </label>
-          <input className="Input" id="newPassword" type="password" />
-        </fieldset>
-        <fieldset className="b-3.5 w-full flex flex-col justify-start">
-          <label className="mb-2 text-neutral-500 block" htmlFor="confirmPassword">
-            Confirm password
-          </label>
-          <input className="Input" id="confirmPassword" type="password" />
-        </fieldset>
-        <div style={{ display: 'flex', marginTop: 20, justifyContent: 'flex-end' }}>
-          <button className="Button green">Change password</button>
-        </div>
-      </Tabs.Content>
-    </Tabs.Root>
+    <div>
+      {isAboveBreakpoint ? (
+        <RadixTabs.Root className="flex shadow max-w-11/12 w-11/12" defaultValue="tab1">
+          <RadixTabs.List className="flex absolute h-full w-full top-0 left:0 flex mx-2 font-medium" aria-label="Manage tabs">
+            {options?.map(({ id, value, label }) => (
+              <div key={id}>
+                <RadixTabs.Trigger
+                  onClick={() => setCurrentTab(label)}
+                  className={`bg-primary-white px-5 h-11 flex items-center justify-center select-none ${tabsFamilyClasses['size'][size]} ${tabsFamilyClasses['variant'][variant]['trigger']}`}
+                  value={value}
+                  disabled={disabled}
+                >
+                  {label}
+                </RadixTabs.Trigger>
+              </div>
+            ))}
+          </RadixTabs.List>
+        </RadixTabs.Root>
+      ) : (
+        <RadixDropdownMenu.Root>
+          <RadixDropdownMenu.Trigger asChild>
+            <button
+              className={`bg-primary-white px-5 h-11 flex items-center justify-center select-none group ${tabsFamilyClasses['size'][size]} ${tabsFamilyClasses['variant'][variant]['triggerDropdown']}`}
+              disabled={disabled}
+            >
+              {currentTab}
+              <ChevronDownIcon className={`transition group-data-[state=open]:rotate-180 ${tabsFamilyClasses['variant'][variant]['chevron']}`} aria-hidden />
+            </button>
+          </RadixDropdownMenu.Trigger>
+
+          <RadixDropdownMenu.Portal>
+            <RadixDropdownMenu.Content className="min-w-[125px] max-w-[300px] bg-transparent p-1" sideOffset={5}>
+              {options?.map(({ id, value, label }) => (
+                <div key={id}>
+                  <RadixDropdownMenu.RadioItem
+                    onClick={() => setCurrentTab(label)}
+                    className={`bg-primary-white px-5 h-11 flex items-center justify-center select-none group cursor-select outline-none m-2 ${tabsFamilyClasses['size'][size]} ${tabsFamilyClasses['variant'][variant]['contentDropdown']}`}
+                    value={value}
+                  >
+                    {label}
+                  </RadixDropdownMenu.RadioItem>
+                </div>
+              ))}
+            </RadixDropdownMenu.Content>
+          </RadixDropdownMenu.Portal>
+        </RadixDropdownMenu.Root>
+      )}
+    </div>
   )
 }
 
-export default TabsComp
+export default Tabs
