@@ -10,37 +10,28 @@ interface IBreadcrumbOptions {
 interface BreadcrumbProps {
   homeLinkLabel?: string
   hrefHome: string
-  variant: 'standard' | 'odd'
+  variant: '/' | '>' | '→'
   options: Array<IBreadcrumbOptions>
 }
 
-interface IBreadcrumbFamilyClasses {
-  variant: Record<string, Record<string, string>>
-}
-
-const breadcrumbFamilyClasses: IBreadcrumbFamilyClasses = {
-  variant: {
-    standard: {
-      base: 'mx-3'
-    },
-    odd: {
-      base: 'ml-1'
-    }
-  }
-}
-
-// eslint-disable-next-line react/display-name
-const Breadcrumb = React.forwardRef<HTMLButtonElement, BreadcrumbProps>(({ variant = 'standard', options, homeLinkLabel = 'home', hrefHome }) => {
+const Breadcrumb = ({ variant = '/', options, homeLinkLabel = 'home', hrefHome }: BreadcrumbProps) => {
   return (
-    <div className="inline">
-      <Link href={hrefHome}>{homeLinkLabel}</Link>
-      {options?.map(({ id, label, href }) => (
-        <div className={`inline-block ${breadcrumbFamilyClasses['variant'][variant]['base']}`} key={id}>
-          <Link href={href}>{label}</Link>
-        </div>
-      ))}
-    </div>
+    <nav className="inline">
+      <ol>
+        <li className="inline">
+          <Link href={hrefHome}>{homeLinkLabel}</Link>
+        </li>
+        {options?.map(({ id, label, href }) => (
+          <li className={`inline-block`} key={id}>
+            <span className={`inline-block mx-3`} aria-hidden="true">
+              {variant}
+            </span>
+            <Link href={href}>{label}</Link>
+          </li>
+        ))}
+      </ol>
+    </nav>
   )
-})
+}
 
 export default Breadcrumb
