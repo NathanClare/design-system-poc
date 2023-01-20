@@ -204,6 +204,38 @@ module.exports = {
         slideIn: {
           from: { transform: 'translateY(5px)', opacity: 0 },
           to: { transform: 'translateY(0px)', opacity: 1 }
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-6deg)' },
+          '50%': { transform: 'rotate(6deg)' }
+        },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '60%': { transform: 'rotate(215deg)' },
+          '100%': { transform: 'rotate(180deg)' }
+        },
+        jump: {
+          '0%': { transform: 'translateY(0px)' },
+          '60%': { transform: 'translateY(-20px)' },
+          '100%': { transform: 'translateY(0px)' }
+        },
+        drop: {
+          '0%': { transform: 'translateY(0px)' },
+          '60%': { transform: 'translateY(20px)' },
+          '100%': { transform: 'translateY(0px)' }
+        },
+        shake: {
+          '0%': { transform: 'translateY(0px)' },
+          '10%': { transform: 'translateY(-5px)' },
+          '20%': { transform: 'translateX(-5px)' },
+          '30%': { transform: 'translateY(5px)' },
+          '40%': { transform: 'translateX(5px)' },
+          '50%': { transform: 'translateY(-5px)' },
+          '60%': { transform: 'translateX(-5px)' },
+          '70%': { transform: 'translateY(5px)' },
+          '80%': { transform: 'translateX(5px)' },
+          '90%': { transform: 'translateX(-5px)' },
+          '100%': { transform: 'translateY(0px)' }
         }
       },
       animation: {
@@ -212,7 +244,12 @@ module.exports = {
         scalein: 'scaleIn 120ms ease-out',
         slideDown: 'slideDown 150ms ease-in',
         slideUp: 'slideUp 150ms ease-in',
-        slidein: 'slideIn 130ms ease-in'
+        slidein: 'slideIn 130ms ease-in',
+        wiggle: 'wiggle 150ms ease-in',
+        rotate: 'rotate 650ms ease-in-out',
+        jump: 'jump 650ms ease-in-out',
+        drop: 'drop 650ms ease-in-out',
+        shake: 'shake 650ms ease-in-out'
       }
     },
     plugins: [
