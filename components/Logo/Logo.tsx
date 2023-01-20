@@ -1,43 +1,51 @@
 import React from 'react'
 
-import LogoWhite from '../../assets/svgs/Dark=Light.svg'
-import LogoBlack from '../../assets/svgs/youwe-logo-rgb-allblack.svg'
-import LogoRed from '../../assets/svgs/youwe-logo-rgb.svg'
+import LogoBlack from '../../assets/svgs/youwe-logo-black.svg'
+import LogoRedBlack from '../../assets/svgs/youwe-logo-standard-black.svg'
+import LogoRedWhite from '../../assets/svgs/youwe-logo-standard-white.svg'
+import LogoWhite from '../../assets/svgs/youwe-logo-white.svg'
 
 interface LogoProps {
   size?: 'lg' | 'md' | 'sm'
+  variant: 'standardWhite' | 'standardBlack' | 'white' | 'black'
 }
 
 interface ILogoFamilyClasses {
-  size: Record<string, string>
+  size: Record<string, Record<string, string>>
   variant: Record<string, React.FunctionComponent<React.SVGProps<SVGSVGElement>>>
 }
 
 const logoFamilyClasses: ILogoFamilyClasses = {
   size: {
-    sm: 'w-[50px] h-[50px]',
-    md: 'w-[100px] h-[100px]',
-    lg: 'w-[200px] h-[200px]'
+    sm: {
+      wrapper: 'h-[50px] w-[50px]',
+      svg: 'h-full w-full'
+    },
+    md: {
+      wrapper: 'h-[100px] w-[100px]',
+      svg: 'h-full w-full'
+    },
+    lg: {
+      wrapper: 'h-[150px] w-[150px]',
+      svg: 'h-full w-full'
+    }
   },
   variant: {
-    standard: LogoRed,
+    standardWhite: LogoRedWhite,
+    standardBlack: LogoRedBlack,
     white: LogoWhite,
     black: LogoBlack
   }
 }
 
-const Logo = ({ size = 'md' }: LogoProps) => {
+const Logo = ({ size = 'md', variant = 'standardBlack' }: LogoProps) => {
   const ConditionalLogo = ({ SVGElement }: { SVGElement: React.FunctionComponent<React.SVGProps<SVGSVGElement>> }) => {
-    return (
-      <div>
-        <SVGElement className={`block ${logoFamilyClasses['size'][size]}`} />
-      </div>
-    )
+    return <SVGElement className={`${logoFamilyClasses['size'][size]['svg']}`} />
   }
 
   return (
-    <div>
-      <ConditionalLogo SVGElement={logoFamilyClasses['variant']['standard']} />
+    <div className={`${logoFamilyClasses['size'][size]['wrapper']}`}>
+      <ConditionalLogo SVGElement={logoFamilyClasses['variant'][variant]} />
     </div>
   )
 }
