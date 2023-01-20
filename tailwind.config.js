@@ -244,6 +244,10 @@ module.exports = {
           '80%': { transform: 'translateX(5px)' },
           '90%': { transform: 'translateX(-5px)' },
           '100%': { transform: 'translateY(0px)' }
+        },
+        flow: {
+          from: { background: 'bg-primary-25' },
+          to: { background: 'bg-primary-900' }
         }
       },
       animation: {
@@ -263,7 +267,8 @@ module.exports = {
         rotate: 'rotate 650ms ease-in-out',
         jump: 'jump 650ms ease-in-out',
         drop: 'drop 650ms ease-in-out',
-        shake: 'shake 650ms ease-in-out'
+        shake: 'shake 650ms ease-in-out infinite',
+        flow: 'flow 1s linear infinite;'
       }
     },
     plugins: [

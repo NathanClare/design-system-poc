@@ -64,7 +64,7 @@ const DialogComp = ({
           className={`fixed flex justify-center items-center w-full h-full top-0 data-[state=open]:animate-fadein data-[state=open]:bg-primary-white/70 ${dialogFamilyClasses['variant'][variant]['overlay']}`}
         >
           <Dialog.Content
-            className={`relative rounded-[28px] data-[state=open]:animate-fadein h-fit data-[state=open]:animate-scalein p-6 max-w-[460px] w-[90%] focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}`}
+            className={`relative rounded-[28px] data-[state=open]:animate-fadein h-fit p-6 max-w-[460px] w-[90%] focus:outline-none ${dialogFamilyClasses['variant'][variant]['content']}`}
           >
             <Dialog.Title className={`text-lg m-0 ${dialogFamilyClasses['variant'][variant]['title']}`}>{title}</Dialog.Title>
             <Dialog.Description className={`mt-2.5 mx-0 mb-5 ${dialogFamilyClasses['variant'][variant]['description']}`}>{description}</Dialog.Description>

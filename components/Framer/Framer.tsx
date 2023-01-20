@@ -31,7 +31,7 @@ const Framer = ({ variant = 'base', extend = 'no' }: FramerProps) => {
   return (
     <div className={`fixed flex justify-center items-center w-full h-full top-0 ${framerFamilyClasses['extend'][extend]}`}>
       <div
-        className={` transition relative rounded p-6 max-w-[60px] w-[40%] focus:outline-none bg-primary-50 text-neutral-800 z-50 ${framerFamilyClasses['variant'][variant]}`}
+        className={` transition relative rounded p-6 max-w-[60px] w-[40%] bg-primary-100 focus:outline-none animate-flow z-50 ${framerFamilyClasses['variant'][variant]}`}
       ></div>
     </div>
   )

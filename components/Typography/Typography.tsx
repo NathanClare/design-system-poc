@@ -4,7 +4,7 @@ interface TypographyProps {
   children: string
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span'
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'base'
-  animate: 'slide' | 'slideup' | 'zoomin' | 'base'
+  animate?: 'slide' | 'slideup' | 'zoomin' | 'base'
 }
 
 interface ITypographyFamilyClasses {
@@ -32,7 +32,7 @@ const typographyFamilyClasses: ITypographyFamilyClasses = {
   }
 }
 
-const Typography = ({ tag = 'span', size = 'base', animate = 'slide', children }: TypographyProps) => {
+const Typography = ({ tag = 'span', size = 'base', animate = 'base', children }: TypographyProps) => {
   const Element = tag
 
   return (
