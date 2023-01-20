@@ -13,15 +13,6 @@ export default {
       control: {
         type: 'radio'
       }
-    },
-    variant: {
-      name: 'variant',
-      description: 'Select the variant type',
-      control: {
-        type: 'radio'
-      },
-      options: ['standard', 'white', 'black'],
-      defaultValue: 'standard'
     }
   }
 } as ComponentMeta<typeof Logo>
@@ -35,20 +26,16 @@ const Template: ComponentStory<typeof Logo> = args => (
 export const standard = Template.bind({})
 
 standard.args = {
-  size: 'md',
-  variant: 'standard'
+  size: 'md'
 }
 
 export const white = Template.bind({})
 
 white.args = {
-  size: 'md',
-  variant: 'white'
+  size: 'md'
 }
-
 export const black = Template.bind({})
 
 black.args = {
-  size: 'md',
-  variant: 'black'
+  size: 'md'
 }
