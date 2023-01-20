@@ -16,7 +16,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb = ({ variant = '/', options, homeLinkLabel = 'home', hrefHome }: BreadcrumbProps) => {
   return (
-    <nav className="inline">
+    <nav className="inline" aria-label="breadcrumbs">
       <ol>
         <li className="inline">
           <Link href={hrefHome}>{homeLinkLabel}</Link>
@@ -26,7 +26,9 @@ const Breadcrumb = ({ variant = '/', options, homeLinkLabel = 'home', hrefHome }
             <span className={`inline-block mx-3`} aria-hidden="true">
               {variant}
             </span>
-            <Link href={href}>{label}</Link>
+            <Link aria-current="location" href={href}>
+              {label}
+            </Link>
           </li>
         ))}
       </ol>
