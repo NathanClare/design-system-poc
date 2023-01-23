@@ -19,15 +19,15 @@ const logoFamilyClasses: ILogoFamilyClasses = {
   size: {
     sm: {
       wrapper: 'h-[50px] w-[50px]',
-      svg: 'h-full w-full'
+      svg: '[&>svg]:h-full [&>svg]:w-full'
     },
     md: {
       wrapper: 'h-[100px] w-[100px]',
-      svg: 'h-full w-full'
+      svg: '[&>svg]:h-full [&>svg]:w-full'
     },
     lg: {
       wrapper: 'h-[150px] w-[150px]',
-      svg: 'h-full w-full'
+      svg: '[&>svg]:h-full [&>svg]:w-full'
     }
   },
   variant: {
