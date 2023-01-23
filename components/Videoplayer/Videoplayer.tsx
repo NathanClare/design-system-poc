@@ -3,36 +3,30 @@ import React from 'react'
 interface VideoplayerProps {
   src: string
   size: 'sm' | 'md' | 'lg'
-  variant: 'primary' | 'secondary'
+  loop?: boolean
+  controls?: boolean
+  autoplay?: boolean
 }
 
 interface IVideoplayerClasses {
   size: Record<string, string>
-  variant: Record<string, string>
 }
 
 const videoplayerClasses: IVideoplayerClasses = {
   size: {
-    sm: '[&>span]:w-1 [&>span]:h-1',
-    md: '[&>span]:w-1.5 [&>span]:h-1.5',
-    lg: '[&>span]:w-2 [&>span]:h-2'
-  },
-  variant: {
-    primary: '[&>span]:bg-primary-400',
-    secondary: '[&>span]:bg-neutral-200'
+    sm: 'w-[200px] h-[200px]',
+    md: 'w-[500px] h-[500px]',
+    lg: 'max-w-full max-h-full'
   }
 }
 
-const VideoPlayer = ({ src, size = 'md', variant = 'primary' }: VideoplayerProps) => {
+const VideoPlayer = ({ src, size = 'md', loop, controls, autoplay = true }: VideoplayerProps) => {
   return (
     <div
-      className={`flex [&>span]:inline-block [&>span+span]:ml-2 [&>span]:rounded-full 
-    [&>span]:animate-bounce [&>span:last-child]:animation-delay-200 
-    [&>span:nth-child(2)]:animation-delay-100 
-    ${videoplayerClasses['size'][size]} 
-    ${videoplayerClasses['variant'][variant]}`}
+      className={`inline-flex items-center justify-center
+    ${videoplayerClasses['size'][size]} `}
     >
-      <video controls>
+      <video className={`h-full w-full`} loop={loop} controls={controls} autoPlay={autoplay}>
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
