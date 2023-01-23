@@ -7,9 +7,9 @@ export default {
   title: 'Patterns/Breadcrumb',
   component: Breadcrumb,
   argTypes: {
-    variant: {
-      name: 'variant',
-      description: 'Select the what icon goes between the breadcrumbs',
+    seperator: {
+      name: 'seperator',
+      description: 'Select which icon goes between the breadcrumbs',
       options: ['/', '>', '→'],
       defaultValue: '>'
     },
@@ -32,10 +32,10 @@ const Template: ComponentStory<typeof Breadcrumb> = args => {
 export const standard = Template.bind({})
 
 standard.args = {
-  variant: '>',
+  seperator: '>',
   homeLinkLabel: 'standard',
   hrefHome: '/',
-  options: [
+  breadcrumbs: [
     {
       id: '1c',
       label: 'page 1',
@@ -44,18 +44,22 @@ standard.args = {
     {
       id: '1f',
       label: 'page 2',
-      href: '/'
+      href: '/product'
     }
-  ]
+  ],
+  currentUrl: '/product',
+  backCallback: () => {
+    return null
+  }
 }
 
 export const odd = Template.bind({})
 
 odd.args = {
-  variant: '/',
+  seperator: '/',
   homeLinkLabel: 'standard',
   hrefHome: '/',
-  options: [
+  breadcrumbs: [
     {
       id: '1b',
       label: 'option 1',
