@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-import Button from '../Button/Button'
+import { Button } from '@/ui/components'
 
 interface ILink {
   id: string
