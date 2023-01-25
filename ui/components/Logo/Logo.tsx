@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { type ComponentProps } from 'react'
 
-import LogoBlack from '../../assets/svgs/youwe-logo-black.svg'
-import LogoRedBlack from '../../assets/svgs/youwe-logo-standard-black.svg'
-import LogoRedWhite from '../../assets/svgs/youwe-logo-standard-white.svg'
-import LogoWhite from '../../assets/svgs/youwe-logo-white.svg'
+import YouweLogoBase from '../../../assets/herosvgs/youwe-logo-base'
+import YouweLogoBaseW from '../../../assets/herosvgs/youwe-logo-base-w'
+import YouweLogoBlack from '../../../assets/herosvgs/youwe-logo-black'
+import YouweLogoWhite from '../../../assets/herosvgs/youwe-logo-white'
+// import LogoBlack from '../../../assets/svgs/youwe-logo-black.svg'
+// import LogoRedBlack from '../../../assets/svgs/youwe-logo-standard-black.svg'
+// import LogoRedWhite from '../../../assets/svgs/youwe-logo-standard-white.svg'
+// import LogoWhite from '../../../assets/svgs/youwe-logo-white.svg'
 
 interface LogoProps {
   size?: 'lg' | 'md' | 'sm'
   variant: 'standardWhite' | 'standardBlack' | 'white' | 'black'
 }
 
+type SVGElementType = (props: ComponentProps<'svg'>) => JSX.Element
+
 interface ILogoFamilyClasses {
   size: Record<string, Record<string, string>>
-  variant: Record<string, React.FunctionComponent<React.SVGProps<SVGSVGElement>>>
+  // variant: Record<string, React.FunctionComponent<React.SVGProps<SVGSVGElement>>>
+  variant: Record<string, SVGElementType>
 }
 
 const logoFamilyClasses: ILogoFamilyClasses = {
@@ -31,10 +38,13 @@ const logoFamilyClasses: ILogoFamilyClasses = {
     }
   },
   variant: {
-    standardWhite: LogoRedWhite,
-    standardBlack: LogoRedBlack,
-    white: LogoWhite,
-    black: LogoBlack
+    // standardWhite: LogoRedWhite,
+    standardWhite: YouweLogoBase,
+    standardBlack: YouweLogoBaseW,
+    white: YouweLogoWhite,
+    black: YouweLogoBlack
+    // white: LogoWhite,
+    // black: LogoBlack
   }
 }
 

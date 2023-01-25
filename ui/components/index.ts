@@ -15,10 +15,4 @@ export { default as Slider } from './Slider/Slider'
 export { default as Switch } from './Switch/Switch'
 export { default as Toggle } from './Toggle/Toggle'
 export { default as Typography } from './Typography/Typography'
-<<<<<<< HEAD:components/index.ts
-export { default as Link } from './ConditionalLink/ConditionalLink'
-export { default as Toast } from './Toast/Toast'
-export { default as Framer } from './Framer/Framer'
 export { default as Logo } from './Logo/Logo'
-=======
->>>>>>> origin/main:ui/components/index.ts
