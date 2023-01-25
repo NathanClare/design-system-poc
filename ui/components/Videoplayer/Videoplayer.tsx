@@ -28,7 +28,10 @@ const VideoPlayer = ({ src, size = 'md', loop, controls, autoplay = true }: Vide
     >
       <video className={`h-full w-full`} loop={loop} controls={controls} autoPlay={autoplay}>
         <source src={src} type="video/mp4" />
-        Your browser does not support the video tag.
+        <p>
+          Your browser does not support the video tag.
+          <a href={src}>link to the video</a> instead.
+        </p>
       </video>
     </div>
   )
