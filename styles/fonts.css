@@ -1,7 +1,6 @@
 @font-face {
-  font-family: "AktivGrotesk";
-  src: url("/fonts/AktivGroteskVF_W_WghtWdth.woff2") format("woff2 supports variations"),
-       url("/fonts/AktivGroteskVF_W_WghtWdth.woff2") format("woff2-variations");
+  font-family: 'Inter';
+  src: url('/fonts/InterVF_W_WghtWdth.woff2') format('woff2 supports variations'), url('/fonts/InterVF_W_WghtWdth.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-stretch: 75 125;
 }

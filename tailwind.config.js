@@ -12,79 +12,119 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './ui/components/**/*.{js,ts,jsx,tsx}', './ui/patterns/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif']
+      sans: ['Inter', 'sans-serif']
     },
     fontSize: {
       xs: [
-        convertToRem(tokens.FontM3BodySmall.fontSize),
+        convertToRem(tokens.FontParagraphsTextXsRegular.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3BodySmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodySmall.letterSpacing),
-          fontWeight: tokens.FontM3BodySmall.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextXsRegular.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextXsRegular.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextXsRegular.fontWeight,
+          fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+          fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+          fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextXsRegular.textCase
         }
       ],
       sm: [
-        convertToRem(tokens.FontM3BodyMedium.fontSize),
+        convertToRem(tokens.FontParagraphsTextSmRegular.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3BodyMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyMedium.letterSpacing),
-          fontWeight: tokens.FontM3BodyMedium.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextSmRegular.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextSmRegular.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextSmRegular.fontWeight,
+          fontFamily: tokens.FontParagraphsTextSmRegular.fontFamily,
+          fontStyle: tokens.FontParagraphsTextSmRegular.fontStyle,
+          fontStretch: tokens.FontParagraphsTextSmRegular.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextSmRegular.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextSmRegular.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextSmRegular.textCase
         }
       ],
       base: [
-        convertToRem(tokens.FontM3BodyLarge.fontSize),
+        convertToRem(tokens.FontParagraphsTextMdBaseRegular.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-          fontWeight: tokens.FontM3BodyLarge.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextMdBaseRegular.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextMdBaseRegular.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextMdBaseRegular.fontWeight,
+          fontFamily: tokens.FontParagraphsTextMdBaseRegular.fontFamily,
+          fontStyle: tokens.FontParagraphsTextMdBaseRegular.fontStyle,
+          fontStretch: tokens.FontParagraphsTextMdBaseRegular.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextMdBaseRegular.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextMdBaseRegular.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextMdBaseRegular.textCase
         }
       ],
       lg: [
-        convertToRem(tokens.FontM3HeadlineSmall.fontSize),
+        convertToRem(tokens.FontParagraphsTextLgRegular.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3HeadlineSmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineSmall.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineSmall.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextLgRegular.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextLgRegular.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextLgRegular.fontWeight,
+          fontFamily: tokens.FontParagraphsTextLgRegular.fontFamily,
+          fontStyle: tokens.FontParagraphsTextLgRegular.fontStyle,
+          fontStretch: tokens.FontParagraphsTextLgRegular.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextLgRegular.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextLgRegular.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextLgRegular.textCase
         }
       ],
-      xl: [
-        convertToRem(tokens.FontM3HeadlineMedium.fontSize),
+      'xs-b': [
+        convertToRem(tokens.FontParagraphsTextXsBold.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextXsBold.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextXsBold.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextXsBold.fontWeight,
+          fontFamily: tokens.FontParagraphsTextXsBold.fontFamily,
+          fontStyle: tokens.FontParagraphsTextXsBold.fontStyle,
+          fontStretch: tokens.FontParagraphsTextXsBold.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextXsBold.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextXsBold.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextXsBold.textCase
         }
       ],
-      '2xl': [
-        convertToRem(tokens.FontM3HeadlineLarge.fontSize),
+      'sm-b': [
+        convertToRem(tokens.FontParagraphsTextSmBold.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextSmBold.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextSmBold.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextSmBold.fontWeight,
+          fontFamily: tokens.FontParagraphsTextSmBold.fontFamily,
+          fontStyle: tokens.FontParagraphsTextSmBold.fontStyle,
+          fontStretch: tokens.FontParagraphsTextSmBold.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextSmBold.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextSmBold.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextSmBold.textCase
         }
       ],
-      '3xl': [
-        convertToRem(tokens.FontM3DisplaySmall.fontSize),
+      'base-b': [
+        convertToRem(tokens.FontParagraphsTextMdBaseBold.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-          fontWeight: tokens.FontM3DisplaySmall.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextMdBaseBold.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextMdBaseBold.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextMdBaseBold.fontWeight,
+          fontFamily: tokens.FontParagraphsTextMdBaseBold.fontFamily,
+          fontStyle: tokens.FontParagraphsTextMdBaseBold.fontStyle,
+          fontStretch: tokens.FontParagraphsTextMdBaseBold.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextMdBaseBold.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextMdBaseBold.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextMdBaseBold.textCase
         }
       ],
-      '4xl': [
-        convertToRem(tokens.FontM3DisplayMedium.fontSize),
+      'lg-b': [
+        convertToRem(tokens.FontParagraphsTextLgBold.fontSize),
         {
-          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-          fontWeight: tokens.FontM3DisplayMedium.fontWeight
-        }
-      ],
-      '5xl': [
-        convertToRem(tokens.FontM3DisplayLarge.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-          fontWeight: tokens.FontM3DisplayLarge.fontWeight
+          lineHeight: convertToRem(tokens.FontParagraphsTextLgBold.lineHeight),
+          letterSpacing: convertToRem(tokens.FontParagraphsTextLgBold.letterSpacing),
+          fontWeight: tokens.FontParagraphsTextLgBold.fontWeight,
+          fontFamily: tokens.FontParagraphsTextLgBold.fontFamily,
+          fontStyle: tokens.FontParagraphsTextLgBold.fontStyle,
+          fontStretch: tokens.FontParagraphsTextLgBold.fontStretch,
+          paragraphIndent: tokens.FontParagraphsTextLgBold.paragraphIndent,
+          paragraphSpacing: tokens.FontParagraphsTextLgBold.paragraphSpacing,
+          textCase: tokens.FontParagraphsTextLgBold.textCase
         }
       ]
     },
@@ -126,7 +166,7 @@ module.exports = {
       'Warning-500': tokens.ColorSystemWarning500,
       'Warning-50': tokens.ColorSystemWarning50,
       'Error-500': tokens.ColorSystemError500,
-      'Info-50': tokens.ColorSystemInfo50,
+      'Error-50': tokens.ColorSystemError50,
       'Info-500': tokens.ColorSystemInfo500,
       'Info-50': tokens.ColorSystemInfo50
     },
@@ -140,10 +180,6 @@ module.exports = {
         '2xl': '4rem',
         '3xl': '8rem'
       },
-      dropShadow: {
-        10: `${tokens.EffectM3ElevationLight10.offsetX}px ${tokens.EffectM3ElevationLight10.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.15)`,
-        20: `${tokens.EffectM3ElevationLight20.offsetX}px ${tokens.EffectM3ElevationLight20.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.3)`
-      },
       keyframes: {
         fadeIn: {
           from: { opacity: '0' },
@@ -156,14 +192,6 @@ module.exports = {
         scaleIn: {
           from: { transform: 'scale(1.2)', opacity: 0 },
           to: { transform: 'scale(1)', opacity: 1 }
-        },
-        slideDown: {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
-        },
-        slideUp: {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
         },
         slideIn: {
           from: { transform: 'translateY(5px)', opacity: 0 },
@@ -206,8 +234,6 @@ module.exports = {
         fadein: 'fadeIn 150ms ease-in',
         fadeout: 'fadeOut 150ms ease-in',
         scalein: 'scaleIn 120ms ease-out',
-        slideDown: 'slideDown 150ms ease-in',
-        slideUp: 'slideUp 150ms ease-in',
         slidein: 'slideIn 130ms ease-in',
         wiggle: 'wiggle 150ms ease-in',
         rotate: 'rotate 650ms ease-in-out',
@@ -220,40 +246,148 @@ module.exports = {
       plugin(function ({ addUtilities }) {
         const newHeaderUtility = {
           '.heading-xs': {
-            fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
-            lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-            fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+            fontSize: convertToRem(tokens.FontDesktopHeadingsHeadingXs.fontSize),
+            lineHeight: convertToRem(tokens.FontDesktopHeadingsHeadingXs.lineHeight),
+            letterSpacing: convertToRem(tokens.FontDesktopHeadingsHeadingXs.letterSpacing),
+            fontWeight: tokens.FontDesktopHeadingsHeadingXs.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
           },
           '.heading-sm': {
-            fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
-            lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-            fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+            fontSize: convertToRem(tokens.FontDesktopHeadingsHeadingSm.fontSize),
+            lineHeight: convertToRem(tokens.FontDesktopHeadingsHeadingSm.lineHeight),
+            letterSpacing: convertToRem(tokens.FontDesktopHeadingsHeadingSm.letterSpacing),
+            fontWeight: tokens.FontDesktopHeadingsHeadingSm.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
           },
           '.heading-md': {
-            fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
-            lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-            fontWeight: tokens.FontM3DisplaySmall.fontWeight
+            fontSize: convertToRem(tokens.FontDesktopHeadingsHeadingMd.fontSize),
+            lineHeight: convertToRem(tokens.FontDesktopHeadingsHeadingMd.lineHeight),
+            letterSpacing: convertToRem(tokens.FontDesktopHeadingsHeadingMd.letterSpacing),
+            fontWeight: tokens.FontDesktopHeadingsHeadingMd.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
           },
           '.heading-lg': {
-            fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
-            lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-            fontWeight: tokens.FontM3DisplayMedium.fontWeight
+            fontSize: convertToRem(tokens.FontDesktopHeadingsHeadingLg.fontSize),
+            lineHeight: convertToRem(tokens.FontDesktopHeadingsHeadingLg.lineHeight),
+            letterSpacing: convertToRem(tokens.FontDesktopHeadingsHeadingLg.letterSpacing),
+            fontWeight: tokens.FontDesktopHeadingsHeadingLg.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
           },
           '.heading-xl': {
-            fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
-            lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-            fontWeight: tokens.FontM3BodyLarge.fontWeight
+            fontSize: convertToRem(tokens.FontDesktopHeadingsHeadingXl.fontSize),
+            lineHeight: convertToRem(tokens.FontDesktopHeadingsHeadingXl.lineHeight),
+            letterSpacing: convertToRem(tokens.FontDesktopHeadingsHeadingXl.letterSpacing),
+            fontWeight: tokens.FontDesktopHeadingsHeadingXl.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
           },
           '.heading-2xl': {
-            fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
-            lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-            fontWeight: tokens.FontM3DisplayLarge.fontWeight
+            fontSize: convertToRem(tokens.FontDesktopHeadingsHeading2xl.fontSize),
+            lineHeight: convertToRem(tokens.FontDesktopHeadingsHeading2xl.lineHeight),
+            letterSpacing: convertToRem(tokens.FontDesktopHeadingsHeading2xl.letterSpacing),
+            fontWeight: tokens.FontDesktopHeadingsHeading2xl.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
+          },
+          '.heading-m-xs': {
+            fontSize: convertToRem(tokens.FontMobileHeadingsHeadingXs.fontSize),
+            lineHeight: convertToRem(tokens.FontMobileHeadingsHeadingXs.lineHeight),
+            letterSpacing: convertToRem(tokens.FontMobileHeadingsHeadingXs.letterSpacing),
+            fontWeight: tokens.FontMobileHeadingsHeadingXs.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
+          },
+          '.heading-m-sm': {
+            fontSize: convertToRem(tokens.FontMobileHeadingsHeadingSm.fontSize),
+            lineHeight: convertToRem(tokens.FontMobileHeadingsHeadingSm.lineHeight),
+            letterSpacing: convertToRem(tokens.FontMobileHeadingsHeadingSm.letterSpacing),
+            fontWeight: tokens.FontMobileHeadingsHeadingSm.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
+          },
+          '.heading-m-md': {
+            fontSize: convertToRem(tokens.FontMobileHeadingsHeadingMd.fontSize),
+            lineHeight: convertToRem(tokens.FontMobileHeadingsHeadingMd.lineHeight),
+            letterSpacing: convertToRem(tokens.FontMobileHeadingsHeadingMd.letterSpacing),
+            fontWeight: tokens.FontMobileHeadingsHeadingMd.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
+          },
+          '.heading-m-lg': {
+            fontSize: convertToRem(tokens.FontMobileHeadingsHeadingLg.fontSize),
+            lineHeight: convertToRem(tokens.FontMobileHeadingsHeadingLg.lineHeight),
+            letterSpacing: convertToRem(tokens.FontMobileHeadingsHeadingLg.letterSpacing),
+            fontWeight: tokens.FontMobileHeadingsHeadingLg.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
+          },
+          '.heading-m-xl': {
+            fontSize: convertToRem(tokens.FontMobileHeadingsHeadingXl.fontSize),
+            lineHeight: convertToRem(tokens.FontMobileHeadingsHeadingXl.lineHeight),
+            letterSpacing: convertToRem(tokens.FontMobileHeadingsHeadingXl.letterSpacing),
+            fontWeight: tokens.FontMobileHeadingsHeadingXl.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
+          },
+          '.heading-m-2xl': {
+            fontSize: convertToRem(tokens.FontMobileHeadingsHeading2xl.fontSize),
+            lineHeight: convertToRem(tokens.FontMobileHeadingsHeading2xl.lineHeight),
+            letterSpacing: convertToRem(tokens.FontMobileHeadingsHeading2xl.letterSpacing),
+            fontWeight: tokens.FontMobileHeadingsHeading2xl.fontWeight,
+            fontFamily: tokens.FontParagraphsTextXsRegular.fontFamily,
+            fontStyle: tokens.FontParagraphsTextXsRegular.fontStyle,
+            fontStretch: tokens.FontParagraphsTextXsRegular.fontStretch,
+            paragraphIndent: tokens.FontParagraphsTextXsRegular.paragraphIndent,
+            paragraphSpacing: tokens.FontParagraphsTextXsRegular.paragraphSpacing,
+            textCase: tokens.FontParagraphsTextXsRegular.textCase
           }
         }
         const newAnimationDelayUtility = {

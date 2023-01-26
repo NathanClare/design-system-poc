@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
+@layer base {
+  body,
+  html {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+  }
 }
