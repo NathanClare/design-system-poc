@@ -5,8 +5,8 @@ import ConditionalLink from '@/ui/components/ConditionalLink/ConditionalLink'
 import Loading from '@/ui/components/Loading/Loading'
 
 interface ButtonProps extends ComponentPropsWithRef<'button'> {
-  size?: 'lg' | 'md' | 'sm'
-  variant?: 'filled' | 'outlined' | 'text'
+  size?: 'lg' | 'md'
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost'
   disabled?: boolean
   submitting?: boolean
   href?: string
@@ -23,22 +23,25 @@ interface IButtonFamilyClasses {
 
 const buttonFamilyClasses: IButtonFamilyClasses = {
   size: {
-    sm: 'text-sm px-5 py-2',
-    md: 'text-sm px-6 py-2.5',
-    lg: 'text-md px-8 py-3'
+    md: 'text-base px-6 py-2.5 font-bold',
+    lg: 'text-lg px-6 py-3 font-bold'
   },
   variant: {
-    filled: {
-      base: 'bg-primary-base text-primary-white hover:bg-primary-base hover:drop-shadow-10 focus:bg-primary-500 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
-      disabled: 'bg-neutral-100 text-neutral-400'
+    primary: {
+      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-primary-200  hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
-    outlined: {
-      base: 'bg-primary-white text-primary-base border border-primary-600 hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100',
-      disabled: 'text-neutral-500 bg-primary-white border-neutral-300 border border-primary-600'
+    secondary: {
+      base: 'bg-surface-black text-surface-white border border-surface-black hover:border-surface-300 hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
-    text: {
-      base: 'bg-primary-transparent text-primary-base hover:bg-primary-100 focus:bg-primary-100 pressed:bg-primary-100',
-      disabled: 'bg-primary-white text-neutral-500'
+    tertiary: {
+      base: 'bg-surface-white text-surface-black border border-surface-black hover:border-2 hover:border-surface-black hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
+    },
+    ghost: {
+      base: 'bg-surface-white text-primary-base border border-primary-base hover:border-2 hover:border-primary-base hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     }
   },
   iconPosition: {
@@ -48,7 +51,10 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, size = 'lg', variant = 'filled', disabled, submitting, href, target, type = 'button', icon, iconPosition = 'left', ...props }, forwardedRef) => {
+  (
+    { children, size = 'lg', variant = 'primary', disabled, submitting, href, target, type = 'button', icon, iconPosition = 'right', ...props },
+    forwardedRef
+  ) => {
     const getState = () => {
       if (disabled) return 'disabled'
 
@@ -58,7 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
-          className={`rounded-full transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
+          className={`rounded transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
             buttonFamilyClasses['variant'][variant][getState()]
           }`}
           disabled={disabled}
@@ -68,7 +74,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         >
           {submitting && (
             <span className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ml-0`}>
-              <Loading size={size} variant={variant === 'filled' ? `white` : `primary`} />
+              <Loading size={size} variant={variant === 'primary' ? `white` : `primary`} />
             </span>
           )}
           <span className={`${submitting ? 'opacity-0' : 'opacity-100'} inline-flex ${buttonFamilyClasses['iconPosition'][iconPosition]}`}>

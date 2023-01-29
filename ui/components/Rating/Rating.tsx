@@ -14,7 +14,7 @@ interface IRatingFamilyClasses {
 const ratingFamilyClasses: IRatingFamilyClasses = {
   variant: {
     primary: 'fill-primary-base stroke-primary-base',
-    neutral: 'fill-neutral-200 stroke-neutral-200'
+    neutral: 'fill-surface-200 stroke-surface-200'
   },
   size: {
     sm: 'w-3 h-3',

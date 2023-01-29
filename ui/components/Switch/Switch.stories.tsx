@@ -14,13 +14,6 @@ export default {
         type: 'radio'
       }
     },
-    variant: {
-      name: 'variant',
-      description: 'Select the variant type',
-      control: {
-        type: 'radio'
-      }
-    },
     disabled: {
       name: 'disabled',
       description: 'Choose to disable component',
@@ -41,13 +34,5 @@ const Template: ComponentStory<typeof Switchcomp> = args => (
 export const primary = Template.bind({})
 
 primary.args = {
-  size: 'md',
-  variant: 'filled'
-}
-
-export const neutral = Template.bind({})
-
-neutral.args = {
-  size: 'md',
-  variant: 'grey'
+  size: 'md'
 }

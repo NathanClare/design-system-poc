@@ -22,11 +22,10 @@ export default {
         type: 'select',
         labels: {
           lg: 'Large',
-          md: 'Medium',
-          sm: 'Small'
+          md: 'Medium'
         }
       },
-      options: ['lg', 'md', 'sm'],
+      options: ['lg', 'md'],
       defaultValue: 'md'
     },
     variant: {
@@ -91,28 +90,36 @@ const Template: ComponentStory<typeof Button> = args => (
   </div>
 )
 
-export const filled = Template.bind({})
+export const primary = Template.bind({})
 
-filled.args = {
-  children: 'This is a button',
+primary.args = {
+  children: 'Button CTA',
   size: 'md',
-  variant: 'filled'
+  variant: 'primary'
 }
 
-export const outlined = Template.bind({})
+export const secondary = Template.bind({})
 
-outlined.args = {
+secondary.args = {
   children: 'This is a button',
   size: 'md',
-  variant: 'outlined'
+  variant: 'secondary'
 }
 
-export const text = Template.bind({})
+export const tertiary = Template.bind({})
 
-text.args = {
+tertiary.args = {
   children: 'This is a button',
   size: 'md',
-  variant: 'text'
+  variant: 'tertiary'
+}
+
+export const ghost = Template.bind({})
+
+ghost.args = {
+  children: 'This is a button',
+  size: 'md',
+  variant: 'ghost'
 }
 
 export const icon = Template.bind({})
@@ -120,7 +127,7 @@ export const icon = Template.bind({})
 icon.args = {
   children: 'This is a button',
   size: 'md',
-  variant: 'filled',
+  variant: 'primary',
   icon: <BeakerIcon className="h-4 w-4" />,
-  iconPosition: 'left'
+  iconPosition: 'right'
 }

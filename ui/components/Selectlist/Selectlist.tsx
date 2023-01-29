@@ -24,18 +24,18 @@ interface ISelectlistFamilyClasses {
 const selectlistFamilyClasses: ISelectlistFamilyClasses = {
   variant: {
     filled: {
-      trigger: 'bg-primary-100 hover:bg-primary-200 data-[placeholder]:text-neutral-600 active:border-2 active:border-2 active:border-primary-600',
+      trigger: 'bg-primary-100 hover:bg-primary-200 data-[placeholder]:text-surface-600 active:border-2 active:border-2 active:border-primary-600',
       content: 'bg-primary-100',
-      label: 'text-neutral-400',
+      label: 'text-surface-400',
       chevron: 'bg-primary-100 text-primary-base',
       select: 'text-primary-base'
     },
     grey: {
-      trigger: 'bg-neutral-100 hover:bg-neutral-200 data-[placeholder]:text-neutral-400 active:border-2 active:border-2 active:border-neutral-600',
-      content: 'bg-neutral-100',
-      label: 'text-neutral-400',
-      chevron: 'bg-neutral-100 text-neutral-base',
-      select: 'text-neutral-base'
+      trigger: 'bg-surface-100 hover:bg-surface-200 data-[placeholder]:text-surface-400 active:border-2 active:border-2 active:border-surface-600',
+      content: 'bg-surface-100',
+      label: 'text-surface-400',
+      chevron: 'bg-surface-100 text-surface-base',
+      select: 'text-surface-base'
     }
   }
 }
@@ -44,7 +44,7 @@ const Selectlist = ({ variant = 'filled', options, placeholder, ariaholder, disa
   return (
     <RadixSelect.Root>
       <RadixSelect.Trigger
-        className={`inline-flex items-center justify-center rounded px-4 text-base h-11 gap-1 bg-neutral-white shadow focus:shadow-xl disabled:bg-neutral-100 disabled:border-0 ${selectlistFamilyClasses['variant'][variant]['trigger']}`}
+        className={`inline-flex items-center justify-center rounded px-4 text-base h-11 gap-1 bg-surface-white shadow focus:shadow-xl disabled:bg-surface-100 disabled:border-0 ${selectlistFamilyClasses['variant'][variant]['trigger']}`}
         aria-label={ariaholder}
         disabled={disabled}
       >

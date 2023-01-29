@@ -17,14 +17,14 @@ interface ICheckboxFamilyClasses {
 
 const checkboxFamilyClasses: ICheckboxFamilyClasses = {
   valid: {
-    disabled: 'bg-neutral-200',
-    unchecked: 'border-2 border-primary-400 bg-neutral-white',
+    disabled: 'bg-surface-200',
+    unchecked: 'border-2 border-primary-400 bg-surface-white hover:bg-primary-base hover:opacity-40',
     base: 'bg-primary-base'
   },
   error: {
-    disabled: 'bg-neutral-200',
-    unchecked: 'border-2 border-error-400 bg-neutral-white',
-    base: 'bg-error-base'
+    disabled: 'bg-surface-200',
+    unchecked: 'border-2 border-error-500 bg-surface-white',
+    base: 'bg-error-500'
   }
 }
 
@@ -42,7 +42,7 @@ const Checkbox = ({ label, id, checked: state = false, disabled, error = false }
   return (
     <div className={`flex items-center`}>
       <RadixCheckbox.Root
-        className={`text-white transition-colors h-6 w-6 p-1 rounded flex items-center ${checkboxFamilyClasses[error ? 'error' : 'valid'][getState()]}`}
+        className={`text-surface-white transition-colors h-6 w-6 p-1 rounded flex items-center ${checkboxFamilyClasses[error ? 'error' : 'valid'][getState()]}`}
         defaultChecked
         id={id}
         checked={checked}
@@ -54,7 +54,7 @@ const Checkbox = ({ label, id, checked: state = false, disabled, error = false }
           {checked === true && <CheckIcon />}
         </RadixCheckbox.Indicator>
       </RadixCheckbox.Root>
-      <label className="text-neutral-30 text-base pl-3.5" htmlFor={id}>
+      <label className="text-surface-30 text-base pl-3.5 disabled:text-surface-400" htmlFor={id}>
         {label}
       </label>
     </div>

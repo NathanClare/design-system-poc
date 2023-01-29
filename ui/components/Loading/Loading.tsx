@@ -18,8 +18,8 @@ const loadingFamilyClasses: ILoadingFamilyClasses = {
   },
   variant: {
     primary: '[&>span]:bg-primary-400',
-    neutral: '[&>span]:bg-neutral-200',
-    white: '[&>span]:bg-primary-white'
+    neutral: '[&>span]:bg-surface-200',
+    white: '[&>span]:bg-surface-white'
   }
 }
 

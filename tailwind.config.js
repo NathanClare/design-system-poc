@@ -14,6 +14,9 @@ module.exports = {
     fontFamily: {
       sans: ['Inter', 'sans-serif']
     },
+    fontWeight: {
+      bold: tokens.FontParagraphsTextSmBold.fontWeight
+    },
     fontSize: {
       xs: [
         convertToRem(tokens.FontParagraphsTextXsRegular.fontSize),
@@ -70,62 +73,6 @@ module.exports = {
           paragraphSpacing: tokens.FontParagraphsTextLgRegular.paragraphSpacing,
           textCase: tokens.FontParagraphsTextLgRegular.textCase
         }
-      ],
-      'xs-b': [
-        convertToRem(tokens.FontParagraphsTextXsBold.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontParagraphsTextXsBold.lineHeight),
-          letterSpacing: convertToRem(tokens.FontParagraphsTextXsBold.letterSpacing),
-          fontWeight: tokens.FontParagraphsTextXsBold.fontWeight,
-          fontFamily: tokens.FontParagraphsTextXsBold.fontFamily,
-          fontStyle: tokens.FontParagraphsTextXsBold.fontStyle,
-          fontStretch: tokens.FontParagraphsTextXsBold.fontStretch,
-          paragraphIndent: tokens.FontParagraphsTextXsBold.paragraphIndent,
-          paragraphSpacing: tokens.FontParagraphsTextXsBold.paragraphSpacing,
-          textCase: tokens.FontParagraphsTextXsBold.textCase
-        }
-      ],
-      'sm-b': [
-        convertToRem(tokens.FontParagraphsTextSmBold.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontParagraphsTextSmBold.lineHeight),
-          letterSpacing: convertToRem(tokens.FontParagraphsTextSmBold.letterSpacing),
-          fontWeight: tokens.FontParagraphsTextSmBold.fontWeight,
-          fontFamily: tokens.FontParagraphsTextSmBold.fontFamily,
-          fontStyle: tokens.FontParagraphsTextSmBold.fontStyle,
-          fontStretch: tokens.FontParagraphsTextSmBold.fontStretch,
-          paragraphIndent: tokens.FontParagraphsTextSmBold.paragraphIndent,
-          paragraphSpacing: tokens.FontParagraphsTextSmBold.paragraphSpacing,
-          textCase: tokens.FontParagraphsTextSmBold.textCase
-        }
-      ],
-      'base-b': [
-        convertToRem(tokens.FontParagraphsTextMdBaseBold.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontParagraphsTextMdBaseBold.lineHeight),
-          letterSpacing: convertToRem(tokens.FontParagraphsTextMdBaseBold.letterSpacing),
-          fontWeight: tokens.FontParagraphsTextMdBaseBold.fontWeight,
-          fontFamily: tokens.FontParagraphsTextMdBaseBold.fontFamily,
-          fontStyle: tokens.FontParagraphsTextMdBaseBold.fontStyle,
-          fontStretch: tokens.FontParagraphsTextMdBaseBold.fontStretch,
-          paragraphIndent: tokens.FontParagraphsTextMdBaseBold.paragraphIndent,
-          paragraphSpacing: tokens.FontParagraphsTextMdBaseBold.paragraphSpacing,
-          textCase: tokens.FontParagraphsTextMdBaseBold.textCase
-        }
-      ],
-      'lg-b': [
-        convertToRem(tokens.FontParagraphsTextLgBold.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontParagraphsTextLgBold.lineHeight),
-          letterSpacing: convertToRem(tokens.FontParagraphsTextLgBold.letterSpacing),
-          fontWeight: tokens.FontParagraphsTextLgBold.fontWeight,
-          fontFamily: tokens.FontParagraphsTextLgBold.fontFamily,
-          fontStyle: tokens.FontParagraphsTextLgBold.fontStyle,
-          fontStretch: tokens.FontParagraphsTextLgBold.fontStretch,
-          paragraphIndent: tokens.FontParagraphsTextLgBold.paragraphIndent,
-          paragraphSpacing: tokens.FontParagraphsTextLgBold.paragraphSpacing,
-          textCase: tokens.FontParagraphsTextLgBold.textCase
-        }
       ]
     },
     screens: {
@@ -163,12 +110,12 @@ module.exports = {
       'surface-white': tokens.ColorSurfaceWhite,
       'success-500': tokens.ColorSystemSuccess500,
       'success-50': tokens.ColorSystemSuccess50,
-      'Warning-500': tokens.ColorSystemWarning500,
-      'Warning-50': tokens.ColorSystemWarning50,
-      'Error-500': tokens.ColorSystemError500,
-      'Error-50': tokens.ColorSystemError50,
-      'Info-500': tokens.ColorSystemInfo500,
-      'Info-50': tokens.ColorSystemInfo50
+      'warning-500': tokens.ColorSystemWarning500,
+      'warning-50': tokens.ColorSystemWarning50,
+      'error-500': tokens.ColorSystemError500,
+      'error-50': tokens.ColorSystemError50,
+      'info-500': tokens.ColorSystemInfo500,
+      'info-50': tokens.ColorSystemInfo50
     },
     extend: {
       spacing: {

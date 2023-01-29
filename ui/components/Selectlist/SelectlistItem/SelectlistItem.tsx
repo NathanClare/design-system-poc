@@ -13,7 +13,7 @@ const SelectItem = ({ children, className, ...props }: SelectItemProps) => {
   return (
     <RadixSelect.Item
       className={classnames(
-        'text-md text-neutral-base rounded-sm flex items-center my-2 h-6 py-5 pr-9 pl-6 relative select-none data-[disabled]:text-neutral-400 data-[disabled]:pointer-events-none data-[highlighted]:bg-primary-200 data-[highlighted]:text-neutral-base data-[highlighted]:outline-none',
+        'text-md text-surface-600 rounded-sm flex items-center my-2 h-6 py-5 pr-9 pl-6 relative select-none data-[disabled]:text-surface-400 data-[disabled]:pointer-events-none data-[highlighted]:bg-primary-200 data-[highlighted]:text-surface-600 data-[highlighted]:outline-none',
         className
       )}
       {...props}
