@@ -15,7 +15,8 @@ module.exports = {
       sans: ['Inter', 'sans-serif']
     },
     fontWeight: {
-      bold: tokens.FontParagraphsTextSmBold.fontWeight
+      bold: tokens.FontParagraphsTextSmBold.fontWeight,
+      semibold: 600
     },
     fontSize: {
       xs: [

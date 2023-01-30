@@ -28,19 +28,19 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   },
   variant: {
     primary: {
-      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-2 hover:border-primary-200  hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-primary-700 hover:bg-primary-700 hover:drop-shadow-10 focus:border-primary-150 focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
     secondary: {
-      base: 'bg-surface-black text-surface-white border border-surface-black hover:border-2 hover:border-surface-300 hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-surface-black text-surface-white border border-surface-black hover:border-surface-300 hover:drop-shadow-10 focus:border-surface-black focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
     tertiary: {
-      base: 'bg-surface-white text-surface-black border border-surface-black hover:border-2 hover:border-surface-black hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-surface-white text-surface-black border border-surface-black hover:border-surface-black hover:drop-shadow-10 focus:border-surface-black focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
     ghost: {
-      base: 'bg-surface-white text-primary-base border border-primary-base hover:border-2 hover:border-primary-base hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-surface-white text-primary-base border border-primary-base hover:border-primary-base hover:drop-shadow-10 focus:border-primary-base focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     }
   },
@@ -64,7 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
-          className={`rounded transition-colors items-center relative m-px hover:m-0 ${buttonFamilyClasses['size'][size]} ${
+          className={`box-border rounded transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
             buttonFamilyClasses['variant'][variant][getState()]
           }`}
           disabled={disabled}

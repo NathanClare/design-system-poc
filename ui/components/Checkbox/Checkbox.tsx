@@ -18,7 +18,7 @@ interface ICheckboxFamilyClasses {
 const checkboxFamilyClasses: ICheckboxFamilyClasses = {
   valid: {
     disabled: 'bg-surface-200',
-    unchecked: 'border-2 border-primary-400 bg-surface-white hover:bg-primary-base hover:opacity-40 transition-colors',
+    unchecked: 'peer border-2 border-primary-400 bg-surface-white hover:bg-primary-base hover:opacity-40 transition-colors',
     base: 'bg-primary-base'
   },
   error: {
@@ -54,7 +54,7 @@ const Checkbox = ({ label, id, checked: state = false, disabled, error = false }
           {checked === true && <CheckIcon />}
         </RadixCheckbox.Indicator>
       </RadixCheckbox.Root>
-      <label className="text-surface-30 text-base pl-3.5 disabled:text-surface-400" htmlFor={id}>
+      <label className="text-surface-30 text-base pl-3.5 peer-[&[disabled=true]]:text-surface-400" htmlFor={id}>
         {label}
       </label>
     </div>
