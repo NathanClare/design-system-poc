@@ -106,22 +106,6 @@ secondary.args = {
   variant: 'secondary'
 }
 
-export const tertiary = Template.bind({})
-
-tertiary.args = {
-  children: 'Button CTA',
-  size: 'md',
-  variant: 'tertiary'
-}
-
-export const ghost = Template.bind({})
-
-ghost.args = {
-  children: 'Button CTA',
-  size: 'md',
-  variant: 'ghost'
-}
-
 export const icon = Template.bind({})
 
 icon.args = {

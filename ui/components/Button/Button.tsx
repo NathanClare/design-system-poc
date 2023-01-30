@@ -6,7 +6,7 @@ import Loading from '@/ui/components/Loading/Loading'
 
 interface ButtonProps extends ComponentPropsWithRef<'button'> {
   size?: 'lg' | 'md'
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost'
+  variant?: 'primary' | 'secondary'
   disabled?: boolean
   submitting?: boolean
   href?: string
@@ -28,20 +28,13 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   },
   variant: {
     primary: {
-      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-primary-700 hover:bg-primary-700 hover:drop-shadow-10 focus:border-primary-150 focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-primary-700 hover:bg-primary-700 hover:drop-shadow-10 focus:border-primary-150 focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none border-4 outline-offset-[-4px] outline-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
     secondary: {
-      base: 'bg-surface-black text-surface-white border border-surface-black hover:border-surface-300 hover:drop-shadow-10 focus:border-surface-black focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
-      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
-    },
-    tertiary: {
-      base: 'bg-surface-white text-surface-black border border-surface-black hover:border-surface-black hover:drop-shadow-10 focus:border-surface-black focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
-      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
-    },
-    ghost: {
-      base: 'bg-surface-white text-primary-base border border-primary-base hover:border-primary-base hover:drop-shadow-10 focus:border-primary-base focus:border-4 pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
-      disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
+      base: 'bg-surface-white text-primary-base border border-primary-base hover:border-primary-base hover:bg-surface-50 hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none focus:outline-[3px] outline-offset-[-1px] outline-primary-base',
+      disabled: 'bg-surface-200 border border-surface-200 text-surface-400',
+      label: 'p-[3px]'
     }
   },
   iconPosition: {
@@ -64,7 +57,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
-          className={`box-border rounded transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
+          className={`peer rounded transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
             buttonFamilyClasses['variant'][variant][getState()]
           }`}
           disabled={disabled}
@@ -79,7 +72,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           )}
           <span className={`${submitting ? 'opacity-0' : 'opacity-100'} inline-flex ${buttonFamilyClasses['iconPosition'][iconPosition]}`}>
             {icon && <span>{icon}</span>}
-            {children && <span>{children}</span>}
+            {children && <span className={`${buttonFamilyClasses['variant'][variant]['label']} `}>{children}</span>}
           </span>
         </button>
       </ConditionalLink>
