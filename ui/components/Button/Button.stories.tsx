@@ -101,7 +101,7 @@ primary.args = {
 export const secondary = Template.bind({})
 
 secondary.args = {
-  children: 'This is a button',
+  children: 'Button CTA',
   size: 'md',
   variant: 'secondary'
 }
@@ -109,7 +109,7 @@ secondary.args = {
 export const tertiary = Template.bind({})
 
 tertiary.args = {
-  children: 'This is a button',
+  children: 'Button CTA',
   size: 'md',
   variant: 'tertiary'
 }
@@ -117,7 +117,7 @@ tertiary.args = {
 export const ghost = Template.bind({})
 
 ghost.args = {
-  children: 'This is a button',
+  children: 'Button CTA',
   size: 'md',
   variant: 'ghost'
 }
@@ -125,7 +125,7 @@ ghost.args = {
 export const icon = Template.bind({})
 
 icon.args = {
-  children: 'This is a button',
+  children: 'Button CTA',
   size: 'md',
   variant: 'primary',
   icon: <BeakerIcon className="h-4 w-4" />,

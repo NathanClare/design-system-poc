@@ -28,11 +28,11 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
   },
   variant: {
     primary: {
-      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-primary-200  hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-primary-base text-surface-white border border-primary-base hover:border-2 hover:border-primary-200  hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
     secondary: {
-      base: 'bg-surface-black text-surface-white border border-surface-black hover:border-surface-300 hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
+      base: 'bg-surface-black text-surface-white border border-surface-black hover:border-2 hover:border-surface-300 hover:drop-shadow-10 focus:border-primary-base pressed:bg-primary-500 pressed:drop-shadow-none focus:drop-shadow-none',
       disabled: 'bg-surface-200 border border-surface-200 text-surface-400'
     },
     tertiary: {
@@ -64,7 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
-          className={`rounded transition-colors items-center relative ${buttonFamilyClasses['size'][size]} ${
+          className={`rounded transition-colors items-center relative m-px hover:m-0 ${buttonFamilyClasses['size'][size]} ${
             buttonFamilyClasses['variant'][variant][getState()]
           }`}
           disabled={disabled}

@@ -18,12 +18,12 @@ interface ICheckboxFamilyClasses {
 const checkboxFamilyClasses: ICheckboxFamilyClasses = {
   valid: {
     disabled: 'bg-surface-200',
-    unchecked: 'border-2 border-primary-400 bg-surface-white hover:bg-primary-base hover:opacity-40',
+    unchecked: 'border-2 border-primary-400 bg-surface-white hover:bg-primary-base hover:opacity-40 transition-colors',
     base: 'bg-primary-base'
   },
   error: {
     disabled: 'bg-surface-200',
-    unchecked: 'border-2 border-error-500 bg-surface-white',
+    unchecked: 'border-2 border-error-500 bg-surface-white hover:bg-error-500 hover:opacity-40 transition-colors',
     base: 'bg-error-500'
   }
 }
