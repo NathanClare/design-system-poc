@@ -6,7 +6,7 @@ interface PaginationProps {
   newPage: number
 }
 
-const PaginationComp = ({ totalPages = 10 }: PaginationProps) => {
+const Pagination = ({ totalPages = 10 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1)
   const getPagesasAnArray = Array.from(Array(totalPages).keys())
 
@@ -19,9 +19,11 @@ const PaginationComp = ({ totalPages = 10 }: PaginationProps) => {
     let maxPageOffset = 2
 
     switch (true) {
+      /* End of list */
       case currentPage === totalPages - 1:
         minPageOffset = -2
         break
+      /* Start of list */
       case currentPage === 0:
         minPageOffset = 0
         maxPageOffset = 3
@@ -31,9 +33,7 @@ const PaginationComp = ({ totalPages = 10 }: PaginationProps) => {
     return getPagesasAnArray.slice(currentPage + minPageOffset, currentPage + maxPageOffset)
   }
 
-  return (
-    <div>
-      <button
+  /* <button
         className="text-primary-base text-base text-center rounded p-2.5 h-10 w-10 m-1 shadow hover:no-underline hover:bg-primary-base hover:text-primary-white active:hover:bg-primary-base hover:text-primary-white disabled:bg-neutral-200 disabled:text-neutral-600"
         disabled={currentPage === 0}
         onClick={() => handleClick(currentPage - 1)}
@@ -57,9 +57,15 @@ const PaginationComp = ({ totalPages = 10 }: PaginationProps) => {
         onClick={() => handleClick(currentPage + 1)}
       >
         <ChevronRightIcon />
-      </button>
-    </div>
+      </button> */
+
+  return (
+    <nav role="navigation" aria-label="Pagination Navigation">
+      <ul>
+        <li>hello</li>
+      </ul>
+    </nav>
   )
 }
 
-export default PaginationComp
+export default Pagination
