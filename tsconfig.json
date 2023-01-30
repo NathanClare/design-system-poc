@@ -16,9 +16,10 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@/ui/*": ["ui/*"]
+      "@/ui/*": ["ui/*"],
+      "@/assets/*": ["/assets/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["additional.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
