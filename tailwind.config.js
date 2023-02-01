@@ -9,7 +9,7 @@ const convertToRem = value => {
 }
 
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './patterns/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './ui/components/**/*.{js,ts,jsx,tsx}', './ui/patterns/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
       sans: ['Roboto', 'sans-serif']
@@ -175,50 +175,144 @@ module.exports = {
         xl: '2rem',
         '2xl': '4rem',
         '3xl': '8rem'
-      }
-    }
-  },
-  plugins: [
-    plugin(function ({ addUtilities }) {
-      const newHeaderUtility = {
-        '.heading-xs': {
-          fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
-          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+      },
+      dropShadow: {
+        10: `${tokens.EffectM3ElevationLight10.offsetX}px ${tokens.EffectM3ElevationLight10.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.15)`,
+        20: `${tokens.EffectM3ElevationLight20.offsetX}px ${tokens.EffectM3ElevationLight20.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.3)`
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' }
         },
-        '.heading-sm': {
-          fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+        fadeOut: {
+          from: { opacity: '1' },
+          to: { opacity: '0' }
         },
-        '.heading-md': {
-          fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
-          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-          fontWeight: tokens.FontM3DisplaySmall.fontWeight
+        scaleIn: {
+          from: { transform: 'scale(1.2)', opacity: 0 },
+          to: { transform: 'scale(1)', opacity: 1 }
         },
-        '.heading-lg': {
-          fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
-          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-          fontWeight: tokens.FontM3DisplayMedium.fontWeight
+        slideDown: {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
         },
-        '.heading-xl': {
-          fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-          fontWeight: tokens.FontM3BodyLarge.fontWeight
+        slideUp: {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
         },
-        '.heading-2xl': {
-          fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
-          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-          fontWeight: tokens.FontM3DisplayLarge.fontWeight
+        slideIn: {
+          from: { transform: 'translateY(5px)', opacity: 0 },
+          to: { transform: 'translateY(0px)', opacity: 1 }
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-6deg)' },
+          '50%': { transform: 'rotate(6deg)' }
+        },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '60%': { transform: 'rotate(215deg)' },
+          '100%': { transform: 'rotate(180deg)' }
+        },
+        jump: {
+          '0%': { transform: 'translateY(0px)' },
+          '60%': { transform: 'translateY(-20px)' },
+          '100%': { transform: 'translateY(0px)' }
+        },
+        drop: {
+          '0%': { transform: 'translateY(0px)' },
+          '60%': { transform: 'translateY(20px)' },
+          '100%': { transform: 'translateY(0px)' }
+        },
+        shake: {
+          '0%': { transform: 'translateY(0px)' },
+          '10%': { transform: 'translateY(-5px)' },
+          '20%': { transform: 'translateX(-5px)' },
+          '30%': { transform: 'translateY(5px)' },
+          '40%': { transform: 'translateX(5px)' },
+          '50%': { transform: 'translateY(-5px)' },
+          '60%': { transform: 'translateX(-5px)' },
+          '70%': { transform: 'translateY(5px)' },
+          '80%': { transform: 'translateX(5px)' },
+          '90%': { transform: 'translateX(-5px)' },
+          '100%': { transform: 'translateY(0px)' }
         }
+      },
+      animation: {
+        fadein: 'fadeIn 150ms ease-in',
+        fadeout: 'fadeOut 150ms ease-in',
+        scalein: 'scaleIn 120ms ease-out',
+        slideDown: 'slideDown 150ms ease-in',
+        slideUp: 'slideUp 150ms ease-in',
+        slidein: 'slideIn 130ms ease-in',
+        wiggle: 'wiggle 150ms ease-in',
+        rotate: 'rotate 650ms ease-in-out',
+        jump: 'jump 650ms ease-in-out',
+        drop: 'drop 650ms ease-in-out',
+        shake: 'shake 650ms ease-in-out'
       }
-      addUtilities(newHeaderUtility)
-    })
-  ]
+    },
+    plugins: [
+      plugin(function ({ addUtilities }) {
+        const newHeaderUtility = {
+          '.heading-xs': {
+            fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
+            lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
+            fontWeight: tokens.FontM3HeadlineMedium.fontWeight
+          },
+          '.heading-sm': {
+            fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
+            lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
+            fontWeight: tokens.FontM3HeadlineLarge.fontWeight
+          },
+          '.heading-md': {
+            fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
+            lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
+            fontWeight: tokens.FontM3DisplaySmall.fontWeight
+          },
+          '.heading-lg': {
+            fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
+            lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
+            fontWeight: tokens.FontM3DisplayMedium.fontWeight
+          },
+          '.heading-xl': {
+            fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
+            lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
+            fontWeight: tokens.FontM3BodyLarge.fontWeight
+          },
+          '.heading-2xl': {
+            fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
+            lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
+            letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
+            fontWeight: tokens.FontM3DisplayLarge.fontWeight
+          }
+        }
+        const newAnimationDelayUtility = {
+          '.animation-delay-100': {
+            animationDelay: '100ms'
+          },
+          '.animation-delay-150': {
+            animationDelay: '150ms'
+          },
+          '.animation-delay-200': {
+            animationDelay: '200ms'
+          },
+          '.animation-delay-300': {
+            animationDelay: '300ms'
+          },
+          '.animation-delay-500': {
+            animationDelay: '500ms'
+          }
+        }
+
+        addUtilities(newHeaderUtility)
+        addUtilities(newAnimationDelayUtility)
+      })
+    ]
+  }
 }
