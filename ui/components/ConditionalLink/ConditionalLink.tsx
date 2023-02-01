@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import Link from 'next/link'
 import React, { type ComponentPropsWithoutRef } from 'react'
 
@@ -5,7 +6,7 @@ interface ConditionalLinkProps extends ComponentPropsWithoutRef<'a'> {
   disabled?: boolean
 }
 
-const ConditionalLink = ({ disabled, href, target, children, ...props }: ConditionalLinkProps) => {
+const ConditionalLink = ({ disabled, href, target, children, onClick, ...props }: ConditionalLinkProps) => {
   if (href && !disabled) {
     // External link
     if (target) {
@@ -17,10 +18,18 @@ const ConditionalLink = ({ disabled, href, target, children, ...props }: Conditi
     }
 
     //Internal link
-    return <Link href={href}>{children}</Link>
+    return (
+      <Link href={href} {...props}>
+        {children}
+      </Link>
+    )
   }
 
-  return <>{children}</>
+  return (
+    <span className={classNames({ 'cursor-pointer': onClick })} onClick={onClick} {...props}>
+      {children}
+    </span>
+  )
 }
 
 export default ConditionalLink
