@@ -7,28 +7,61 @@ import ConditionalLink from '@/ui/components/ConditionalLink/ConditionalLink'
 interface PaginationProps {
   totalPages: number
   currentIndex?: number
+  pageNumbersToShow?: number
 }
 
-const Pagination = ({ totalPages = 10, currentIndex = 1 }: PaginationProps) => {
+const Pagination = ({ totalPages = 10, currentIndex = 1, pageNumbersToShow = 3 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(currentIndex)
-  const pages = Array.from({ length: totalPages }, (_, index) => 1 + index)
 
   const handleClick = (newPage: React.SetStateAction<number>) => {
     setCurrentPage(newPage)
   }
 
   const generatePageNumbers = () => {
-    const startPage = currentPage < totalPages ? currentPage : currentPage - 1
-    const lastPage = pages.at(-1) || 0
+    const lastPageNumber = totalPages
+    const currentPageNumber = currentIndex <= lastPageNumber ? currentPage : lastPageNumber
+    const maxPagesBeforeCurrentPage = Math.floor(pageNumbersToShow / 2)
+    const maxPagesAfterCurrentPage = Math.ceil(pageNumbersToShow / 2) - 1
+    let startPage = 1
+    let endPage = lastPageNumber
 
-    return totalPages > 1
-      ? [
-          ...(currentPage > 1 && startPage !== 1 && lastPage - startPage === 1 ? ['...'] : []),
-          startPage,
-          ...(lastPage - startPage > 1 ? ['...'] : []),
-          lastPage
-        ]
-      : [currentPage]
+    if (lastPageNumber <= 1) {
+      return []
+    }
+
+    if (currentPageNumber <= maxPagesBeforeCurrentPage) {
+      startPage = 1
+      endPage = pageNumbersToShow
+    } else if (currentPageNumber + maxPagesAfterCurrentPage >= lastPageNumber) {
+      startPage = lastPageNumber - pageNumbersToShow + 1
+    } else {
+      startPage = currentPageNumber - maxPagesBeforeCurrentPage
+      endPage = currentPageNumber + maxPagesAfterCurrentPage
+    }
+
+    let pageNumbers: Array<string | number> = Array.from(Array(endPage + 1 - startPage).keys())
+      .map(pageNumber => startPage + pageNumber)
+      .filter(pageNumber => pageNumber <= lastPageNumber && pageNumber > 0)
+
+    if (pageNumbers[0] > 1) {
+      if (pageNumbers[0] <= 2) {
+        pageNumbers = [1, ...pageNumbers]
+      } else {
+        const ellipsis = pageNumbers[0] > 3 ? '...' : 2
+        pageNumbers = [1, ellipsis, ...pageNumbers]
+      }
+    }
+
+    if (pageNumbers[pageNumbers.length - 1] !== lastPageNumber) {
+      if (pageNumbers[pageNumbers.length - 1] === lastPageNumber - 1) {
+        pageNumbers = [...pageNumbers, lastPageNumber]
+      } else {
+        const ellipsis = pageNumbers[pageNumbers.length - 1] < lastPageNumber - 2 ? '...' : lastPageNumber - 1
+        pageNumbers = [...pageNumbers, ellipsis, lastPageNumber]
+      }
+    }
+
+    return pageNumbers
   }
 
   return (
@@ -39,24 +72,28 @@ const Pagination = ({ totalPages = 10, currentIndex = 1 }: PaginationProps) => {
           Previous
         </ConditionalLink>
       </span>
-      <ul className={`flex flex-wrap`}>
-        {generatePageNumbers().map((pageNumber, index) => (
-          <li
+      <ul className={`flex flex-wrap [&>li]:w-8 [&>li]:h-8 [&>li]:items-center [&>li]:flex [&>li]:justify-center`}>
+        {generatePageNumbers().map((pageNumber, index) =>
+          pageNumber === '...' ? (
             // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            className={classNames(`w-8 h-8 flex items-center justify-center transition-colors`, {
-              'bg-neutral-200': pageNumber === currentPage,
-              'hover:bg-neutral-200 cursor-pointer': typeof pageNumber !== 'string'
-            })}
-          >
-            <ConditionalLink
-              {...(typeof pageNumber !== 'string' && { onClick: () => handleClick(pageNumber) })}
-              aria-label={pageNumber === currentPage ? `Current page, page ${currentPage}` : `Go to page ${pageNumber}`}
+            <li key={index}>{pageNumber}</li>
+          ) : (
+            <li
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              className={classNames(`transition-colors hover:bg-neutral-200 cursor-pointer`, {
+                'bg-neutral-200': pageNumber === currentPage
+              })}
             >
-              {pageNumber}
-            </ConditionalLink>
-          </li>
-        ))}
+              <ConditionalLink
+                {...(typeof pageNumber !== 'string' && { onClick: () => handleClick(pageNumber) })}
+                aria-label={pageNumber === currentPage ? `Current page, page ${currentPage}` : `Go to page ${pageNumber}`}
+              >
+                {pageNumber}
+              </ConditionalLink>
+            </li>
+          )
+        )}
       </ul>
       <span className={classNames(`flex items-center justify-center`, { 'text-neutral-200': currentPage === totalPages })}>
         <ConditionalLink {...(currentPage < totalPages && { onClick: () => handleClick(currentPage + 1) })} disabled={currentPage === totalPages}>
