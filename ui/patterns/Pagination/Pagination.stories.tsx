@@ -16,6 +16,15 @@ export default {
       options: [1, 2, 10],
       defaultValue: 10
     },
+    pageNumbersToShow: {
+      name: 'pageNumbersToShow',
+      description: 'Select the number of pages to show. Hint: Set to 1 for mobile view.',
+      control: {
+        type: 'select'
+      },
+      options: [1, 2, 3],
+      defaultValue: 3
+    },
     currentIndex: {
       table: {
         disable: true

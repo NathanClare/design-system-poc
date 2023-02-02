@@ -26,7 +26,7 @@ const Pagination = ({ totalPages = 10, currentIndex = 1, pageNumbersToShow = 3 }
     let endPage = lastPageNumber
 
     if (lastPageNumber <= 1) {
-      return []
+      return [currentPageNumber]
     }
 
     if (currentPageNumber <= maxPagesBeforeCurrentPage) {
