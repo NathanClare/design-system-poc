@@ -4,7 +4,7 @@ import React from 'react'
 import Typography from './Typography'
 
 export default {
-  title: 'Components/Typography',
+  title: 'Typography/Heading',
   component: Typography,
   argTypes: {
     children: {
@@ -24,13 +24,11 @@ export default {
           h2: 'h2',
           h3: 'h3',
           h4: 'h4',
-          h5: 'h5',
-          p: 'p',
-          span: 'span'
+          h5: 'h5'
         }
       },
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'span'],
-      defaultValue: 'p'
+      options: ['h1', 'h2', 'h3', 'h4', 'h5'],
+      defaultValue: 'h1'
     },
     size: {
       name: 'size',
@@ -43,39 +41,34 @@ export default {
           md: 'Medium',
           lg: 'Large',
           xl: 'Extra large',
-          xxl: 'Extra extra large',
+          '2xl': 'Extra extra large',
           base: 'Base'
         }
       },
-      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'base'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', 'base'],
       defaultValue: 'base'
     }
   }
 } as ComponentMeta<typeof Typography>
 
 const Template: ComponentStory<typeof Typography> = args => (
-  <div className="p-4">
+  <div className="p-4 animation-delay-100">
     <Typography {...args} />
   </div>
 )
 
-export const Heading = Template.bind({})
+export const h1 = Template.bind({})
 
-Heading.args = {
+h1.args = {
   tag: 'h1',
   children: 'Heading',
   size: 'xl'
 }
 
-export const Paragraph = Template.bind({})
+export const h2 = Template.bind({})
 
-Paragraph.args = {
-  tag: 'p',
-  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  Fusce congue magna felis, non interdum sapien lacinia blandit. Morbi dui augue, 
-  auctor id est nec, cursus viverra ipsum. In ut ex iaculis, 
-  euismod mi id, blandit lacus. Integer eu lectus mi. A
-  liquam tempus justo sed tortor molestie, sed vulputate 
-  leo tempus. Praesent eget ex sapien. Pellentesque sit amet scelerisque augue. Proin at sem nulla.`,
+h2.args = {
+  tag: 'h2',
+  children: `Second heading`,
   size: 'md'
 }
