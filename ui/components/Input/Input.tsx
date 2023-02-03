@@ -1,4 +1,4 @@
-import { CheckIcon, XMarkIcon } from '@heroicons/react/24/solid'
+import { CheckIcon, XMarkIcon, EyeIcon } from '@heroicons/react/24/solid'
 import React, { type ComponentPropsWithoutRef, type ReactElement, useState } from 'react'
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
@@ -37,7 +37,7 @@ const inputFamilyClasses: IInputFamilyClasses = {
     success: {
       wrapper: '',
       input: '[&_input]:border-primary-300 before:bg-primary-200 before:opacity-10',
-      hint: ''
+      hint: 'opacity-0'
     },
     default: {
       wrapper: '',
@@ -47,13 +47,14 @@ const inputFamilyClasses: IInputFamilyClasses = {
   },
   icon: {
     error: <XMarkIcon className={`w-5 h-5 [&>path]:fill-error-500`} />,
-    success: <CheckIcon className={`w-5 h-5 [&>path]:fill-primary-500`} />
+    success: <CheckIcon className={`w-5 h-5 [&>path]:fill-primary-500`} />,
+    password: <EyeIcon className={`w-5 h-5 [&>path]:fill-neutral-300 cursor-pointer`} />
   }
 }
 
 const Input = ({ label, id, type = 'text', disabled, required, hint, error, success, ...props }: InputProps) => {
   const [focus, setFocus] = useState<boolean>(false)
-  const showIcon = Boolean(error || success) && !disabled
+  const showIcon = (Boolean(error || success) && !disabled) || type === 'password'
 
   const getState = () => {
     switch (true) {
@@ -84,7 +85,7 @@ const Input = ({ label, id, type = 'text', disabled, required, hint, error, succ
         }`}
       >
         <input
-          className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transiton-colo6rs`}
+          className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transiton-colors`}
           type={type}
           id={id}
           disabled={disabled}
@@ -92,7 +93,11 @@ const Input = ({ label, id, type = 'text', disabled, required, hint, error, succ
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
         />
-        {showIcon && <span className={`absolute top-1/2 right-0 -translate-y-1/2 -translate-x-1/2 block`}>{inputFamilyClasses['icon'][getState()]}</span>}
+        {showIcon && (
+          <span className={`absolute top-1/2 right-0 -translate-y-1/2 -translate-x-1/2 block`}>
+            {inputFamilyClasses['icon'][type === 'password' ? 'password' : getState()]}
+          </span>
+        )}
       </div>
       {hint && <span className={`text-xs opacity-0 transition-opacity ${inputFamilyClasses['state'][getState()]['hint']}`}>{hint}</span>}
     </div>

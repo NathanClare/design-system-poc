@@ -53,17 +53,10 @@ const Template: ComponentStory<typeof Input> = args => (
   </div>
 )
 
-export const filled = Template.bind({})
+export const primary = Template.bind({})
 
-filled.args = {
+primary.args = {
   id: '1',
   hint: 'Hint text',
   required: true
-}
-
-export const outlined = Template.bind({})
-
-outlined.args = {
-  label: 'Label',
-  id: '1'
 }
