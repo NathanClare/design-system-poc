@@ -1,4 +1,4 @@
-/*import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
 import Input from './Input'
@@ -7,13 +7,6 @@ export default {
   title: 'Components/Input',
   component: Input,
   argTypes: {
-    variant: {
-      name: 'variant',
-      description: 'Select the variant type',
-      control: {
-        type: 'radio'
-      }
-    },
     id: {
       table: {
         disable: true
@@ -34,22 +27,43 @@ export default {
         type: 'boolean'
       },
       defaultValue: false
+    },
+    error: {
+      name: 'error',
+      description: 'Error',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    success: {
+      name: 'success',
+      description: 'Success',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
     }
   }
 } as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = args => <Input {...args} />
+const Template: ComponentStory<typeof Input> = args => (
+  <div className={`p-4`}>
+    <Input {...args} />
+  </div>
+)
 
 export const filled = Template.bind({})
 
 filled.args = {
-  variant: 'filled'
+  id: '1',
+  hint: 'Hint text',
+  required: true
 }
 
 export const outlined = Template.bind({})
 
 outlined.args = {
-  variant: 'outlined',
-  label: 'Label'
+  label: 'Label',
+  id: '1'
 }
-*/
