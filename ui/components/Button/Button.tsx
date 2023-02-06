@@ -71,7 +71,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               <Loading size={size} variant={variant === 'filled' ? `white` : `primary`} />
             </span>
           )}
-          <span className={`${submitting ? 'opacity-0' : 'opacity-100'} inline-flex ${buttonFamilyClasses['iconPosition'][iconPosition]}`}>
+          <span className={`${submitting ? 'opacity-0' : 'opacity-100'} flex items-center ${buttonFamilyClasses['iconPosition'][iconPosition]}`}>
             {icon && <span>{icon}</span>}
             {children && <span>{children}</span>}
           </span>
