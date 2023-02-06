@@ -1,11 +1,11 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react'
 import React from 'react'
 
-import Input from './Input'
+import TextArea from './TextArea'
 
 export default {
-  title: 'Components/Input',
-  component: Input,
+  title: 'Components/TextArea',
+  component: TextArea,
   argTypes: {
     id: {
       table: {
@@ -27,29 +27,13 @@ export default {
         type: 'boolean'
       },
       defaultValue: false
-    },
-    error: {
-      name: 'error',
-      description: 'Error',
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
-    },
-    success: {
-      name: 'success',
-      description: 'Success',
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
     }
   }
-} as ComponentMeta<typeof Input>
+} as ComponentMeta<typeof TextArea>
 
-const Template: ComponentStory<typeof Input> = args => (
+const Template: ComponentStory<typeof TextArea> = args => (
   <div className={`p-4`}>
-    <Input {...args} />
+    <TextArea {...args} />
   </div>
 )
 
@@ -58,5 +42,6 @@ export const primary = Template.bind({})
 primary.args = {
   id: '1',
   hint: 'Hint text',
-  required: true
+  required: true,
+  rows: 4
 }
