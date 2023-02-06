@@ -37,7 +37,7 @@ const Rating = ({ size = 'md', rating }: RatingProps) => {
             <StarIcon className={`${ratingFamilyClasses['size'][size]} ${ratingFamilyClasses['variant'][star < fullStars ? 'primary' : 'neutral']}`} />
             {star === fullStars && (
               <span className={`overflow-hidden left-0 top-0 absolute`} style={{ width: `${demiStar}%` }}>
-                <StarIcon className={`${ratingFamilyClasses['variant']['filled']} ${ratingFamilyClasses['size'][size]}`} />
+                <StarIcon className={`${ratingFamilyClasses['variant']['primary']} ${ratingFamilyClasses['size'][size]}`} />
               </span>
             )}
           </span>
