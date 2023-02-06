@@ -91,7 +91,7 @@ const Input = ({ label, id, type = 'text', disabled, required, hint, error, succ
         }`}
       >
         <input
-          className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transiton-colors`}
+          className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transition-colors`}
           type={viewPassword ? 'text' : type}
           id={id}
           disabled={disabled}
