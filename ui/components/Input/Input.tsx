@@ -1,4 +1,4 @@
-import { CheckIcon, XMarkIcon, EyeIcon } from '@heroicons/react/24/solid'
+import { CheckIcon, XMarkIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
 import React, { type ComponentPropsWithoutRef, type ReactElement, useState } from 'react'
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
@@ -15,6 +15,7 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
 interface IInputFamilyClasses {
   state: Record<string, Record<string, string>>
   icon: Record<string, ReactElement>
+  passwordIcon: (showPassword: boolean) => ReactElement
 }
 
 const inputFamilyClasses: IInputFamilyClasses = {
@@ -48,13 +49,18 @@ const inputFamilyClasses: IInputFamilyClasses = {
   icon: {
     error: <XMarkIcon className={`w-5 h-5 [&>path]:fill-error-500`} />,
     success: <CheckIcon className={`w-5 h-5 [&>path]:fill-primary-500`} />,
-    password: <EyeIcon className={`w-5 h-5 [&>path]:fill-neutral-300 cursor-pointer`} />
+    password: <EyeSlashIcon className={`w-5 h-5 [&>path]:fill-neutral-300 cursor-pointer`} />,
+    passwordVisible: <EyeIcon className={`w-5 h-5 [&>path]:fill-neutral-300 cursor-pointer`} />
+  },
+  passwordIcon: (showPassword: boolean) => {
+    return showPassword ? inputFamilyClasses.icon.passwordVisible : inputFamilyClasses.icon.password
   }
 }
 
 const Input = ({ label, id, type = 'text', disabled, required, hint, error, success, ...props }: InputProps) => {
   const [focus, setFocus] = useState<boolean>(false)
   const showIcon = (Boolean(error || success) && !disabled) || type === 'password'
+  const [viewPassword, setViewPassword] = useState<boolean>(false)
 
   const getState = () => {
     switch (true) {
@@ -86,20 +92,25 @@ const Input = ({ label, id, type = 'text', disabled, required, hint, error, succ
       >
         <input
           className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transiton-colors`}
-          type={type}
+          type={viewPassword ? 'text' : type}
           id={id}
           disabled={disabled}
           {...props}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          {...(hint && { 'aria-labelledby': `${id}-hint` })}
         />
         {showIcon && (
-          <span className={`absolute top-1/2 right-0 -translate-y-1/2 -translate-x-1/2 block`}>
-            {inputFamilyClasses['icon'][type === 'password' ? 'password' : getState()]}
+          <span className={`absolute top-1/2 right-0 -translate-y-1/2 -translate-x-1/2 block`} onClick={() => setViewPassword(!viewPassword)}>
+            {type === 'password' ? inputFamilyClasses.passwordIcon(viewPassword) : inputFamilyClasses['icon'][getState()]}
           </span>
         )}
       </div>
-      {hint && <span className={`text-xs opacity-0 transition-opacity ${inputFamilyClasses['state'][getState()]['hint']}`}>{hint}</span>}
+      {hint && (
+        <span id={`${id}-hint`} className={`text-xs opacity-0 transition-opacity ${inputFamilyClasses['state'][getState()]['hint']}`}>
+          {hint}
+        </span>
+      )}
     </div>
   )
 }
