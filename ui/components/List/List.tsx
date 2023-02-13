@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 interface ListProps {
   direction?: 'row' | 'column'

@@ -1,5 +1,5 @@
-import { CheckIcon, XMarkIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
-import React, { type ComponentPropsWithoutRef, type ReactElement, useState } from 'react'
+import { CheckIcon, EyeIcon, EyeSlashIcon, XMarkIcon } from '@heroicons/react/24/solid'
+import { useState, type ComponentPropsWithoutRef, type ReactElement } from 'react'
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
   label?: string
@@ -15,42 +15,43 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
 interface IInputFamilyClasses {
   state: Record<string, Record<string, string>>
   icon: Record<string, ReactElement>
+  // eslint-disable-next-line no-unused-vars
   passwordIcon: (showPassword: boolean) => ReactElement
 }
 
 const inputFamilyClasses: IInputFamilyClasses = {
   state: {
     disabled: {
-      wrapper: '[&_label]:text-neutral-200',
-      input: '[&_input]:bg-neutral-50 [&_input]:border-neutral-50',
+      wrapper: '[&_label]:text-surface-300',
+      input: '[&_input]:bg-surface-200 [&_input]:border-surface-200 [&_input]:text-surface-400',
       hint: ''
     },
     error: {
       wrapper: '',
-      input: '[&_input]:border-error-300 before:bg-error-200 before:opacity-40',
-      hint: 'opacity-100 delay-600 text-error-base'
+      input: '[&_input]:border-error-500 before:bg-error-500 before:opacity-25',
+      hint: 'opacity-100 delay-600 text-error-500 -translate-y-0'
     },
     focused: {
       wrapper: '',
-      input: '[&_input]:border-primary-300 before:bg-primary-200 before:opacity-10',
-      hint: 'opacity-100 delay-600'
+      input: '[&_input]:border-info-500 before:bg-info-500 before:opacity-10',
+      hint: 'opacity-100 delay-600 -translate-y-0 text-surface-600'
     },
     success: {
       wrapper: '',
-      input: '[&_input]:border-primary-300 before:bg-primary-200 before:opacity-10',
-      hint: 'opacity-0'
+      input: '[&_input]:border-success-500 before:bg-success-500 before:opacity-10',
+      hint: 'opacity-0 delay-300 -translate-y-0 text-surface-600'
     },
     default: {
       wrapper: '',
-      input: '',
-      hint: ''
+      input: 'before:opacity-0',
+      hint: 'opacity-0 -translate-y-sm'
     }
   },
   icon: {
-    error: <XMarkIcon className={`w-5 h-5 [&>path]:fill-error-500`} />,
-    success: <CheckIcon className={`w-5 h-5 [&>path]:fill-primary-500`} />,
-    password: <EyeSlashIcon className={`w-5 h-5 [&>path]:fill-neutral-300 cursor-pointer`} />,
-    passwordVisible: <EyeIcon className={`w-5 h-5 [&>path]:fill-neutral-300 cursor-pointer`} />
+    error: <XMarkIcon className={`h-5 w-5 [&>path]:fill-error-500`} />,
+    success: <CheckIcon className={`h-5 w-5 [&>path]:fill-success-500`} />,
+    password: <EyeSlashIcon className={`h-5 w-5 cursor-pointer [&>path]:fill-surface-300`} />,
+    passwordVisible: <EyeIcon className={`h-5 w-5 cursor-pointer [&>path]:fill-surface-300`} />
   },
   passwordIcon: (showPassword: boolean) => {
     return showPassword ? inputFamilyClasses.icon.passwordVisible : inputFamilyClasses.icon.password
@@ -78,20 +79,20 @@ const Input = ({ label, id, type = 'text', disabled, required, hint, error, succ
   }
 
   return (
-    <div className={`[&>*]:block [&>*+*]:mt-2 ${inputFamilyClasses['state'][getState()]['wrapper']}`}>
+    <div className={`[&>*+*]:mt-2 [&>*]:block ${inputFamilyClasses['state'][getState()]['wrapper']}`}>
       {label && (
-        <label className={`display-block text-sm`} htmlFor={id}>
+        <label className={`display-block text-sm font-bold`} htmlFor={id}>
           {label}
-          {required && <span className="ml-1 text-xs">*</span>}
+          {required && !disabled && <span className="relative top-xs ml-1 h-2 text-md leading-3 text-primary">*</span>}
         </label>
       )}
       <div
-        className={`before:block before:absolute before:-inset-1 transition-opacity relative before:rounded-sm ${
+        className={`before:delay-50 relative before:absolute before:-inset-1 before:block before:rounded-[4px] before:transition-all ${
           inputFamilyClasses['state'][getState()]['input']
         }`}
       >
         <input
-          className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transition-colors`}
+          className={`bg-white z-1 relative inline-flex w-full items-center justify-center rounded-sm border border-surface-200 py-sm px-sm text-md outline-none transition-colors`}
           type={viewPassword ? 'text' : type}
           id={id}
           disabled={disabled}
@@ -101,13 +102,13 @@ const Input = ({ label, id, type = 'text', disabled, required, hint, error, succ
           {...(hint && { 'aria-labelledby': `${id}-hint` })}
         />
         {showIcon && (
-          <span className={`absolute top-1/2 right-0 -translate-y-1/2 -translate-x-1/2 block`} onClick={() => setViewPassword(!viewPassword)}>
+          <span className={`absolute top-1/2 right-0 block -translate-y-1/2 -translate-x-1/2`} onClick={() => setViewPassword(!viewPassword)}>
             {type === 'password' ? inputFamilyClasses.passwordIcon(viewPassword) : inputFamilyClasses['icon'][getState()]}
           </span>
         )}
       </div>
       {hint && (
-        <span id={`${id}-hint`} className={`text-xs opacity-0 transition-opacity ${inputFamilyClasses['state'][getState()]['hint']}`}>
+        <span id={`${id}-hint`} className={`text-sm opacity-0 transition-all duration-200 ${inputFamilyClasses['state'][getState()]['hint']}`}>
           {hint}
         </span>
       )}

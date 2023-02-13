@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import React, { type ComponentPropsWithoutRef } from 'react'
+import { type ComponentPropsWithoutRef } from 'react'
 
 interface ConditionalLinkProps extends ComponentPropsWithoutRef<'a'> {
   disabled?: boolean
@@ -19,7 +19,7 @@ const ConditionalLink = ({ disabled, href, target, children, onClick, ...props }
 
     //Internal link
     return (
-      <Link href={href} {...props}>
+      <Link href={href} legacyBehavior {...props}>
         {children}
       </Link>
     )

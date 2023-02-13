@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface LoadingProps {
   size: 'sm' | 'md' | 'lg'
   variant: 'primary' | 'neutral' | 'white'
@@ -18,19 +16,19 @@ const loadingFamilyClasses: ILoadingFamilyClasses = {
   },
   variant: {
     primary: '[&>span]:bg-primary-400',
-    neutral: '[&>span]:bg-neutral-200',
-    white: '[&>span]:bg-primary-white'
+    neutral: '[&>span]:bg-secondary-800',
+    white: '[&>span]:bg-secondary-white'
   }
 }
 
 const Loading = ({ size = 'md', variant = 'primary' }: LoadingProps) => {
   return (
     <div
-      className={`flex [&>span]:inline-block [&>span+span]:ml-2 [&>span]:rounded-full 
-      [&>span]:animate-bounce [&>span:last-child]:animation-delay-200 
-      [&>span:nth-child(2)]:animation-delay-100 
-      ${loadingFamilyClasses['size'][size]} 
-      ${loadingFamilyClasses['variant'][variant]}`}
+      className={`flex [&>span]:inline-block [&>span]:animate-bounce [&>span]:rounded-full 
+    [&>span+span]:ml-2 [&>span:last-child]:animation-delay-200 
+    [&>span:nth-child(2)]:animation-delay-100 
+    ${loadingFamilyClasses['size'][size]} 
+    ${loadingFamilyClasses['variant'][variant]}`}
     >
       <span></span>
       <span></span>

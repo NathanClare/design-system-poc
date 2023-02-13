@@ -1,5 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import List from './List'
 
@@ -20,7 +19,7 @@ export default {
 
 const Template: ComponentStory<typeof List> = args => {
   return (
-    <div className="p-4 w-96">
+    <div className="w-96 p-4">
       <List {...args}>
         <span className="text-base">List item</span>
         <span className="text-base">List item</span>
