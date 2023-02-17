@@ -1,5 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Radiogroup from './Radiogroup'
 
@@ -7,23 +6,31 @@ export default {
   title: 'Components/Radio Group',
   component: Radiogroup,
   argTypes: {
-    variant: {
-      name: 'variant',
-      description: 'Select the variant type',
-      control: {
-        type: 'radio',
-        labels: {
-          filled: 'filled',
-          grey: 'grey'
-        }
-      },
-      options: ['filled', 'grey'],
-      defaultValue: 'grey'
-    },
     options: {
       table: {
         disable: true
       }
+    },
+    disabled: {
+      name: 'disabled',
+      description: 'If the radiobutton is disabled',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
+    size: {
+      name: 'size',
+      description: 'Select the Logo size',
+      control: {
+        type: 'radio'
+      },
+      labels: {
+        md: 'medium',
+        lg: 'large'
+      },
+      options: ['md', 'lg'],
+      defaultValue: 'md'
     }
   }
 } as ComponentMeta<typeof Radiogroup>
@@ -36,42 +43,37 @@ const Template: ComponentStory<typeof Radiogroup> = args => {
   )
 }
 
-export const filled = Template.bind({})
+export const Md = Template.bind({})
 
-filled.args = {
-  variant: 'filled',
+Md.args = {
+  size: 'md',
   options: [
     {
       id: '1c',
-      label: 'Filled option 1',
+      label: 'neutral option 1',
       value: 'default'
     },
     {
       id: '1f',
-      label: 'Filled option 2',
+      label: 'neutral option 2',
       value: 'black'
     }
   ]
 }
 
-export const grey = Template.bind({})
+export const Lg = Template.bind({})
 
-grey.args = {
-  variant: 'grey',
+Lg.args = {
+  size: 'lg',
   options: [
     {
-      id: '1b',
-      label: 'Grey option 1',
-      value: 'grey'
-    },
-    {
       id: '1c',
-      label: 'Grey option 2',
+      label: 'neutral option 1',
       value: 'default'
     },
     {
       id: '1f',
-      label: 'Grey option 3',
+      label: 'neutral option 2',
       value: 'black'
     }
   ]

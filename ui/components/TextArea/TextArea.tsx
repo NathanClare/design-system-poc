@@ -1,4 +1,4 @@
-import React, { type ComponentPropsWithoutRef, useState } from 'react'
+import { useState, type ComponentPropsWithoutRef } from 'react'
 
 interface InputProps extends ComponentPropsWithoutRef<'textarea'> {
   label?: string
@@ -12,32 +12,22 @@ interface ITextAreaFamilyClasses {
   state: Record<string, Record<string, string>>
 }
 
-const inputFamilyClasses: ITextAreaFamilyClasses = {
+const textAreaFamilyClasses: ITextAreaFamilyClasses = {
   state: {
     disabled: {
-      wrapper: '[&_label]:text-neutral-200',
-      input: '[&_textarea]:bg-neutral-50 [&_textarea]:border-neutral-50',
+      wrapper: '[&_label]:text-neutral-300',
+      input: '[&_textarea]:bg-neutral-200 [&_textarea]:border-neutral-200',
       hint: ''
-    },
-    error: {
-      wrapper: '',
-      input: '[&_textarea]:border-error-300 before:bg-error-200 before:opacity-40',
-      hint: 'opacity-100 delay-600 text-error-base'
     },
     focused: {
       wrapper: '',
-      input: '[&_textarea]:border-primary-300 before:bg-primary-200 before:opacity-10',
-      hint: 'opacity-100 delay-600'
-    },
-    success: {
-      wrapper: '',
-      input: '[&_textarea]:border-primary-300 before:bg-primary-200 before:opacity-10',
-      hint: 'opacity-0'
+      input: '[&_textarea]:border-primary-500 before:bg-primary-500 before:opacity-10',
+      hint: 'opacity-100 delay-600 -translate-y-0 text-neutral-600'
     },
     default: {
       wrapper: '',
-      input: '',
-      hint: ''
+      input: 'before:opacity-10',
+      hint: '-translate-y-sm '
     }
   }
 }
@@ -55,20 +45,20 @@ const TextArea = ({ label, id, disabled, required, hint, ...props }: InputProps)
   }
 
   return (
-    <div className={`[&>*]:block [&>*+*]:mt-2 ${inputFamilyClasses['state'][getState()]['wrapper']}`}>
+    <div className={`[&>*+*]:mt-2 [&>*]:block ${textAreaFamilyClasses['state'][getState()]['wrapper']}`}>
       {label && (
-        <label className={`display-block text-sm`} htmlFor={id}>
+        <label className={`display-block text-sm font-bold`} htmlFor={id}>
           {label}
-          {required && <span className="ml-1 text-xs">*</span>}
+          {required && !disabled && <span className="relative top-xs ml-1 text-md leading-3 text-primary-base">*</span>}
         </label>
       )}
       <div
-        className={`before:block before:absolute before:-inset-1 transition-opacity relative before:rounded-sm ${
-          inputFamilyClasses['state'][getState()]['input']
+        className={`before:delay-50 relative before:absolute before:-inset-1 before:block before:rounded-[4px] before:transition-all ${
+          textAreaFamilyClasses['state'][getState()]['input']
         }`}
       >
         <textarea
-          className={`inline-flex outline-none items-center justify-center py-1.5 px-2 text-md background-white border rounded-sm border-neutral-100 w-full relative z-1 transiton-colors`}
+          className={`background-white z-1 transiton-colors relative inline-flex w-full items-center justify-center rounded-sm border border-neutral-200 py-sm px-sm text-md outline-none `}
           id={id}
           disabled={disabled}
           {...props}
@@ -78,7 +68,7 @@ const TextArea = ({ label, id, disabled, required, hint, ...props }: InputProps)
         />
       </div>
       {hint && (
-        <span id={`${id}-hint`} className={`text-xs opacity-0 transition-opacity ${inputFamilyClasses['state'][getState()]['hint']}`}>
+        <span id={`${id}-hint`} className={`text-sm opacity-0 transition-all duration-200 ${textAreaFamilyClasses['state'][getState()]['hint']}`}>
           {hint}
         </span>
       )}

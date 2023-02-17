@@ -56,7 +56,7 @@ const AlertComp = ({
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger asChild>
-        <Button aria-label={ariaLabel} disabled={disabled} variant={'filled'} size={`md`}>
+        <Button aria-label={ariaLabel} disabled={disabled} variant={'primary'} size={`md`}>
           {label}
         </Button>
       </AlertDialog.Trigger>
@@ -78,12 +78,12 @@ const AlertComp = ({
             )}
             <div className="flex justify-end [&>button+button]:ml-2">
               <AlertDialog.Cancel asChild>
-                <Button aria-label={ariaLabelCancelButton} variant={`text`} size={`sm`}>
+                <Button aria-label={ariaLabelCancelButton} variant={`secondary`} size={`sm`}>
                   {cancelButtonLabel}
                 </Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action asChild>
-                <Button aria-label={ariaLabelActionButton} variant={`text`} size={`sm`}>
+                <Button aria-label={ariaLabelActionButton} variant={`tertiary`} size={`sm`}>
                   {actionButtonLabel}
                 </Button>
               </AlertDialog.Action>

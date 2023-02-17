@@ -1,25 +1,77 @@
 import * as RadixSlider from '@radix-ui/react-slider'
-import React from 'react'
+import React, { useState } from 'react'
+
+import Input from '../Input/Input'
 
 interface SliderProps {
-  variant?: 'filled' | 'grey'
+  defaultValue: Array<number>
+  disabled?: boolean
+  label: string
+  maxValue: number
+  minValue: number
+  name: string
+  onChange?: () => void
+  step?: number
+  showInputControls?: boolean
 }
 
-const Slider = ({}: SliderProps) => {
+const Slider = ({ maxValue, minValue, step = 1, defaultValue, label, disabled = false, showInputControls }: SliderProps) => {
+  const [values, setValues] = useState(defaultValue)
+
+  const handleSliderChange = (value: Array<number>) => {
+    setValues(value)
+  }
+
   return (
-    <RadixSlider.Root
-      className="relative flex items-center select-none touch-none w-52 data-[orientation=horizontal]:h-5 data-[orientation=vertical]:w-5 data-[orientation=vertical]:h-24 data-[orientation=vertical]:flex-col"
-      defaultValue={[50]}
-      max={100}
-      step={1}
-      aria-label="Volume"
-    >
-      <RadixSlider.Track className="bg-neutral-100 relative grow rounded-full data-[orientation=vertical]:w-1 data-[orientation=horizontal]:h-1">
-        <RadixSlider.Range className="absolute bg-primary-base rounded-full h-full" />
-      </RadixSlider.Track>
-      <RadixSlider.Thumb className="block w-5 h-5 bg-primary-base shadow rounded-xl focus:bg-primary-600 focus:outline-none focus:shadow-xl" />
-    </RadixSlider.Root>
+    <>
+      <RadixSlider.Root
+        className="relative flex touch-none select-none items-center data-[orientation=horizontal]:h-5 data-[orientation=vertical]:h-24 data-[orientation=vertical]:w-5 data-[orientation=vertical]:flex-col"
+        defaultValue={values}
+        value={values}
+        min={minValue}
+        max={maxValue}
+        step={step}
+        aria-label={label}
+        disabled={disabled}
+        onValueChange={values => handleSliderChange(values)}
+        minStepsBetweenThumbs={1}
+      >
+        <RadixSlider.Track className="relative grow rounded-full bg-neutral-200 data-[orientation=horizontal]:h-xs data-[orientation=vertical]:w-xs">
+          <RadixSlider.Range className="absolute h-full rounded-full bg-primary-base opacity-25" />
+        </RadixSlider.Track>
+        <RadixSlider.Thumb className={ThumbStyles()} />
+        <RadixSlider.Thumb className={ThumbStyles()} />
+      </RadixSlider.Root>
+      {showInputControls && (
+        <div className={`mt-md flex items-center justify-between [&_input]:rounded-[4px] [&_input]:py-1.5`}>
+          <Input
+            type={`number`}
+            step={step}
+            id={`price-minimum`}
+            value={values[0]}
+            max={values[1]}
+            min={minValue}
+            onChange={event => handleSliderChange([Number(event.target.value), values[1]])}
+            disabled={disabled}
+          />
+          <span className="text-neutral-300">-</span>
+          <Input
+            type={`number`}
+            step={step}
+            id={`price-maximum`}
+            value={values[1]}
+            max={maxValue}
+            min={values[0]}
+            onChange={event => handleSliderChange([values[0], Number(event.target.value)])}
+            disabled={disabled}
+          />
+        </div>
+      )}
+    </>
   )
 }
+
+const ThumbStyles = () =>
+  `before:content-[" "] relative block h-md w-md rounded-full bg-primary-400 before:absolute before:left-1/2 before:top-1/2 before:h-lg before:w-lg before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-primary-base before:opacity-10 hover:cursor-grab focus:shadow-xl hover:scale-110 transition-all focus:outline-none active:cursor-grabbing`
 
 export default Slider

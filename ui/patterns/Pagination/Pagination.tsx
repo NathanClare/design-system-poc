@@ -65,14 +65,19 @@ const Pagination = ({ totalPages = 10, currentIndex = 1, pageNumbersToShow = 3 }
   }
 
   return (
-    <nav role="navigation" aria-label="Pagination" className={`flex flex-wrap justify-between`}>
-      <span className={classNames(`flex items-center justify-center`, { 'text-neutral-200': currentPage === 1 })}>
-        <ChevronLeftIcon className="w-5 h-5" />
-        <ConditionalLink {...(currentPage > 1 && { onClick: () => handleClick(currentPage - 1) })} disabled={currentPage === 1}>
-          Previous
+    <nav role="navigation" aria-label="Pagination" className={`flex flex-wrap justify-between bg-neutral-white`}>
+      <span className={classNames(`flex items-center justify-center transition-colors`, { 'text-neutral-200': currentPage === 1 })}>
+        <ChevronLeftIcon className="h-5 w-5" />
+        <ConditionalLink
+          {...(currentPage > 1 && {
+            onClick: () => handleClick(currentPage - 1)
+          })}
+          disabled={currentPage === 1}
+        >
+          Prev
         </ConditionalLink>
       </span>
-      <ul className={`flex flex-wrap [&>li]:w-8 [&>li]:h-8 [&>li]:items-center [&>li]:flex [&>li]:justify-center`}>
+      <ul className={`flex flex-wrap [&>li]:flex [&>li]:h-12 [&>li]:w-12 [&>li]:items-center [&>li]:justify-center`}>
         {generatePageNumbers().map((pageNumber, index) =>
           pageNumber === '...' ? (
             // eslint-disable-next-line react/no-array-index-key
@@ -81,12 +86,14 @@ const Pagination = ({ totalPages = 10, currentIndex = 1, pageNumbersToShow = 3 }
             <li
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={classNames(`transition-colors hover:bg-neutral-200 cursor-pointer`, {
-                'bg-neutral-200': pageNumber === currentPage
+              className={classNames(`cursor-pointer transition-colors hover:bg-neutral-200`, {
+                'bg-neutral-200 font-bold': pageNumber === currentPage
               })}
             >
               <ConditionalLink
-                {...(typeof pageNumber !== 'string' && { onClick: () => handleClick(pageNumber) })}
+                {...(typeof pageNumber !== 'string' && {
+                  onClick: () => handleClick(pageNumber)
+                })}
                 aria-label={pageNumber === currentPage ? `Current page, page ${currentPage}` : `Go to page ${pageNumber}`}
               >
                 {pageNumber}
@@ -95,11 +102,16 @@ const Pagination = ({ totalPages = 10, currentIndex = 1, pageNumbersToShow = 3 }
           )
         )}
       </ul>
-      <span className={classNames(`flex items-center justify-center`, { 'text-neutral-200': currentPage === totalPages })}>
-        <ConditionalLink {...(currentPage < totalPages && { onClick: () => handleClick(currentPage + 1) })} disabled={currentPage === totalPages}>
+      <span className={classNames(`flex items-center justify-center transition-colors`, { 'text-neutral-200': currentPage === totalPages })}>
+        <ConditionalLink
+          {...(currentPage < totalPages && {
+            onClick: () => handleClick(currentPage + 1)
+          })}
+          disabled={currentPage === totalPages}
+        >
           Next
         </ConditionalLink>
-        <ChevronRightIcon className="w-5 h-5" />
+        <ChevronRightIcon className="h-5 w-5" />
       </span>
     </nav>
   )
