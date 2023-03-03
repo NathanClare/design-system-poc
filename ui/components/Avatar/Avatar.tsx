@@ -1,11 +1,16 @@
 import * as RadixAvatar from '@radix-ui/react-avatar'
 import React from 'react'
 
+import Typography from '../Typography/Typography'
+
 interface AvatarProps {
-  size?: 'lg' | 'md' | 'sm'
+  size?: 'lg' | 'md' | 'sm' | 'xs'
   variant?: 'primary' | 'neutral'
   imageURL?: string
   userName?: string
+  name?: string
+  job?: string
+  text?: boolean
 }
 
 interface IAvatarFamilyClasses {
@@ -15,17 +20,18 @@ interface IAvatarFamilyClasses {
 
 const iconFamilyClasses: IAvatarFamilyClasses = {
   size: {
-    sm: 'w-8 h-8',
-    md: 'w-11 h-11',
-    lg: 'w-14 h-14'
+    xs: 'w-10 h-10',
+    sm: 'w-12 h-12',
+    md: 'w-14 h-14',
+    lg: 'w-16 h-16'
   },
   variant: {
-    primary: 'bg-primary-100 text-primary-600',
-    neutral: 'bg-neutral-100 text-neutral-600'
+    primary: 'bg-brand-redlight text-surface-0',
+    neutral: 'bg-surface-20 text-surface-60'
   }
 }
 
-const Avatar = ({ size = 'md', variant = 'primary', imageURL, userName }: AvatarProps) => {
+const Avatar = ({ size = 'md', variant = 'primary', imageURL, userName, name, job, text }: AvatarProps) => {
   return (
     <div className={`flex gap-2.5`}>
       <RadixAvatar.Root
@@ -39,6 +45,17 @@ const Avatar = ({ size = 'md', variant = 'primary', imageURL, userName }: Avatar
           ?
         </RadixAvatar.Fallback>
       </RadixAvatar.Root>
+
+      {text && (
+        <div className="flex flex-col  justify-center">
+          <Typography className="font-bold" size={'sm'}>
+            {name}
+          </Typography>
+          <Typography className="font-normal" size={'sm'}>
+            {job}
+          </Typography>
+        </div>
+      )}
     </div>
   )
 }

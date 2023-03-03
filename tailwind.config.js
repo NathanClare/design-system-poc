@@ -14,171 +14,209 @@ module.exports = {
     fontFamily: {
       sans: ['Roboto', 'sans-serif']
     },
-    fontSize: {
-      xs: [
-        convertToRem(tokens.FontM3BodySmall.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3BodySmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodySmall.letterSpacing),
-          fontWeight: tokens.FontM3BodySmall.fontWeight
-        }
-      ],
-      sm: [
-        convertToRem(tokens.FontM3BodyMedium.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3BodyMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyMedium.letterSpacing),
-          fontWeight: tokens.FontM3BodyMedium.fontWeight
-        }
-      ],
-      base: [
-        convertToRem(tokens.FontM3BodyLarge.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-          fontWeight: tokens.FontM3BodyLarge.fontWeight
-        }
-      ],
-      lg: [
-        convertToRem(tokens.FontM3HeadlineSmall.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3HeadlineSmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineSmall.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineSmall.fontWeight
-        }
-      ],
-      xl: [
-        convertToRem(tokens.FontM3HeadlineMedium.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineMedium.fontWeight
-        }
-      ],
-      '2xl': [
-        convertToRem(tokens.FontM3HeadlineLarge.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-          fontWeight: tokens.FontM3HeadlineLarge.fontWeight
-        }
-      ],
-      '3xl': [
-        convertToRem(tokens.FontM3DisplaySmall.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-          fontWeight: tokens.FontM3DisplaySmall.fontWeight
-        }
-      ],
-      '4xl': [
-        convertToRem(tokens.FontM3DisplayMedium.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-          fontWeight: tokens.FontM3DisplayMedium.fontWeight
-        }
-      ],
-      '5xl': [
-        convertToRem(tokens.FontM3DisplayLarge.fontSize),
-        {
-          lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-          letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-          fontWeight: tokens.FontM3DisplayLarge.fontWeight
-        }
-      ]
+    fontWeight: {
+      normal: 400,
+      bold: 700
     },
+    // fontSize: {
+    //   xs: [
+    //     convertToRem(tokens.Body10Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body10Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body10Regular.letterSpacing),
+    //       fontWeight: tokens.Body10Regular.fontWeight
+    //     }
+    //   ],
+    //   sm: [
+    //     convertToRem(tokens.Body12Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body12Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body12Regular.letterSpacing),
+    //       fontWeight: tokens.Body12Regular.fontWeight
+    //     }
+    //   ],
+    //   base: [
+    //     convertToRem(tokens.Body14Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body14Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body14Regular.letterSpacing),
+    //       fontWeight: tokens.Body14Regular.fontWeight
+    //     }
+    //   ],
+    //   lg: [
+    //     convertToRem(tokens.Body16Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body16Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body16Regular.letterSpacing),
+    //       fontWeight: tokens.Body16Regular.fontWeight
+    //     }
+    //   ],
+    //   xl: [
+    //     convertToRem(tokens.Body18Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body18Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body18Regular.letterSpacing),
+    //       fontWeight: tokens.Body18Regular.fontWeight
+    //     }
+    //   ],
+    //   '2xl': [
+    //     convertToRem(tokens.Body20Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body20Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body20Regular.letterSpacing),
+    //       fontWeight: tokens.Body20Regular.fontWeight
+    //     }
+    //   ],
+    //   '3xl': [
+    //     convertToRem(tokens.Body20Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body20Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body20Regular.letterSpacing),
+    //       fontWeight: tokens.Body20Regular.fontWeight
+    //     }
+    //   ],
+    //   '4xl': [
+    //     convertToRem(tokens.Body24Regular.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.Body24Regular.lineHeight),
+    //       letterSpacing: convertToRem(tokens.Body24Regular.letterSpacing),
+    //       fontWeight: tokens.Body24Regular.fontWeight
+    //     }
+    //   ],
+    //   '5xl': [
+    //     convertToRem(tokens.FontM3DisplayLarge.fontSize),
+    //     {
+    //       lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
+    //       letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
+    //       fontWeight: tokens.FontM3DisplayLarge.fontWeight
+    //     }
+    //   ]
+    // },
     screens: {
       sm: '600px',
       md: '1240px',
       lg: '1440px'
     },
     colors: {
-      white: '#ffffff',
-      'primary-base': tokens.ColorM3RefPrimaryPrimary40,
-      'primary-black': tokens.ColorM3RefPrimaryPrimary0,
-      'primary-900': tokens.ColorM3RefPrimaryPrimary10,
-      'primary-800': tokens.ColorM3RefPrimaryPrimary20,
-      'primary-700': tokens.ColorM3RefPrimaryPrimary30,
-      'primary-600': tokens.ColorM3RefPrimaryPrimary40,
-      'primary-500': tokens.ColorM3RefPrimaryPrimary50,
-      'primary-400': tokens.ColorM3RefPrimaryPrimary60,
-      'primary-300': tokens.ColorM3RefPrimaryPrimary70,
-      'primary-200': tokens.ColorM3RefPrimaryPrimary80,
-      'primary-100': tokens.ColorM3RefPrimaryPrimary90,
-      'primary-50': tokens.ColorM3RefPrimaryPrimary95,
-      'primary-25': tokens.ColorM3RefPrimaryPrimary99,
-      'primary-white': tokens.ColorM3RefPrimaryPrimary100,
-      'secondary-base': tokens.ColorM3RefSecondarySecondary40,
-      'secondary-black': tokens.ColorM3RefSecondarySecondary0,
-      'secondary-900': tokens.ColorM3RefSecondarySecondary10,
-      'secondary-800': tokens.ColorM3RefSecondarySecondary20,
-      'secondary-700': tokens.ColorM3RefSecondarySecondary30,
-      'secondary-600': tokens.ColorM3RefSecondarySecondary40,
-      'secondary-500': tokens.ColorM3RefSecondarySecondary50,
-      'secondary-400': tokens.ColorM3RefSecondarySecondary60,
-      'secondary-300': tokens.ColorM3RefSecondarySecondary70,
-      'secondary-200': tokens.ColorM3RefSecondarySecondary80,
-      'secondary-100': tokens.ColorM3RefSecondarySecondary90,
-      'secondary-50': tokens.ColorM3RefSecondarySecondary95,
-      'secondary-25': tokens.ColorM3RefSecondarySecondary99,
-      'secondary-white': tokens.ColorM3RefSecondarySecondary100,
-      'tertiary-base': tokens.ColorM3RefTertiaryTertiary40,
-      'tertiary-black': tokens.ColorM3RefTertiaryTertiary0,
-      'tertiary-900': tokens.ColorM3RefTertiaryTertiary10,
-      'tertiary-800': tokens.ColorM3RefTertiaryTertiary20,
-      'tertiary-700': tokens.ColorM3RefTertiaryTertiary30,
-      'tertiary-600': tokens.ColorM3RefTertiaryTertiary40,
-      'tertiary-500': tokens.ColorM3RefTertiaryTertiary50,
-      'tertiary-400': tokens.ColorM3RefTertiaryTertiary60,
-      'tertiary-300': tokens.ColorM3RefTertiaryTertiary70,
-      'tertiary-200': tokens.ColorM3RefTertiaryTertiary80,
-      'tertiary-100': tokens.ColorM3RefTertiaryTertiary90,
-      'tertiary-50': tokens.ColorM3RefTertiaryTertiary95,
-      'tertiary-25': tokens.ColorM3RefTertiaryTertiary99,
-      'tertiary-white': tokens.ColorM3RefTertiaryTertiary100,
-      'error-base': tokens.ColorM3RefErrorError40,
-      'error-black': tokens.ColorM3RefErrorError0,
-      'error-900': tokens.ColorM3RefErrorError10,
-      'error-800': tokens.ColorM3RefErrorError20,
-      'error-700': tokens.ColorM3RefErrorError30,
-      'error-600': tokens.ColorM3RefErrorError40,
-      'error-500': tokens.ColorM3RefErrorError50,
-      'error-400': tokens.ColorM3RefErrorError60,
-      'error-300': tokens.ColorM3RefErrorError70,
-      'error-200': tokens.ColorM3RefErrorError80,
-      'error-100': tokens.ColorM3RefErrorError90,
-      'error-50': tokens.ColorM3RefErrorError95,
-      'error-25': tokens.ColorM3RefErrorError99,
-      'error-white': tokens.ColorM3RefErrorError100,
-      'neutral-base': tokens.ColorM3RefNeutralNeutral40,
-      'neutral-black': tokens.ColorM3RefNeutralNeutral0,
-      'neutral-900': tokens.ColorM3RefNeutralNeutral10,
-      'neutral-800': tokens.ColorM3RefNeutralNeutral20,
-      'neutral-700': tokens.ColorM3RefNeutralNeutral30,
-      'neutral-600': tokens.ColorM3RefNeutralNeutral40,
-      'neutral-500': tokens.ColorM3RefNeutralNeutral50,
-      'neutral-400': tokens.ColorM3RefNeutralNeutral60,
-      'neutral-300': tokens.ColorM3RefNeutralNeutral70,
-      'neutral-200': tokens.ColorM3RefNeutralNeutral80,
-      'neutral-100': tokens.ColorM3RefNeutralNeutral90,
-      'neutral-50': tokens.ColorM3RefNeutralNeutral95,
-      'neutral-25': tokens.ColorM3RefNeutralNeutral99,
-      'neutral-white': tokens.ColorM3RefNeutralNeutral100
+      black: '#000000',
+      white: '#FFFFFF',
+
+      brand: {
+        redlight: tokens.BrandImpermoRedLight,
+        redprimary: tokens.BrandImpermoRedPrimary,
+        reddark: tokens.BrandImpermoDarkRed,
+        yellow: tokens.BrandImpermoYellow,
+        lightgrey: tokens.BrandImpermoLightGrey,
+        mediumgrey: tokens.BrandImpermoMediumGrey,
+        black: tokens.BrandImpermoBlack,
+        pastel: tokens.BrandImpermoPastel,
+        blue: tokens.BrandImpermoBlue,
+        pink: tokens.BrandImpermoPink
+      },
+      floor: {
+        collection: tokens.BrandProductsFloorCollection,
+        classic: tokens.BrandProductsFloorClassic,
+        basic: tokens.BrandProductsFloorBasic
+      },
+      terrace: {
+        collection: tokens.BrandProductsTerraceCollection,
+        classic: tokens.BrandProductsTerraceClassic,
+        basic: tokens.BrandProductsTerraceBasic
+      },
+      parquet: {
+        collection: tokens.BrandMaterialsParquetCollection,
+        classic: tokens.BrandMaterialsParquetClassic,
+        basic: tokens.BrandMaterialsParquetBasic
+      },
+      rocks: {
+        collection: tokens.BrandMaterialsNaturalRocksCollection,
+        classic: tokens.BrandMaterialsNaturalRocksClassic,
+        basic: tokens.BrandMaterialsNaturalRocksBasic
+      },
+      wall: {
+        collection: tokens.WallCollection,
+        classic: tokens.WallClassic,
+        basic: tokens.WallBasic
+      },
+      tiles: {
+        collection: tokens.BrandMaterialsTilesCollection,
+        classic: tokens.BrandMaterialsTilesClassic,
+        basic: tokens.BrandMaterialsTilesBasic
+      },
+      materials: {
+        base: tokens.BrandMaterialsMaterials
+      },
+      promo: {
+        500: tokens.StatusIndicatorPromo
+      },
+      info: {
+        500: tokens.StatusIndicatorInfo,
+        50: tokens.StatusBackgroundInformation
+      },
+      error: {
+        500: tokens.StatusIndicatorError,
+        50: tokens.StatusBackgroundError
+      },
+      warning: {
+        500: tokens.StatusIndicatorWarning,
+        50: tokens.StatusBackgroundWarning
+      },
+      succes: {
+        500: tokens.StatusIndicatorSuccess,
+        50: tokens.StatusBackgroundSuccess
+      },
+      surface: {
+        100: tokens.Greyscale100,
+        90: tokens.Greyscale90,
+        80: tokens.Greyscale80,
+        70: tokens.Greyscale70,
+        60: tokens.Greyscale60,
+        50: tokens.Greyscale50,
+        40: tokens.Greyscale40,
+        30: tokens.Greyscale30,
+        20: tokens.Greyscale20,
+        10: tokens.Greyscale10,
+        0: tokens.Greyscale0
+      },
+      red: {
+        base: tokens.ButtonRedDefault,
+        hover: tokens.ButtonRedHover
+      },
+      black: {
+        base: tokens.ButtonBlackDefault,
+        hover: tokens.ButtonBlackHover
+      },
+      green: {
+        base: tokens.ButtonGreenDefault,
+        hover: tokens.ButtonGreenHover
+      },
+      disabled: {
+        button: tokens.ButtonDisabledDefault,
+        text: tokens.TextDisabledDefault
+      },
+      icon: {
+        white: tokens.IconWhiteDefault,
+        black: tokens.IconBlackDefault
+      }
     },
     extend: {
-      spacing: {
-        xs: '0.25rem',
-        sm: '0.5rem',
-        md: '1rem',
-        lg: '1.5rem',
-        xl: '2rem',
-        '2xl': '4rem',
-        '3xl': '8rem'
+      transitionProperty: {
+        colors: 'color, background-color, border-color, text-decoration-color, fill, stroke'
       },
-      dropShadow: {
-        10: `${tokens.EffectM3ElevationLight10.offsetX}px ${tokens.EffectM3ElevationLight10.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.15)`,
-        20: `${tokens.EffectM3ElevationLight20.offsetX}px ${tokens.EffectM3ElevationLight20.offsetY}px ${tokens.EffectM3ElevationLight10.radius}px rgba(0,0,0,0.3)`
+      shadow: {
+        sm: tokens.ShadowSm,
+        md: tokens.ShadowMd,
+        lg: tokens.ShadowLg
+      },
+      spacing: {
+        xs: tokens.SpacingXs,
+        sm: tokens.SpacingSm,
+        md: tokens.SpacingMd,
+        lg: tokens.SpacingLg,
+        xl: tokens.SpacingXl,
+        '2xl': tokens.Spaxing2xl,
+        '3xl': tokens.Spacing3xl,
+        '4xl': tokens.Spacing4xl
       },
       keyframes: {
         fadeIn: {

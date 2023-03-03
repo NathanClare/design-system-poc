@@ -1,6 +1,10 @@
-import { Cog8ToothIcon } from '@heroicons/react/24/outline'
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
+
+import InstaLogo from '../../../assets/social/instagram.svg'
+import TestIcon from '../../../assets/svgs/brand-element.svg'
+import LogoblackIcon from '../../../assets/svgs/logo-black.svg'
+import LogoRedIcon from '../../../assets/svgs/logo-red.svg'
+import LogoWhiteIcon from '../../../assets/svgs/logo-white.svg'
 
 import Icon from './Icon'
 
@@ -15,39 +19,7 @@ export default {
         type: 'radio'
       }
     },
-    variant: {
-      name: 'variant',
-      description: 'Select the variant type',
-      control: {
-        type: 'radio'
-      },
-      options: ['filled', 'standard'],
-      defaultValue: 'standard'
-    },
-    disabled: {
-      name: 'disabled',
-      description: '-',
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
-    },
     children: {
-      table: {
-        disable: true
-      }
-    },
-    href: {
-      table: {
-        disable: true
-      }
-    },
-    target: {
-      table: {
-        disable: true
-      }
-    },
-    onClick: {
       table: {
         disable: true
       }
@@ -61,18 +33,36 @@ const Template: ComponentStory<typeof Icon> = args => (
   </div>
 )
 
-export const filled = Template.bind({})
+export const base = Template.bind({})
 
-filled.args = {
+base.args = {
   size: 'md',
-  variant: 'filled',
-  children: <Cog8ToothIcon className="h-6 w-6" />
+  children: <TestIcon />
 }
 
-export const standard = Template.bind({})
+export const instagram = Template.bind({})
 
-standard.args = {
+instagram.args = {
   size: 'md',
-  variant: 'standard',
-  children: <Cog8ToothIcon className="h-6 w-6" />
+  children: <InstaLogo />
+}
+
+export const logo = Template.bind({})
+
+logo.args = {
+  size: 'md',
+  children: <LogoRedIcon />
+}
+
+export const logoBlack = Template.bind({})
+
+logoBlack.args = {
+  size: 'md',
+  children: <LogoblackIcon />
+}
+export const logoWhite = Template.bind({})
+
+logoWhite.args = {
+  size: 'md',
+  children: <LogoWhiteIcon />
 }

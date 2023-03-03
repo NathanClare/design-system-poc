@@ -1,31 +1,33 @@
 import { StarIcon } from '@heroicons/react/24/outline'
-import React from 'react'
+
+import Typography from '../Typography/Typography'
 
 interface RatingProps {
-  size?: 'sm' | 'md' | 'lg'
+  variant?: 'green' | 'black'
   rating: number
+  text?: string
 }
 
 interface IRatingFamilyClasses {
-  size: Record<string, string>
-  variant: Record<string, string>
+  variant: Record<string, Record<string, string>>
 }
 
 const ratingFamilyClasses: IRatingFamilyClasses = {
   variant: {
-    primary: 'fill-primary-base stroke-primary-base',
-    neutral: 'fill-neutral-200 stroke-neutral-200'
-  },
-  size: {
-    sm: 'w-3 h-3',
-    md: 'w-4 h-4',
-    lg: 'w-5 h-5'
+    green: {
+      filled: 'fill-green-base stroke-green-base',
+      outline: 'fill-surface-30 stroke-white'
+    },
+    black: {
+      filled: 'fill-black-base stroke-black-base',
+      outline: 'fill-surface-30 stroke-white'
+    }
   }
 }
 
 const TOTAL_STARS = 5
 
-const Rating = ({ size = 'md', rating }: RatingProps) => {
+const Rating = ({ rating, variant = 'green', text }: RatingProps) => {
   const fullStars = Math.floor(rating)
   const demiStar = (rating - fullStars) * 100
 
@@ -34,15 +36,18 @@ const Rating = ({ size = 'md', rating }: RatingProps) => {
       {Array.from(Array(TOTAL_STARS).keys()).map(star => {
         return (
           <span className="relative" key={star}>
-            <StarIcon className={`${ratingFamilyClasses['size'][size]} ${ratingFamilyClasses['variant'][star < fullStars ? 'primary' : 'neutral']}`} />
+            <StarIcon className={`h-md w-md ${ratingFamilyClasses['variant'][variant][star < fullStars ? 'filled' : 'outline']}`} />
             {star === fullStars && (
-              <span className={`overflow-hidden left-0 top-0 absolute`} style={{ width: `${demiStar}%` }}>
-                <StarIcon className={`${ratingFamilyClasses['variant']['primary']} ${ratingFamilyClasses['size'][size]}`} />
+              <span className={`absolute left-0 top-0 overflow-hidden text-primary-600`} style={{ width: `${demiStar}%` }}>
+                <StarIcon className={`h-md w-md ${ratingFamilyClasses['variant'][variant]['filled']}`} />
               </span>
             )}
           </span>
         )
       })}
+      <Typography className="px-sm inline-flex items-center justify-center" size={'base'}>
+        {text}
+      </Typography>
     </div>
   )
 }

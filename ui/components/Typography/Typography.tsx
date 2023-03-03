@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { type ElementType, type ReactNode } from 'react'
 
-interface TypographyProps {
-  children: string
-  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span'
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'base'
-}
+type TypographyProps<C extends ElementType> = {
+  children: ReactNode
+  as?: C
+  size: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'base'
+  className?: string
+} & React.ComponentPropsWithoutRef<C>
 
 interface ITypographyFamilyClasses {
   variant: Record<string, Record<string, string>>
@@ -13,22 +14,19 @@ interface ITypographyFamilyClasses {
 const typographyFamilyClasses: ITypographyFamilyClasses = {
   variant: {
     heading: {
-      xs: 'heading-xs',
-      sm: 'heading-sm',
-      base: 'heading-base',
-      md: 'heading-base',
-      lg: 'heading-lg',
-      xl: 'heading-xl',
-      '2xl': 'heading-2xl',
-      '3xl': 'heading-3xl',
-      '4xl': 'heading-4xl',
-      '5xl': 'heading-5xl'
+      xs: 'heading-mobile-xs md:heading-xs',
+      sm: 'heading-mobile-sm md:heading-sm',
+      base: 'heading-mobile-md md:heading-md',
+      md: 'heading-mobile-md md:heading-md',
+      lg: 'heading-mobile-lg md:heading-lg',
+      xl: 'heading-mobile-md md:heading-xl',
+      '2xl': 'heading-mobile-2xl md:heading-2xl'
     },
     text: {
       xs: 'text-xs',
       sm: 'text-sm',
-      base: 'text-base',
-      md: 'text-base',
+      base: 'text-md',
+      md: 'text-md',
       lg: 'text-lg',
       xl: 'text-xl',
       '2xl': 'text-2xl',
@@ -41,11 +39,16 @@ const typographyFamilyClasses: ITypographyFamilyClasses = {
 
 const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5']
 
-const Typography = ({ tag = 'span', size = 'md', children }: TypographyProps) => {
-  const Element = tag
+const Typography = <C extends ElementType = 'span'>({ as, size = 'md', children, className, ...props }: TypographyProps<C>) => {
+  const Element = as || 'span'
 
   return (
-    <Element className={`block break-word ${typographyFamilyClasses['variant'][headingTags.includes(tag) ? 'heading' : 'text'][size]}`}>{children}</Element>
+    <Element
+      className={`block ${typographyFamilyClasses['variant'][headingTags.includes(Element as string) ? 'heading' : 'text'][size]} ${className || ''}`}
+      {...props}
+    >
+      {children}
+    </Element>
   )
 }
 

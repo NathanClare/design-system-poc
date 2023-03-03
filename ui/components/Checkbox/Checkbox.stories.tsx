@@ -1,5 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Checkbox from './Checkbox'
 
@@ -7,15 +6,8 @@ export default {
   title: 'Components/Checkbox',
   component: Checkbox,
   argTypes: {
-    label: {
-      name: 'label',
-      description: 'Text',
-      control: {
-        type: 'text'
-      }
-    },
     error: {
-      name: 'on error',
+      name: 'error',
       description: 'Set if invalid',
       control: {
         type: 'boolean'
@@ -28,18 +20,9 @@ export default {
       }
     },
     checked: {
-      name: 'checked',
-      description: 'Set the checkbox state',
-      control: {
-        type: 'select',
-        labels: {
-          true: 'Checked',
-          false: 'Unchecked',
-          indeterminate: 'Indeterminate'
-        }
-      },
-      options: [true, false, 'indeterminate'],
-      defaultValue: 'md'
+      table: {
+        disable: true
+      }
     },
     disabled: {
       name: 'disabled',
@@ -48,6 +31,36 @@ export default {
         type: 'boolean'
       },
       defaultValue: false
+    },
+    onChange: {
+      table: {
+        disable: true
+      }
+    },
+    className: {
+      table: {
+        disable: true
+      }
+    },
+    name: {
+      table: {
+        disable: true
+      }
+    },
+    value: {
+      table: {
+        disable: true
+      }
+    },
+    swatch: {
+      table: {
+        disable: true
+      }
+    },
+    overrideClasses: {
+      table: {
+        disable: true
+      }
     }
   }
 } as ComponentMeta<typeof Checkbox>
@@ -58,10 +71,9 @@ const Template: ComponentStory<typeof Checkbox> = args => (
   </div>
 )
 
-export const primary = Template.bind({})
+export const Primary = Template.bind({})
 
-primary.args = {
-  label: 'This is a checkbox',
+Primary.args = {
   error: false,
   checked: true
 }
