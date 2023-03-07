@@ -1,31 +1,23 @@
 import { StarIcon } from '@heroicons/react/24/outline'
-import React from 'react'
 
 interface RatingProps {
-  size?: 'sm' | 'md' | 'lg'
   rating: number
 }
 
 interface IRatingFamilyClasses {
-  size: Record<string, string>
   variant: Record<string, string>
 }
 
 const ratingFamilyClasses: IRatingFamilyClasses = {
   variant: {
-    primary: 'fill-primary-base stroke-primary-base',
-    neutral: 'fill-neutral-200 stroke-neutral-200'
-  },
-  size: {
-    sm: 'w-3 h-3',
-    md: 'w-4 h-4',
-    lg: 'w-5 h-5'
+    filled: 'fill-primary-base stroke-primary-base',
+    outline: 'fill-neutral-white stroke-primary-base'
   }
 }
 
 const TOTAL_STARS = 5
 
-const Rating = ({ size = 'md', rating }: RatingProps) => {
+const Rating = ({ rating }: RatingProps) => {
   const fullStars = Math.floor(rating)
   const demiStar = (rating - fullStars) * 100
 
@@ -34,10 +26,10 @@ const Rating = ({ size = 'md', rating }: RatingProps) => {
       {Array.from(Array(TOTAL_STARS).keys()).map(star => {
         return (
           <span className="relative" key={star}>
-            <StarIcon className={`${ratingFamilyClasses['size'][size]} ${ratingFamilyClasses['variant'][star < fullStars ? 'primary' : 'neutral']}`} />
+            <StarIcon className={`h-4 w-4 ${ratingFamilyClasses['variant'][star < fullStars ? 'filled' : 'outline']}`} />
             {star === fullStars && (
-              <span className={`overflow-hidden left-0 top-0 absolute`} style={{ width: `${demiStar}%` }}>
-                <StarIcon className={`${ratingFamilyClasses['variant']['primary']} ${ratingFamilyClasses['size'][size]}`} />
+              <span className={`absolute left-0 top-0 overflow-hidden text-primary-600`} style={{ width: `${demiStar}%` }}>
+                <StarIcon className={`h-4 w-4 ${ratingFamilyClasses['variant']['filled']}`} />
               </span>
             )}
           </span>

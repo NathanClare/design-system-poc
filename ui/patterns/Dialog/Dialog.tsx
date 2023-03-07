@@ -45,7 +45,7 @@ const DialogComp = ({ variant = 'filled', label, ariaLabel, labelClose = 'close'
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <Button aria-label={ariaLabel} disabled={disabled} variant={'filled'} size={`md`}>
+        <Button aria-label={ariaLabel} disabled={disabled} variant={'primary'} size={`md`}>
           {label || ''}
         </Button>
       </Dialog.Trigger>

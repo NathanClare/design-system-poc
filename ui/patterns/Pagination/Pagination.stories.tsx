@@ -1,5 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Pagination from './Pagination'
 
@@ -41,8 +40,8 @@ const Template: ComponentStory<typeof Pagination> = args => {
   )
 }
 
-export const primary = Template.bind({})
+export const Primary = Template.bind({})
 
-primary.args = {
+Primary.args = {
   totalPages: 10
 }

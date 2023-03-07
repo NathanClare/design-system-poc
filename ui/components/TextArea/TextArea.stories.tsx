@@ -1,5 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import TextArea from './TextArea'
 
@@ -37,9 +36,9 @@ const Template: ComponentStory<typeof TextArea> = args => (
   </div>
 )
 
-export const primary = Template.bind({})
+export const Primary = Template.bind({})
 
-primary.args = {
+Primary.args = {
   id: '1',
   hint: 'Hint text',
   required: true,

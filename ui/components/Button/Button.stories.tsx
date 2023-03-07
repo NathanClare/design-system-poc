@@ -1,6 +1,5 @@
 import { BeakerIcon } from '@heroicons/react/24/solid'
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Button from './Button'
 
@@ -15,26 +14,25 @@ export default {
         type: 'text'
       }
     },
-    size: {
-      name: 'size',
-      description: 'Select the button size',
-      control: {
-        type: 'select',
-        labels: {
-          lg: 'Large',
-          md: 'Medium',
-          sm: 'Small'
-        }
-      },
-      options: ['lg', 'md', 'sm'],
-      defaultValue: 'md'
-    },
     variant: {
       name: 'variant',
       description: 'Select the variant type',
       control: {
         type: 'radio'
       }
+    },
+    size: {
+      name: 'size',
+      description: 'Select the size',
+      control: {
+        type: 'radio'
+      },
+      labels: {
+        sm: 'small',
+        lg: 'large'
+      },
+      options: ['sm', 'lg'],
+      defaultValue: 'lg'
     },
     disabled: {
       name: 'disabled',
@@ -68,9 +66,10 @@ export default {
       }
     },
     iconPosition: {
-      table: {
-        disable: true
-      }
+      control: {
+        type: 'radio'
+      },
+      if: { arg: 'icon' }
     },
     onClick: {
       table: {
@@ -91,36 +90,32 @@ const Template: ComponentStory<typeof Button> = args => (
   </div>
 )
 
-export const filled = Template.bind({})
+export const primary = Template.bind({})
 
-filled.args = {
-  children: 'This is a button',
-  size: 'md',
-  variant: 'filled'
+primary.args = {
+  children: 'Button CTA',
+  variant: 'primary'
 }
 
-export const outlined = Template.bind({})
+export const secondary = Template.bind({})
 
-outlined.args = {
-  children: 'This is a button',
-  size: 'md',
-  variant: 'outlined'
+secondary.args = {
+  children: 'Button CTA',
+  variant: 'secondary'
 }
 
-export const text = Template.bind({})
+export const tertiary = Template.bind({})
 
-text.args = {
-  children: 'This is a button',
-  size: 'md',
-  variant: 'text'
+tertiary.args = {
+  children: 'Button CTA',
+  variant: 'tertiary'
 }
 
 export const icon = Template.bind({})
 
 icon.args = {
-  children: 'This is a button',
-  size: 'md',
-  variant: 'filled',
+  children: 'Button CTA',
+  variant: 'primary',
   icon: <BeakerIcon className="h-4 w-4" />,
-  iconPosition: 'left'
+  iconPosition: 'right'
 }
