@@ -21,11 +21,12 @@ export default {
       control: {
         type: 'select',
         labels: {
+          lg: 'Large',
           md: 'Medium',
           sm: 'Small'
         }
       },
-      options: ['md', 'sm'],
+      options: ['lg', 'md', 'sm'],
       defaultValue: 'md'
     },
     variant: {

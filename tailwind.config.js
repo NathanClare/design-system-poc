@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars
 const plugin = require('tailwindcss/plugin')
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const tokens = require('./styles/_generated/json/styles.json')
 
 /* TODO: Move to seperate file? */
@@ -18,80 +21,72 @@ module.exports = {
       normal: 400,
       bold: 700
     },
-    // fontSize: {
-    //   xs: [
-    //     convertToRem(tokens.Body10Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body10Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body10Regular.letterSpacing),
-    //       fontWeight: tokens.Body10Regular.fontWeight
-    //     }
-    //   ],
-    //   sm: [
-    //     convertToRem(tokens.Body12Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body12Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body12Regular.letterSpacing),
-    //       fontWeight: tokens.Body12Regular.fontWeight
-    //     }
-    //   ],
-    //   base: [
-    //     convertToRem(tokens.Body14Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body14Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body14Regular.letterSpacing),
-    //       fontWeight: tokens.Body14Regular.fontWeight
-    //     }
-    //   ],
-    //   lg: [
-    //     convertToRem(tokens.Body16Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body16Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body16Regular.letterSpacing),
-    //       fontWeight: tokens.Body16Regular.fontWeight
-    //     }
-    //   ],
-    //   xl: [
-    //     convertToRem(tokens.Body18Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body18Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body18Regular.letterSpacing),
-    //       fontWeight: tokens.Body18Regular.fontWeight
-    //     }
-    //   ],
-    //   '2xl': [
-    //     convertToRem(tokens.Body20Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body20Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body20Regular.letterSpacing),
-    //       fontWeight: tokens.Body20Regular.fontWeight
-    //     }
-    //   ],
-    //   '3xl': [
-    //     convertToRem(tokens.Body20Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body20Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body20Regular.letterSpacing),
-    //       fontWeight: tokens.Body20Regular.fontWeight
-    //     }
-    //   ],
-    //   '4xl': [
-    //     convertToRem(tokens.Body24Regular.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.Body24Regular.lineHeight),
-    //       letterSpacing: convertToRem(tokens.Body24Regular.letterSpacing),
-    //       fontWeight: tokens.Body24Regular.fontWeight
-    //     }
-    //   ],
-    //   '5xl': [
-    //     convertToRem(tokens.FontM3DisplayLarge.fontSize),
-    //     {
-    //       lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-    //       letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-    //       fontWeight: tokens.FontM3DisplayLarge.fontWeight
-    //     }
-    //   ]
-    // },
+    fontSize: {
+      xs: [
+        convertToRem(tokens.Body10Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body10Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body10Regular.letterSpacing),
+          fontWeight: tokens.Body10Regular.fontWeight
+        }
+      ],
+      sm: [
+        convertToRem(tokens.Body12Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body12Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body12Regular.letterSpacing),
+          fontWeight: tokens.Body12Regular.fontWeight
+        }
+      ],
+      base: [
+        convertToRem(tokens.Body14Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body14Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body14Regular.letterSpacing),
+          fontWeight: tokens.Body14Regular.fontWeight
+        }
+      ],
+      lg: [
+        convertToRem(tokens.Body16Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body16Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body16Regular.letterSpacing),
+          fontWeight: tokens.Body16Regular.fontWeight
+        }
+      ],
+      xl: [
+        convertToRem(tokens.Body18Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body18Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body18Regular.letterSpacing),
+          fontWeight: tokens.Body18Regular.fontWeight
+        }
+      ],
+      '2xl': [
+        convertToRem(tokens.Body20Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body20Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body20Regular.letterSpacing),
+          fontWeight: tokens.Body20Regular.fontWeight
+        }
+      ],
+      '3xl': [
+        convertToRem(tokens.Body20Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body20Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body20Regular.letterSpacing),
+          fontWeight: tokens.Body20Regular.fontWeight
+        }
+      ],
+      '4xl': [
+        convertToRem(tokens.Body24Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body24Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body24Regular.letterSpacing),
+          fontWeight: tokens.Body24Regular.fontWeight
+        }
+      ]
+    },
     screens: {
       sm: '600px',
       md: '1240px',
@@ -161,7 +156,7 @@ module.exports = {
         500: tokens.StatusIndicatorWarning,
         50: tokens.StatusBackgroundWarning
       },
-      succes: {
+      success: {
         500: tokens.StatusIndicatorSuccess,
         50: tokens.StatusBackgroundSuccess
       },
@@ -290,67 +285,6 @@ module.exports = {
         shake: 'shake 650ms ease-in-out'
       }
     },
-    plugins: [
-      plugin(function ({ addUtilities }) {
-        const newHeaderUtility = {
-          '.heading-xs': {
-            fontSize: convertToRem(tokens.FontM3HeadlineMedium.fontSize),
-            lineHeight: convertToRem(tokens.FontM3HeadlineMedium.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3HeadlineMedium.letterSpacing),
-            fontWeight: tokens.FontM3HeadlineMedium.fontWeight
-          },
-          '.heading-sm': {
-            fontSize: convertToRem(tokens.FontM3HeadlineLarge.fontSize),
-            lineHeight: convertToRem(tokens.FontM3HeadlineLarge.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3HeadlineLarge.letterSpacing),
-            fontWeight: tokens.FontM3HeadlineLarge.fontWeight
-          },
-          '.heading-md': {
-            fontSize: convertToRem(tokens.FontM3DisplaySmall.fontSize),
-            lineHeight: convertToRem(tokens.FontM3DisplaySmall.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3DisplaySmall.letterSpacing),
-            fontWeight: tokens.FontM3DisplaySmall.fontWeight
-          },
-          '.heading-lg': {
-            fontSize: convertToRem(tokens.FontM3DisplayMedium.fontSize),
-            lineHeight: convertToRem(tokens.FontM3DisplayMedium.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3DisplayMedium.letterSpacing),
-            fontWeight: tokens.FontM3DisplayMedium.fontWeight
-          },
-          '.heading-xl': {
-            fontSize: convertToRem(tokens.FontM3BodyLarge.fontSize),
-            lineHeight: convertToRem(tokens.FontM3BodyLarge.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3BodyLarge.letterSpacing),
-            fontWeight: tokens.FontM3BodyLarge.fontWeight
-          },
-          '.heading-2xl': {
-            fontSize: convertToRem(tokens.FontM3DisplayLarge.fontSize),
-            lineHeight: convertToRem(tokens.FontM3DisplayLarge.lineHeight),
-            letterSpacing: convertToRem(tokens.FontM3DisplayLarge.letterSpacing),
-            fontWeight: tokens.FontM3DisplayLarge.fontWeight
-          }
-        }
-        const newAnimationDelayUtility = {
-          '.animation-delay-100': {
-            animationDelay: '100ms'
-          },
-          '.animation-delay-150': {
-            animationDelay: '150ms'
-          },
-          '.animation-delay-200': {
-            animationDelay: '200ms'
-          },
-          '.animation-delay-300': {
-            animationDelay: '300ms'
-          },
-          '.animation-delay-500': {
-            animationDelay: '500ms'
-          }
-        }
-
-        addUtilities(newHeaderUtility)
-        addUtilities(newAnimationDelayUtility)
-      })
-    ]
+    plugins: []
   }
 }
