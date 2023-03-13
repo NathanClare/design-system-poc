@@ -1,5 +1,9 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
+import swatch1 from '../../../assets/images/swatch1.png'
+import swatch2 from '../../../assets/images/swatch2.png'
+import swatch3 from '../../../assets/images/swatch3.png'
+
 import ColorSwatch from './ColorSwatch'
 
 export default {
@@ -87,11 +91,18 @@ base.args = {
   options: [
     {
       id: '1c',
-      value: 'default'
+      value: 'default',
+      image: swatch1
     },
     {
       id: '1f',
-      value: 'black'
+      value: 'black',
+      image: swatch2
+    },
+    {
+      id: '1g',
+      value: 'red',
+      image: swatch3
     }
   ]
 }
