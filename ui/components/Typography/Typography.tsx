@@ -5,6 +5,7 @@ type TypographyProps<C extends ElementType> = {
   as?: C
   size: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | 'base'
   className?: string
+  heading?: boolean
 } & React.ComponentPropsWithoutRef<C>
 
 interface ITypographyFamilyClasses {
@@ -39,14 +40,20 @@ const typographyFamilyClasses: ITypographyFamilyClasses = {
 
 const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5']
 
-const Typography = <C extends ElementType = 'span'>({ as, size = 'md', children, className, ...props }: TypographyProps<C>) => {
+const Typography = <C extends ElementType = 'span'>({ as, size = 'md', children, className, heading, ...props }: TypographyProps<C>) => {
   const Element = as || 'span'
 
+  const getState = () => {
+    switch (true) {
+      case heading || headingTags.includes(Element as string):
+        return 'heading'
+      default:
+        return 'text'
+    }
+  }
+
   return (
-    <Element
-      className={`block ${typographyFamilyClasses['variant'][headingTags.includes(Element as string) ? 'heading' : 'text'][size]} ${className || ''}`}
-      {...props}
-    >
+    <Element className={`${typographyFamilyClasses['variant'][getState()][size]} ${className || ''}`} {...props}>
       {children}
     </Element>
   )

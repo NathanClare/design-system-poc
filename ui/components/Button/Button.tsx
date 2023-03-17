@@ -4,7 +4,7 @@ import React from 'react'
 import ConditionalLink from '@/ui/components/ConditionalLink/ConditionalLink'
 
 interface ButtonProps extends ComponentPropsWithRef<'button'> {
-  variant?: 'primary' | 'secondary' | 'tertiary'
+  variant?: 'primaryRed' | 'primaryGreen' | 'primaryBlack' | 'secondary' | 'tertiary' | 'ghost' | 'search'
   disabled?: boolean
   href?: string
   target?: '_self' | '_blank'
@@ -21,16 +21,33 @@ interface IButtonFamilyClasses {
 
 const buttonFamilyClasses: IButtonFamilyClasses = {
   variant: {
-    primary: {
+    primaryRed: {
       base: 'bg-red-base text-surface-0 hover:bg-red-hover',
       disabled: 'bg-disabled-button text-disabled-text'
     },
-    secondary: {
+    primaryGreen: {
       base: 'bg-green-base text-surface-0 hover:bg-green-hover',
       disabled: 'bg-disabled-button text-disabled-text'
     },
-    tertiary: {
+    primaryBlack: {
       base: 'bg-black-base text-surface-0 hover:bg-black-hover',
+      disabled: 'bg-disabled-button text-disabled-text'
+    },
+    search: {
+      base: 'bg-surface-0 text-surface-100 hover:bg-surface-30',
+      disabled: 'bg-disabled-button text-disabled-text'
+    },
+    secondary: {
+      base: 'bg-surface-0 text-surface-100 hover:border-surface-100 border border-surface-30',
+      disabled: 'bg-disabled-button text-disabled-text border border-surface-40'
+    },
+    tertiary: {
+      base: 'bg-surface-0 text-surface-100 hover:border-surface-100 hover:underline',
+      disabled: 'bg-disabled-button text-disabled-text border border-surface-40',
+      icon: 'group-hover:bg-red-base bg-surface-0 rounded-full p-sm group-hover:text-surface-0 transition-all'
+    },
+    ghost: {
+      base: 'bg-surface-0 text-surface-100 hover:bg-surface-20',
       disabled: 'bg-disabled-button text-disabled-text'
     }
   },
@@ -56,7 +73,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ConditionalLink href={href} target={target} disabled={disabled}>
         <button
-          className={` relative inline-flex items-center justify-center rounded-full text-base font-bold outline-none transition-colors ${
+          className={`transition group relative inline-flex items-center justify-center rounded-full text-base font-bold outline-none transition-colors ${
             buttonFamilyClasses['size'][size]
           } ${buttonFamilyClasses['variant'][variant][getState()]}`}
           disabled={disabled}
@@ -64,8 +81,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ref={forwardedRef}
           {...props}
         >
-          <span className={`z-10 inline-flex items-center justify-center ${buttonFamilyClasses['iconPosition'][iconPosition]} ${children ? 'px-sm' : 'px-0'}`}>
-            {icon && <span>{icon}</span>}
+          <span
+            className={`z-10 inline-flex items-center justify-center ${buttonFamilyClasses['iconPosition'][iconPosition]}
+            }  ${children ? 'px-sm' : 'px-0'}`}
+          >
+            {icon && <span className={`${buttonFamilyClasses['variant'][variant]['icon']}`}>{icon}</span>}
             {children && <span>{children}</span>}
           </span>
         </button>

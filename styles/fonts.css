@@ -1,7 +1,13 @@
 @font-face {
-  font-family: "AktivGrotesk";
-  src: url("/fonts/AktivGroteskVF_W_WghtWdth.woff2") format("woff2 supports variations"),
-       url("/fonts/AktivGroteskVF_W_WghtWdth.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-stretch: 75 125;
+  font-family: 'SourceSansPro';
+  src: url('/assets/fonts/SourceSansPro-Regular.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('/assets/fonts/SourceSansPro-Bold.woff2') format('woff2'), url('/assets/fonts/SourceSansPro-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: block;
 }

@@ -82,32 +82,53 @@ const Template: ComponentStory<typeof Button> = args => (
   </div>
 )
 
-export const Primary = Template.bind({})
+export const primaryRed = Template.bind({})
 
-Primary.args = {
+primaryRed.args = {
   children: 'Button CTA',
-  variant: 'primary'
+  variant: 'primaryRed'
 }
 
-export const Secondary = Template.bind({})
+export const primaryGreen = Template.bind({})
 
-Secondary.args = {
+primaryGreen.args = {
   children: 'Button CTA',
-  variant: 'secondary'
+  variant: 'primaryGreen'
 }
 
-export const Tertiary = Template.bind({})
+export const primaryBlack = Template.bind({})
 
-Tertiary.args = {
+primaryBlack.args = {
   children: 'Button CTA',
-  variant: 'tertiary'
+  variant: 'primaryBlack'
 }
 
 export const WithIcon = Template.bind({})
 
 WithIcon.args = {
   children: 'Button CTA',
-  variant: 'primary',
+  variant: 'primaryRed',
   icon: <BeakerIcon className="h-4 w-4" />,
   iconPosition: 'right'
+}
+
+export const secondary = Template.bind({})
+
+secondary.args = {
+  children: 'Button CTA',
+  variant: 'secondary'
+}
+
+export const tertiary = Template.bind({})
+
+tertiary.args = {
+  children: 'Button CTA',
+  variant: 'tertiary'
+}
+
+export const ghost = Template.bind({})
+
+ghost.args = {
+  children: 'Button CTA',
+  variant: 'ghost'
 }

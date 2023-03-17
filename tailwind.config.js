@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /** @type {import('tailwindcss').Config} */
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const plugin = require('tailwindcss/plugin')
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -15,7 +16,7 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './ui/components/**/*.{js,ts,jsx,tsx}', './ui/patterns/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif']
+      sans: ['SourceSansPro', 'sans-serif']
     },
     fontWeight: {
       normal: 400,
@@ -36,6 +37,14 @@ module.exports = {
           lineHeight: convertToRem(tokens.Body12Regular.lineHeight),
           letterSpacing: convertToRem(tokens.Body12Regular.letterSpacing),
           fontWeight: tokens.Body12Regular.fontWeight
+        }
+      ],
+      md: [
+        convertToRem(tokens.Body14Regular.fontSize),
+        {
+          lineHeight: convertToRem(tokens.Body14Regular.lineHeight),
+          letterSpacing: convertToRem(tokens.Body14Regular.letterSpacing),
+          fontWeight: tokens.Body14Regular.fontWeight
         }
       ],
       base: [
@@ -84,6 +93,122 @@ module.exports = {
           lineHeight: convertToRem(tokens.Body24Regular.lineHeight),
           letterSpacing: convertToRem(tokens.Body24Regular.letterSpacing),
           fontWeight: tokens.Body24Regular.fontWeight
+        }
+      ]
+    },
+    headingSize: {
+      xs: [
+        convertToRem(tokens.HeadingH6Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH6Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH6Lg.letterSpacing),
+          fontWeight: tokens.HeadingH6Lg.fontWeight
+        }
+      ],
+      sm: [
+        convertToRem(tokens.HeadingH5Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH5Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH5Lg.letterSpacing),
+          fontWeight: tokens.HeadingH5Lg.fontWeight
+        }
+      ],
+      md: [
+        convertToRem(tokens.HeadingH4Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH4Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH4Lg.letterSpacing),
+          fontWeight: tokens.HeadingH4Lg.fontWeight
+        }
+      ],
+      base: [
+        convertToRem(tokens.HeadingH4Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH4Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH4Lg.letterSpacing),
+          fontWeight: tokens.HeadingH4Lg.fontWeight
+        }
+      ],
+      lg: [
+        convertToRem(tokens.HeadingH3Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH3Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH3Lg.letterSpacing),
+          fontWeight: tokens.HeadingH3Lg.fontWeight
+        }
+      ],
+      xl: [
+        convertToRem(tokens.HeadingH2Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH2Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH2Lg.letterSpacing),
+          fontWeight: tokens.HeadingH2Lg.fontWeight
+        }
+      ],
+      '2xl': [
+        convertToRem(tokens.HeadingH1Lg.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH1Lg.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH1Lg.letterSpacing),
+          fontWeight: tokens.HeadingH1Lg.fontWeight
+        }
+      ]
+    },
+    mobileHeadingSize: {
+      xs: [
+        convertToRem(tokens.HeadingH6Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH6Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH6Xs.letterSpacing),
+          fontWeight: tokens.HeadingH6Xs.fontWeight
+        }
+      ],
+      sm: [
+        convertToRem(tokens.HeadingH5Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH5Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH5Xs.letterSpacing),
+          fontWeight: tokens.HeadingH5Xs.fontWeight
+        }
+      ],
+      md: [
+        convertToRem(tokens.HeadingH4Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH4Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH4Xs.letterSpacing),
+          fontWeight: tokens.HeadingH4Xs.fontWeight
+        }
+      ],
+      base: [
+        convertToRem(tokens.HeadingH4Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH4Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH4Xs.letterSpacing),
+          fontWeight: tokens.HeadingH4Xs.fontWeight
+        }
+      ],
+      Xs: [
+        convertToRem(tokens.HeadingH3Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH3Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH3Xs.letterSpacing),
+          fontWeight: tokens.HeadingH3Xs.fontWeight
+        }
+      ],
+      xl: [
+        convertToRem(tokens.HeadingH2Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH2Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH2Xs.letterSpacing),
+          fontWeight: tokens.HeadingH2Xs.fontWeight
+        }
+      ],
+      '2xl': [
+        convertToRem(tokens.HeadingH1Xs.fontSize),
+        {
+          lineHeight: convertToRem(tokens.HeadingH1Xs.lineHeight),
+          letterSpacing: convertToRem(tokens.HeadingH1Xs.letterSpacing),
+          fontWeight: tokens.HeadingH1Xs.fontWeight
         }
       ]
     },
@@ -283,8 +408,67 @@ module.exports = {
         jump: 'jump 650ms ease-in-out',
         drop: 'drop 650ms ease-in-out',
         shake: 'shake 650ms ease-in-out'
+      },
+      screens: {
+        sm: `375px`,
+        md: `768px`,
+        lg: `1024px`,
+        '2xl': `1440px`
       }
-    },
-    plugins: []
-  }
+    }
+  },
+  plugins: [
+    plugin(function ({ addUtilities, matchUtilities, theme }) {
+      matchUtilities(
+        {
+          heading: value => ({
+            lineHeight: value[1].lineHeight,
+            letterSpacing: value[1].letterSpacing,
+            fontWeight: value[1].fontWeight,
+            fontFamily: `'SourceSansPro', serif`,
+            fontStyle: value[1].fontStyle,
+            fontStretch: value[1].fontStretch,
+            textTransform: value[1].textTransform,
+            fontSize: value[0]
+          })
+        },
+        { values: theme('headingSize') }
+      )
+
+      matchUtilities(
+        {
+          'heading-mobile': value => ({
+            lineHeight: value[1].lineHeight,
+            letterSpacing: value[1].letterSpacing,
+            fontWeight: value[1].fontWeight,
+            fontFamily: `'SourceSansPro', serif`,
+            fontStyle: value[1].fontStyle,
+            fontStretch: value[1].fontStretch,
+            textTransform: value[1].textTransform,
+            fontSize: value[0]
+          })
+        },
+        { values: theme('headingSize') }
+      )
+
+      const newAnimationDelayUtility = {
+        '.animation-delay-100': {
+          animationDelay: '100ms'
+        },
+        '.animation-delay-150': {
+          animationDelay: '150ms'
+        },
+        '.animation-delay-200': {
+          animationDelay: '200ms'
+        },
+        '.animation-delay-300': {
+          animationDelay: '300ms'
+        },
+        '.animation-delay-500': {
+          animationDelay: '500ms'
+        }
+      }
+      addUtilities(newAnimationDelayUtility)
+    })
+  ]
 }
