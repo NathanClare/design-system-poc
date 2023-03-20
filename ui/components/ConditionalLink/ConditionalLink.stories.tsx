@@ -3,7 +3,7 @@ import type { ComponentMeta, ComponentStory } from '@storybook/react'
 import ConditionalLink from './ConditionalLink'
 
 export default {
-  title: 'Components/Utilities/Conditional Link',
+  title: 'Utilities/Conditional Link',
   component: ConditionalLink,
   argTypes: {
     children: {

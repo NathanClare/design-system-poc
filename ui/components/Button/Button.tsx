@@ -42,7 +42,7 @@ const buttonFamilyClasses: IButtonFamilyClasses = {
       disabled: 'bg-disabled-button text-disabled-text border border-surface-40'
     },
     tertiary: {
-      base: 'bg-surface-0 text-surface-100 hover:border-surface-100 hover:underline',
+      base: 'text-surface-100 hover:border-surface-100 hover:underline',
       disabled: 'bg-disabled-button text-disabled-text border border-surface-40',
       icon: 'group-hover:bg-red-base bg-surface-0 rounded-full p-sm group-hover:text-surface-0 transition-all'
     },
