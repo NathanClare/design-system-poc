@@ -14,8 +14,8 @@ export default {
         type: 'text'
       }
     },
-    tag: {
-      name: 'tag',
+    as: {
+      name: 'as',
       description: 'Select typography tag',
       control: {
         type: 'select',
@@ -37,12 +37,10 @@ export default {
           sm: 'Small',
           md: 'Medium',
           lg: 'Large',
-          xl: 'Extra large',
-          '2xl': 'Extra extra large',
           base: 'Base'
         }
       },
-      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', 'base'],
+      options: ['xs', 'sm', 'md', 'lg', 'base'],
       defaultValue: 'base'
     }
   }
@@ -57,12 +55,7 @@ const Template: ComponentStory<typeof Typography> = args => (
 export const Paragraph = Template.bind({})
 
 Paragraph.args = {
-  tag: 'p',
-  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  Fusce congue magna felis, non interdum sapien lacinia blandit. Morbi dui augue, 
-  auctor id est nec, cursus viverra ipsum. In ut ex iaculis, 
-  euismod mi id, blandit lacus. Integer eu lectus mi. A
-  liquam tempus justo sed tortor molestie, sed vulputate 
-  leo tempus. Praesent eget ex sapien. Pellentesque sit amet scelerisque augue. Proin at sem nulla.`,
+  as: 'p',
+  children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue magna felis, non interdum sapien lacinia blandit. Morbi dui augue, auctor id est nec, cursus viverra ipsum. In ut ex iaculis.`,
   size: 'md'
 }

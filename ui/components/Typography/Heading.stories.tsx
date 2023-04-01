@@ -14,9 +14,9 @@ export default {
         type: 'text'
       }
     },
-    tag: {
-      name: 'tag',
-      description: 'Select typography tag',
+    as: {
+      name: 'as',
+      description: 'Select typography element',
       control: {
         type: 'select',
         labels: {
@@ -52,23 +52,23 @@ export default {
 } as ComponentMeta<typeof Typography>
 
 const Template: ComponentStory<typeof Typography> = args => (
-  <div className="p-4 animation-delay-100">
+  <div className="p-4">
     <Typography {...args} />
   </div>
 )
 
-export const h1 = Template.bind({})
+export const H1 = Template.bind({})
 
-h1.args = {
-  tag: 'h1',
+H1.args = {
+  as: 'h1',
   children: 'Heading',
   size: 'xl'
 }
 
-export const h2 = Template.bind({})
+export const H2 = Template.bind({})
 
-h2.args = {
-  tag: 'h2',
+H2.args = {
+  as: 'h2',
   children: `Second heading`,
   size: 'md'
 }

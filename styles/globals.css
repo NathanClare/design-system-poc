@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html {
+body,
+html {
+  --thumbBG: #e91b29;
   height: 100vh;
   margin: 0;
   padding: 0;
   width: 100vw;
+  scrollbar-color: var(--thumbBG);
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
 }

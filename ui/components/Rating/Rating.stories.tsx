@@ -1,5 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import Rating from './Rating'
 
@@ -7,23 +6,35 @@ export default {
   title: 'Components/Rating',
   component: Rating,
   argTypes: {
-    size: {
-      name: 'size',
-      description: 'Select the size',
-      control: {
-        type: 'radio',
-        labels: {
-          sm: 'Small',
-          md: 'Medium',
-          lg: 'Large'
-        }
-      },
-      defaultValue: 'md'
-    },
     rating: {
-      table: {
-        disable: true
-      }
+      name: 'rating',
+      description: 'Add rating (out of 5)',
+      control: {
+        type: 'number',
+        step: 0.2
+      },
+      defaultValue: 3.8
+    },
+    text: {
+      name: 'text',
+      description: 'Add text next to the rating component',
+      control: {
+        type: 'text'
+      },
+      defaultValue: '18 reviews'
+    },
+    variant: {
+      name: 'variant',
+      description: 'Chose variant ',
+      control: {
+        type: 'radio'
+      },
+      labels: {
+        green: 'Green',
+        black: 'Black'
+      },
+      options: ['green', 'black'],
+      defaultValue: 'green'
     }
   }
 } as ComponentMeta<typeof Rating>
@@ -36,9 +47,9 @@ const Template: ComponentStory<typeof Rating> = args => {
   )
 }
 
-export const primary = Template.bind({})
+export const Primary = Template.bind({})
 
-primary.args = {
-  size: 'md',
-  rating: 3.4
+Primary.args = {
+  rating: 3.5,
+  text: '18 reviews'
 }

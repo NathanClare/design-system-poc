@@ -25,31 +25,17 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'custom/css',
-  transforms: StyleDictionary.transformGroup['css'].concat([
-    'size/px',
-    'size/percent'
-  ])
-})
-
-StyleDictionary.registerTransformGroup({
-  name: 'custom/less',
-  transforms: StyleDictionary.transformGroup['less'].concat([
-    'size/px',
-    'size/percent'
-  ])
+  transforms: StyleDictionary.transformGroup['css'].concat(['size/px', 'size/percent'])
 })
 
 StyleDictionary.registerTransformGroup({
   name: 'custom/scss',
-  transforms: StyleDictionary.transformGroup['less'].concat([
-    'size/px',
-    'size/percent'
-  ])
+  transforms: StyleDictionary.transformGroup['less'].concat(['size/px', 'size/percent'])
 })
 
 StyleDictionary.registerFilter({
   name: 'validToken',
-  matcher: function(token) {
+  matcher: function (token) {
     return ['dimension', 'string', 'number', 'color'].includes(token.type)
   }
 })

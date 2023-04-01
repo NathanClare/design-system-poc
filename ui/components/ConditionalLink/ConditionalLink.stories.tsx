@@ -1,10 +1,9 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
-import React from 'react'
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import ConditionalLink from './ConditionalLink'
 
 export default {
-  title: 'Components/Conditional Link',
+  title: 'Utilities/Conditional Link',
   component: ConditionalLink,
   argTypes: {
     children: {
@@ -46,16 +45,16 @@ const Template: ComponentStory<typeof ConditionalLink> = args => (
   </div>
 )
 
-export const internalLink = Template.bind({})
+export const InternalLink = Template.bind({})
 
-internalLink.args = {
+InternalLink.args = {
   children: <>This is a Link</>,
   href: '/'
 }
 
-export const externalLink = Template.bind({})
+export const ExternalLink = Template.bind({})
 
-externalLink.args = {
+ExternalLink.args = {
   children: <>This is a Link</>,
   href: 'https://youtube.com',
   target: '_blank'

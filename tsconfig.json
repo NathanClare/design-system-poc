@@ -16,9 +16,10 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@/ui/*": ["ui/*"]
+      "@/ui/*": ["ui/*"],
+      "@/lib/*": ["lib/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "sdconfig.js", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }
